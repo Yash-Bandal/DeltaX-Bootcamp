@@ -81,7 +81,11 @@ Working Directory
     Repository
 ```
 
----
+
+<br>
+
+
+
 
 ## Commands Used
 
@@ -433,7 +437,11 @@ main
 
 Changes made in `branch1` do not affect `main` until a merge occurs.
 
----
+
+<br>
+
+
+
 
 ### What is a Pull Request?
 
