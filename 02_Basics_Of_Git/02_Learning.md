@@ -506,6 +506,13 @@ git log --oneline
 
 
 # Assignment 3 - Resolving Merge Conflicts
+<img width="500"  alt="Screenshot (4)" src="https://github.com/user-attachments/assets/775135d4-80a7-49f2-b3c2-c10b02811b14" />
+
+<img width="500"  alt="Screenshot (5)" src="https://github.com/user-attachments/assets/d19b8d9a-197c-43df-a76f-96acd07a9328" />
+
+
+<img width="500" alt="Screenshot (6)" src="https://github.com/user-attachments/assets/2c5347e8-4908-44ae-8d18-c68dac564b9d" />
+
 
 ## Objective
 
