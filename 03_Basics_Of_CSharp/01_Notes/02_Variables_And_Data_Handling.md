@@ -236,6 +236,11 @@ Byte Range
 
 ### Checked Keyword
 
+---
+> [!Tip]
+> Not much used, but just know that it exist 
+---
+
 Detect overflow explicitly:
 
 ```csharp
