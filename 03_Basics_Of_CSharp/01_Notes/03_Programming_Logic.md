@@ -136,6 +136,12 @@ count++;
 count--;
 ```
 
+<div align = "center">
+<img width="600"  alt="image" src="https://github.com/user-attachments/assets/c00b7e3e-5196-45e7-ac2d-a28821621e81" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/bd2a8ada-9cce-470d-8ddc-e24223599493" />
+</div>
+
+
 Very common in loops.
 
 <br>
