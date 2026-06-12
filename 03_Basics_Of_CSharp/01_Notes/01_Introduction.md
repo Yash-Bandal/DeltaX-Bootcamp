@@ -319,7 +319,7 @@ Imagine writing a program that:
 
 Writing everything from scratch would be impossible.
 
-.NET already provides these features through built-in libraries.
+.NET already provides these features through built-in libraries. (Like C++ STL), OR Node Modules
 
 Example:
 
