@@ -1,4 +1,4 @@
-<img width="356" height="214" alt="image" src="https://github.com/user-attachments/assets/17b391ca-d800-43fa-a203-755c55f13b81" />
+
 # 2. Variables and Data Handling
 
 ## 2.1 Variables
@@ -148,7 +148,6 @@ const string COMPANY_NAME = "ABC Ltd";
 ### Naming Conventions
 <div align = "center">
     <img width="400"  alt="image" src="https://github.com/user-attachments/assets/420001f7-0367-4cc9-bc67-dbeb44025677" />
-
 </div>
 
 <br>
