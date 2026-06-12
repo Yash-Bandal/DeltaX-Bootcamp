@@ -394,6 +394,15 @@ Decimal part is removed.
 
 ### Convert Class
 
+---
+> [!Tip]
+> Recall **C++** `to_string()` for int to string
+> 
+> and
+>
+> **C++** `stoi()` for string to int
+---
+
 ```csharp
 string ageText = "25";
 
