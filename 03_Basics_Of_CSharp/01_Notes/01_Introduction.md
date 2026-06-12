@@ -1,4 +1,3 @@
-
 # C# Basics
 
 # 1. Introduction
