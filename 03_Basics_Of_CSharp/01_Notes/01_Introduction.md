@@ -533,6 +533,11 @@ C# code requires .NET to compile and execute.
 
 # 1.3 Common Language Runtime (CLR)
 
+<div align = "center">
+       
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/d9fc8ba9-8c43-4328-a025-bd7cd0fcfbdc" />
+</div>
+
 ## 1. What is CLR?
 
 CLR stands for **Common Language Runtime**.
