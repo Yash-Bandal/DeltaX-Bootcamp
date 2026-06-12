@@ -45,6 +45,12 @@ dataType variableName = value;
 | string | "Hello" |
 | bool   | true    |
 
+<div align = "center">
+    
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/bbe83ebe-40c5-4d9a-8278-9e26a1341879" />
+</div>
+
+
 Example:
 
 ```csharp
@@ -148,7 +154,29 @@ const string COMPANY_NAME = "ABC Ltd";
 ### Naming Conventions
 <div align = "center">
     <img width="400"  alt="image" src="https://github.com/user-attachments/assets/420001f7-0367-4cc9-bc67-dbeb44025677" />
+    <img width="400" alt="image" src="https://github.com/user-attachments/assets/f9e3fd2c-55ed-44cf-98e0-21cb0fd087bb" />
+    <img width="400" alt="image" src="https://github.com/user-attachments/assets/6b1d3fe1-54ea-49ae-ad52-80b6ebacaaa7" />
+
+
 </div>
+
+---
+> [!Important]
+> Use `f` while declaring `float`
+>
+> and
+>
+> `m` for `double`
+>
+> because default decinal numbers are `Dooubles`
+>
+> eg
+> ```csharp
+> float fnum = 1.2f;
+> double dnum = 1.5m;
+> ```
+---
+
 
 <br>
 
