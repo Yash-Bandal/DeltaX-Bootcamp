@@ -52,6 +52,16 @@ dataType variableName = value;
     <img width="400" alt="image" src="https://github.com/user-attachments/assets/6b1d3fe1-54ea-49ae-ad52-80b6ebacaaa7" />
 </div>
 
+Example:
+
+```csharp
+int marks = 95;
+double salary = 50000.50;
+char grade = 'A';
+string city = "Pune";
+bool isActive = true;
+```
+
 ---
 
 > [!Note]
@@ -153,15 +163,7 @@ dataType variableName = value;
 
 
 
-Example:
 
-```csharp
-int marks = 95;
-double salary = 50000.50;
-char grade = 'A';
-string city = "Pune";
-bool isActive = true;
-```
 
 <br>
 
@@ -256,10 +258,9 @@ const string COMPANY_NAME = "ABC Ltd";
 ### Naming Conventions
 <div align = "center">
     <img width="400"  alt="image" src="https://github.com/user-attachments/assets/420001f7-0367-4cc9-bc67-dbeb44025677" />
-
-
-
 </div>
+
+
 
 
 
@@ -459,6 +460,28 @@ Benefits:
 * Saves memory
 
 <br>
+
+
+## Using `{}`     
+```csharp
+            Console.WriteLine("======================================");
+            Console.WriteLine("========  Using {} =========");
+            Console.WriteLine("First Val {0} , Second Val {1}, Third Val {2} ", 1,2,3,4);
+            // First Val 1 , Second Val 2, Third Val 3
+
+
+            Console.WriteLine("Byte - Min value {0} , MaxValue {1} ", byte.MinValue, byte.MaxValue);
+            //Byte - Min value 0 , MaxValue 255
+
+            Console.WriteLine("Int - Min value {0} , MaxValue {1} ", int.MinValue, int.MaxValue);
+            // Int - Min value -2147483648 , MaxValue 2147483647
+
+            Console.WriteLine("======================================");
+            Console.WriteLine("========  Using Const =========");
+
+            const float PI = 3.142f; //pascal case
+            //PI = 3;  //error changing
+```
 
 ## 2.5 Type Conversion
 
