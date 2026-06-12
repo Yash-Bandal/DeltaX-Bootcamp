@@ -1,4 +1,4 @@
-
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7abc04a0-aa9c-47e8-9f99-01fe38b29ea4" />
 # 2. Variables and Data Handling
 
 ## 2.1 Variables
@@ -483,7 +483,14 @@ Benefits:
             //PI = 3;  //error changing
 ```
 
+
+<br>
+
 ## 2.5 Type Conversion
+
+<div align = "center">
+<img width="600"  alt="image" src="https://github.com/user-attachments/assets/e1a7524a-f2ad-4cf8-8bc7-7761478aa444" />
+</div>
 
 Sometimes we need to convert one data type into another.
 
@@ -497,6 +504,11 @@ double result = number;
 <br>
 
 ### Implicit Conversion
+ 
+<div align = "center">
+<img width="600"  alt="image" src="https://github.com/user-attachments/assets/315538ed-62fa-4e0c-ad55-4676177f4e53" />
+
+</div>
 
 Performed automatically when there is no risk of data loss.
 
@@ -516,6 +528,15 @@ Result:
 
 ### Explicit Conversion (Casting)
 
+> When chance for data loss, no implicit type conversion
+ 
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/717cd739-f999-463b-bd0b-237f07585841" />
+    <img width="600" alt="image" src="https://github.com/user-attachments/assets/57ca9614-0fb5-41c5-a6d3-998fa4652bb8" />
+
+</div>
+
+
 Performed manually when data loss may occur.
 
 ```csharp
@@ -534,7 +555,17 @@ Decimal part is removed.
 
 <br>
 
-### Convert Class
+### Convert Class (For Non Convertible Types)
+<div align = "center">
+    
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/28b011cb-ab1f-43b3-9a7b-cee8926684e2" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/d6231008-6246-4bf3-bb7b-005d93fc4a03" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/83e71662-c2be-4856-8642-299834ca2d11" />
+
+
+</div>
+
+
 
 ---
 > [!Tip]
