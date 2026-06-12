@@ -607,6 +607,65 @@ Result:
 
 <br>
 
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LearnNumbers
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Implicit Conversion
+            byte n2 = 255;
+            int intNum = n2;
+            Console.WriteLine("EG Implicit  - Byte to Int - {0}", intNum);
+
+            // Explicit Conversion
+            int n1  = 1000;
+            byte bnum = (byte)n1; //forceful conversion 1000 % 256 = 232
+            Console.WriteLine("EG Explicit - Int to Byte - {0}", bnum); //232
+
+            //byte bnum2 = Convert.ToByte(n1);
+            //Console.WriteLine("EG Explicit (Convert.ToByte) - Int to Byte - {0}", bnum2);
+            // Overflow Error
+
+            try { 
+            
+            byte bnum2 = Convert.ToByte(n1);
+            Console.WriteLine("EG Explicit (Convert.ToByte) - Int to Byte - {0}", bnum2);
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("No forceful conversion, due to overflow of byte value");
+            }
+            //Overflow Error
+
+            // Non Compatible Types
+            string hundred = "100";
+            int strnum = Convert.ToInt32(hundred);
+            Console.WriteLine("Using Convert.ToInt32 (String to Num) - {0}",strnum); //100
+
+            int shambhar = 100;
+            string intString = Convert.ToString(shambhar);
+            Console.WriteLine("Using Convert.ToString (Int to String) - {0}",intString); ///100
+
+            string testParse = "1000";
+            int testP = int.Parse(testParse);
+            Console.WriteLine("Using int.Parse (String to Num) - {0}", testP); //1000
+
+        }
+    }
+}
+
+```
+
 ### TryParse (Recommended)
 
 Safely converts values.
