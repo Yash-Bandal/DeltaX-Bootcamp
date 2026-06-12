@@ -1,4 +1,3 @@
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7abc04a0-aa9c-47e8-9f99-01fe38b29ea4" />
 # 2. Variables and Data Handling
 
 ## 2.1 Variables
