@@ -1075,3 +1075,188 @@ Same IL can run on:
 
 
 <br>
+
+
+# C# Basics
+
+# 1.5 First Application
+
+## 1. Introduction
+
+The traditional first program in almost every programming language is:
+
+```text
+Hello World
+```
+
+Its purpose is simple:
+
+* Verify the development environment is working
+* Understand basic program structure
+* Learn how code gets executed
+
+---
+
+## 2. Creating the First C# Program
+
+```csharp
+Console.WriteLine("Hello World");
+```
+
+Output:
+
+```text
+Hello World
+```
+
+This displays the text on the console window.
+
+
+##  Complete Program Structure
+
+A typical C# console application looks like this:
+
+```csharp
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Hello World");
+    }
+}
+```
+
+Output:
+
+```text
+Hello World
+```
+
+---
+
+## 6. Understanding Each Part
+
+### using System;
+
+Imports the System namespace.
+
+It provides access to useful classes such as:
+
+* Console
+* DateTime
+* Math
+
+
+<br>
+
+### class Program
+
+Defines a class named Program.
+
+Think of a class as a container that holds code.
+
+<br>
+
+### static void Main()
+
+This is the entry point of the application.
+
+When the program starts, execution begins from Main().
+
+
+<br>
+
+### Curly Braces {}
+
+```csharp
+{
+}
+```
+
+Used to define a block of code.
+
+Everything inside belongs together.
+
+
+<br>
+
+##  Program Execution Flow
+
+When you run a C# application:
+
+### Step 1
+
+Application starts.
+
+↓
+
+### Step 2
+
+CLR looks for Main().
+
+↓
+
+### Step 3
+
+Code inside Main() executes.
+
+↓
+
+### Step 4
+
+Output appears.
+
+```text
+Hello World
+```
+
+---
+
+## 8. Visual Flow
+
+```text
+Program Starts
+       |
+       v
+Main()
+       |
+       v
+Console.WriteLine()
+       |
+       v
+Output Displayed
+```
+
+
+Execution happens from top to bottom.
+
+## Why the Main Method is Important
+
+Every console application needs a starting point.
+
+The CLR starts execution from Main().
+
+Example:
+
+```csharp
+static void Main()
+{
+    Console.WriteLine("Program Started");
+}
+```
+
+Output:
+
+```text
+Program Started
+```
+
+Without Main(), the application does not know where to begin execution.
+
+<br>
+
+---
+
+<br>
