@@ -53,21 +53,104 @@ dataType variableName = value;
 </div>
 
 ---
-> [!Important]
-> Use `f` while declaring `float`
+
+> [!Note]
 >
-> and
+> ## Auto Detecting Variables - Keyword `var`
 >
-> `m` for `double`
+> Instead of explicitly writing the data type, C# can automatically determine the type from the value assigned using the `var` keyword.
 >
-> because default decinal numbers are `Dooubles`
+> ### Normal Variable Declaration
 >
-> eg
 > ```csharp
-> float fnum = 1.2f;
-> double dnum = 1.5m;
+> using System;
+>
+> namespace LearnNumbers
+> {
+>     internal class Program
+>     {
+>         static void Main(string[] args)
+>         {
+>             byte Num = 2;
+>             Console.WriteLine(Num);
+>
+>             int intNum = 10;
+>             Console.WriteLine(intNum);
+>
+>             float fNum = 12.5f;
+>             Console.WriteLine(fNum);
+>
+>             char ch = 'A';
+>             Console.WriteLine(ch);
+>
+>             string str = "Yash";
+>             Console.WriteLine(str);
+>
+>             bool isLoading = false;
+>             Console.WriteLine(isLoading);
+>         }
+>     }
+> }
 > ```
----
+>
+> ### Using `var`
+>
+> ```csharp
+> using System;
+>
+> namespace LearnNumbers
+> {
+>     internal class Program
+>     {
+>         static void Main(string[] args)
+>         {
+>             var Num1 = 2;
+>             Console.WriteLine(Num1);
+>
+>             var intNum1 = 10;
+>             Console.WriteLine(intNum1);
+>
+>             var fNum1 = 12.5f;
+>             Console.WriteLine(fNum1);
+>
+>             var ch1 = 'A';
+>             Console.WriteLine(ch1);
+>
+>             var str1 = "Yash";
+>             Console.WriteLine(str1);
+>
+>             var isLoading1 = false;
+>             Console.WriteLine(isLoading1);
+>         }
+>     }
+> }
+> ```
+> 
+> ### Important Points
+>
+> * `var` does **not** mean the variable has no type.
+> * The compiler determines the type during compilation.
+> * After the type is determined, it cannot change.
+>
+> ```csharp
+> var age = 21;     // int
+> var name = "Yash"; // string
+> var price = 99.5; // double
+> ```
+>
+> Invalid:
+>
+> ```csharp
+> var age = 21;
+> age = "Yash"; // Error
+> ```
+>
+> Think of `var` as:
+>
+> > "Compiler, you figure out the type for me."
+----
+
+
 
 
 Example:
