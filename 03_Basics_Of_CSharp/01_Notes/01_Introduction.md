@@ -1095,7 +1095,8 @@ Its purpose is simple:
 * Understand basic program structure
 * Learn how code gets executed
 
----
+
+<br>
 
 ## 2. Creating the First C# Program
 
@@ -1134,7 +1135,8 @@ Output:
 Hello World
 ```
 
----
+
+<br>
 
 ## 6. Understanding Each Part
 
@@ -1212,9 +1214,10 @@ Output appears.
 Hello World
 ```
 
----
 
-## 8. Visual Flow
+<br>
+
+##  Visual Flow
 
 ```text
 Program Starts
