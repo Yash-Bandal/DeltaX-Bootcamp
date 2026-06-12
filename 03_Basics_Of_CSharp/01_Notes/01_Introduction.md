@@ -910,6 +910,31 @@ Understanding the architecture helps answer:
 * Where .NET libraries fit in
 * How applications run on different operating systems
 
+
+### [Namespace](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/e2f20b92c613979c752b33b00fda705fa88fc20f/03_Basics_Of_CSharp/01_Notes/Namespace.md)
+
+
+
+
+<div align = "center">
+
+<img width="600"  alt="image" src="https://github.com/user-attachments/assets/2192894f-6351-4c62-ab45-543107d7179c" />
+
+       
+</div>
+
+
+<div align = "center">
+
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/d2744671-5fd3-4275-8698-7396c3e442d7" />
+
+       
+</div>
+
+
+
+
+
 <br>
 
 ## 2. Big Picture
