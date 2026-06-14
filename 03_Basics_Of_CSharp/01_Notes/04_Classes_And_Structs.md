@@ -152,7 +152,344 @@ emp.Name = "John";
 emp.Salary = 50000;
 ```
 
+
+## What are Objects?
+
+An object is an instance of a class.
+
+Example:
+
+```csharp
+class Person
+{
+    public string Name;
+}
+```
+
+Creating objects:
+
+```csharp
+Person person1 = new Person();
+Person person2 = new Person();
+```
+
+Here:
+
+```text
+Class  -> Person
+
+Objects ->
+person1
+person2
+```
+
+Think of a class as a blueprint and objects as actual products created from that blueprint.
+
+---
+
+## Fields and Methods
+
+A class typically contains:
+
+### Fields
+
+Used to store data.
+
+```csharp
+class Person
+{
+    public string Name;
+    public int Age;
+}
+```
+
+Fields:
+
+```text
+Name
+Age
+```
+
+---
+
+### Methods
+
+Used to define behavior.
+
+```csharp
+class Person
+{
+    public string Name;
+
+    public void Introduce()
+    {
+        Console.WriteLine("Hi, I am " + Name);
+    }
+}
+```
+
+Method:
+
+```text
+Introduce()
+```
+
+---
+
+## Accessing Members using Dot Notation
+
+Use the dot operator (`.`) to access fields and methods.
+
+```csharp
+Person person = new Person();
+
+person.Name = "Yash";
+
+person.Introduce();
+```
+
+Examples:
+
+```csharp
+person.Name
+person.Age
+person.Introduce()
+```
+
+Dot notation is used everywhere in C#.
+
+---
+
+## Memory Allocation using new
+
+Objects are created using the `new` keyword.
+
+```csharp
+Person person = new Person();
+```
+
+The `new` keyword:
+
+* Creates the object
+* Allocates memory
+* Returns a reference to that object
+
+Without `new`, no object is created.
+
+---
+
+## Garbage Collection
+
+In C++, developers often free memory manually.
+
+In C#, the CLR automatically removes unused objects using Garbage Collection.
+
+Example:
+
+```csharp
+Person person = new Person();
+
+person = null;
+```
+
+When the object is no longer used, the Garbage Collector eventually removes it from memory.
+
+Benefit:
+
+* Fewer memory leaks
+* Easier memory management
+* Less developer effort
+
 <br>
+
+
+---
+
+
+
+<br>
+
+
+
+# Static Members
+
+## What is static?
+
+Normally, fields and methods belong to objects.
+
+A static member belongs to the class itself.
+
+---
+
+### Non-Static Example
+
+```csharp
+class Person
+{
+    public string Name;
+}
+```
+
+Usage:
+
+```csharp
+Person p = new Person();
+
+p.Name = "Yash";
+```
+
+An object is required.
+
+---
+
+### Static Field Example
+
+```csharp
+class Company
+{
+    public static string CompanyName = "Microsoft";
+}
+```
+
+Usage:
+
+```csharp
+Console.WriteLine(Company.CompanyName);
+```
+
+Notice:
+
+```csharp
+Company.CompanyName
+```
+
+No object is created.
+
+<br>
+
+
+
+### Static Method Example
+
+```csharp
+class Calculator
+{
+    public static int Add(int a, int b)
+    {
+        return a + b;
+    }
+}
+```
+
+Usage:
+
+```csharp
+int result = Calculator.Add(10, 20);
+
+Console.WriteLine(result);
+```
+
+Output:
+
+```text
+30
+```
+
+
+<br>
+
+
+
+## Why Use static?
+
+Because only one copy is needed.
+
+Example:
+
+```text
+Current Date
+Company Name
+Utility Functions
+Configuration Values
+```
+
+Creating multiple copies would waste memory.
+
+
+<br>
+
+
+
+## Real Example: DateTime
+
+You have already used a static member without realizing it.
+
+```csharp
+DateTime.Now
+```
+
+Here:
+
+```text
+DateTime -> Class
+Now      -> Static Property
+```
+
+No object creation is required.
+
+
+<br>
+
+
+
+## Main Method is Static
+
+```csharp
+static void Main()
+{
+}
+```
+
+The application starts before any object exists.
+
+Therefore Main() must belong to the class itself, not an object.
+
+
+<br>
+
+
+
+## Rule to Remember
+
+### Non-Static Members
+
+Access through an object:
+
+```csharp
+person.Name
+person.Introduce()
+```
+
+### Static Members
+
+Access through the class:
+
+```csharp
+DateTime.Now
+
+Math.Abs(-10)
+
+Calculator.Add(1, 2)
+```
+
+
+<br>
+
+---
+
+
+<br>
+
 
 ## 4.2 Structs
 
@@ -333,3 +670,14 @@ Coordinates
 * Classes are used in most real-world applications.
 * Structs are best for small, lightweight data structures.
 * If unsure, use a class.
+
+
+<br>
+
+---
+---
+
+
+<br>
+
+
