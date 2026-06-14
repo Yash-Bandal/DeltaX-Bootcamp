@@ -302,8 +302,7 @@ Benefit:
 
 <br>
 
-
-<br>
+---
 
 
 
@@ -395,6 +394,18 @@ Output:
 30
 ```
 
+
+Mental Model
+
+```
+Class
+│
+├── Static Members
+│   └── One copy shared by everyone
+│
+└── Instance Members
+    └── Each object gets its own copy
+```
 
 <br>
 
