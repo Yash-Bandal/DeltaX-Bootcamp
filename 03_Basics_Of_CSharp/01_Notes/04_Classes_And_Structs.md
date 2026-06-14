@@ -185,7 +185,7 @@ person2
 
 Think of a class as a blueprint and objects as actual products created from that blueprint.
 
----
+<br>
 
 ## Fields and Methods
 
@@ -210,7 +210,7 @@ Name
 Age
 ```
 
----
+<br>
 
 ### Methods
 
@@ -234,7 +234,7 @@ Method:
 Introduce()
 ```
 
----
+<br>
 
 ## Accessing Members using Dot Notation
 
@@ -258,7 +258,7 @@ person.Introduce()
 
 Dot notation is used everywhere in C#.
 
----
+<br>
 
 ## Memory Allocation using new
 
@@ -276,7 +276,7 @@ The `new` keyword:
 
 Without `new`, no object is created.
 
----
+<br>
 
 ## Garbage Collection
 
@@ -303,7 +303,7 @@ Benefit:
 <br>
 
 
----
+<br>
 
 
 
@@ -319,7 +319,7 @@ Normally, fields and methods belong to objects.
 
 A static member belongs to the class itself.
 
----
+<br>
 
 ### Non-Static Example
 
@@ -340,7 +340,7 @@ p.Name = "Yash";
 
 An object is required.
 
----
+<br>
 
 ### Static Field Example
 
