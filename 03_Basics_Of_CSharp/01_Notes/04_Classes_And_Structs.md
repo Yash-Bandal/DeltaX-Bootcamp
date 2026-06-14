@@ -312,6 +312,13 @@ Benefit:
 
 # Static Members
 
+> [!Note]
+> ### Why Do We Need `Static`?
+> We need it when we want a concept, that only has 1 single instance(object) in memory, *i.e* only 1 copy\
+> Eg: `static void Main(string[] args)
+>
+> Here, we need only 1 instance of main function
+
 ## What is static?
 
 Normally, fields and methods belong to objects.
