@@ -814,6 +814,8 @@ Remember this for interviews.
 
 ## 5.5 Collections (List<T>)
 
+#### [Lists in Depth](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/03_Basics_Of_CSharp/01_Notes/Concepts/Lists_In_Depth.md)
+
 ### Why Not Always Use Arrays?
 
 
