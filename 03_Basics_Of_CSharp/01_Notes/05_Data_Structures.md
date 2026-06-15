@@ -832,7 +832,7 @@ Cannot grow automatically.
 ### What is List<T>?
 
 
-<div slign = "center">
+<div align = "center">
 <img width="600" alt="image" src="https://github.com/user-attachments/assets/48792860-07a6-4a04-a4f8-a72a7fa17a4d" />
 <img width="454" height="406" alt="image" src="https://github.com/user-attachments/assets/a36048ce-3043-441f-8199-e7492033c57d" />
 </div>
