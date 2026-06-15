@@ -194,7 +194,7 @@ Hello C#
 
 ```csharp
 string firstName = "Yash";
-string lastName = "Patil";
+string lastName = "Bandal";
 
 string fullName = firstName + " " + lastName;
 ```
@@ -207,6 +207,15 @@ string fullName = firstName + " " + lastName;
 string name = "Yash";
 
 Console.WriteLine($"Welcome {name}");
+```
+```
+int appleCnt = 5;
+
+// String Interpolation
+string approach1 = $"I have {appleCnt} apples."; 
+
+// string.Format method
+string approach2 = string.Format("I have {0} apples.", appleCnt); 
 ```
 
 Output:
