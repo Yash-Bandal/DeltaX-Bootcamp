@@ -570,6 +570,47 @@ while(isRunning)
 {
 }
 ```
+**Example:**
+```csharp
+using System;
+
+namespace LearnNumbers
+{
+    internal partial class Program
+    {
+        static void Main(string[] args)
+        {
+            while (true)
+            {
+                Console.Write("Enter Your name:");
+                var input = Console.ReadLine();
+
+
+                //with else keyword
+                //if (!String.IsNullOrWhiteSpace(input)) //if input is not empty "" or " "
+                //{
+                //    Console.WriteLine(string.Format($"Echo {input}"));
+                //}
+                //else //if empty , stop
+                //{
+                //break;
+                //}
+
+
+                //with continue, 
+                if (!String.IsNullOrWhiteSpace(input)) //if input is not empty "" or " "
+                {
+                    Console.WriteLine(string.Format($"Echo {input}"));
+                    continue;
+                }
+
+                break;
+            }
+        }
+    }
+}
+
+```
 
 <br>
 
@@ -632,7 +673,48 @@ Always remember `break` unless intentionally omitted.
 * Always avoid accidental infinite loops.
 * Programming logic is the foundation of all real-world applications.
 
+**Example 1:**
 
+```csharp
+using System;
+
+namespace LearnNumbers
+{ 
+internal partial class Program
+    {
+        static void Main(string[] args) 
+        {
+            var season = Seasons.Summer;
+            //var season = Seasons.ClimateChange;
+
+            switch (season)
+            {
+                case Seasons.ClimateChange:
+                case Seasons.Summer:
+                    Console.WriteLine("It is Summer season, or may be Climate change");
+                    break;
+
+                case Seasons.Winter:
+                    Console.WriteLine("It is winder season");
+                    break;
+                case Seasons.Monsoon:
+                    Console.WriteLine("It is Monsoon season");
+                    break;
+
+                case Seasons.Autumn:
+                    Console.WriteLine("It is Autumn season");
+                    break;
+
+                default:
+                    Console.WriteLine("Its a normal day");
+                    break;
+            }
+
+        }
+    }
+}
+ 
+```
 
 <br>
 
