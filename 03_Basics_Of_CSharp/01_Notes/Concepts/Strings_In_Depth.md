@@ -211,7 +211,7 @@ Combining strings.
 
 ```csharp
 string firstName = "Yash";
-string lastName = "Patil";
+string lastName = "Bandal";
 
 string fullName =
     firstName + " " + lastName;
@@ -220,7 +220,7 @@ string fullName =
 Result:
 
 ```text
-Yash Patil
+Yash Bandal
 ```
 
 <br>
