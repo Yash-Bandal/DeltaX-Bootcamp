@@ -644,6 +644,10 @@ namespace LearnNumbers
 
 <br>
 
+
+**Example 2:**
+
+
 ```csharp
 using System;
 using System.Security.Cryptography.X509Certificates;
@@ -661,16 +665,16 @@ namespace LearnNumbers
 
         //Herlper functions
         //pass value type variable (integer here)
-        public static void incrementVal(int Number) 
+        public static void incrementVal(int Number)   //copy of Number var recieved
         {
-            Number += 10;
+            Number += 10;  //changes made to the copy
         }
 
 
         //pass reference type variable (class object)
-        public static void incrementRef(Person p1)
+        public static void incrementRef(Person p1) //actual Person object recieved
         {
-             p1.age += 10;
+             p1.age += 10;   //changes made to the actual object
         }
 
         static void Main(string[] args)
@@ -698,6 +702,22 @@ namespace LearnNumbers
     }
 }
 ```
+```
+Main()
+└── Number = 0
+
+incrementVal()
+└── Number = 0   (copy)
+```
+The function receives a copy.
+
+Changes affect only the copy.
+
+Result:
+```
+0
+```
+
 
 <br>
 
