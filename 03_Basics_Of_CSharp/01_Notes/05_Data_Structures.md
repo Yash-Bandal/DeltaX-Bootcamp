@@ -111,7 +111,7 @@ Once created, the size cannot change.
 A string represents text.
 
 ```csharp
-string name = "Yash";
+string str = "Text Data";
 ```
 
 > [!Note]
@@ -124,7 +124,15 @@ string name = "Yash";
 > String name = "Yash"
 > ```
 > Are the Same, `S` and `s` difference just
-> 
+>
+> Same as
+> ```csharp
+> INT32 i;
+> ```
+> and
+> ```csharp
+> int i;
+> ```
 
 <br>
 
@@ -265,6 +273,90 @@ Widely used in modern C# code.
 <img width="600"  alt="image" src="https://github.com/user-attachments/assets/5188e25d-df50-415a-8125-a2a784ef412e" />
 
 </div>
+
+
+### Example
+```csharp
+using LearnNumbers.Math;
+using System;
+using System.Runtime.InteropServices;
+using System.Security.Policy;
+
+namespace LearnNumbers
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string hw = "Hellow" + " World";
+            Console.WriteLine(hw);
+           //Hellow World
+
+
+            //==========================================
+
+            string fname = "Yash";
+            string lname = "Bandal";
+
+            string fn1 = $"My name is {fname} {lname}";
+            Console.WriteLine(fn1);
+
+            // My name is Yash Bandal
+
+
+            //=================================
+
+            string ffname = "Darshan";
+            string flname = "Patil";
+
+            string fn2 = string.Format("My friend name is {0} {1}", ffname, flname);
+            Console.WriteLine(fn2);
+            
+            // My friend name is Darshan Patil
+
+            //================================
+
+            string[] strnums =  { "1", "2", "3", "5", "5"};
+            string res = string.Join(",", strnums);
+            Console.WriteLine(res); // 1,2,3,4,5
+            string res2 = string.Join("", strnums);
+            Console.WriteLine(res2); //12345
+
+
+            //=====================================
+            var text = "Hey Darshan ..! \nLook at this new path \nc:\\folder1\\folder2\nc:\\folder3\\folder4";
+            Console.WriteLine(text);
+
+            //very unreadable
+            /*
+                Hey Darshan ..!
+                Look at this new path
+                c:\folder1\folder2
+                c:\folder3\folder4
+             */
+
+            //readable verbatim text
+
+            Console.WriteLine("\n");
+
+            var text2 = @"Hey Darshan again ..! 
+Look at this new clean path
+c:\folder1\folder2
+c:\folder3\folder4";
+
+            Console.WriteLine(text2);
+            /*
+                Hey Darshan again..!
+                Look at this new clean path
+                c:\folder1\folder2
+                c:\folder3\folder4
+             */
+
+        }
+    }
+}
+```
 
 <br>
 
