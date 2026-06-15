@@ -1,0 +1,613 @@
+# 5. Data Structures and Types
+
+## 5.1 Arrays
+
+### What is an Array?
+
+An array stores multiple values of the same type in a single variable.
+
+Without an array:
+
+```csharp
+int mark1 = 80;
+int mark2 = 85;
+int mark3 = 90;
+```
+
+Using an array:
+
+```csharp
+int[] marks = { 80, 85, 90 };
+```
+
+<br>
+
+### Accessing Elements
+
+Arrays use zero-based indexing.
+
+```csharp
+int[] marks = { 80, 85, 90 };
+
+Console.WriteLine(marks[0]);
+Console.WriteLine(marks[1]);
+```
+
+Output:
+
+```text
+80
+85
+```
+
+<br>
+
+### Array Length
+
+```csharp
+int[] marks = { 80, 85, 90 };
+
+Console.WriteLine(marks.Length);
+```
+
+Output:
+
+```text
+3
+```
+
+<br>
+
+### Looping Through an Array
+
+```csharp
+int[] marks = { 80, 85, 90 };
+
+for (int i = 0; i < marks.Length; i++)
+{
+    Console.WriteLine(marks[i]);
+}
+```
+
+<br>
+
+### Foreach Loop
+
+Best way to read all items.
+
+```csharp
+foreach (int mark in marks)
+{
+    Console.WriteLine(mark);
+}
+```
+
+<br>
+
+### Important
+
+Arrays have a fixed size.
+
+```csharp
+int[] numbers = new int[3];
+```
+
+Once created, the size cannot change.
+
+
+<br>
+
+
+---
+
+<br>
+
+## 5.2 Strings
+
+### What is a String?
+
+A string represents text.
+
+```csharp
+string name = "Yash";
+```
+
+<br>
+
+### Common String Operations
+
+#### Length
+
+```csharp
+string name = "Yash";
+
+Console.WriteLine(name.Length);
+```
+
+Output:
+
+```text
+4
+```
+
+<br>
+
+#### ToUpper
+
+```csharp
+Console.WriteLine(name.ToUpper());
+```
+
+Output:
+
+```text
+YASH
+```
+
+<br>
+
+#### ToLower
+
+```csharp
+Console.WriteLine(name.ToLower());
+```
+
+Output:
+
+```text
+yash
+```
+
+<br>
+
+#### Contains
+
+```csharp
+Console.WriteLine(name.Contains("Ya"));
+```
+
+Output:
+
+```text
+True
+```
+
+<br>
+
+#### Replace
+
+```csharp
+string text = "Hello World";
+
+Console.WriteLine(text.Replace("World", "C#"));
+```
+
+Output:
+
+```text
+Hello C#
+```
+
+<br>
+
+### String Concatenation
+
+```csharp
+string firstName = "Yash";
+string lastName = "Patil";
+
+string fullName = firstName + " " + lastName;
+```
+
+<br>
+
+### String Interpolation (Recommended)
+
+```csharp
+string name = "Yash";
+
+Console.WriteLine($"Welcome {name}");
+```
+
+Output:
+
+```text
+Welcome Yash
+```
+
+Widely used in modern C# code.
+
+<br>
+
+---
+
+
+<br>
+
+
+
+## 5.3 Enums
+
+### What is an Enum?
+
+Enum (Enumeration) is a special type used to represent a fixed set of constants.
+
+Without enum:
+
+```csharp
+int status = 1;
+```
+
+What does 1 mean?
+
+Not obvious.
+
+<br>
+
+### Using Enum
+
+```csharp
+enum OrderStatus
+{
+    Pending,
+    Processing,
+    Completed,
+    Cancelled
+}
+```
+
+Usage:
+
+```csharp
+OrderStatus status = OrderStatus.Completed;
+```
+
+<br>
+
+### Benefits
+
+* Readable code
+* Avoid magic numbers
+* Better maintainability
+
+<br>
+
+### Example
+
+```csharp
+enum UserRole
+{
+    Admin,
+    Manager,
+    Customer
+}
+```
+
+```csharp
+UserRole role = UserRole.Admin;
+```
+
+<br>
+
+
+---
+
+<br>
+
+
+
+## 5.4 Reference Types vs Value Types
+
+This is one of the most important C# concepts.
+
+<br>
+
+### Value Types
+
+Store the actual value.
+
+Examples:
+
+```csharp
+int
+double
+bool
+char
+struct
+enum
+```
+
+Example:
+
+```csharp
+int x = 10;
+int y = x;
+
+y = 20;
+```
+
+Result:
+
+```text
+x = 10
+y = 20
+```
+
+A copy is created.
+
+<br>
+
+### Reference Types
+
+Store a reference (address) to an object.
+
+Examples:
+
+```csharp
+class
+string
+array
+List<T>
+```
+
+Example:
+
+```csharp
+Person p1 = new Person();
+
+Person p2 = p1;
+```
+
+Both variables point to the same object.
+
+<br>
+
+### Visual Comparison
+
+#### Value Type
+
+```text
+x -> 10
+
+y -> 10
+```
+
+Separate copies.
+
+<br>
+
+#### Reference Type
+
+```text
+p1 ----\
+        > Object
+p2 ----/
+```
+
+Both refer to the same object.
+
+<br>
+
+### Quick Rule
+
+```text
+Struct = Value Type
+
+Class = Reference Type
+```
+
+Remember this for interviews.
+
+<br>
+
+
+---
+
+
+<br>
+
+
+## 5.5 Collections (List<T>)
+
+### Why Not Always Use Arrays?
+
+Arrays have fixed size.
+
+```csharp
+int[] numbers = new int[3];
+```
+
+Cannot grow automatically.
+
+<br>
+
+### What is List<T>?
+
+A List is a dynamic collection.
+
+It can grow and shrink automatically.
+
+```csharp
+List<int> numbers = new List<int>();
+```
+
+<br>
+
+### Add Items
+
+```csharp
+numbers.Add(10);
+numbers.Add(20);
+numbers.Add(30);
+```
+
+<br>
+
+### Access Items
+
+```csharp
+Console.WriteLine(numbers[0]);
+```
+
+Output:
+
+```text
+10
+```
+
+<br>
+
+### Remove Items
+
+```csharp
+numbers.Remove(20);
+```
+
+<br>
+
+### Count
+
+```csharp
+Console.WriteLine(numbers.Count);
+```
+
+<br>
+
+### Loop Through List
+
+```csharp
+foreach (int number in numbers)
+{
+    Console.WriteLine(number);
+}
+```
+
+<br>
+
+### Why Developers Prefer List<T>
+
+* Dynamic size
+* Easy to use
+* Rich built-in methods
+* Common in real-world applications
+
+<br>
+
+## Array vs List
+
+| Array            | List<T>         |
+| ---------------- | --------------- |
+| Fixed Size       | Dynamic Size    |
+| Faster           | Slightly Slower |
+| Limited Features | Many Features   |
+| Less Flexible    | More Flexible   |
+
+Most business applications use `List<T>` far more often than arrays.
+
+<br>
+
+---
+
+
+<br>
+
+
+
+## 5.6 Random Class
+
+### What is Random?
+
+Used to generate random numbers.
+
+```csharp
+Random random = new Random();
+```
+
+<br>
+
+### Generate Random Number
+
+```csharp
+Random random = new Random();
+
+int number = random.Next();
+```
+
+<br>
+
+### Random Number in Range
+
+```csharp
+Random random = new Random();
+
+int number = random.Next(1, 11);
+```
+
+Possible values:
+
+```text
+1 to 10
+```
+
+Upper limit is excluded.
+
+<br>
+
+### Example
+
+```csharp
+Random random = new Random();
+
+Console.WriteLine(random.Next(1, 7));
+```
+
+Simulates a dice roll.
+
+Output:
+
+```text
+1 to 6
+```
+
+<br>
+
+### Random Double
+
+```csharp
+Console.WriteLine(random.NextDouble());
+```
+
+Output:
+
+```text
+0.0 to 1.0
+```
+
+<br>
+
+### Common Use Cases
+
+* Games
+* OTP generation
+* Simulations
+* Test data generation
+* Random selections
+
+<br>
+
+## Key Takeaways
+
+* Arrays store multiple values of the same type and have fixed size.
+* Strings represent text and provide many built-in methods.
+* Enums represent a fixed set of named constants.
+* Value Types store actual values.
+* Reference Types store references to objects.
+* List<T> is a dynamic collection used extensively in real applications.
+* Random is used to generate random values.
+* If collection size can change, prefer List<T> over arrays.
+
+
+<br>
+
+---
+---
