@@ -20,6 +20,60 @@ Using an array:
 int[] marks = { 80, 85, 90 };
 ```
 
+> [!Note]
+> An Array is a class datatype (reference value based)
+
+<div align = "center">
+<img width="600"  alt="image" src="https://github.com/user-attachments/assets/0224e9cc-f77e-4cf0-bc4c-4487992b1c30" />
+</div>
+
+<br>
+
+
+### Types of Arrays in `C#`
+<table align="center">
+  <tr>
+    <td colspan="2" align="center">
+      <img
+        width="500"
+        alt="image"
+        src="https://github.com/user-attachments/assets/afcf734c-3c0c-4e7f-a78b-a3a8a0c822a0"
+      />
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img
+        width="450"
+        alt="image"
+        src="https://github.com/user-attachments/assets/c47b5b72-5eff-4649-9b36-6ec49907b5aa"
+      />
+    </td>
+    <td align="center">
+      <img
+        width="450"
+        alt="image"
+        src="https://github.com/user-attachments/assets/33be9fc3-e4c4-4fb6-b745-0ac2803cc286"
+      />
+    </td>
+  </tr>
+</table>
+
+**Rectangular Array**
+<div align = "center">
+<img width="500"  alt="image" src="https://github.com/user-attachments/assets/f7640676-b15c-452b-a6bb-d16a7426f31c" />
+</div>
+
+**Jagged array**
+<div align = "center">
+<img width="500"  alt="image" src="https://github.com/user-attachments/assets/0a82f53a-a42f-443d-afb8-d0670bbc43bc" />
+    <p>In jagged array, we have 2 square brackets, and in rect array, we have 1 square array, but we seperate the dimentsions using a `,`</p>
+    <img width="500" alt="image" src="https://github.com/user-attachments/assets/0bb0471e-0835-4845-9f72-2858f041a908" />
+
+</div>
+
+
+
 <br>
 
 ### Accessing Elements
