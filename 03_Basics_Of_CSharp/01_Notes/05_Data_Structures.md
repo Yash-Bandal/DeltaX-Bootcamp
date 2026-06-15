@@ -2,7 +2,11 @@
 
 ## 5.1 Arrays
 
+#### [Arrays in Depth](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/03_Basics_Of_CSharp/01_Notes/Concepts/Arrays_In_Depth.md)
+
 ### What is an Array?
+
+
 
 An array stores multiple values of the same type in a single variable.
 
