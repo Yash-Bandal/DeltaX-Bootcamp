@@ -373,6 +373,11 @@ c:\folder3\folder4";
 
 Enum (Enumeration) is a special type used to represent a fixed set of constants.
 
+<div align = "center">
+<img width="600"  alt="image" src="https://github.com/user-attachments/assets/e5bd090e-9606-4882-b3e0-de09cbf68943" />
+
+</div>
+
 Without enum:
 
 ```csharp
@@ -438,6 +443,19 @@ UserRole role = UserRole.Admin;
 
 
 ## 5.4 Reference Types vs Value Types
+
+
+
+<div align = "center">
+    <table>
+        <tr>
+            <td>
+                <img width="500"  alt="image" src="https://github.com/user-attachments/assets/93b264a4-d8c6-4584-a47d-deecb430ee96" />
+                <p align = "center">Primitive and Non primitive types </p>
+            </td>
+        </tr>
+    </table>
+</div>
 
 This is one of the most important C# concepts.
 
