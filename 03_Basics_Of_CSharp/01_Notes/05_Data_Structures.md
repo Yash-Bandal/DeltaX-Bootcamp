@@ -444,6 +444,9 @@ UserRole role = UserRole.Admin;
 
 ## 5.4 Reference Types vs Value Types
 
+<div align = "center">
+<img width="600"  alt="image" src="https://github.com/user-attachments/assets/a49282bd-365e-479e-a01a-a08e1c1f57a7" />
+</div>
 
 
 <div align = "center">
@@ -458,6 +461,35 @@ UserRole role = UserRole.Admin;
 </div>
 
 This is one of the most important C# concepts.
+
+<br>
+
+---
+> [!Note]
+> For C# arrays, think:
+>
+> ```
+> arr
+>   │
+>   ▼
+> Array Object
+> +---------------------+
+> | Length = 5          |
+> | [0] = 1             |
+> | [1] = 2             |
+> | [2] = 3             |
+> | [3] = 4             |
+> | [4] = 5             |
+> +---------------------+
+>```
+> 
+> So the most accurate answer is:
+>
+> `arr` stores a reference to the entire array object. The elements are stored inside that object, starting at the first element,
+>
+> but `arr` itself is not considered a reference to just the first element as it often is in `C/C++`.
+```
+---
 
 <br>
 
