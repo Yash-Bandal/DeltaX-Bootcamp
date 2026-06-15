@@ -582,6 +582,125 @@ Both refer to the same object.
 
 <br>
 
+**Example:**
+```csharp
+using System;
+using System.Security.Cryptography.X509Certificates;
+
+
+namespace LearnNumbers
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            //Value type
+            int a = 10;
+            int b = a;
+            b++;
+
+            /*
+              value type variable, so no increment of a happens,
+              as b holds its own seperate copy of a and 
+              does not point to a itself
+             */
+
+            Console.WriteLine(string.Format("a is {0}, and b is {1}",a,b));
+            //a is 10 ,  b is 11
+
+
+            //=======================================
+
+            //Reference type 
+            int[] arr1 = { 1, 2, 3 };
+            int[] arr2 = arr1;  //ref type, arr2 points to arr1 
+
+            arr2[0] = 10; //modify
+
+            Console.WriteLine(string.Format("arr1[0] : {0} , arr2[0] : {1}", arr1[0] , arr2[0]));
+            //arr1[0] : 10 , arr2[0] : 10
+
+            /*
+             Notice, unlike value type, 
+            here reference to actual arr1[0] index 0 was made
+            while modifying arr2[0],
+
+            so both change
+             */
+
+
+
+        }
+    }
+}
+```
+
+<div align = "center">
+<img width="600"  alt="image" src="https://github.com/user-attachments/assets/c50da620-0d5e-47b4-818e-77e1a121bf64" />
+</div>
+
+
+
+<br>
+
+```csharp
+using System;
+using System.Security.Cryptography.X509Certificates;
+
+
+namespace LearnNumbers
+{
+    internal class Program
+    {
+        //define class
+        public class Person
+        {
+            public int age;
+        }
+
+        //Herlper functions
+        //pass value type variable (integer here)
+        public static void incrementVal(int Number) 
+        {
+            Number += 10;
+        }
+
+
+        //pass reference type variable (class object)
+        public static void incrementRef(Person p1)
+        {
+             p1.age += 10;
+        }
+
+        static void Main(string[] args)
+        {
+            // Test Value type 
+            int Number = 0;
+            incrementVal(Number);
+            Console.WriteLine(string.Format("After incremnt of Value type var : {0}", Number));
+            //No change happen
+            // After incremnt of Value type var : 0
+
+            //============================================
+
+
+            // Test value type
+            Person p1 = new Person();
+            p1.age = 10;
+
+            incrementRef(p1);
+            Console.WriteLine(string.Format("After incremnt of Ref type var : {0}", p1.age));
+            //Change happened
+            // After incremnt of Ref type var : 20
+
+        }
+    }
+}
+```
+
+<br>
+
 ### Quick Rule
 
 ```text
