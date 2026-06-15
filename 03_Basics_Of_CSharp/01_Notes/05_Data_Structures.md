@@ -1,5 +1,19 @@
 # 5. Data Structures and Types
 
+<br>
+
+**Index:**
+
+1. [5.1 Arrays](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/03_Basics_Of_CSharp/01_Notes/05_Data_Structures.md#51-arrays)
+2. [5.2 Strings](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/03_Basics_Of_CSharp/01_Notes/05_Data_Structures.md#52-strings)
+3. [5.3 Enums](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/03_Basics_Of_CSharp/01_Notes/05_Data_Structures.md#53-enums)
+4. [5.4 Reference vs Value Types](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/03_Basics_Of_CSharp/01_Notes/05_Data_Structures.md#54-reference-types-vs-value-types)
+5. [5.5 Collections (Lists)](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/03_Basics_Of_CSharp/01_Notes/05_Data_Structures.md#55-collections-list)
+6. [5.6 Random Class](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/03_Basics_Of_CSharp/01_Notes/05_Data_Structures.md#56-random-class)
+
+
+<br>
+
 ## 5.1 Arrays
 
 #### [Arrays in Depth](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/03_Basics_Of_CSharp/01_Notes/Concepts/Arrays_In_Depth.md)
@@ -814,6 +828,8 @@ Cannot grow automatically.
 <br>
 
 ### What is List<T>?
+
+
 <div slign = "center">
 <img width="600" alt="image" src="https://github.com/user-attachments/assets/48792860-07a6-4a04-a4f8-a72a7fa17a4d" />
 <img width="454" height="406" alt="image" src="https://github.com/user-attachments/assets/a36048ce-3043-441f-8199-e7492033c57d" />
