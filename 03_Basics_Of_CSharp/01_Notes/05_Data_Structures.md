@@ -466,6 +466,10 @@ This is one of the most important C# concepts.
 
 ---
 > [!Note]
+> **Q: Does the word `arr` when defined point to first element, or a seperate object?**
+>
+> (Diff than C++)
+>  
 > For C# arrays, think:
 >
 > ```
@@ -488,8 +492,7 @@ This is one of the most important C# concepts.
 > `arr` stores a reference to the entire array object. The elements are stored inside that object, starting at the first element,
 >
 > but `arr` itself is not considered a reference to just the first element as it often is in `C/C++`.
-```
----
+> 
 
 <br>
 
