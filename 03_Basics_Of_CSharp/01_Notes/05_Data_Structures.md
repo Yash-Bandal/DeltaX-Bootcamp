@@ -104,6 +104,8 @@ Once created, the size cannot change.
 
 ## 5.2 Strings
 
+### [Strings in Depth](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/a1f66e59a0f22db0e649249db36f01ed2c9faed0/03_Basics_Of_CSharp/01_Notes/Concepts/Strings_In_Depth.md)
+
 ### What is a String?
 
 A string represents text.
