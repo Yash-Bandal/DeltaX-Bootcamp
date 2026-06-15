@@ -274,6 +274,46 @@ Output:
 B
 ```
 
+**Example:**
+```csharp
+using System;
+
+namespace LearnNumbers
+{ 
+internal class Program
+    {
+        static void Main(string[] args) 
+        {
+
+            // Normal conditional blocks
+            bool isGoldMember = true;
+
+
+            double  price = 0;
+            if (isGoldMember)
+            {
+                price = 100;
+            }
+            else
+            {
+                price = 200;
+            }
+            Console.WriteLine(price);
+
+
+            //Ternary consitional statements
+            double tprice = (isGoldMember) ? 100 : 200; //you can skip ()
+            Console.WriteLine(tprice);
+        }
+    }
+}
+```
+Output:
+```
+100
+100
+```
+
 <br>
 
 ### Nested if
