@@ -572,6 +572,95 @@ In most business applications, `List<T>` is used more frequently than arrays.
 
 <br>
 
+**Example:**
+```csharp
+using System;
+
+namespace LearnNumbers
+{
+    internal partial class Program
+    {
+        static void Main(string[] args)
+        {
+                            // 0   1   2   3   4
+            var arr = new[] { 20, 30, 50, 10, 40 };
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.Write(arr[i] + " ");
+            }
+            //20 30 50 10 40
+
+            Console.WriteLine();
+
+
+            //length
+            Console.WriteLine(string.Format($"The Length of arr is {arr.Length}"));
+            //The Length of arr is 5
+
+
+            //get index
+            int index = Array.IndexOf(arr, 20);
+            Console.WriteLine(string.Format($"The index of 20 is {index}"));
+            //The index of 20 is 0
+
+            //copy
+            var sorted = new int[arr.Length];
+            Array.Copy(arr,sorted,arr.Length);
+
+            Console.WriteLine("Before Sorting:");//sort
+            
+            for (int i = 0; i < sorted.Length; i++)
+            {
+                Console.Write(sorted[i] + " ");
+            }
+            // 20 30 50 10 40
+            
+            Console.WriteLine();
+
+            //sorting
+            Array.Sort(sorted);
+            Console.WriteLine("Sorted Array:");
+
+            for (int i = 0; i < sorted.Length; i++)
+            {
+                Console.Write(sorted[i] + " ");
+            }
+            //10 20 30 40 50
+
+            Console.WriteLine();
+
+
+            //reverse
+            Array.Reverse(sorted);
+            Console.WriteLine("Reversed sorted Array:");
+
+            for (int i = 0; i < sorted.Length; i++)
+            {
+                Console.Write(sorted[i] + " ");
+            }
+            //50 40 30 20 10
+
+            Console.WriteLine();
+
+            //Clearing
+            Array.Clear(sorted, 0,2);
+            Console.WriteLine("Clear between Array:");
+
+            for (int i = 0; i < sorted.Length; i++)
+            {
+                Console.Write(sorted[i] + " ");
+            }
+
+            //0 0 30 20 10
+        }
+    }
+}
+
+```
+
+<br>
+
 ## Key Takeaways
 
 * Arrays store multiple values of the same type.
