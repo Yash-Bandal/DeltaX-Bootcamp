@@ -208,7 +208,19 @@ string name = "Yash";
 
 Console.WriteLine($"Welcome {name}");
 ```
-```
+<div align = "center">
+    
+<img width="600"  alt="image" src="https://github.com/user-attachments/assets/2caa21fe-cbe1-4697-ac75-aa4383d9bc6b" />
+
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/9ec5de3d-ae9e-4f69-bf5d-0cc303cc8e11" />
+
+
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/964f36be-85b5-4b1f-8877-bbc68b4a6d6b" />
+
+</div>
+
+
+```csharp
 int appleCnt = 5;
 
 // String Interpolation
@@ -225,6 +237,20 @@ Welcome Yash
 ```
 
 Widely used in modern C# code.
+
+<div align = "center">
+<img width="600"  alt="image" src="https://github.com/user-attachments/assets/0d6fadc2-1dea-48f0-8ee9-a6b1de4f2e37" />
+
+<img width="600"  alt="image" src="https://github.com/user-attachments/assets/e64b1cd9-fe59-4c1f-a950-19877b8b97f7" />
+
+
+
+<img width="600"  alt="image" src="https://github.com/user-attachments/assets/80ef82de-d1d5-42ce-ac17-08f55f9ea862" />
+
+
+<img width="600"  alt="image" src="https://github.com/user-attachments/assets/5188e25d-df50-415a-8125-a2a784ef412e" />
+
+</div>
 
 <br>
 
