@@ -928,6 +928,73 @@ Output:
 
 <br>
 
+**Examples:**
+1. Random 8 character password generator
+- This generates a randowm string of 8 characters, between ASCII value `97 to 122` or `'a' + (0,26)` 
+```csharp
+using System;
+
+namespace LearnNumbers
+{
+    internal partial class Program
+    {
+        static void Main(string[] args)
+        {
+            Random random = new Random();
+
+            for (int i = 0; i < 8; i++)
+            {
+                Console.Write((char)('a' + random.Next(0,26)));
+                //Console.WriteLine();
+            }
+        }
+    }
+}
+
+```
+Eg Output:
+```
+bkyqvyjq
+```
+
+Neatway:
+```csharp
+using System;
+
+namespace LearnNumbers
+{
+    internal partial class Program
+    {
+        static void Main(string[] args)
+        {
+            Random random = new Random();
+
+            const int passwordLength = 8;
+            
+            //Character buffer
+            char[] buffer = new char[passwordLength];
+
+            for (int i = 0; i < passwordLength; i++)
+            {
+                buffer[i] = (char)('a' + random.Next(0,26)); //(char)('a' +25) -> (char)(97 + 25) -> (char)(122) -> 'y'
+            }
+
+            //eg output buffer = {'b', 'v','b', 'o','x', 'n','e', 'g'}
+
+            //convert to string
+            string password = new String(buffer);
+
+            Console.WriteLine(password); 
+            //bvboxneg
+
+        }
+    }
+}
+
+```
+
+<br>
+
 ## Key Takeaways
 
 * Arrays store multiple values of the same type and have fixed size.
