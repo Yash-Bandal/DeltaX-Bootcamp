@@ -663,7 +663,7 @@ namespace LearnNumbers
             public int age;
         }
 
-        //Herlper functions
+        //Helper functions
         //pass value type variable (integer here)
         public static void incrementVal(int Number)   //copy of Number var recieved
         {
