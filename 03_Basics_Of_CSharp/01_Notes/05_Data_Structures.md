@@ -114,6 +114,18 @@ A string represents text.
 string name = "Yash";
 ```
 
+> [!Note]
+> ```csharp
+> string name = "Yash"
+> ```
+> and
+> ```csharp
+> using System; //namespace
+> String name = "Yash"
+> ```
+> Are the Same, `S` and `s` difference just
+> 
+
 <br>
 
 ### Common String Operations
