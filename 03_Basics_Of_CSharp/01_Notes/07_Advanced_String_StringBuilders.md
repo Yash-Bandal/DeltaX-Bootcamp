@@ -81,6 +81,9 @@ The same object is modified.
 | Better for fixed text                    | Better for frequently changing text |
 | Slower for many modifications            | Faster for many modifications       |
 
+
+
+
 <br>
 
 ## Creating a StringBuilder
@@ -91,110 +94,7 @@ The same object is modified.
 StringBuilder sb = new StringBuilder();
 ```
 
-<br>
 
-**Example:**
-
-#### Code 1 
-```csharp
-
-using System;
-using System.Text;
-
-namespace LearnNumbers
-{
-    internal partial class Program
-    {
-
-        static void Main(string[] args)
-        {
-            var builder = new StringBuilder();
-
-            //Append
-            builder.Append('-', 10);
-            builder.AppendLine();
-
-            builder.Append("Header");
-            builder.AppendLine();
-            builder.Append('-', 10);
-
-
-            /*
-                ----------
-                Header
-                ----------
-             */
-
-            //================
-
-
-            builder.Replace('-', '+');
-            /*
-                ++++++++++
-                Header
-                ++++++++++
-             */
-
-
-            builder.Remove(0, 10);
-
-            /*
-
-                Header
-                ++++++++++
-             */
-
-
-            builder.Insert(0, new string('-', 10));
-            /*
-                ----------
-                Header
-                ++++++++++  
-             */
-
-            Console.WriteLine(builder);
-
-            Console.WriteLine("First Char : " + builder[0]);
-        }
-    }
-}
-```
-Or chainthem, as they return a method()
-
-#### Code 2
-```csharp
-
-using System;
-using System.Reflection;
-using System.Text;
-
-namespace LearnNumbers
-{
-    internal partial class Program
-    {
-
-        static void Main(string[] args)
-        {
-            var builder = new StringBuilder();
-
-            //All chained
-            builder.Append('-', 10)
-            .AppendLine()
-            .Append("Header")
-            .AppendLine()
-            .Append('-', 10)
-            .Replace('-', '+')
-            .Remove(0, 10)
-            .Insert(0, new string('-', 10));/
-
-            Console.WriteLine(builder);
-
-            Console.WriteLine("First Char : " + builder[0]);
-        }
-    }
-}
-
-```
 <br>
 
 ### Initialize with Text
@@ -482,6 +382,112 @@ Console.WriteLine(report);
 ```
 
 Cleaner and much more efficient.
+
+<br>
+
+**Example:**
+
+#### Code 1 
+```csharp
+
+using System;
+using System.Text;
+
+namespace LearnNumbers
+{
+    internal partial class Program
+    {
+
+        static void Main(string[] args)
+        {
+            var builder = new StringBuilder();
+
+            //Append
+            builder.Append('-', 10);
+            builder.AppendLine();
+
+            builder.Append("Header");
+            builder.AppendLine();
+            builder.Append('-', 10);
+
+
+            /*
+                ----------
+                Header
+                ----------
+             */
+
+            //================
+
+
+            builder.Replace('-', '+');
+            /*
+                ++++++++++
+                Header
+                ++++++++++
+             */
+
+
+            builder.Remove(0, 10);
+
+            /*
+
+                Header
+                ++++++++++
+             */
+
+
+            builder.Insert(0, new string('-', 10));
+            /*
+                ----------
+                Header
+                ++++++++++  
+             */
+
+            Console.WriteLine(builder);
+
+            Console.WriteLine("First Char : " + builder[0]);
+        }
+    }
+}
+```
+Or chain them, 
+You are able to chain them as they return a same method() `StringBuilder`
+
+#### Code 2
+```csharp
+
+using System;
+using System.Reflection;
+using System.Text;
+
+namespace LearnNumbers
+{
+    internal partial class Program
+    {
+
+        static void Main(string[] args)
+        {
+            var builder = new StringBuilder();
+
+            //All chained
+            builder.Append('-', 10)
+            .AppendLine()
+            .Append("Header")
+            .AppendLine()
+            .Append('-', 10)
+            .Replace('-', '+')
+            .Remove(0, 10)
+            .Insert(0, new string('-', 10));/
+
+            Console.WriteLine(builder);
+
+            Console.WriteLine("First Char : " + builder[0]);
+        }
+    }
+}
+
+```
 
 <br>
 
