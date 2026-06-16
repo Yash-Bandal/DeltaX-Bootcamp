@@ -1,5 +1,66 @@
 # Strings in C#
 
+
+---
+> [!Note]
+> Strings are Immutable, you may append a new string to a old string
+>
+> But it looks to you a same string, internally different objects are created
+>
+> 
+//or chainthem, as they return a method()
+using System;
+
+```csharp
+namespace LearnNumbers
+{
+    internal partial class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+
+            string text = "Hello";
+
+            // we are appending, not modifying, 
+            // and each text var here is a new object, not the sameone
+            text += " World";
+            text += "!";
+
+            Console.WriteLine(text);
+
+        }
+    }
+}
+
+```
+```
+/*
+ Before
+
+text
+ │
+ ▼
+"Hello"
+
+
+After:
+
+"Hello"          "Hello World"
+                    ▲
+                    │
+                  text 
+
+old object       new object
+ */
+
+```
+---
+
+<br>
+
+
 ## What is a String?
 
 A string represents text.
