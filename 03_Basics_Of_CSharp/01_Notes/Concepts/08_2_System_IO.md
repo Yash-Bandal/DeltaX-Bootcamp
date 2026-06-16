@@ -9,6 +9,10 @@
 * File Paths
 * Streams
 
+<div align = "center">
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/05592a4d-e526-4b74-aa92-7b170baefca6" />
+</div>
+
 It is commonly used for:
 
 * Reading files
@@ -28,6 +32,27 @@ using System.IO;
 <br>
 
 # File vs FileInfo
+
+
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/fe5bdb78-85b0-4cb0-9502-0b0a81bac489" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/71eb310d-3704-4020-a954-24dd4e01400a" />
+    <p> Methods</p>
+    <img width="600" alt="image" src="https://github.com/user-attachments/assets/927a8d31-9d05-4b79-a7ca-ada1ad0fb3e5" />
+
+</div>
+
+---
+> [!Note]
+> The problem with the **File**  `static methods` is , everytime ypu call static methods, a security check is made by the **OS**\
+> to Ensure if user has access to file
+>
+> So for large operations, it affects the performance of the application, so in that case, it becomes efficient to\
+> use the **FileInfo** class `instance methods`, that perform only 1 time security checkup , at time of creation of file,objects
+> 
+---
+
+
 
 ## File Class
 
@@ -198,6 +223,11 @@ Console.WriteLine(file.CreationTime);
 <br>
 
 # Directory vs DirectoryInfo
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/0254a9a1-e032-41d5-b72d-551b3f37f48a" />
+ <img width="450" alt="image" src="https://github.com/user-attachments/assets/feee32bb-b95c-45b9-aa50-de32f608c735" />
+</div>
+
 
 ## Directory Class
 
@@ -327,6 +357,11 @@ Console.WriteLine(folder.CreationTime);
 <br>
 
 # Path Class
+
+<div align = "center">
+<img width="382" height="378" alt="image" src="https://github.com/user-attachments/assets/b749e2e7-6b67-4a65-bff9-253c1f3f3438" />
+</div>
+
 
 ## What is Path?
 
