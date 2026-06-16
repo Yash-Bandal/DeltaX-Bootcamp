@@ -567,7 +567,92 @@ String Interpolation ($"")
 </div>
 
 
+<br>
 
+**Example:**
+```csharp
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Reflection;
+using System.Runtime.InteropServices;
+
+namespace LearnNumbers
+{
+    internal partial class Program
+    {
+        public static void printList(List<int> ls)
+        {
+            for (int i = 0; i < ls.Count; i++)
+            {
+                Console.Write(ls[i] + " ");
+            }
+
+            Console.WriteLine();
+        }
+
+        static void Main(string[] args)
+        {
+            // Trim 
+            /*
+             Removes whitespaces before and after strings,
+             useful when taking user input
+             */
+            //var fullName = "  Yash  Bandal  ";
+            var fullName = "Yash Bandal  ";
+            Console.WriteLine("Before Trim : '{0}' ", fullName ); //'  Yash  Bandal  '
+            Console.WriteLine("After Trim : '{0}' ", fullName.Trim() ); // 'Yash  Bandal'
+
+            // TopUpper and ToLower
+            Console.WriteLine("To Upper: '{0}' ", fullName.ToUpper() ); // YASH  BANDAL 
+            Console.WriteLine("To Lower: '{0}' ", fullName.ToLower() ); // yash  bandal
+
+            //========================== Operations
+
+            var index = fullName.IndexOf(' ');
+            //Console.WriteLine(index); //4
+            var fn = fullName.Substring(0,index); //we supplied start + end ( , )
+            var ln = fullName.Substring(index+1); //we supplied just starting point ( )  
+
+            Console.WriteLine("First name :  " +  fn + "\n Last Name : " + ln);
+
+            var strs = fullName.Split(' '); //type string array
+            //strs = ["Yash" , "Bandal"] 
+
+            //access as array
+            Console.WriteLine("First name :  " + strs[0] + "\n Last Name : " + strs[1]);
+
+            //=================================================
+            //Replace
+            var newName = fullName.Replace("Yash", "Yash Dada");
+            Console.WriteLine(newName);
+
+            if (String.IsNullOrEmpty(" ")) // do invalid for " ", because empty space matters
+            {
+                Console.WriteLine("First Invalid");
+            }
+
+
+
+            if (String.IsNullOrEmpty(" ".Trim())) 
+            {
+                Console.WriteLine("Second Invalid");
+            }
+
+            if (String.IsNullOrWhiteSpace(" ")) // do invalid for " ", because empty space matters
+            {
+                Console.WriteLine("Third Invalid");
+            }
+
+
+        }
+
+    }
+}
+
+```
+
+<br>
 
 ## Key Takeaways
 
