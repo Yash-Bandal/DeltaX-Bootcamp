@@ -8,12 +8,6 @@
 * Architecture
 * First Application
 
----
-> [!Tip]
-> `90%` of time, we just use `10%` of the  `Visual Studio` platform,
->
-> and that include just the coding interface, and console
----
 
 ## 2. Variables and Data Handling
 
@@ -73,3 +67,17 @@
 * Call Stack
 * Defensive Programming
 * Locals and Autos
+
+
+<br>
+
+---
+
+<br>
+
+---
+> [!Tip]
+> `90%` of time, we just use `10%` of the  `Visual Studio` platform,
+>
+> and that include just the coding interface, and console
+---
