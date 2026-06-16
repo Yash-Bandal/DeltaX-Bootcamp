@@ -9,7 +9,7 @@
 ## StringBuilder
 
 > [!Note]
-> Strings are &immutable&, `StringBuilder` class introduce mutability
+> Strings are *immutable*, `StringBuilder` class introduce mutability
 >
 > But with `StringBuilder`, you dont get searching methods, like searching index, char..
 
