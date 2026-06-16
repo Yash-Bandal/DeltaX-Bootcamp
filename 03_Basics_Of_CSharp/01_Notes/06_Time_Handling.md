@@ -235,6 +235,75 @@ Console.WriteLine(
 
 <br>
 
+**Example:**
+```csharp
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Reflection;
+
+namespace LearnNumbers
+{
+    internal partial class Program
+    {
+        public static void printList(List<int> ls)
+        {
+            for (int i = 0; i < ls.Count; i++)
+            {
+                Console.Write(ls[i] + " ");
+            }
+
+            Console.WriteLine();
+        }
+
+        static void Main(string[] args)
+        {
+            var dateTime = new DateTime(2026,06,10);
+            var now = DateTime.Now;
+            var today = DateTime.Today;
+
+            Console.WriteLine("Hour :" + now.Hour);
+            Console.WriteLine("Minute :" + now.Minute);
+            // Hour: 11
+            // Minute: 39
+            
+            //==========================================
+
+            // DateTime elements are Immutable, but you can use predefined methods
+            var tomorrow = now.AddDays(1);
+            Console.WriteLine("Tomorrow is " + tomorrow);
+
+            var yesterday = now.AddDays(-1);
+            Console.WriteLine("Yesterday was "+ yesterday);
+
+            //Tomorrow is 17 - 06 - 2026 11:39:35
+            //Yesterday was 15 - 06 - 2026 11:39:35
+
+            //===========================================
+
+            //Format methods
+
+            // Dates
+            Console.WriteLine(now.ToLongDateString()); //16 June 2026
+            Console.WriteLine(now.ToShortDateString()); //16-06-2026
+
+            // Times
+            Console.WriteLine(now.ToLongTimeString()); //11:41:04
+            Console.WriteLine(now.ToShortTimeString()); //11:41 
+
+            // Custom
+            Console.WriteLine(now.ToString("yyyy-MM-dd HH:mm")); //2026-06-16 11:41
+            Console.WriteLine(now.ToString("yy-M-dd H:m")); //26-6-16 11:41
+
+            //================================================
+            //Tip : see google docs for more info
+        }
+    }
+}
+
+```
+<br>
+
 ## Date Calculations
 
 ### Add Days
@@ -524,6 +593,72 @@ Hours
 TotalDays
 TotalHours
 TotalMinutes
+```
+
+
+<br>
+
+**Example:**
+```csharp
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Reflection;
+
+namespace LearnNumbers
+{
+    internal partial class Program
+    {
+        public static void printList(List<int> ls)
+        {
+            for (int i = 0; i < ls.Count; i++)
+            {
+                Console.Write(ls[i] + " ");
+            }
+
+            Console.WriteLine();
+        }
+
+        static void Main(string[] args)
+        {
+            var timespan = new TimeSpan(1, 10, 30); //custom confusing
+            Console.WriteLine(timespan); //01:10:30
+
+            var timespan1 = new TimeSpan(1, 0, 0); //confusing
+            Console.WriteLine(timespan1); //01:00:00
+
+            var timespan2 = TimeSpan.FromHours(1); //confusing
+            Console.WriteLine(timespan2); //01:00:00
+
+            //==============================================
+
+            var start = DateTime.Now;
+            var end = DateTime.Now.AddMinutes(2);
+            var difference = end - start;
+            Console.WriteLine("Difference is " + difference);
+
+            // ========================================
+            // Properties
+            Console.WriteLine("Minutes :" + timespan.Minutes); //Minutes :10
+            Console.WriteLine("Total Minutes :" + timespan.TotalMinutes); //Total Minutes :70.5
+
+            // Add time
+            Console.WriteLine("Add Example : "+ timespan.Add(TimeSpan.FromMinutes(8)));
+            // Add Example : 01:10:30 + 00:08:00 = 01:18:30
+            Console.WriteLine("Subtract Example : "+ timespan.Subtract(TimeSpan.FromMinutes(8)));
+            // Add Example : 01:10:30 - 00:08:00 = 01:02:30
+
+
+            //Tostring
+            Console.WriteLine("ToString : " + timespan.ToString()); //ToString : 01:10:30
+
+            //Parse - auto apply tostring to Timespan object
+            Console.WriteLine("Parse : " + TimeSpan.Parse("02:01")); //Parse : 02:01:00
+
+        }
+    }
+}
+
 ```
 
 <br>
