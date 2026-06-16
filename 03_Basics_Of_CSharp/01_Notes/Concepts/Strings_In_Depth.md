@@ -41,6 +41,10 @@ The original string remains unchanged.
 
 ## Common String Methods
 
+<div align = "center">
+    <img width="500"  alt="image" src="https://github.com/user-attachments/assets/d4271bb9-235d-421d-90c5-cc9a3cd40279" />
+</div>
+
 ### Length
 
 Returns the number of characters.
@@ -151,6 +155,11 @@ True
 
 <br>
 
+<div align = "center">
+    <img width="488" height="262" alt="image" src="https://github.com/user-attachments/assets/8ca6cb58-2c77-4979-8e05-597fe4612aa6" />
+</div>
+
+
 ### IndexOf()
 
 Returns the position of a character or string.
@@ -171,6 +180,11 @@ Output:
 
 ### Replace()
 
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/9a901b16-a484-45a5-9d10-2d7c89fd883f" />
+</div>
+
+
 ```csharp
 string text = "Hello World";
 
@@ -188,6 +202,12 @@ Hello C#
 <br>
 
 ### Substring()
+
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/3fa064a2-e7b8-4ef1-b4e9-8fb4a4699337" />
+</div>
+
+
 
 Extracts part of a string.
 
@@ -340,6 +360,12 @@ Very common in APIs and reporting.
 
 ## String Split()
 
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/ac56a034-ab61-400c-9f1a-17aa1b58a568" />
+</div>
+
+
+
 Breaks a string into parts.
 
 ```csharp
@@ -443,6 +469,11 @@ True
 
 ## Null or Empty Check
 
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/fd4df61a-5871-4465-804b-6fc0e1fedb84" />
+</div>
+
+
 Very common in production code.
 
 ```csharp
@@ -512,6 +543,31 @@ String Interpolation ($"")
 ```
 
 <br>
+
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/efadd7e4-b8af-4b56-99d4-80e211ef0e1d" />
+</div>
+
+---
+> [!Note]
+> Prefer mostly `Convert.ToInt32()`, over `int.Parse()`, because
+>
+> When String is empty `""` or `NULL`,  `Convert.ToInt32()` returns 0, and `int.Parse()` throws exception
+---
+
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/701e0521-1ccf-415a-a024-1eff5460f595" />
+</div>
+
+
+### Format Strings
+
+<div align = "center">
+    <img width="600" alt="image" src="https://github.com/user-attachments/assets/c21c4c1f-fed5-4a88-8765-2f7cb74fd348" />
+</div>
+
+
+
 
 ## Key Takeaways
 
