@@ -919,6 +919,121 @@ foreach (int number in numbers)
 
 Most business applications use `List<T>` far more often than arrays.
 
+
+<br>
+
+**Example:**
+```csharp
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Reflection;
+
+namespace LearnNumbers
+{
+    internal partial class Program
+    {
+        public static void printList(List<int> ls)
+        {
+            for (int i = 0; i < ls.Count; i++)
+            {
+                Console.Write(ls[i] + " ");
+            }
+
+            Console.WriteLine();
+        }
+
+        static void Main(string[] args)
+        {
+            // 0   1   2
+            List<int> arr = new List<int>() { 10, 20, 30 };
+            printList(arr);
+            // 10 20 30
+
+            //Add()
+            var arr2 = new[] { 40, 50, 60 };
+            foreach (var item in arr2)
+            {
+                arr.Add(item);
+            }
+
+            printList(arr);
+            // 10 20 30 40 50 60
+
+            //===========================================================
+
+            // AddRange()
+            //arr.AddRange(new List<int>() { 70, 80, 90 });
+
+            //or
+            List<int> arr3 = new List<int>() { 30, 20, 10};
+            arr.AddRange(arr3);
+
+            printList(arr);
+            //10 20 30 40 50 60 30 20 10
+
+            //===========================================================
+
+            // IndexOf and LastIndexOf 
+            Console.WriteLine(string.Format("Index of 10 is {0}",arr.IndexOf(10)));
+            Console.WriteLine(string.Format("Last Index of 10 is {0}",arr.LastIndexOf(10)));
+            // Index of 10 is 0
+            // Last Index of 10 is 8
+
+            //===========================================================
+
+            //Count 
+            Console.WriteLine("Count of elements : " + arr.Count );
+            //Count of elements : 9
+
+            //===========================================================
+            // Remove first occurance, single value
+            arr.Remove(10);
+            printList(arr);
+            //20 30 40 50 60 30 20 10
+
+
+            // using foreach gives error while modifying
+            //foreach (var item in arr)
+            //{
+            //    if(item == 20)
+            //    {
+            //        arr.Remove(item);
+            //    }
+            //}
+            //printList(arr);
+            //Collection was modified; enumeration operation may not execute
+
+
+            //Removing multiple elements  - here 20
+
+            Console.WriteLine("Remove multiple elements:");
+            for (int i = 0; i < arr.Count; i++)
+            {
+                if (arr[i] == 20)
+                {
+                    arr.Remove(arr[i]);
+                }
+            }
+            printList(arr);
+            //30 40 50 60 30 10
+
+            //===========================================================
+            Console.WriteLine("After clearing List: ");
+            arr.Clear();
+            printList(arr);
+
+            Console.WriteLine("Count of elements : " + arr.Count );
+            // Count of elements : 0 
+
+
+        }
+    }
+}
+
+```
+
+
 <br>
 
 ---
