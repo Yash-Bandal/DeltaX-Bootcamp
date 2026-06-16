@@ -1,4 +1,3 @@
-# C# Basics
 
 # 8.1 Procedural Programming
 
@@ -7,6 +6,19 @@
 Procedural Programming is a programming style where a program is divided into small, reusable methods (functions).
 
 Instead of writing everything inside `Main()`, we organize code into methods.
+
+
+<div align = "center">
+    <img width="600" alt="image" src="https://github.com/user-attachments/assets/4c2dbe74-9a99-4d59-bbef-37deaa011008" />
+</div>
+
+and 
+
+<div align = "center">
+    <img width="600" alt="image" src="https://github.com/user-attachments/assets/6d36c27b-5c4d-46bb-8f12-f95dd3186505" />
+</div>
+
+
 
 ### Without Methods
 
