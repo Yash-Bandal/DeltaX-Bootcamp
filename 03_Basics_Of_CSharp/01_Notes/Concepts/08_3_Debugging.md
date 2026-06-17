@@ -13,7 +13,12 @@
 ---
 ---
 > [!Important]
-> 1. A real programmer is the one, who considers all test cases 
+> 1. A real programmer is the one, who considers all test cases
+> 2. There is also `Autos` and `Locals` watch window,
+>     - Autos show variables to be watched automatically
+>     - Locals also same as auto, but show only major ones variables
+> 3. Debugging is important maybe some developers spend weeks to get rid of a bug
+
 ---
 
 <br>
@@ -21,6 +26,10 @@
 <div align = "center">
   <img height="150" alt="image" src="https://github.com/user-attachments/assets/a320f865-516f-41a9-ac83-a3dc5a6212b3" />
 <img height="150" alt="image" src="https://github.com/user-attachments/assets/51909657-2126-40bc-a308-e48b20267e8f" />
+<p>Moving the pointer arrow to breakpoint </p>
+
+  <img width="700" alt="image" src="https://github.com/user-attachments/assets/22e7529e-4560-4e88-8c7b-20a04fac8d1b" />
+  <p> Autos and locals</p>
 </div>
 
 
