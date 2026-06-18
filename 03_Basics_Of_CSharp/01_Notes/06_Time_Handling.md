@@ -598,6 +598,259 @@ TotalMinutes
 
 <br>
 
+
+---
+
+
+<br>
+
+
+
+## DateTime.TryParseExact()
+
+`TryParseExact()` converts a string into a `DateTime` only if it exactly matches the specified format.
+
+Unlike `TryParse()`, it does **not** guess the format.
+
+### Syntax
+
+```csharp
+DateTime.TryParseExact(
+    string s,
+    string format,
+    IFormatProvider provider,
+    DateTimeStyles styles,
+    out DateTime result
+);
+```
+
+### Parameters
+
+| Parameter  | Description                                      |
+| ---------- | ------------------------------------------------ |
+| `s`        | Date string to convert                           |
+| `format`   | Expected date format                             |
+| `provider` | Usually `null` or `CultureInfo.InvariantCulture` |
+| `styles`   | Parsing options (`DateTimeStyles.None`)          |
+| `result`   | Parsed DateTime value                            |
+
+
+<br>
+
+
+
+### Example
+
+```csharp
+using System.Globalization;
+
+string input = "07-07-2025";
+
+bool success = DateTime.TryParseExact(
+    input,
+    "dd-MM-yyyy",
+    CultureInfo.InvariantCulture,
+    DateTimeStyles.None,
+    out DateTime date
+);
+
+if (success)
+{
+    Console.WriteLine(date);
+}
+```
+
+
+<br>
+
+
+
+### Why Use TryParseExact?
+
+Use it when the input format is fixed.
+
+Examples:
+
+* Date of Birth
+* CSV Import
+* Excel Import
+* API Requests
+* Forms
+
+It prevents invalid formats from being accepted.
+
+
+<br>
+
+
+
+## Common Date Format Strings
+
+| Format        | Example     |
+| ------------- | ----------- |
+| `dd/MM/yyyy`  | 07/07/2025  |
+| `dd-MM-yyyy`  | 07-07-2025  |
+| `MM/dd/yyyy`  | 07/07/2025  |
+| `yyyy-MM-dd`  | 2025-07-07  |
+| `dd MMM yyyy` | 07 Jul 2025 |
+| `dddd`        | Monday      |
+| `MMMM`        | July        |
+| `ddd`         | Mon         |
+| `MMM`         | Jul         |
+
+
+<br>
+
+
+
+## Frequently Used DateTime Methods
+
+### AddMinutes()
+
+```csharp
+DateTime.Now.AddMinutes(30);
+```
+
+
+<br>
+
+
+### AddSeconds()
+
+```csharp
+DateTime.Now.AddSeconds(45);
+```
+
+
+<br>
+
+
+
+### AddTicks()
+
+```csharp
+DateTime.Now.AddTicks(100);
+```
+
+Used rarely, for very precise time calculations.
+
+
+<br>
+
+
+
+### Subtract()
+
+```csharp
+DateTime start = DateTime.Now;
+
+DateTime end = start.AddHours(2);
+
+TimeSpan duration = end.Subtract(start);
+```
+
+<br>
+
+
+
+### Compare()
+
+```csharp
+int result = DateTime.Compare(date1, date2);
+```
+
+Returns:
+
+```text
+< 0   date1 is earlier
+0     both are equal
+> 0   date1 is later
+```
+
+<br>
+
+
+
+### Equals()
+
+```csharp
+Console.WriteLine(date1.Equals(date2));
+```
+
+Returns `true` if both dates are identical.
+
+
+<br>
+
+
+## Frequently Used TimeSpan Methods
+
+### Add()
+
+```csharp
+TimeSpan t1 = TimeSpan.FromHours(2);
+TimeSpan t2 = TimeSpan.FromMinutes(30);
+
+Console.WriteLine(t1.Add(t2));
+```
+
+Output:
+
+```text
+02:30:00
+```
+
+
+<br>
+
+
+
+### Subtract()
+
+```csharp
+TimeSpan t1 = TimeSpan.FromHours(3);
+
+Console.WriteLine(
+    t1.Subtract(TimeSpan.FromMinutes(45))
+);
+```
+
+Output:
+
+```text
+02:15:00
+```
+
+
+<br>
+
+
+
+### Parse()
+
+Convert a string into a `TimeSpan`.
+
+```csharp
+TimeSpan span =
+    TimeSpan.Parse("02:30");
+```
+
+Output:
+
+```text
+02:30:00
+```
+
+
+<br>
+
+---
+
+
+
+<br>
+
+
 **Example:**
 ```csharp
 using System;
