@@ -2,6 +2,9 @@
 
 Classes are the foundation of Object-Oriented Programming (OOP) in C#. Every application you build will contain classes. A class acts as a blueprint that defines what an object should contain (data) and what it can do (behavior).
 
+
+
+
 <br>
 
 # 1.1 Introduction to Classes
@@ -16,7 +19,19 @@ A **class** is a user-defined data type that groups together related data and fu
 
 Think of a class as a blueprint and an object as the actual item built from that blueprint.
 
+
+<div align = "center">
+<img width="641" height="353" alt="image" src="https://github.com/user-attachments/assets/8827f384-8498-4507-bfac-0d22d77bbfeb" />
+    <p>eg. UML Classes </p>
+</div>
+
 ### Real-World Analogy
+
+
+<div align = "center">
+    <img width="643" height="316" alt="image" src="https://github.com/user-attachments/assets/74fc79ad-1ab4-4bca-af3d-166669de48fd" />
+    <p>eg. Application Layer Classes </p>
+</div>
 
 **Blueprint → House**
 
@@ -36,7 +51,18 @@ Similarly,
 
 One class can create many objects.
 
+
+
+
+<div align = "center">
+<img width="548" height="395" alt="image" src="https://github.com/user-attachments/assets/8b3eea93-4b9d-4ef8-a2a8-cb0f6eb8336e" />
+    <p>Class Members Instance Type and Static Type </p>
+</div>
+
+
 <br>
+
+
 
 ## Why Do We Need Classes?
 
