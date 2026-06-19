@@ -90,6 +90,12 @@ Notice:
 
 <br>
 
+<div align = "center">
+  <img width="400"  alt="image" src="https://github.com/user-attachments/assets/c9dbfb4a-6ba5-4edc-a0d1-f4d6f802bd50" />
+</div>
+
+<br>
+
 # Default Constructor
 
 A constructor without parameters is called the **Default Constructor**.
@@ -167,8 +173,8 @@ Each object receives different values.
 - Constructor Overloading is simply having multiple constructors (Obviously with the same name 😅) in a class,
 - What uniquely identifies a method is its `Signature` (Like 2 people with same name shall be identified with their different signature)
     - Signatures include return type, var names, types,and number of parameters
- - We **`Need`** Constructor Overloading  / Multiple Constructors to simplify initialization, sometimes we may just know name, sometimes name and id   
-  
+ - We **`Need`** Constructor Overloading  / Multiple Constructors to simplify initialization, sometimes we may just know name, sometimes name and id
+ - So based on Availability of arguments we have to pass, we use multiple Constructors
 
 A class can have multiple constructors as long as their parameter lists are different.
 
@@ -198,6 +204,10 @@ class Person
     }
 }
 ```
+
+- If we know nothing, we can set default values and `Default Constructor` will be auto calledd
+- If we just know **name**, we can call Single `Parameterized Constructor` Person(name)
+- If we know both **name**, and **age**, we  can have Double `Parameterized Constructor` Person(name, age)
 
 Usage
 
