@@ -91,13 +91,13 @@ This means constructors always execute **before** the object initializer assigns
 
 
 <div align = "center">
-  <img width="400" height="392" alt="image" src="https://github.com/user-attachments/assets/0724d2cf-9d1c-460a-b707-70ec8a2ee081" />
+  <img width="400"  alt="image" src="https://github.com/user-attachments/assets/0724d2cf-9d1c-460a-b707-70ec8a2ee081" />
 <p>Suppose this is the class that needs Object</p>
 
-<img width="600" height="314" alt="image" src="https://github.com/user-attachments/assets/538443eb-e348-4654-90a7-149d7758a966" />
+<img width="600"  alt="image" src="https://github.com/user-attachments/assets/538443eb-e348-4654-90a7-149d7758a966" />
 <p>Normal Object Initialization (Big and High maintainance)</p>
 
-<img width="600" height="227" alt="image" src="https://github.com/user-attachments/assets/d98ca88e-81c4-4373-ade0-4cd68cc1ae2c" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/d98ca88e-81c4-4373-ade0-4cd68cc1ae2c" />
 <p>With Object Initializer</p>
 
 </div>
