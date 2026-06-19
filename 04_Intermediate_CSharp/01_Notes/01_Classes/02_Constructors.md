@@ -413,7 +413,9 @@ After this, the constructor can assign meaningful values.
 <br>
 
 
-**Example:**
+
+
+### **Constructors Example:**
 
 **Program.cs**
 ```csharp
@@ -423,6 +425,7 @@ namespace CSharpIntermediate
     {
         public static void Main(string[] args)
         {
+            // ==================================================
             // Default Constructor usage
             Console.WriteLine("Default Constructor call");
             
@@ -432,7 +435,13 @@ namespace CSharpIntermediate
 
             Order order = new Order();
             customer1.Orders.Add(order);
+            /*
+            Default Constructor call
+                 <-- (No value here)
+            0
+            */
 
+            // ====================================================
 
             // Parametrized
             Console.WriteLine("Parametrized Constructor call");
@@ -444,6 +453,13 @@ namespace CSharpIntermediate
 
             Console.WriteLine(customer2.Name);
             Console.WriteLine(customer2.Id);
+            /*
+            Parametrized Constructor call
+            Darshan
+            1
+            */
+
+            // ========================================================
 
             // Paramterized full
             Console.WriteLine("Parametrized Constructor Full Call");
@@ -452,6 +468,13 @@ namespace CSharpIntermediate
             // No need because of Constructor
             Console.WriteLine(customer3.Name);
             Console.WriteLine(customer3.Id);
+            /*
+            Parametrized Constructor Full Call
+            Yash
+            2
+            */  
+
+            // ==========================================================
         }
     }
 }
@@ -459,6 +482,7 @@ namespace CSharpIntermediate
 **Order.cs**
 ```csharp
 namespace CSharpIntermediate
+{
         public class Order
         {
         }
@@ -491,7 +515,7 @@ namespace CSharpIntermediate
         }
     }
 }
-```csharp
+```
 Using this() to avoid repeated re writing and re initializing vars
 ```csharp
 using System.Collections.Generic;
