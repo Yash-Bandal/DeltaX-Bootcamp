@@ -15,6 +15,50 @@ Constructors are special methods that are automatically called when an object is
 >      -  **Character** to `empty char`
 ---
 
+---
+> [!Important]
+> Note, that when we create `1` or `1+`  **Custom** Constructor, the compiler does not create **Default Constructor**
+>
+> But, if you havent defined a custom constructor, a default constructor is auto initialized and created by compiler,
+>
+> You cant see it, but if you want to inspect you can check `IL` code
+> 
+> eg
+> ```csharp    
+>    public class Customer
+>    {
+>        public int Id;
+>        public string Name;
+>
+>        // No default Constructor
+> 
+>        public Customer(int id)  //paramterized custom constructor 1
+>        {
+>            this.Id  = id;
+>        }
+>
+>        public Customer(string name, int id) //paramterized custom constructor 1
+>        {
+>            this.Id = id;
+>            this.Name = name;
+>        }
+>    }
+>
+> class Program
+> {
+>     public static void Main(string[] args)
+>     {
+>        // Customer customer = new Customer(); //Gives error
+>        Customer customer = new Customer(1);
+> 
+>        Console.WriteLine(customer.Name);
+>        Console.WriteLine(customer.Id);
+>     }
+> }
+> ```
+>
+---
+
 
 
 <br>
@@ -166,15 +210,20 @@ Each object receives different values.
 
 # Multiple Constructors (Constructor Overloading)
 
-<div align = "center">
-<img width="600"  alt="image" src="https://github.com/user-attachments/assets/46dec33a-9c80-44f8-9606-513dac2d0617" />
-</div>
 
 - Constructor Overloading is simply having multiple constructors (Obviously with the same name 😅) in a class,
 - What uniquely identifies a method is its `Signature` (Like 2 people with same name shall be identified with their different signature)
     - Signatures include return type, var names, types,and number of parameters
  - We **`Need`** Constructor Overloading  / Multiple Constructors to simplify initialization, sometimes we may just know name, sometimes name and id
  - So based on Availability of arguments we have to pass, we use multiple Constructors
+
+<br>
+
+<div align = "center">
+<img width="600"  alt="image" src="https://github.com/user-attachments/assets/46dec33a-9c80-44f8-9606-513dac2d0617" />
+</div>
+
+
 
 A class can have multiple constructors as long as their parameter lists are different.
 
@@ -360,6 +409,138 @@ After this, the constructor can assign meaningful values.
 | Called automatically          | Called explicitly            |
 | Initializes objects           | Performs operations          |
 | Runs once per object creation | Can be called multiple times |
+
+<br>
+
+
+**Example:**
+
+**Program.cs**
+```csharp
+namespace CSharpIntermediate
+{
+    internal partial class Program
+    {
+        public static void Main(string[] args)
+        {
+            // Default Constructor usage
+            Console.WriteLine("Default Constructor call");
+            
+            Customer customer1 = new Customer();
+            Console.WriteLine(customer1.Name);
+            Console.WriteLine(customer1.Id);
+
+            Order order = new Order();
+            customer1.Orders.Add(order);
+
+
+            // Parametrized
+            Console.WriteLine("Parametrized Constructor call");
+
+            Customer customer2 = new Customer(1);
+            customer2.Name = "Darshan";
+
+            //customer2.Orders.Add(order); can use only if param costruc has Order defined
+
+            Console.WriteLine(customer2.Name);
+            Console.WriteLine(customer2.Id);
+
+            // Paramterized full
+            Console.WriteLine("Parametrized Constructor Full Call");
+            
+            Customer customer3 = new Customer("Yash",2);
+            // No need because of Constructor
+            Console.WriteLine(customer3.Name);
+            Console.WriteLine(customer3.Id);
+        }
+    }
+}
+```
+**Order.cs**
+```csharp
+namespace CSharpIntermediate
+        public class Order
+        {
+        }
+}
+```
+
+**Customer.cs**
+```csharp
+using System.Collections.Generic;
+namespace CSharpIntermediate
+{
+    public class Customer
+    {
+        public int Id;
+        public string Name;
+        public List<Order> Orders;
+        public Customer()
+        {
+            Orders = new List<Order>();
+        }
+        public Customer(int id)
+        {
+            this.Id = id;
+        }
+
+        public Customer(string name, int id) 
+        {
+            this.Id = id;
+            this.Name = name;
+        }
+    }
+}
+```csharp
+Using this() to avoid repeated re writing and re initializing vars
+```csharp
+using System.Collections.Generic;
+namespace CSharpIntermediate
+{
+    public class Customer
+    {
+        public int Id;
+        public string Name;
+        public List<Order> Orders;
+        public Customer()
+        {
+            Orders = new List<Order>();
+        }
+        public Customer(int id) : this() //this() tells the compiler to call Default constructor before current paramterized
+        {
+            this.Id = id;
+        }
+
+        public Customer(string name, int id) : this(id)
+        {
+            this.Name = name;
+        }
+    }
+}
+
+/*
+ think this represents the constructor
+this() -> Default Constructor
+this(1) -> parametrized constructor 1
+ */
+```
+**Output**
+```
+ Default Constructor call
+     <-- (No value here)
+0
+
+Parametrized Constructor call
+Darshan
+1
+
+Parametrized Constructor Full Call
+Yash
+2
+```
+
+```
+
 
 <br>
 
