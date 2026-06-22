@@ -6,9 +6,9 @@ Constructors are special methods that are automatically called when an object is
 
 ---
 > [!Note]
-> 1. We dont need to always define a constructor, only need when we have to initialize object on creation
+> 1. We dont need to always define a constructor, it is only needed when we have to initialize object on creation
 >     - Because there is always a default constructor
->  2. It does nothing much, just initialize fields of class to their default values
+>  2. It does nothing much, it's just used to initialize fields of class to their default values
 >      - If any **numbers/integers**, set to initial `0`
 >      - **Boolean** to `false`
 >      - **Reference type** (eg Arrays) set to `null`
