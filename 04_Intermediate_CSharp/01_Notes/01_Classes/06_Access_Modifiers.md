@@ -1,4 +1,4 @@
-<img width="554" height="438" alt="image" src="https://github.com/user-attachments/assets/2f302848-4dda-406b-a749-5752510d4dae" /># 1.6 Access Modifiers
+# 1.6 Access Modifiers
 
 Access modifiers define the **visibility** and **accessibility** of classes and their members (fields, methods, properties, constructors, etc.).
 
