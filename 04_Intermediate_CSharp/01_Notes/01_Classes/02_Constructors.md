@@ -8,7 +8,7 @@ Constructors are special methods that are automatically called when an object is
 > [!Note]
 > 1. We dont need to always define a constructor, it is only needed when we have to initialize object on creation
 >     - Because there is always a default constructor
->  2. It does nothing much, it's just used to initialize fields of class to their default values
+>  2. It does nothing much, it's just used to initialize fields of class to their [Default values](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_Intermediate_CSharp/01_Notes/01_Classes/02_Constructors.md#default-values-before-constructor-runs)
 >      - If any **numbers/integers**, set to initial `0`
 >      - **Boolean** to `false`
 >      - **Reference type** (eg Arrays) set to `null`
