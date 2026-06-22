@@ -254,9 +254,9 @@ class Person
 }
 ```
 
-- If we know nothing, we can set default values and `Default Constructor` will be auto calledd
-- If we just know **name**, we can call Single `Parameterized Constructor` Person(name)
-- If we know both **name**, and **age**, we  can have Double `Parameterized Constructor` Person(name, age)
+- If we know nothing, we can set default values and `Default Constructor` will be auto called, _Person()_
+- If we just know **name**, we can call Single `Parameterized Constructor` _Person(name)_
+- If we know both **name**, and **age**, we  can have Double `Parameterized Constructor` _Person(name, age)_
 
 Usage
 
