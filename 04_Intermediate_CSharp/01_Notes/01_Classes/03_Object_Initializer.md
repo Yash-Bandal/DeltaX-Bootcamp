@@ -205,4 +205,4 @@ When you want to initialize multiple fields or properties in a clean and readabl
 
 <br>
 
-We need to aboid multiple constructors 
+We need to avoid multiple constructors 
