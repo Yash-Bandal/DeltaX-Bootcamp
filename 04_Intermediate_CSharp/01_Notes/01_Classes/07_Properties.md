@@ -13,6 +13,19 @@ Instead of exposing fields directly, we expose **properties**.
 > Q Why do need a property?\
 > To crate getter/setter with less code
 
+
+<br>
+
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/0ebdeb4e-311a-4e17-a09d-c5cae658f4d2" />
+<p>This is without a proper property,</p>
+<p>Problem with this is that, with increasing demand of private vars, defining such methods gets inconvienient</p>
+ <p>So we will use</p>
+    <img width="400" alt="image" src="https://github.com/user-attachments/assets/84875b04-4b1e-423d-9d5e-fc07ce11f6b1" />
+</div>
+
+`get` and `set` are csharp methods
+
 <br>
 
 # What is a Property?
@@ -148,6 +161,11 @@ set
 
 If no additional logic is required, C# can automatically create the private backing field.
 
+<div align = "center">
+    <img width="550" alt="image" src="https://github.com/user-attachments/assets/e06d796f-1136-420c-86ea-880e47cb42e2" />
+</div>
+
+
 Instead of writing
 
 ```csharp
@@ -246,7 +264,114 @@ Now only valid ages are accepted.
 
 <br>
 
-# Expression-Bodied Property
+
+**Example:**
+```
+Conventions:
+
+Keep Auto properties at top
+
+Then  Constructors 
+
+Then Calculative Properties
+```
+
+```csharp
+namespace CSharpdoubleermediate
+{
+    public class Person
+    {
+
+        // Auto Properties
+        public string Name { get; set; }
+        public string UserName { get; set; }
+        public DateTime BirthDate
+        {
+            get;
+            //set;
+            private set; // if you want only 1 time bday set
+        }
+
+
+        // Constructor
+        public Person(DateTime birthDate)
+        {
+            BirthDate = birthDate;   
+        }
+
+        
+        // Calculative Properties
+        public int Age  //Age property, set not needed for age
+        {
+            get 
+            {
+                var timeSpan = DateTime.Today - BirthDate;
+                var years = timeSpan.Days / 365;
+            
+                return years;
+            }
+        }
+    }
+
+    internal partial class Program
+    {
+        public static void Main(string[] args)
+        { 
+            // With constructor
+            Person person = new Person(new DateTime(2004, 09, 25));
+       
+
+            // Without constructor
+            //Person person = new Person();
+            //person.BirthDate = new DateTime(2004, 09,25);
+
+
+            Console.WriteLine(person.Age);
+            // Accesing private object
+           
+        }
+    }
+}
+```
+```csharp
+// Traditional
+
+namespace CSharpdoubleermediate
+{
+    public class Person
+    {
+        private DateTime _birthdate; //private object inside class
+
+        public void SetBirthDate(DateTime birthdate) //public accesors
+        {
+            _birthdate = birthdate;
+        }
+
+        public DateTime GetBirthdate()
+        {
+            return _birthdate;
+        }
+    }
+
+    internal partial class Program
+    {
+        public static void Main(string[] args)
+        {
+            Person person = new Person();
+
+            // Accesing private object
+            person.SetBirthDate(new DateTime(2004, 09, 25));
+            Console.WriteLine(person.GetBirthdate());
+        }
+    }
+}
+
+```
+
+<br>
+
+
+# Expression-Bodied Property (Advance - Extras)
 
 For simple read-only properties, C# provides a shorter syntax.
 
