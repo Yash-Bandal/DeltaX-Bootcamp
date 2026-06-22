@@ -12,6 +12,21 @@ They are one of the key tools used to implement **Encapsulation**, a fundamental
 
 Instead of allowing direct access to data, we control how it is read or modified.
 
+<br>
+
+> [!Note]
+> 1. Encapsulation is a practice of bundling data (fields) and the methods,
+> 2. Access specifiers are just fields to implement Encapsulation
+>
+> | **Encapsulation**                                  | **Abstraction**                                                        |
+> | -------------------------------------------------- | ---------------------------------------------------------------------- |
+> | **Hides data** by restricting direct access to it. | **Hides implementation (complexity)** by exposing only the necessary functionality. |
+> | **Focus:** Protect the object's internal state.    | **Focus:** Simplify usage by hiding complexity.                        |
+>
+
+<br>
+
+
 ### Real-World Example
 
 Think of a car.
