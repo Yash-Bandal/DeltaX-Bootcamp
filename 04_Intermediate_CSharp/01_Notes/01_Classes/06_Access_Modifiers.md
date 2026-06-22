@@ -238,6 +238,10 @@ The class decides **how** it changes.
 
 A **public accessor** is a public method or property that provides controlled access to a private field.
 
+> [!Note]
+> Q. How is public accesor different from directly accesing the fields?\
+> Objects are about behaviour, about what they do , their fields, primarily is their internals, their implementation detail which should be   hidden from external world 
+
 Example
 
 ```csharp
