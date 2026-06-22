@@ -6,6 +6,15 @@ They are one of the key tools used to implement **Encapsulation**, a fundamental
 
 <br>
 
+<div align = "center">
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/ea4010ae-07f0-43ef-85a7-8bd661894cdc" />
+</div>
+
+
+
+
+<br>
+
 # What is Encapsulation?
 
 **Encapsulation** is the process of hiding an object's internal data and exposing only what is necessary.
@@ -76,6 +85,15 @@ C# provides the following access modifiers:
 * `private protected`
 
 > In this chapter, the focus is mainly on **public** and **private**. The remaining modifiers are covered later while studying inheritance.
+
+
+
+<br>
+
+<div align = "center">
+<img width="600" height="338" alt="image" src="https://github.com/user-attachments/assets/de491bbd-6041-484b-97cc-adb21a27772d" />
+</div>
+
 
 <br>
 
