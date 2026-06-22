@@ -189,6 +189,53 @@ Benefits
 
 <br>
 
+**Example:**
+```csharp
+namespace CSharpdoubleermediate
+{
+    public class Volume
+    {
+        // Methods
+
+        //Cube volume
+        public double FindVolume(double side)
+        {
+            return side * side * side;
+        }
+
+        //Cuboid Volume
+        public double FindVolume(double length, double breadth, double height)
+        {
+            return length * breadth * height;
+        }
+
+        // Cylinder Volume
+        public double FindVolume(double radius, double height)
+        {
+            return Math.PI  * radius * radius * height;
+        }
+
+    }
+    internal partial class Program
+    {
+        public static void Main(string[] args)
+        {
+            Volume cube = new Volume();
+            Console.WriteLine("Volume of Cube is " + cube.FindVolume(5) + " m³ ");
+
+            Volume cuboid = new Volume();
+            Console.WriteLine("Volume of Cuboid is " + cuboid.FindVolume(5,6,7) + " m³ ");
+
+            Volume cylinder = new Volume();
+            Console.WriteLine("Volume of Cylinder is " + cylinder.FindVolume(5,6) + " m³ ");
+
+        }
+    }
+}
+```
+
+<br>
+
 # Parameter Modifiers
 
 C# provides parameter modifiers that change how arguments are passed to methods.
