@@ -272,6 +272,82 @@ This is called **Constructor Overloading**.
 
 <br>
 
+**Example:**
+```CSHARP
+
+constructor overloading
+using System;
+
+namespace CSharpIntermediate
+{
+    public class Volume
+    {
+        private double Side;
+        private double Length;
+        private double Breadth;
+        private double Height;
+        private double Radius;
+
+        // Constructor for Cube
+        public Volume(double side)
+        {
+            Side = side;
+        }
+
+        // Constructor for Cuboid
+        public Volume(double length, double breadth, double height)
+        {
+            Length = length;
+            Breadth = breadth;
+            Height = height;
+        }
+
+        // Constructor for Cylinder
+        public Volume(double radius, double height)
+        {
+            Radius = radius;
+            Height = height;
+        }
+
+        // Method Overloading
+
+        // Cube
+        public double FindVolume()
+        {
+            return Side * Side * Side;
+        }
+
+        // Cuboid
+        public double FindVolume(bool isCuboid)
+        {
+            return Length * Breadth * Height;
+        }
+
+        // Cylinder
+        public double FindVolume(string shape)
+        {
+            return Math.PI * Radius * Radius * Height;
+        }
+    }
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Volume cube = new Volume(5);
+            Console.WriteLine($"Volume of Cube     : {cube.FindVolume():F2} m³");
+
+            Volume cuboid = new Volume(5, 6, 7);
+            Console.WriteLine($"Volume of Cuboid  : {cuboid.FindVolume(true):F2} m³");
+
+            Volume cylinder = new Volume(5, 6);
+            Console.WriteLine($"Volume of Cylinder: {cylinder.FindVolume("Cylinder"):F2} m³");
+        }
+    }
+}
+```
+<br>
+
 # Constructor Chaining
 
 Instead of repeating initialization code, one constructor can call another using the `this` keyword.
