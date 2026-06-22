@@ -226,7 +226,7 @@ Benefits
 
 <br>
 
-**Example:**
+**Example 1:**
 ```csharp
 namespace CSharpdoubleermediate
 {
@@ -270,6 +270,74 @@ namespace CSharpdoubleermediate
     }
 }
 ```
+**Example 2:**
+```csharp
+namespace CSharpdoubleermediate
+{
+    public class Point
+    {
+        public int X;
+        public int Y;
+
+        public Point(int x, int y)
+        {
+            this.X = x;
+            this.Y = y;
+        }
+
+        //paramter numbers
+        public void Move(int x, int y)
+        {
+            this.X = x;
+            this.Y = y;
+        }
+
+        // Overload with new signature (Point Object instead of numbers)
+        public void Move(Point newLocation)
+        {
+            if (newLocation == null) //defensive prog
+            {
+                throw new ArgumentNullException("newLocation"); //exception is a class
+            }
+            Move(newLocation.X, newLocation.Y); //instead of re initializing with 'this'
+
+            //this.X = newLocation.X;
+            //this.Y = newLocation.Y;
+        }
+    }
+
+    internal partial class Program
+    {
+        public static void Main(string[] args)
+        {
+
+            //global error handling
+            try
+            {
+                var point = new Point(10, 20);
+                point.Move(null);
+                //point.Move(new Point(40,60));
+
+                // Overload 1
+                Console.WriteLine("Point is at ({0}, {1}) ", point.X, point.Y);
+
+                // Overload 2
+                point.Move(100, 200);
+                Console.WriteLine("Point is now at ({0}, {1}) ", point.X, point.Y);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("An Unexpected Error happened");
+            }
+        }
+    }
+}
+
+```
+
+
+> [!tip]
+> Prefer global error handling techniques like `try..catch` blocks and Right exception throw methods, to avoud failure of code
 
 <br>
 
@@ -358,6 +426,43 @@ A common real-world example is `int.TryParse()`.
 int.TryParse("123", out int number);
 ```
 
+**Example:**
+```csharp
+namespace CSharpdoubleermediate
+{
+    internal partial class Program
+    {
+        public static void Main(string[] args)
+        {
+
+            //using parse, need global exception handling
+            try
+            {
+                var num = int.Parse("Abc");
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Conversiion failed");
+            }
+
+            // using tryparse, that dont throw exception
+            int number;
+            bool isNum = int.TryParse("Abc", out number);
+            if (isNum)
+            {
+                Console.WriteLine("Its a number");
+            }
+            else
+            {
+                Console.WriteLine("Conversiion failed");
+            }
+        }
+
+    }
+}
+
+```
+
 <br>
 
 ## 3. params
@@ -394,6 +499,59 @@ Sum(10, 20, 30, 40, 50);
 ```
 
 `params` makes methods more flexible without requiring multiple overloads.
+
+
+<br>
+
+**Full example:**
+```csharp
+namespace CSharpdoubleermediate
+{
+
+    public class Calculator
+    {
+        public int Add(params int[] arr)
+        {
+            int res = 0;
+            foreach (var num in arr)
+            {
+                res += num;
+            }
+            return res;
+        }
+    }
+
+    internal partial class Program
+    {
+        public static void Main(string[] args)
+        {
+            //UsePoints();
+            //UseParams();
+        }
+
+        public static void UseParams()
+        {
+            Calculator calculator = new Calculator();
+            Console.WriteLine(calculator.Add(1));
+            Console.WriteLine(calculator.Add(1, 2));
+            Console.WriteLine(calculator.Add(1, 2, 3));
+            Console.WriteLine(calculator.Add(1, 2, 3, 4));
+            Console.WriteLine(calculator.Add(new int[] { 1, 2, 3, 4, 5 }));
+        }
+
+
+    }
+}
+
+```
+**Output:**
+```
+1
+3
+6
+10
+15
+```
 
 <br>
 
