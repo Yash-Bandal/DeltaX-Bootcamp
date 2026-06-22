@@ -274,8 +274,6 @@ This is called **Constructor Overloading**.
 
 **Example:**
 ```CSHARP
-
-constructor overloading
 using System;
 
 namespace CSharpIntermediate
