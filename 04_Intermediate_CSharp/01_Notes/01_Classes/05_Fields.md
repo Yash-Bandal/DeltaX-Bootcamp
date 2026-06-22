@@ -4,6 +4,9 @@ Fields are variables declared inside a class. They store the data (state) of an 
 
 For example, an `Employee` object may have fields such as `Name`, `Age`, and `Salary`.
 
+
+
+
 <br>
 
 # What is a Field?
@@ -19,6 +22,23 @@ class Employee
     public int Age;
 }
 ```
+
+<br>
+
+> [!Important]
+> Always initialize `List<dataType>` whenever it is declared inside class, dont leave it empty
+>
+> Thus, either initialze it at top, or inside constructor, but never leave it empty
+
+<div align = "center">
+    <img height="210"  alt="image" src="https://github.com/user-attachments/assets/4566ef6b-9a56-4e25-9717-09180671c1d1" />
+    '  or  '
+    <img height="210" alt="image" src="https://github.com/user-attachments/assets/d4f8b8ae-f225-4896-bf69-7d71d346548f" />
+</div>
+
+
+
+<br>
 
 Creating an object
 
@@ -113,11 +133,19 @@ Employee employee = new Employee("Yash", 22);
 <br>
 
 
-# The `readonly` Modifier
+# The `readonly` Modifier 
+
 
 The `readonly` keyword makes a field **assignable only during declaration or inside a constructor**.
 
-After the object is created, its value cannot be changed.
+After the object is created, its value cannot be changed. (Declare once)
+
+<div align = "center">
+<img width="600"  alt="image" src="https://github.com/user-attachments/assets/06551eee-5606-4497-8436-d460a28f4a12" />
+</div>
+
+
+
 
 Example
 
