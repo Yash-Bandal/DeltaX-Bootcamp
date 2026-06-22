@@ -1,4 +1,4 @@
-# 1.6 Access Modifiers
+<img width="554" height="438" alt="image" src="https://github.com/user-attachments/assets/2f302848-4dda-406b-a749-5752510d4dae" /># 1.6 Access Modifiers
 
 Access modifiers define the **visibility** and **accessibility** of classes and their members (fields, methods, properties, constructors, etc.).
 
@@ -186,6 +186,8 @@ The object has no control over its own data.
 
 This breaks encapsulation.
 
+
+
 <br>
 
 # Why Should Fields Be Private?
@@ -254,8 +256,31 @@ class Employee
     }
 }
 ```
-
 Later, we'll see that **properties** provide a cleaner way to achieve the same result.
+
+
+<br>
+
+# `Get()` and  `Set()`
+
+<br>
+
+<div align = "center">
+<img width="500"  alt="image" src="https://github.com/user-attachments/assets/a2a513b1-5a9d-41ca-a81a-5ec461a2c2e2" />
+</div>
+
+<br>
+
+With this code, if we craate a instance of this class, we cannot access the `private` name field of the class,
+
+We need to call `SetName()` or `GetName()` method here 
+
+This is the **advantage** of Getter and setter methods
+1. If the input is invalid or empty (here if input is null string), the variable field will be set  to wrong value
+2. Fields are static, they dont have any  **logic**,
+3. In order to implement `Input validation` , we use getters and setter, as they have some logic  
+
+
 
 <br>
 
