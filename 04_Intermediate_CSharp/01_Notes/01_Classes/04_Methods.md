@@ -124,9 +124,15 @@ A method signature consists of:
 
 The **return type is NOT part of the method signature.**
 
+<br>
+
+
 <div align = "center">
 <img width="600" alt="image" src="https://github.com/user-attachments/assets/952f6b69-077f-498b-865b-1b248c90a89f" />
 </div>
+
+
+<br>
 
 
 
@@ -163,9 +169,15 @@ public double Calculate()
 
 **Method Overloading** means defining multiple methods with the same name but different signatures.
 
+<br>
+
+
 <div align = "center">
 <img width="600" alt="image" src="https://github.com/user-attachments/assets/b5b47dc1-034e-49aa-9c08-07b30752955a" />
 </div>
+
+
+<br>
 
 
 
@@ -207,9 +219,15 @@ calculator.Add(2.5, 3.8);
 But what if we have a log of numbers, eg 10 Numbers\
 In such cases, use Array Parameter
 
+<br>
+
+
 <div align = "center">
 <img width="600" alt="image" src="https://github.com/user-attachments/assets/49066f45-54ef-4c22-b51b-3b3da46e0654" />
 </div>
+
+
+<br>
 
 
 
@@ -354,6 +372,9 @@ The `ref` keyword passes a variable **by reference**, allowing the method to mod
 
 Both the caller and the method must use `ref`.
 
+<br>
+
+
 <div align = "center">
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/781d96f1-033f-490e-b66b-aa849a3efb77" />
 <p>Think, if we pass variable 'a', will 'a' become 3, No, because it becomes value type modification </p>
@@ -361,6 +382,9 @@ Both the caller and the method must use `ref`.
     <img width="400" alt="image" src="https://github.com/user-attachments/assets/a6c3531e-6071-4dbc-bd68-03e2a5b6b447" />
     <p>Using ref, original 'a' argument is passed, instead of a new copy creation</p>
 </div>
+
+
+<br>
 
 
 
@@ -395,9 +419,15 @@ The `out` keyword is used when a method needs to return multiple values.
 
 > It somewhat allows to return multiple values, which isn't a good practise, instead we prefer creating different classes
 
+<br>
+
+
 <div align = "center">
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/bd537d02-30d5-4039-9ec7-8080ffd562e0" />
 </div>
+
+<br>
+
 
 ```csharp
 public void GetUser(out string name)
@@ -469,9 +499,15 @@ namespace CSharpdoubleermediate
 
 The `params` keyword allows a method to accept a variable number of arguments.
 
+<br>
+
+
 <div align = "center">
 <img width="600" alt="image" src="https://github.com/user-attachments/assets/7bb1da10-0dcf-420b-a425-6adf5c494a60" />
 </div>
+
+<br>
+
 
 
 
