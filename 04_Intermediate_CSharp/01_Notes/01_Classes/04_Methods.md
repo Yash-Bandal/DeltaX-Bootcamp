@@ -71,6 +71,10 @@ Greet("Yash");
 
 `"Yash"` is the **argument**, while `string name` is the **parameter**.
 
+> [!Tip]
+> 1. Parameters are variables
+> 2. Arguments are values
+
 <br>
 
 # Methods with Return Values
