@@ -696,7 +696,7 @@ Method overloading is defining multiple methods with the same name but different
 ### What is the difference between `ref` and `out`?
 
 | ref                                         | out                                      |
-| <br><br><br><br><br><br><br><br><br><br><br><br><br><br>- | <br><br><br><br><br><br><br><br><br><br><br><br><br>- |
+| --- | --- |
 | Variable must be initialized before passing | Variable does not need to be initialized |
 | Used to modify an existing value            | Used to return values from a method      |
 
