@@ -10,6 +10,13 @@ Instead of calling methods like `Get()` and `Set()`, an indexer provides a clean
 
 An **Indexer** is a special property that enables objects to be indexed like arrays or collections.
 
+<br>
+<div align = "center">
+    <img width="400" alt="image" src="https://github.com/user-attachments/assets/e1828f20-6482-493d-be26-01c87934a8c8" />
+</div>
+
+<br>
+
 Without an indexer:
 
 ```csharp
