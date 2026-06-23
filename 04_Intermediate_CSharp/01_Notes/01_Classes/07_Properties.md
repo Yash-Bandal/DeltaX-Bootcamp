@@ -321,7 +321,7 @@ namespace CSharpdoubleermediate
 
         // ============================= PUBLIC ACCESSORS ===============================
 
-        // Calculative property
+        // Calculative property (Tell how can we access Private, add restriction < 0)
         public int Salary
         {
             get { return _salary; }
@@ -346,7 +346,8 @@ namespace CSharpdoubleermediate
             //Employee emp1 = new Employee(-100); //set salary value to 0
             Employee emp1 = new Employee(100);
             emp1.name = "AP";
-            Console.WriteLine(emp1.name); //
+
+            Console.WriteLine(emp1.name); // AP
             Console.WriteLine(emp1.Salary); //100
 
             /*
