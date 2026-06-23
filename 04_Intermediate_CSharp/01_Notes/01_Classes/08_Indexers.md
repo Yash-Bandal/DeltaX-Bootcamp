@@ -51,6 +51,23 @@ Examples:
 
 They allow users of the class to access elements naturally using an index.
 
+
+Sometimes , we have classes that have collection semantics \
+ eg: we have a cookie, that may have data (eg. Names) 
+ 
+
+<br>
+
+<div align = "center">
+<img width="600"  alt="image" src="https://github.com/user-attachments/assets/e26cc460-9048-48e2-ade3-adbe45575821" />
+    <p>Declaring</p>
+    <img width="400" alt="image" src="https://github.com/user-attachments/assets/2dfc5a33-683b-4266-abc1-f84072c346ff" />
+
+</div>
+
+(Extras : Dictionary uses a Hash Table - From Generic class) 
+
+
 <br>
 
 # Indexer Syntax
@@ -175,6 +192,10 @@ settings["Theme"] = "Dark";
 | Has an identifier         | Uses the `this` keyword           |
 | Represents a single value | Represents a collection of values |
 | Example: `person.Name`    | Example: `person[0]`              |
+
+<br>
+
+**Example:** Using 
 
 <br>
 
