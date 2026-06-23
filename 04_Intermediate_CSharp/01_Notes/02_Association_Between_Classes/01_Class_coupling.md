@@ -253,7 +253,7 @@ This tightly couples the class to a specific implementation.
 
 <br>
 
-## One class doing too much
+## One class doing too much 🏷️
 
 When a class has many responsibilities, it often becomes tightly coupled with multiple classes.
 
