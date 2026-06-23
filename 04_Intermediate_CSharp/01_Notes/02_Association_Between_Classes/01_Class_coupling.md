@@ -10,9 +10,23 @@ In Object-Oriented Programming, **low (loose) coupling is preferred**.
 
 <br>
 
+<div align = "center">
+<img width="600"  alt="image" src="https://github.com/user-attachments/assets/73681672-978f-41e0-8961-46fbb600f398" />
+</div>
+
+
+
+<br>
+
+
+
+
+
 # What is Coupling?
 
 Coupling measures **how much one class knows about or depends on another class**.
+
+
 
 Example
 
@@ -21,6 +35,15 @@ Class A  ------->  Class B
 ```
 
 If changes in `Class B` force changes in `Class A`, the classes are tightly coupled.
+
+<br>
+
+<div align = "center">
+<img width="600"  alt="image" src="https://github.com/user-attachments/assets/ac89a478-78ba-475a-a653-9169fef67581" />
+</div>
+
+
+
 
 <br>
 
@@ -35,7 +58,51 @@ Good software should be:
 
 High coupling makes all of these difficult.
 
+<br>
+
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/9f0ff06f-1e16-45a9-ac74-a39ccaf8a7ca" />
+    <p>Tight Coupling - Full Arrows</p>
+</div>
+
+In Tight Coupling, all classes are very dependent on each other, 
+
+Thus, when we change 1 class, we might have to change many classes, that rises the need for loose coupling
+
+<br>
+
+
+
+
 Low coupling makes classes more independent and reusable.
+
+<br>
+
+In loose coupling, we idealize to have very minimum changes, isolated changes in software that dont affect other classes
+
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/49cc2242-dbf8-4e06-9213-3185c0aaa2ff" />
+<p>Loose Coupling - Dotted Arrows</p>
+</div>
+
+
+
+
+
+
+
+<br>
+
+
+<div align = "center">
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/ecb924ec-9494-4e97-8e99-fb53ebef24d2" />
+</div>
+
+Thus we need to understand relationships
+
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/38b7a61b-1233-46c6-a600-1d7ff0b0c998" />
+</div>
 
 <br>
 
