@@ -4,6 +4,19 @@
 
 
 
+
+
+
+Object Initializers provide a concise way to create an object and assign values to its fields or properties in a single statement.
+
+They improve readability and eliminate the need for multiple assignment statements after object creation.
+
+<div align = "center">
+<img width="600"  alt="image" src="https://github.com/user-attachments/assets/58e43534-0ed0-44d7-8daa-7fbe83369202" />
+<p>What is Object initializer</p>
+</div>
+
+
 <br>
 
 ---
@@ -17,17 +30,6 @@
 ---
 
 <br>
-
-
-Object Initializers provide a concise way to create an object and assign values to its fields or properties in a single statement.
-
-They improve readability and eliminate the need for multiple assignment statements after object creation.
-
-<div align = "center">
-<img width="600"  alt="image" src="https://github.com/user-attachments/assets/58e43534-0ed0-44d7-8daa-7fbe83369202" />
-<p>What is Object initializer</p>
-</div>
-
 
 <br>
 
