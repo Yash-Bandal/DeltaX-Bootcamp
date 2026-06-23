@@ -1,6 +1,24 @@
 
 # 1.3 Object Initializers
 
+
+
+
+<br>
+
+---
+
+> [!caution]
+> Object initializers does not remove the use of constructors, don't confuse
+>
+> They are just reducing extra lines of code and add syntax simplicity 
+
+
+---
+
+<br>
+
+
 Object Initializers provide a concise way to create an object and assign values to its fields or properties in a single statement.
 
 They improve readability and eliminate the need for multiple assignment statements after object creation.
