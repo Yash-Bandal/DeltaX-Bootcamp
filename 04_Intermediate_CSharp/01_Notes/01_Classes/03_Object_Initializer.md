@@ -40,7 +40,9 @@ Both produce the same result, but the second approach is cleaner and easier to r
 <br>
 
 > [!Important]
-> Note that, object initializers are outside class (in main / calling function) , not inside class
+> Note that, object initializers are **outside** class (in main / calling function) , not **inside** class
+>
+> i.e Where we initialize / create object, obviously not in class
 
 <br>
 
