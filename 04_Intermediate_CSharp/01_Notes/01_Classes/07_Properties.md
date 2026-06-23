@@ -6,12 +6,24 @@ Instead of exposing fields directly, we expose **properties**.
 
 <br>
 
+---
+
 > [!Tip]
 > Q What is it?\
 > A class member that encapsulates a getter/setter for accessing a field
 >
 > Q Why do need a property?\
 > To crate getter/setter with less code
+
+
+> [!caution]
+> Properties does not remove the use of constructors, change any extra behaviour, don't confuse
+>
+> They are just reducing extra lines of code and add syntax simplicity, safe input validation , and controlled access
+
+
+---
+
 
 
 <br>
