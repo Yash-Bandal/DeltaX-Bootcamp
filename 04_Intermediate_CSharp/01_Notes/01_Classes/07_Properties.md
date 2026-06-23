@@ -35,7 +35,7 @@ A **property** is a class member that provides controlled access to a private fi
 * `get` returns the value.
 * `set` assigns a value.
 
-Properties combine the simplicity of fields with the safety of methods.
+Properties combine the **simplicity** of _fields_ with the **safety** of _methods_. 🏷️
 
 <br>
 
