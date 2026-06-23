@@ -335,9 +335,9 @@ This is not allowed if `Salary` is private.
 
 <br>
 
-## Using fields instead of properties
+## Using fields instead of properties 🏷️
 
-Public fields cannot perform validation or enforce business rules.
+Public fields cannot _perform validation_ or enforce business rules.
 
 Properties provide controlled access and are preferred in most scenarios.
 
