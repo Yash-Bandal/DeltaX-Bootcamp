@@ -6,6 +6,11 @@ It allows one class to **inherit the members (fields, methods, properties, etc.)
 
 <br>
 
+> [!Note]
+> In CSharp, class can have only 1 parent  
+
+<br>
+
 <div align = "center">
 
    <img width="600"  alt="image" src="https://github.com/user-attachments/assets/92649d4e-f6ae-4122-9ee7-68a2a9f564eb" />
