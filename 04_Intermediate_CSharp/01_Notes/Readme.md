@@ -15,7 +15,7 @@
 <br>
 
 
-## 2. Object-Oriented Programming (OOP)
+## 2. Association Between Classes / Object-Oriented Programming (OOP)
 
 * **2.1** Class Coupling
 * **2.2** Inheritance
