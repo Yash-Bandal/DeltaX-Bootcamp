@@ -7,7 +7,9 @@ It allows one class to **inherit the members (fields, methods, properties, etc.)
 <br>
 
 <div align = "center">
-<img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/bddaf5c6-e979-434d-a07f-bacc412ee5c9" />
+
+   <img width="600"  alt="image" src="https://github.com/user-attachments/assets/92649d4e-f6ae-4122-9ee7-68a2a9f564eb" />
+
 </div>
 
 <br>
@@ -19,6 +21,16 @@ It allows one class to **inherit the members (fields, methods, properties, etc.)
 * The existing class is called the **Base (Parent) Class**.
 * The new class is called the **Derived (Child) Class**.
 
+
+<br>
+
+<div align = "center">
+<img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/bddaf5c6-e979-434d-a07f-bacc412ee5c9" />
+
+
+</div>
+
+<br>
 Example
 
 ```text
