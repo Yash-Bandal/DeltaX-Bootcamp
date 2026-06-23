@@ -277,7 +277,7 @@ Now only valid ages are accepted.
 <br>
 
 
-**Example:**
+## **Examples:**
 ```
 Conventions:
 
@@ -287,7 +287,109 @@ Then  Constructors
 
 Then Calculative Properties
 ```
+**Example 1:**
+```csharp
+namespace CSharpdoubleermediate
+{
+    public class Employee
+    {
+        // ============================== TOP DECLARATION AREA =========================
 
+        // Auto Property
+        public string name { get; set; }
+
+        // Private variable, no direct access, but can have controlled access
+        private int _salary;
+
+
+
+        // =============================== CONSTRUCTOR  =================================
+
+        // Default constructor
+        public Employee()
+        {
+            name = "Anonymous";
+        }
+
+        // Paramterized Constructor
+        public Employee(int sal)
+        {
+            Salary = sal;
+        }
+
+
+
+        // ============================= PUBLIC ACCESSORS ===============================
+
+        // Calculative property
+        public int Salary
+        {
+            get { return _salary; }
+            set
+            {
+                if (value > 0)
+                {
+                    _salary = value;
+                    //value = _salary; ///silly
+                }
+            }
+        }
+
+        // ==============================================================================
+    }
+
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            //Emp1 object
+            //Employee emp1 = new Employee(-100); //set salary value to 0
+            Employee emp1 = new Employee(100);
+            emp1.name = "AP";
+            Console.WriteLine(emp1.name); //
+            Console.WriteLine(emp1.Salary); //100
+
+            /*
+             Here you need parametrized constructor
+
+             we used traditional value setting, no initializer
+
+             For input validation, and controlled access to private variable '_salary'
+             we used property
+
+             */
+
+            //===============================================================
+
+            // Emp2 Object
+            Employee emp2 = new Employee()
+            {
+                name = "Yash", //if not passed , sets default "Anonumous"
+                Salary = 200,
+            };
+            Console.WriteLine(emp2.name); //Yash
+            Console.WriteLine(emp2.Salary); //200
+
+            /*
+             Here you need Default constructor
+
+             but instead of traditional value set, we used initializer
+
+             For input validation, and controlled access to private variable '_salary'
+             we used property
+
+             */
+
+            //===============================================================
+        }
+    }
+}
+
+```
+
+<br>
+
+**Example 2:**
 ```csharp
 namespace CSharpdoubleermediate
 {
