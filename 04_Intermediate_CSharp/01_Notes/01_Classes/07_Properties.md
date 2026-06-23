@@ -14,7 +14,13 @@ Instead of exposing fields directly, we expose **properties**.
 >
 > Q Why do need a property?\
 > To crate getter/setter with less code
+>
+> Q. Where to use what?
+>  - Use auto-properties whenever validation is not required.
+>  - Use custom properties when validation or additional logic is needed.
+>  - If needed constructors, place them between the 2, below autos
 
+<br>
 
 > [!caution]
 > Properties does not remove the use of constructors, change any extra behaviour, don't confuse
