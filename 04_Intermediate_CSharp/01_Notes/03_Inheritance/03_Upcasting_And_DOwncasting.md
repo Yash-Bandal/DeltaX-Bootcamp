@@ -5,6 +5,10 @@ Upcasting and Downcasting are techniques used to convert objects between base an
 They are fundamental concepts in inheritance and are heavily used in polymorphism.
 
 <br>
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/1ee7d860-5f59-4280-b37b-2e4e85a7f598" />
+</div>
+<br>
 
 # Understanding the Inheritance Hierarchy
 
