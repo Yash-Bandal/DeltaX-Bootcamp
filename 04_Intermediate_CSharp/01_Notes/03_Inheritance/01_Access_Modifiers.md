@@ -6,6 +6,23 @@ When inheritance is introduced, access modifiers become even more important beca
 
 <br>
 
+<div align = "center">
+<img width="389" height="399" alt="image" src="https://github.com/user-attachments/assets/72ccd984-9fb4-4ad9-bb9b-0c67863fc7f6" />
+</div>
+
+<br>
+
+We want to design our classes like a Black Box, \
+Limited visibility outside, magic inside
+
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/0b7fc058-8e14-462a-82ab-b56607f6b326" />
+<p>What we see from outside is Interface (DVD Player), public interface very simple</p>
+    <img width="928" height="368" alt="image" src="https://github.com/user-attachments/assets/2e01a613-29a5-4b47-bb07-8ad28f28c7f5" />
+</div>
+
+<br>
+
 # Why are Access Modifiers Important?
 
 Access modifiers help us:
@@ -36,6 +53,13 @@ C# provides the following access modifiers:
 
 A `public` member is accessible from anywhere.
 
+<br>
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/c23e0f90-bcb8-4453-8e94-ccbb62cc518c" />
+</div>
+<br>
+
+
 Example
 
 ```csharp
@@ -60,6 +84,17 @@ Since the member is public, any class can access it.
 # private
 
 A `private` member is accessible only within the class where it is declared.
+
+
+<br>
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/96cc61ec-cbae-44fb-966a-926d6184dff9" />
+</div>
+<br>
+
+
+
+
 
 Example
 
@@ -99,6 +134,26 @@ A `protected` member is accessible:
 * Inside the declaring class.
 * Inside derived classes.
 
+> [!Tip]
+> Use it where we don't want dependency much, and can be removed safely without much modifications in other classes
+>
+> Avoid it much, use private instead
+
+> [!Note]
+> It breaks encapsulation, as other classes can access protected members
+
+<br>
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/6048a728-100c-4f55-a18f-e1d7fe70d191" />
+</div>
+<br>
+
+
+
+
+
+
+
 Example
 
 ```csharp
@@ -124,6 +179,17 @@ The derived class can directly access the protected member.
 
 An `internal` member is accessible anywhere within the same assembly (project).
 
+<br>
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/3e29808a-4f42-483d-bf8a-a5683bdb66fa" />
+</div>
+<br>
+
+
+
+
+
+
 Example
 
 ```csharp
@@ -140,10 +206,23 @@ Classes outside the assembly cannot.
 
 # protected internal
 
+> [!Tip]
+> Very rarely used, also inconvinient
+
 A `protected internal` member is accessible:
 
 * Anywhere within the same assembly.
 * From derived classes outside the assembly.
+
+<br>
+<div align = "center">    
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/335f4d6d-86c7-4fa7-a23a-96ad17b8e72e" />
+</div>
+<br>
+
+
+
+
 
 Example
 
