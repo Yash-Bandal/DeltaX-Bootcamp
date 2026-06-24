@@ -165,22 +165,35 @@ The `base` keyword is used to call a base class constructor.
 Example
 
 ```csharp id="2d0t0w"
-class Person
+namespace CSharpdoubleermediate
 {
-    public Person(string name)
+    public class Person
     {
-        Console.WriteLine($"Person: {name}");
+        public Person(string name)
+        {
+            Console.WriteLine($"Person: {name}");
+        }
+    }
+
+    public class Student : Person
+    {
+        public Student(string name)
+            : base(name)
+        {
+            Console.WriteLine($" Student {name} Created");
+        }
+    }
+
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            Student s1 = new Student("Yash");
+
+        }
     }
 }
 
-class Student : Person
-{
-    public Student(string name)
-        : base(name)
-    {
-        Console.WriteLine("Student Created");
-    }
-}
 ```
 string passed from program -> Child student constructor -> Parent Person Constructor (base)
 ```
