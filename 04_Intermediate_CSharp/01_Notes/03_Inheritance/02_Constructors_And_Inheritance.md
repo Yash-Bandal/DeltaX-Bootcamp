@@ -8,6 +8,12 @@ Understanding this execution order is essential for building correct inheritance
 
 <br>
 
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/61b3733f-6836-4c9a-b1f9-4f6509f46823" />
+</div>
+
+<br>
+
 # Are Constructors Inherited?
 
 No.
@@ -175,6 +181,22 @@ class Student : Person
         Console.WriteLine("Student Created");
     }
 }
+```
+string passed from program -> Child student constructor -> Parent Person Constructor (base)
+```
+Program
+   |
+   | "Yash"
+   ↓
+Student Constructor
+   |
+   | base(name)
+   ↓
+Person Constructor
+   |
+   | Name = name
+   ↓
+Property gets value
 ```
 
 Usage
