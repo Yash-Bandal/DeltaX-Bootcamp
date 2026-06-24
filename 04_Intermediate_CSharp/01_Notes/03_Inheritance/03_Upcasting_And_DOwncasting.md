@@ -44,6 +44,12 @@ This relationship allows casting between these types.
 **Upcasting** is converting a derived class object into a base class reference.
 
 Example
+```csharp
+ChildClass childObject = new ChildClass();
+ParentClass parentObject = childObject;
+```
+
+Example
 
 ```csharp id="abc123"
 Student student = new Student();
