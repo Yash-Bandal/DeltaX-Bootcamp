@@ -217,6 +217,12 @@ Because the object is actually a Person, not a Student.
 
 The `is` operator checks compatibility before casting.
 
+<br>
+<div align = "center">
+   <img width="400" alt="image" src="https://github.com/user-attachments/assets/62230c92-732b-4ae1-9992-6c405f57cc50" />
+</div>
+<br>
+
 ```csharp id="pqr123"
 Person person = new Student();
 
@@ -231,6 +237,12 @@ This prevents runtime exceptions.
 <br>
 
 # Safe Downcasting with "as"
+
+<br>
+<div align = "center">
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/cd1019bf-ef51-481d-897e-197f9ff0c7bd" />
+</div>
+<br>
 
 The `as` operator attempts a cast and returns `null` if it fails.
 
