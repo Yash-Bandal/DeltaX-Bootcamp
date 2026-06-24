@@ -4,7 +4,7 @@ Upcasting is the conversion of a derived (child) class reference to a base (pare
 
 while downcasting converts a base class reference back to a derived class reference.
 
-These operations change the type of the `reference (✓)` used to access an object, but they never modify the underlying runtime type of the `object (X)` .
+These operations change the type of the `reference (✓)` used to access an object, but they never modify the underlying runtime type of the `object (X)`.
 
 <br>
 <div align = "center">
@@ -215,6 +215,164 @@ Because the object is actually a Person, not a Student.
 
 <br>
 
+**Example:**
+
+**Changing Object Reference type**
+```csharp
+namespace CSharpdoubleermediate
+{
+    public class Parent
+    {
+        public void IntroduceParent()
+        {
+            Console.WriteLine("I am a Parent");
+        }
+    }
+
+    public class Child : Parent
+    {
+        public void IntroduceChild()
+        {
+            Console.WriteLine("I am a child");
+        }
+
+        public void ShowParent()
+        {
+
+            IntroduceParent();
+        }
+    }
+
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            // Child object
+            Child child1 = new Child();
+
+            // Upcasting
+            Parent parent1 = child1; //We just change reference
+
+            //Parent parent1 = new Child(); 
+
+            /*
+             Here we are NOT creating a parent object with new Parent()
+            SInce we are using Inheritance, child object already contains parent members
+
+            child1 ───────┐
+                          │
+                          ▼
+                +----------------+
+                | Child Object   |
+                +----------------+
+                | Parent Part    |
+                | Child Part     |
+                +----------------+
+                          ▲
+                          │
+            parent1 ──────┘
+
+
+             */
+
+
+            child1.IntroduceChild();
+            child1.IntroduceParent();
+
+            parent1.IntroduceParent();
+
+            // Downcasting  
+            Child child2 = (Child)parent1;
+            child2.IntroduceParent();
+            child2.IntroduceChild();
+
+            // No error accesing Child method
+
+        }
+    }
+}
+```
+
+**Creating Parent Object()**
+```csharp
+namespace CSharpdoubleermediate
+{
+    public class Parent
+    {
+        public void IntroduceParent()
+        {
+            Console.WriteLine("I am a Parent");
+        }
+    }
+
+    public class Child : Parent
+    {
+        public void IntroduceChild()
+        {
+            Console.WriteLine("I am a child");
+        }
+
+        public void ShowParent()
+        {
+
+            IntroduceParent();
+        }
+    }
+
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            // Child object
+            Child child1 = new Child();
+            Parent parent1 = new Parent();
+            //Parent parent1 = new Child(); 
+
+
+            child1.IntroduceChild();
+            child1.IntroduceParent();
+
+            parent1.IntroduceParent();
+
+            /*
+             Here we are creating a parent object with new Parent()
+            SInce we are using Inheritance, child object already contains parent members
+
+
+            child1 ───────┐
+                          │
+                          ▼
+                +----------------+                  +----------------+ 
+                | Child Object   |                  | Parent Object  |
+                +----------------+                  +----------------+
+                | Parent Part    |                  | Parent Part    |
+                | Child Part     |                  +----------------+
+                +----------------+
+                                                              ▲
+                                                              │
+                                                parent1 ──────┘
+
+
+             */
+
+            // Downcasting
+            Child child2 = (Child)parent1;
+
+            // Not possible because parent1 points to a Parent object,
+            // not a Child object.
+
+            child2.IntroduceParent(); // error
+            child2.IntroduceChild();
+
+            // Unhandled exception. System.InvalidCastException:
+
+
+        }
+    }
+}
+
+```
+
 # Safe Downcasting with "is"
 
 The `is` operator checks compatibility before casting.
@@ -235,6 +393,63 @@ if (person is Student)
 ```
 
 This prevents runtime exceptions.
+
+<br>
+
+```csharp
+using System;
+
+namespace CSharpIntermediate
+{
+    public class Parent
+    {
+        public void IntroduceParent()
+        {
+            Console.WriteLine("I am a Parent");
+        }
+    }
+
+    public class Child : Parent
+    {
+        public void IntroduceChild()
+        {
+            Console.WriteLine("I am a Child");
+        }
+    }
+
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            Child child1 = new Child();
+
+            // Upcasting
+            Parent parent1 = child1;
+
+            parent1.IntroduceParent();
+
+            Console.WriteLine();
+
+            // Safe Downcasting using 'is'
+            if (parent1 is Child child2)
+            {
+                child2.IntroduceParent();
+                child2.IntroduceChild();
+            }
+        }
+    }
+}
+```
+```
+I am a Parent
+
+I am a Parent
+I am a Child
+```
+
+> [!Important]
+> It asks "Is parent1 actually a Child?"\
+> If yes, create child2.
 
 <br>
 
@@ -261,6 +476,54 @@ student == null
 ```
 
 No exception is thrown.
+
+<br>
+
+```csharp
+using System;
+
+namespace CSharpIntermediate
+{
+    public class Parent
+    {
+        public void IntroduceParent()
+        {
+            Console.WriteLine("I am a Parent");
+        }
+    }
+
+    public class Child : Parent
+    {
+        public void IntroduceChild()
+        {
+            Console.WriteLine("I am a Child");
+        }
+    }
+
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            Child child1 = new Child();
+
+            // Upcasting
+            Parent parent1 = child1;
+
+            // Safe Downcasting using 'as'
+            Child child2 = parent1 as Child;
+
+            if (child2 != null)
+            {
+                child2.IntroduceParent();
+                child2.IntroduceChild();
+            }
+        }
+    }
+}
+```
+> [!Important]
+> "Try converting parent1 to Child."\
+> If fail `child2 == null`
 
 <br>
 
