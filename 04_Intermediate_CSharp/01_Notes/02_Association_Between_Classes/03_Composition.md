@@ -31,6 +31,7 @@ Notice that these are **"has-a"** relationships, not **"is-a"** relationships.
 
 <br>
 
+
 # Why Do We Need Composition?
 
 Suppose we are designing a `Car`.
@@ -47,6 +48,12 @@ Car
 The `Car` class should contain an `Engine` object instead of inheriting from it.
 
 This models the real world more accurately.
+
+<br>
+
+<div align = "center">
+<img width="551" height="368" alt="image" src="https://github.com/user-attachments/assets/b913d298-4bd2-4c2a-bf30-012827dd33e1" />
+</div>
 
 <br>
 
