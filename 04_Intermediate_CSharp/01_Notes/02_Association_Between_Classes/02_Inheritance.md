@@ -233,6 +233,62 @@ Each derived class inherits from the class directly above it.
 
 <br>
 
+**Example:**
+```csharp
+namespace CSharpdoubleermediate
+{ 
+    public class Animal
+    {
+        public string Name {
+            get;
+            set; 
+        }
+
+        public Animal()
+        {
+            this.Name = "Unknown";
+        }
+
+        public void Intro(string name)
+        {
+            Console.WriteLine("{0} is a Animal ", name);
+        }
+    }
+
+    public class Dog : Animal
+    {
+        private string name = "Rock";
+
+        public Dog()
+        {
+            Name = name;
+            //Intro(name); //you can use parent methods inside 
+        }
+
+        public void MakeSound()
+        {
+            Console.WriteLine("Bark");
+        }
+
+        
+    }
+
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            Dog dog = new Dog();
+            dog.Intro("Jimmy");
+            dog.MakeSound();
+
+        }
+    }
+}
+
+```
+
+<br>
+
 # Best Practices
 
 * Use inheritance only for genuine **"is-a" relationships**.
