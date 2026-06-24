@@ -29,13 +29,14 @@ It allows one class to **inherit the members (fields, methods, properties, etc.)
 
 <br>
 
-<div align = "center">
+<!-- <div align = "center">
 <img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/bddaf5c6-e979-434d-a07f-bacc412ee5c9" />
 
 
 </div>
 
-<br>
+<br> -->
+
 Example
 
 ```text
