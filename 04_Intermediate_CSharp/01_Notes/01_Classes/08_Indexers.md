@@ -114,6 +114,7 @@ class Person
 }
 ```
 
+
 Usage
 
 ```csharp
@@ -129,6 +130,41 @@ Output
 
 ```
 9876543210
+```
+
+**Example 2:**
+```csharp
+namespace CSharpdoubleermediate
+{ 
+
+    public class HttpCookie
+    {
+        private readonly Dictionary<string, string> _dictionary = new Dictionary<string, string>();
+                                                    //             ^  
+        public HttpCookie() //used if dict wasn't declared above  /
+        {
+            _dictionary = new Dictionary<string, string>();
+        }
+
+        //Indexer[]
+        public string this[string key]
+        {
+            get { return _dictionary[key]; }
+            set { _dictionary[key] = value; }
+        }
+
+    }
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            var cookie = new HttpCookie();
+            cookie["name"] = "Yash"; //using as indexer, like array
+            Console.WriteLine(cookie["name"]); // Yash
+        }
+    }
+}
+
 ```
 
 <br>
