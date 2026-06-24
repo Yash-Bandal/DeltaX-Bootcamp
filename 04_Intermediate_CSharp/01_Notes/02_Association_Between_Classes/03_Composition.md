@@ -23,6 +23,14 @@ Notice that these are **"has-a"** relationships, not **"is-a"** relationships.
 
 <br>
 
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/de7369e3-f933-400c-98c0-dce7b5e66577" />
+ <img width="500" alt="image" src="https://github.com/user-attachments/assets/98e70884-4500-47ce-aa12-581749a5c2c5" />
+
+</div>
+
+<br>
+
 # Why Do We Need Composition?
 
 Suppose we are designing a `Car`.
