@@ -1,8 +1,10 @@
 # 3.3 Upcasting and Downcasting
 
-Upcasting and Downcasting are techniques used to convert objects between base and derived types.
+Upcasting is the conversion of a derived (child) class reference to a base (parent) class reference, 
 
-They are fundamental concepts in inheritance and are heavily used in polymorphism.
+while downcasting converts a base class reference back to a derived class reference.
+
+These operations change the type of the `reference (✓)` used to access an object, but they never modify the underlying runtime type of the `object (X)` .
 
 <br>
 <div align = "center">
