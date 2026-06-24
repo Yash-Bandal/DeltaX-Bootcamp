@@ -18,7 +18,7 @@ Limited visibility outside, magic inside
 <div align = "center">
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/0b7fc058-8e14-462a-82ab-b56607f6b326" />
 <p>What we see from outside is Interface (DVD Player), public interface very simple</p>
-    <img width="928" height="368" alt="image" src="https://github.com/user-attachments/assets/2e01a613-29a5-4b47-bb07-8ad28f28c7f5" />
+    <img width="500" alt="image" src="https://github.com/user-attachments/assets/2e01a613-29a5-4b47-bb07-8ad28f28c7f5" />
 </div>
 
 <br>
