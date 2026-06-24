@@ -262,17 +262,21 @@ namespace CSharpdoubleermediate
             child1 ───────┐
                           │
                           ▼
-                +----------------+
-                | Child Object   |
-                +----------------+
-                | Parent Part    |
-                | Child Part     |
-                +----------------+
+                +--------------------+
+                | Child Object       |
+                +-------------------+
+                | Parent Part       |
+                | IntroduceParent() |
+                | Child Part        |
+                | IntroduceChild()  |
+                +-------------------+
                           ▲
                           │
             parent1 ──────┘
 
-
+             Thus object created for parent that needs IntroPar() , from Child object, already has the inherited
+             method, so no need of creating another seperate parent object, instead use the one from child itself
+     
              */
 
 
