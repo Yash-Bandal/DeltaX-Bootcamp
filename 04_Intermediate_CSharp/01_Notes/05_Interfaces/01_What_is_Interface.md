@@ -155,12 +155,12 @@ This is polymorphism through interfaces — completely unrelated classes, same c
 ┌─────────────────────────────┬──────────┬──────────────┐
 │                             │Interface │Abstract Class│
 ├─────────────────────────────┼──────────┼──────────────┤
-│ Method signatures           │   ✓      │     ✓        │
-│ Properties (signature only) │   ✓      │     ✓        │
-│ Concrete methods            │   ✓ *    │     ✓        │
-│ Fields                      │   ✗      │     ✓        │
-│ Constructors                │   ✗      │     ✓        │
-│ Multiple inheritance        │   ✓      │     ✗        │
+│ Method signatures           │   ✓      │     ✓       │
+│ Properties (signature only) │   ✓      │     ✓       │
+│ Concrete methods            │   ✓ *    │     ✓       │
+│ Fields                      │   ✗      │     ✓       │
+│ Constructors                │   ✗      │     ✓       │
+│ Multiple inheritance        │   ✓      │     ✗       │
 └─────────────────────────────┴──────────┴──────────────┘
 * default interface methods — C# 8+, rarely used
 ```
