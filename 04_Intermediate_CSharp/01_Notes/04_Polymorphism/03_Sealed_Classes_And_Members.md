@@ -1,6 +1,11 @@
 # 4.3 Sealed Classes and Members 
 
+<br>
 
+> [!Tip]
+> Not much used, ms docs just gave this method t slightly increase performance
+
+<br>
 
 A **sealed class** cannot be inherited.
 
