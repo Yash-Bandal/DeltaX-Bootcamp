@@ -1,4 +1,6 @@
-# 4.3 Sealed Classes and Members (Opposite of Abstract)
+# 4.3 Sealed Classes and Members 
+
+
 
 A **sealed class** cannot be inherited.
 
@@ -7,6 +9,12 @@ A **sealed method** cannot be overridden further down the hierarchy.
 ```text
 sealed  =  "This is the end of the line."
 ```
+
+<br>
+
+### Opposite of Abstract
+1. Abstract do allow child to changing behaviour of parent
+2. Sealed dont allow child to change behaviour of parent
 
 <br>
 
