@@ -88,6 +88,12 @@ public class SpecialCircle : Circle
 
 # The Override Chain
 
+<br>
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/2218f64f-c37f-432e-b6ea-cd10b82069f4" />
+</div>
+<br>
+
 ```text
 Shape               virtual void Draw()     ← can be overridden
    │
