@@ -190,6 +190,58 @@ d.Draw();   ← polymorphism — interface as type
 
 <br>
 
+> [!Tip]
+> C# **does not support multiple inheritance of classes**. A class can inherit from only **one** base (parent) class.
+>
+> **Valid**
+>
+> ```csharp
+> class Dog : Animal
+> {
+> }
+> ```
+>
+> **Invalid**
+>
+> ```csharp
+> class Dog : Animal, LivingThing
+> {
+> }
+> ```
+>
+> To achieve similar functionality, C# allows a class to **implement multiple interfaces**.
+>
+> ```csharp
+> interface IWalk
+> {
+>     void Walk();
+> }
+>
+> interface ISwim
+> {
+>     void Swim();
+> }
+>
+> class Duck : IWalk, ISwim
+> {
+>     public void Walk()
+>     {
+>     }
+>
+>     public void Swim()
+>     {
+>     }
+> }
+> ```
+>
+> **Therefore:**
+>
+> * C# supports **single inheritance** for classes.
+> * C# supports **multiple interface implementation**.
+
+<br>
+
+
 # Interview Questions
 
 ### What is an interface?
@@ -213,3 +265,5 @@ No — but you can use it as a reference type pointing to any object that implem
 ### Why does the `I` prefix convention exist?
 
 To immediately signal at the call site that you're working with an interface, not a class.
+
+<br>
