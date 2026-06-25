@@ -30,6 +30,10 @@
 
 ```
 
+Errors that appear automatically while you are typing—before you ever press the "Run" button—are caught during compile time, \
+specifically by a real-time process called static analysis.Modern code editors run a `background compiler` or `linter` that 
+constantly reads your text to catch mistakes early.
+
 <br>
 
 # 4.1 Method Overriding
