@@ -142,7 +142,84 @@ This is the key difference from interfaces — abstract classes can hold **share
 
 <br>
 
-# Full Example
+# Full Examples
+
+**Example 1**
+```csharp
+using System.Collections;
+
+namespace CSharpdoubleermediate
+{
+    /*
+      Abstract Class: 
+            Cannot be instantiated.
+            Can contain both abstract and concrete members.
+    */
+    abstract public class Shape
+    {
+        //Abstract method
+        public abstract void Draw(); // No body, just implemtation, like interface
+       
+        // Concrete method (Normal)
+        public void Concrete()  // Have body, can be used by inherited class
+        {
+            Console.WriteLine("This is a concrete Method.");
+        }
+    }
+
+
+    public class Circle : Shape
+    {
+        public override void Draw() // // Every non-abstract derived class must override the abstract method.
+        {
+            Console.WriteLine("Drawing a circle");
+        }
+
+    }
+
+    public class Rectangle : Shape
+    {
+        public override void Draw() //method in child with same name 'Draw'
+        {
+            Console.WriteLine("Drawing a rectangle");
+        }
+    }
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            //Shape shape = new Shape(); //Cannot create an instance of the abstract type or interface 'Shape'
+            //shape.Draw(); 
+
+
+            Shape circle = new Circle(); //upcasting //Runtime Polymorphism
+            circle.Draw();
+            circle.Concrete(); //called by inherited class object
+
+            //Shape rectangle = new Rectangle(); //upcasting
+            Rectangle rectangle = new Rectangle(); //child method
+            rectangle.Draw();
+
+            // ==================== Use case =====================
+
+            List<Shape> shapesList = new List<Shape>()
+            {
+                new Circle(),
+                new Rectangle()
+                //rectangle;
+                //circle; error
+            };
+
+            foreach (Shape obj in shapesList)
+            {
+                obj.Draw();
+            }
+        }
+    }
+}
+
+```
+**Example 2**
 
 ```csharp
 public abstract class Shape
