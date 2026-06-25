@@ -81,7 +81,8 @@ Shape s = new Shape();   // ✗ Compile error
 Cannot create an instance of the abstract class or interface 'Shape'
 ```
 
-> Abstract classes exist only to be inherited. They are **blueprints**, not objects.
+> [!important]
+> Abstract classes exist only to be inherited. 🏷️ They are **blueprints**, not objects.
 
 <br>
 
