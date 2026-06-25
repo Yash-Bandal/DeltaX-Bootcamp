@@ -4,10 +4,10 @@
 
 > [!Tip]
 > ## Overview
-> There was a flaw in `virtual` keyword (Plain runtime poly), that , if it wasn't overriden, still it executed
+> There was a thing with  in `virtual` keyword (Plain runtime poly), that , if it wasn't overriden, still it executed (thats its design, not flaw)
 >
 > Sometimes that may become unnecasary,\
-> So we have abstraction, whose classes cannot be instantiated, nor its abstract method have body
+> So we have abstraction, whose classes cannot be **instantiated**, nor its abstract method have **body**
 >
 > You might think, that hey interface also just provides implementation, \
 > Yes, Interface just has implementation, abstract classes are little flexible, and can have concrete method, who can besed by inherited classes
