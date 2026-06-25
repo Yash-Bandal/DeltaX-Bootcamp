@@ -16,6 +16,18 @@
 | **Execution Speed** | Faster (resolved beforehand) | Slower (resolved at runtime) |
 | **Flexibility** | Lower | Higher |
 
+<br<
+```
+ [ Press Run Button ] 
+         │
+         ▼
+ 1. COMPILE-TIME  ──► (Translates code. Checks for typos/syntax errors)
+         │
+         │ If successful...
+         ▼
+ 2. RUNTIME       ──► (Launches the app. Executes the actual logic)
+
+```
 
 <br>
 
