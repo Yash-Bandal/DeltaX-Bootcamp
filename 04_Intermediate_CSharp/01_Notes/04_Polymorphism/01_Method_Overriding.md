@@ -201,10 +201,10 @@ namespace CSharpdoubleermediate
             Shape shape = new Shape();
             shape.Draw();
 
-            Circle circle = new Circle();
+            Shape circle = new Circle();
             circle.Draw();
 
-            Rectangle rectangle = new Rectangle();
+            Shape rectangle = new Rectangle();
             rectangle.Draw();
         }
     }
