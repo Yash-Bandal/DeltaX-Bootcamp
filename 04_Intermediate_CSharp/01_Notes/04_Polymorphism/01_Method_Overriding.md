@@ -1,5 +1,11 @@
 # 4.1 Method Overriding
 
+> [!Note]
+> Polymorphism is a core concept in Object-Oriented Programming (OOP) that allows a single interface or method to represent different behaviors based on the specific object being used.
+>
+> The word literally translates to "many forms."
+
+
 Method overriding lets a **derived class** provide its own implementation of a method already defined in the **base class**.
 
 The method must have the same **name**, **return type**, and **parameters**.
