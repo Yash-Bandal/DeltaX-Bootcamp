@@ -274,7 +274,7 @@ Drawing a circle
 
 # Method Hiding with `new` — What NOT to Do
 
-### Imagine `new` as `hide` 🏷️
+### Imagine `new` as `hide` 🏷️(when upcasting used)
 
 If a derived class defines a method with the **same name** as a base class method but **without** `override`, it **hides** the base method.
 
@@ -314,7 +314,8 @@ With `override`, the actual object always decides.
 
 <br>
 
-**Example**
+## **Example**
+### With Upcasting
 ```csharp
 using System.Collections;
 
@@ -366,6 +367,60 @@ Output:
 Drawing a shape
 Drawing a shape
 Drawing a shape
+```
+
+### Without Upcasting
+```csharp
+using System.Collections;
+
+namespace CSharpdoubleermediate
+{
+    public class Shape
+    {
+        public virtual void Draw() //method in parent with name 'Draw'
+        {
+            Console.WriteLine("Drawing a shape");
+        }
+    }
+
+    public class Circle : Shape
+    {
+        public new void Draw() //method in child with same name 'Draw'
+        {
+            Console.WriteLine("Drawing a circle");
+        }   
+    }
+
+    public class Rectangle : Shape
+    {
+        public new void Draw() //method in child with same name 'Draw'
+        {
+            Console.WriteLine("Drawing a rectangle");
+        }
+    }
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {   
+            Shape shape = new Shape();
+            shape.Draw();
+
+            Circle circle = new Circle();
+            //Shape circle = new Circle();
+            circle.Draw();
+
+            Rectangle rectangle = new Rectangle();
+            //Shape rectangle = new Rectangle();
+            rectangle.Draw();
+        }
+    }
+}
+
+```
+```
+Drawing a shape
+Drawing a circle
+Drawing a rectangle
 ```
 
 
