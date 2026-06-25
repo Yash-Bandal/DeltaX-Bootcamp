@@ -201,6 +201,11 @@ int j = (int)o;     // Unboxing  → explicit, copies back to Stack
 
 <br>
 
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/3da3727d-8cca-4471-bad9-4534fbdd524f" />
+</div>
+<br>
+
 # Why Does Boxing Exist?
 
 C# has a **unified type system**. Everything derives from `object`.
