@@ -65,7 +65,7 @@ The explicit cast is unnecessary because upcasting happens automatically.
 Parent parent = (Parent)child; // also valid, but unnecessary
 ```
 
-<br<
+<br>
 
 **Example : Changing Object Reference type**
 ```csharp
