@@ -21,10 +21,14 @@ You just learned abstract classes also enforce contracts. So why interfaces?
 
 ```text
 Abstract Class  →  related things sharing a common base
+                    They can have concrete methods and Fields
                    e.g. Shape → Circle, Rectangle
 
+
 Interface       →  unrelated things sharing a capability
+                    They can also have concrete methods (Introduced in C# 8+), but no Fields
                    e.g. Circle, Car, Person  all can be IDrawable
+                    
 ```
 
 A `Car` and a `Circle` have nothing in common — they can't share a base class.
