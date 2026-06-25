@@ -210,8 +210,14 @@ namespace CSharpdoubleermediate
         }
     }
 }
-
 ```
+Output:
+```
+Drawing a shape
+Drawing a circle
+Drawing a rectangle
+```
+
 
 Even though `s2` and `s3` are declared as `Shape`, the **actual object type** decides which `Draw()` runs.
 
@@ -268,6 +274,8 @@ Drawing a circle
 
 # Method Hiding with `new` — What NOT to Do
 
+### Image `new` as `hide` 🏷️
+
 If a derived class defines a method with the **same name** as a base class method but **without** `override`, it **hides** the base method.
 
 The compiler warns you to add `new` explicitly to make it intentional.
@@ -303,6 +311,62 @@ s.Draw();          // Drawing a shape    ← !! uses Shape.Draw, not Circle.Draw
 With `new` (hiding), the reference type decides the method — **not the actual object**.
 
 With `override`, the actual object always decides.
+
+<br>
+
+**Example**
+```csharp
+using System.Collections;
+
+namespace CSharpdoubleermediate
+{
+    public class Shape
+    {
+        public virtual void Draw() //method in parent with name 'Draw'
+        {
+            Console.WriteLine("Drawing a shape");
+        }
+    }
+
+    public class Circle : Shape
+    {
+        // Think 'new' hides the child method, and displays parent method,
+        public new void Draw() //method in child with same name 'Draw'
+        {
+            Console.WriteLine("Drawing a circle");
+        }   
+    }
+
+    public class Rectangle : Shape
+    {
+        public new void Draw() //method in child with same name 'Draw'
+        {
+            Console.WriteLine("Drawing a rectangle");
+        }
+    }
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {   
+            Shape shape = new Shape();
+            shape.Draw();
+
+            Shape circle = new Circle();
+            circle.Draw();
+
+            Shape rectangle = new Rectangle();
+            rectangle.Draw();
+        }
+    }
+}
+
+```
+Output:
+```
+Drawing a shape
+Drawing a shape
+Drawing a shape
+```
 
 
 <br>
