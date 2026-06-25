@@ -2,7 +2,7 @@
 
 An **abstract class** is a class that is **incomplete by design**.
 
-It defines a contract — what derived classes *must* implement — without providing the implementation itself.
+It defines a **contract 🏷️** — what derived classes *must* implement — without providing the implementation itself.
 
 ```text
 Abstract Class  =  "Here is what you MUST have."
