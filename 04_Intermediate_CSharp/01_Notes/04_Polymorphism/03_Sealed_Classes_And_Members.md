@@ -1,4 +1,4 @@
-# 4.3 Sealed Classes and Members
+# 4.3 Sealed Classes and Members (Opposite of Abstract)
 
 A **sealed class** cannot be inherited.
 
