@@ -5,6 +5,7 @@
 >
 > The word literally translates to "many forms."
 
+<br>
 
 Method overriding lets a **derived class** provide its own implementation of a method already defined in the **base class**.
 
