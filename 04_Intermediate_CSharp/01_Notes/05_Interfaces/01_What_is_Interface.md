@@ -60,12 +60,18 @@ Rules:
 <br>
 
 <div align = "center">
-<img width="1102" height="462" alt="image" src="https://github.com/user-attachments/assets/5542361c-e73c-451d-87ec-b45227748ef7" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/5542361c-e73c-451d-87ec-b45227748ef7" />
 
 </div>
 
 <br>
 
+```csharp
+public interface IDrawable
+{
+    void Draw();
+}
+```
 ```csharp
 public class Circle : IDrawable
 {
