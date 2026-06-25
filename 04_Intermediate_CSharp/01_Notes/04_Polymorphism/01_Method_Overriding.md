@@ -274,7 +274,7 @@ Drawing a circle
 
 # Method Hiding with `new` — What NOT to Do
 
-### Image `new` as `hide` 🏷️
+### Imagine `new` as `hide` 🏷️
 
 If a derived class defines a method with the **same name** as a base class method but **without** `override`, it **hides** the base method.
 
