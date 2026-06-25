@@ -16,7 +16,8 @@
 | **Execution Speed** | Faster (resolved beforehand) | Slower (resolved at runtime) |
 | **Flexibility** | Lower | Higher |
 
-<br<
+<br>
+
 ```
  [ Press Run Button ] 
          │
