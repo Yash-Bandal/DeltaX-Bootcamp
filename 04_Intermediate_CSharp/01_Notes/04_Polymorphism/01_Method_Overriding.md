@@ -198,10 +198,11 @@ namespace CSharpdoubleermediate
     {
         public static void Main(string[] args)
         {   
-            Shape shape = new Shape();
+            Shape shape = new Shape(); 
             shape.Draw();
 
-            Shape circle = new Circle();
+            // Parent p = new Child() -> ~ Parent p = childObj
+            Shape circle = new Circle();  //notice we are implicitely 'UPCASTING', instead of creating seperate parent class "Shape" again
             circle.Draw();
 
             Shape rectangle = new Rectangle();
