@@ -46,6 +46,13 @@ The method must have the same **name**, **return type**, and **parameters**.
 
 This is also called **Runtime Polymorphism** — the decision of which method to call is made at **runtime**, based on the actual object type, not the reference type.
 
+
+
+
+<br>
+<div align = "center">
+<img width="469" height="412" alt="image" src="https://github.com/user-attachments/assets/2ab69b99-f145-4d60-9ff8-2ff1ed6c5cbe" />
+</div>
 <br>
 
 ### Mind - `Child` Overrides (Replaces) Virtual Member of `Parent` 🏷️
