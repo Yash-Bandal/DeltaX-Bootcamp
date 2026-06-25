@@ -375,6 +375,8 @@ if (parent1 is Child child2)
     child2.IntroduceParent();
     child2.IntroduceChild();
 }
+
+// Check and only then proceed, to avoid exceptions
 ```
 
 ```
