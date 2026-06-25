@@ -48,7 +48,7 @@ This is also called **Runtime Polymorphism** — the decision of which method to
 
 <br>
 
-### Mind - Child Overrides (Replaces) Virtual Member 🏷️
+### Mind - `Child` Overrides (Replaces) Virtual Member of `Parent` 🏷️
 
 <br>
 
