@@ -84,7 +84,7 @@ This is where `virtual` and `override` come in.
 
 <br>
 <div align = "center">
-  <img width="600" alt="image" src="https://github.com/user-attachments/assets/da1f3577-2c70-4197-bf48-ebe8bf7659b3" />
+  <img width="800" alt="image" src="https://github.com/user-attachments/assets/da1f3577-2c70-4197-bf48-ebe8bf7659b3" />
 </div>
 <br>
 
