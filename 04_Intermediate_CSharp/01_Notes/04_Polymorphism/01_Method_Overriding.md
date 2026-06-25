@@ -158,6 +158,56 @@ s2.Draw();   // Drawing a circle    ← runtime picks Circle.Draw()
 s3.Draw();   // Drawing a rectangle ← runtime picks Rectangle.Draw()
 ```
 
+<br>
+
+**Full code:**
+
+```csharp
+using System.Collections;
+
+namespace CSharpdoubleermediate
+{
+    public class Shape
+    {
+        public virtual void Draw() //method in parent with name 'Draw'
+        {
+            Console.WriteLine("Drawing a shape");
+        }
+    }
+
+    public class Circle : Shape
+    {
+        public override void Draw() //method in child with same name 'Draw'
+        {
+            Console.WriteLine("Drawing a circle");
+        }
+    }
+
+    public class Rectangle : Shape
+    {
+        public override void Draw() //method in child with same name 'Draw'
+        {
+            Console.WriteLine("Drawing a rectangle");
+        }
+    }
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {   
+            Shape shape = new Shape();
+            shape.Draw();
+
+            Circle circle = new Circle();
+            circle.Draw();
+
+            Rectangle rectangle = new Rectangle();
+            rectangle.Draw();
+        }
+    }
+}
+
+```
+
 Even though `s2` and `s3` are declared as `Shape`, the **actual object type** decides which `Draw()` runs.
 
 ```text
