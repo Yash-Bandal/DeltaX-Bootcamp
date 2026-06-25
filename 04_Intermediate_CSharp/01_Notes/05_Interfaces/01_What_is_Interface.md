@@ -51,14 +51,6 @@ Rules:
 
 # Implementing an Interface
 
-<br>
-
-<div align = "center">
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/065a11eb-8e22-4316-825f-708665b78edb" />
-</div>
-
-<br>
-
 
 
 ```csharp
@@ -134,6 +126,16 @@ Circle
 # Interface as a Type
 
 An interface can be used as a reference type — just like a base class.
+
+
+<br>
+
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/065a11eb-8e22-4316-825f-708665b78edb" />
+</div>
+
+<br>
+
 
 ```csharp
 IDrawable d1 = new Circle();
