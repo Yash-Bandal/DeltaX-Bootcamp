@@ -1,4 +1,4 @@
-# 4.1 Method Overriding
+# Polymorphism
 
 > [!Note]
 > Polymorphism is a core concept in Object-Oriented Programming (OOP) that allows a single interface or method to represent different behaviors based on the specific object being used.
@@ -6,6 +6,22 @@
 > The word literally translates to "many forms."
 
 <br>
+
+
+| Feature | Compile-Time (Static) | Runtime (Dynamic) |
+| :--- | :--- | :--- |
+| **Alternative Names** | Static Binding, Early Binding | Dynamic Binding, Late Binding |
+| **How it is Achieved** | Method Overloading, Operator Overloaded | Method Overriding |
+| **Resolution Time** | During code compilation | During program execution |
+| **Execution Speed** | Faster (resolved beforehand) | Slower (resolved at runtime) |
+| **Flexibility** | Lower | Higher |
+
+
+<br>
+
+# 4.1 Method Overriding
+
+
 
 Method overriding lets a **derived class** provide its own implementation of a method already defined in the **base class**.
 
