@@ -48,6 +48,10 @@ This is also called **Runtime Polymorphism** — the decision of which method to
 
 <br>
 
+### Mind - Child Overrides (Replaces) Virtual Member 🏷️
+
+<br>
+
 # The Problem Without Overriding
 
 Without overriding, every object calls the same base class method — regardless of what it actually is.
