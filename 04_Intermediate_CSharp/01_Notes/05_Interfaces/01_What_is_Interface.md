@@ -59,12 +59,7 @@ Rules:
 
 <br>
 
-<div align = "center">
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/5542361c-e73c-451d-87ec-b45227748ef7" />
 
-</div>
-
-<br>
 
 ```csharp
 public interface IDrawable
@@ -98,6 +93,15 @@ The class **must** implement every member of the interface — or it won't compi
 
 A class can only inherit **one** base class.
 But it can implement **multiple** interfaces.
+
+<br>
+
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/5542361c-e73c-451d-87ec-b45227748ef7" />
+
+</div>
+
+<br>
 
 ```csharp
 public interface IDrawable
