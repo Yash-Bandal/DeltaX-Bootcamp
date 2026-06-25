@@ -16,26 +16,34 @@ These operations change the type of the `reference (✓)` used to access an obje
 
 Consider the following classes:
 
-```csharp id="fgh321"
-class Person
+```csharp
+public class Parent
 {
+    public void IntroduceParent()
+    {
+        Console.WriteLine("I am a Parent");
+    }
 }
 
-class Student : Person
+public class Child : Parent
 {
+    public void IntroduceChild()
+    {
+        Console.WriteLine("I am a Child");
+    }
 }
 ```
 
 Relationship:
 
-```text id="klm123"
-Person
+```text
+Parent
    ▲
    │
-Student
+Child
 ```
 
-A `Student` **is a** `Person`.
+A `Child` **is a** `Parent`.
 
 This relationship allows casting between these types.
 
@@ -47,177 +55,19 @@ This relationship allows casting between these types.
 
 Syntax
 ```csharp
-ChildClass childObject = new ChildClass();
-ParentClass parentObject = childObject;
+Child child = new Child();
+Parent parent = child;
 ```
-
-Example
-
-```csharp id="abc123"
-Student student = new Student();
-
-Person person = student;
-```
-
-or
-
-```csharp id="def456"
-Person person = (Person)student;
-```
-
-Both are valid.
 
 The explicit cast is unnecessary because upcasting happens automatically.
 
-<br>
-
-# Why is Upcasting Safe?
-
-Every `Student` object is also a `Person`.
-
-Therefore:
-
-```text id="ghi789"
-Student → Person
+```csharp
+Parent parent = (Parent)child; // also valid, but unnecessary
 ```
 
-is always safe.
+<br<
 
-The runtime already knows that a Student contains all Person members.
-
-<br>
-
-# Example
-
-```csharp id="jkl012"
-class Person
-{
-    public void Walk()
-    {
-        Console.WriteLine("Walking");
-    }
-}
-
-class Student : Person
-{
-}
-```
-
-Usage
-
-```csharp id="mno345"
-Student student = new Student();
-
-Person person = student;
-
-person.Walk();
-```
-
-Output
-
-```text id="pqr678"
-Walking
-```
-
-<br>
-
-# What Happens After Upcasting?
-
-After upcasting:
-
-```csharp id="stu901"
-Student student = new Student();
-
-Person person = student;
-```
-
-The object is still a `Student`.
-
-Only the reference type changes.
-
-Memory representation:
-
-```text id="vwx234"
-Person Reference
-        │
-        ▼
-     Student Object
-```
-
-The actual object remains unchanged.
-
-<br>
-
-# What Members Are Accessible?
-
-```csharp id="yz1234"
-Student student = new Student();
-
-Person person = student;
-```
-
-Only members available in `Person` can be accessed through the `person` reference.
-
-Example
-
-```csharp id="abc567"
-class Student : Person
-{
-    public void Study()
-    {
-    }
-}
-```
-
-```csharp id="def890"
-person.Study(); // Error
-```
-
-Even though the object is a Student, the reference type is Person.
-
-<br>
-
-# What is Downcasting?
-
-**Downcasting** converts a base class reference back to a derived class reference.
-
-Example
-
-```csharp id="ghi123"
-Person person = new Student();
-
-Student student = (Student)person;
-```
-
-Unlike upcasting, downcasting requires an explicit cast.
-
-<br>
-
-# Why is Downcasting Risky?
-
-Not every Person is a Student.
-
-Example
-
-```csharp id="jkl456"
-Person person = new Person();
-
-Student student = (Student)person;
-```
-
-Runtime error:
-
-```text id="mno789"
-InvalidCastException
-```
-
-Because the object is actually a Person, not a Student.
-
-<br>
-
-**Example:**
-
-**Changing Object Reference type**
+**Example : Changing Object Reference type**
 ```csharp
 namespace CSharpdoubleermediate
 {
@@ -297,7 +147,131 @@ namespace CSharpdoubleermediate
 }
 ```
 
-**Creating Parent Object()**
+
+<br>
+
+# Why is Upcasting Safe?
+
+Every `Child` object is also a `Parent`.
+
+Therefore:
+
+```text
+Child → Parent
+```
+
+is always safe.
+
+The runtime already knows that a `Child` contains all `Parent` members.
+
+<br>
+
+# What Happens After Upcasting?
+
+```csharp
+Child child1 = new Child();
+
+// Upcasting
+Parent parent1 = child1; // We just change the reference
+```
+
+The object is still a `Child`.
+
+Only the reference type changes.
+
+```text
+child1 ───────┐
+              │
+              ▼
+    +--------------------+
+    | Child Object       |
+    +--------------------+
+    | Parent Part        |
+    | IntroduceParent()  |
+    | Child Part         |
+    | IntroduceChild()   |
+    +--------------------+
+              ▲
+              │
+parent1 ──────┘
+```
+
+> The actual object remains unchanged. `parent1` and `child1` both point to the same `Child` object.
+
+<br>
+
+# What Members Are Accessible?
+
+After upcasting, only members available in `Parent` can be accessed through the `parent1` reference.
+
+```csharp
+Child child1 = new Child();
+Parent parent1 = child1;
+
+parent1.IntroduceParent(); // ✓ OK
+parent1.IntroduceChild();  // ✗ Error — reference type is Parent
+```
+
+Even though the object is a `Child`, the reference type is `Parent`.
+
+<br>
+
+# What is Downcasting?
+
+**Downcasting** converts a base class reference back to a derived class reference.
+
+Unlike upcasting, downcasting requires an **explicit cast**.
+
+```csharp
+Child child1 = new Child();
+
+// Upcasting
+Parent parent1 = child1;
+
+// Downcasting
+Child child2 = (Child)parent1;
+
+child2.IntroduceParent(); // ✓
+child2.IntroduceChild();  // ✓ — Child members accessible again
+```
+
+<br>
+
+# Why is Downcasting Risky?
+
+Not every `Parent` is a `Child`.
+
+If `parent1` points to an actual `Parent` object (not a `Child`), the cast fails:
+
+```text
+child1 ───────┐
+              ▼
+    +----------------+                  +----------------+
+    | Child Object   |                  | Parent Object  |
+    +----------------+                  +----------------+
+    | Parent Part    |                  | Parent Part    |
+    | Child Part     |                  +----------------+
+    +----------------+
+                                                  ▲
+                                                  │
+                                        parent1 ──┘
+```
+
+```csharp
+Parent parent1 = new Parent(); // points to an actual Parent object
+
+Child child2 = (Child)parent1; // Runtime error!
+```
+
+```text
+Unhandled exception. System.InvalidCastException
+```
+
+Because the object is actually a `Parent`, not a `Child`.
+
+<br>
+
+**Example : Creating Parent Object()**
 ```csharp
 namespace CSharpdoubleermediate
 {
@@ -377,7 +351,9 @@ namespace CSharpdoubleermediate
 
 ```
 
-# Safe Downcasting with "is"
+<br>
+
+# Safe Downcasting with `is`
 
 The `is` operator checks compatibility before casting.
 
@@ -387,63 +363,20 @@ The `is` operator checks compatibility before casting.
 </div>
 <br>
 
-```csharp id="pqr123"
-Person person = new Student();
-
-if (person is Student)
-{
-    Student student = (Student)person;
-}
-```
-
-This prevents runtime exceptions.
-
-<br>
-
 ```csharp
-using System;
+Child child1 = new Child();
+Parent parent1 = child1;
 
-namespace CSharpIntermediate
+parent1.IntroduceParent();
+
+// Safe Downcasting using 'is'
+if (parent1 is Child child2)
 {
-    public class Parent
-    {
-        public void IntroduceParent()
-        {
-            Console.WriteLine("I am a Parent");
-        }
-    }
-
-    public class Child : Parent
-    {
-        public void IntroduceChild()
-        {
-            Console.WriteLine("I am a Child");
-        }
-    }
-
-    internal class Program
-    {
-        public static void Main(string[] args)
-        {
-            Child child1 = new Child();
-
-            // Upcasting
-            Parent parent1 = child1;
-
-            parent1.IntroduceParent();
-
-            Console.WriteLine();
-
-            // Safe Downcasting using 'is'
-            if (parent1 is Child child2)
-            {
-                child2.IntroduceParent();
-                child2.IntroduceChild();
-            }
-        }
-    }
+    child2.IntroduceParent();
+    child2.IntroduceChild();
 }
 ```
+
 ```
 I am a Parent
 
@@ -452,12 +385,12 @@ I am a Child
 ```
 
 > [!Important]
-> It asks "Is parent1 actually a Child?"\
-> If yes, create child2.
+> It asks "Is `parent1` actually a `Child`?"\
+> If yes, create `child2`.
 
 <br>
 
-# Safe Downcasting with "as"
+# Safe Downcasting with `as`
 
 <br>
 <div align = "center">
@@ -467,116 +400,73 @@ I am a Child
 
 The `as` operator attempts a cast and returns `null` if it fails.
 
-```csharp id="stu456"
-Person person = new Student();
-
-Student student = person as Student;
-```
-
-If conversion fails:
-
-```text id="vwx789"
-student == null
-```
-
-No exception is thrown.
-
-<br>
-
 ```csharp
-using System;
+Child child1 = new Child();
+Parent parent1 = child1;
 
-namespace CSharpIntermediate
+// Safe Downcasting using 'as'
+Child child2 = parent1 as Child;
+
+if (child2 != null)
 {
-    public class Parent
-    {
-        public void IntroduceParent()
-        {
-            Console.WriteLine("I am a Parent");
-        }
-    }
-
-    public class Child : Parent
-    {
-        public void IntroduceChild()
-        {
-            Console.WriteLine("I am a Child");
-        }
-    }
-
-    internal class Program
-    {
-        public static void Main(string[] args)
-        {
-            Child child1 = new Child();
-
-            // Upcasting
-            Parent parent1 = child1;
-
-            // Safe Downcasting using 'as'
-            Child child2 = parent1 as Child;
-
-            if (child2 != null)
-            {
-                child2.IntroduceParent();
-                child2.IntroduceChild();
-            }
-        }
-    }
+    child2.IntroduceParent();
+    child2.IntroduceChild();
 }
 ```
+
+If the conversion fails, `child2 == null`. No exception is thrown.
+
 > [!Important]
-> "Try converting parent1 to Child."\
-> If fail `child2 == null`
+> "Try converting `parent1` to `Child`."\
+> If fail → `child2 == null`
 
 <br>
 
-# "is" vs "as"
+# `is` vs `as`
 
-## Using is
+## Using `is`
 
-```csharp id="yz0123"
-if (person is Student)
+```csharp
+if (parent1 is Child child2)
 {
 }
 ```
 
 Returns:
 
-```text id="abc234"
+```text
 true / false
 ```
 
 <br>
 
-## Using as
+## Using `as`
 
-```csharp id="def567"
-Student student = person as Student;
+```csharp
+Child child2 = parent1 as Child;
 ```
 
 Returns:
 
-```text id="ghi890"
-Student object or null
+```text
+Child object or null
 ```
 
 <br>
 
 # Real-World Example
 
-```csharp id="jkl901"
+```csharp
 ArrayList list = new ArrayList();
 
-list.Add(1);
-list.Add("Hello");
-list.Add(new Student());
+list.Add(new Parent());
+list.Add(new Child());
 ```
 
 When retrieving items:
 
-```csharp id="mno234"
-Student student = (Student)list[2];
+```csharp
+Child child = (Child)list[1];
 ```
 
 A downcast is required because `ArrayList` stores objects as `object`.
@@ -587,10 +477,8 @@ A downcast is required because `ArrayList` stores objects as `object`.
 
 Upcasting is heavily used in polymorphism.
 
-Example
-
-```csharp id="pqr567"
-Person person = new Student();
+```csharp
+Parent p = new Child();
 ```
 
 A method can work with many derived types through a base class reference.
@@ -613,25 +501,21 @@ This is one of the key benefits of inheritance.
 
 ## Assuming the reference type changes the object type
 
-```csharp id="stu890"
-Person person = new Student();
+```csharp
+Parent parent1 = new Child();
 ```
 
-The object is still a Student.
-
-Only the reference type changed.
+The object is still a `Child`. Only the reference type changed.
 
 <br>
 
 ## Unsafe Downcasting
 
-```csharp id="vwx123"
-Person person = new Person();
+```csharp
+Parent parent1 = new Parent();
 
-Student student = (Student)person;
+Child child2 = (Child)parent1; // InvalidCastException
 ```
-
-Results in `InvalidCastException`.
 
 <br>
 
