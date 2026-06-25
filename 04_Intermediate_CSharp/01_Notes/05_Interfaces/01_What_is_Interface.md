@@ -11,7 +11,12 @@ public interface IDrawable
 }
 ```
 
+
 Any class that implements `IDrawable` **must** provide a `Draw()` method.
+
+
+> [!Tip]
+> Used to have loosely coupled classes
 
 <br>
 
