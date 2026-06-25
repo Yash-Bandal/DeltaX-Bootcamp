@@ -83,6 +83,8 @@ Stack               Heap
 int i = 42;
 
 object o = i; // Boxing — implicit
+
+(we converted intege (value type) to obect (reference type)
 ```
 
 The CLR:
@@ -233,6 +235,39 @@ int value = (int)list[0];  // Unboxing
 ```
 
 Each `Add()` call boxes the integer → allocates memory on the heap → extra GC work.
+
+<br>
+
+**Example:**
+```csharp
+using System.Collections;
+
+namespace CSharpdoubleermediate
+{
+   
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {   
+            // Auto boxing inside list
+            // ArrayList stores objects
+
+            ArrayList list = new ArrayList();
+            list.Add(1);        // add integer (val)
+            list.Add("Yash");   // add structure (ref)
+            list.Add(DateTime.Today); // add object
+
+            /*
+             implicit boxing auto occurs when we store value types inside an ArrayList
+             */
+
+            var anotherList = new List<int>();
+            anotherList.Add(1); //typesafety, no boxing, only take integer 
+        }
+    }
+}
+
+```
 
 <br>
 
