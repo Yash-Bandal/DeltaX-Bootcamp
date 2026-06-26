@@ -331,3 +331,147 @@ Easy to Replace
 Easy to Test
 Easy to Extend
 ```
+
+<br>
+
+### Complete Example
+```csharp
+using System;
+
+namespace CSharpIntermediate
+{
+    // -----------------------------
+    // Interface (Contract)
+    // -----------------------------
+    public interface IDatabase
+    {
+        void Save();
+    }
+
+    // -----------------------------
+    // SQL Database
+    // -----------------------------
+    public class SqlDatabase : IDatabase
+    {
+        public void Save()
+        {
+            Console.WriteLine("Order saved in SQL Database.");
+        }
+    }
+
+    // -----------------------------
+    // Mongo Database
+    // -----------------------------
+    public class MongoDatabase : IDatabase
+    {
+        public void Save()
+        {
+            Console.WriteLine("Order saved in MongoDB.");
+        }
+    }
+
+    // -----------------------------
+    // Business Logic
+    // -----------------------------
+    public class OrderService
+    {
+        private readonly IDatabase _database;
+
+        // Dependency Injection
+        public OrderService(IDatabase database)
+        {
+            _database = database;
+        }
+
+        public void PlaceOrder()
+        {
+            Console.WriteLine("Processing Order...");
+
+            _database.Save();
+
+            Console.WriteLine("Order Completed.");
+        }
+    }
+
+    // -----------------------------
+    // Main
+    // -----------------------------
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Create the dependency
+            IDatabase db = new SqlDatabase();
+
+            // Inject dependency
+            OrderService orderService = new OrderService(db);
+
+            orderService.PlaceOrder();
+
+            Console.WriteLine();
+
+            // Change database without changing OrderService
+            db = new MongoDatabase();
+
+            orderService = new OrderService(db);
+
+            orderService.PlaceOrder();
+        }
+    }
+}
+```
+**Output:**
+```
+Processing Order...
+Order saved in SQL Database.
+Order Completed.
+
+Processing Order...
+Order saved in MongoDB.
+Order Completed.
+```
+Notice:
+
+We changed
+```csharp
+IDatabase db = new SqlDatabase();
+```
+to
+```csharp
+IDatabase db = new MongoDatabase();
+```
+
+Nothing inside OrderService changed.
+
+That's the whole point of interfaces + dependency injection.
+
+
+<br>
+Is db an Interface Object?
+
+You wrote:
+```csharp
+IDatabase db = new SqlDatabase();
+```
+No, interface cannot be `instantiated`
+
+so its an\
+`An interface reference.`
+
+we just change reference
+```
+db
+ │
+ ▼
+SqlDatabase Object
+```
+to
+```csharp
+db = new MongoDatabase();
+```
+```
+db
+ │
+ ▼
+MongoDatabase Object      
+```
