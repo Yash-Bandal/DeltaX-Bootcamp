@@ -65,6 +65,11 @@ Not
 I specifically need SQL.
 ```
 
+Interface tells the Database classes, whether they are of mongodb, sql, postgre etc, that\
+Hey, my client class will need a `Save()` method, I am a middleman, You as a database class\
+shall `mandatory` implement save method, that I will inject in client class
+
+Lets make a contract, that you will vide `save()` method
 
 
 Interface
