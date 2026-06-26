@@ -377,6 +377,15 @@ namespace CSharpIntermediate
         }
     }
 
+    //Simulate fake database
+    public class FakeDatabase : IDatabase
+    {
+        public void Save()
+        {
+            Console.WriteLine("Pretending to save...");
+        }
+    }
+
     // -----------------------------
     // Business Logic
     // -----------------------------
@@ -439,6 +448,13 @@ namespace CSharpIntermediate
             MongoDatabase Object
             */
 
+            orderService = new OrderService(db);
+
+            orderService.PlaceOrder();
+
+            Console.WriteLine();
+
+            //Simulate fake database
             orderService = new OrderService(db);
 
             orderService.PlaceOrder();
