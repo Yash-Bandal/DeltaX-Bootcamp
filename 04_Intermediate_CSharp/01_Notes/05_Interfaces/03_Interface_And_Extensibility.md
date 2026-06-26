@@ -1,6 +1,10 @@
 # 5.3 Interfaces and Extensibility
 
+<br>
 
+### Refer [This](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_Intermediate_CSharp/01_Notes/05_Interfaces/Understanding.md) for proper Understanding
+
+<br>
 
 One of the biggest advantages of interfaces is **extensibility**.
 
@@ -8,36 +12,27 @@ An application should be designed so that **new features can be added without mo
 
 <br>
 
-> [!Tip]
-> ### Refer [This](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_Intermediate_CSharp/01_Notes/05_Interfaces/Understanding.md) for proper Understanding
-
-<br>
-
 # What is Extensibility?
 
 **Extensibility** is the ability to add new functionality to an application **without changing existing code**.
 
-Instead of modifying a class every time a new requirement appears, we simply create a new class that implements the required interface.
+Instead of modifying a class whenever requirements change, we simply create another class that implements the same interface.
 
-This makes applications easier to maintain and less prone to bugs.
+This makes applications easier to maintain, test, and extend.
 
 <br>
 
 # Why is Extensibility Important?
 
-Suppose an application sends notifications.
+Suppose an application saves orders in a **SQL Database**.
 
-Initially, it only supports Email.
+Later, the company decides to use:
 
-Later, the client asks to support:
+* MongoDB
+* Oracle Database
+* PostgreSQL
 
-* SMS
-* Push Notifications
-* WhatsApp
-
-If the application is tightly coupled, the existing code must be modified every time a new notification type is added.
-
-This increases the risk of introducing bugs.
+If the application is tightly coupled to SQL, every change requires modifying the business logic.
 
 Interfaces solve this problem.
 
@@ -46,23 +41,30 @@ Interfaces solve this problem.
 # Without Interfaces
 
 ```csharp
-class NotificationService
+public class OrderService
 {
-    public void Send(string type)
+    private SqlDatabase database = new SqlDatabase();
+
+    public void PlaceOrder()
     {
-        if (type == "Email")
-        {
-            Console.WriteLine("Sending Email");
-        }
-        else if (type == "SMS")
-        {
-            Console.WriteLine("Sending SMS");
-        }
+        Console.WriteLine("Processing Order...");
+
+        database.Save();
+
+        Console.WriteLine("Order Completed.");
     }
 }
 ```
 
-Every new notification type requires modifying `NotificationService`.
+Now suppose the company switches to MongoDB.
+
+We must modify `OrderService`.
+
+```csharp
+private MongoDatabase database = new MongoDatabase();
+```
+
+Every new database requires changing existing code.
 
 This violates the **Open/Closed Principle**.
 
@@ -70,94 +72,122 @@ This violates the **Open/Closed Principle**.
 
 # Using Interfaces
 
-Step 1: Define an interface.
+## Step 1: Define the Interface
 
 ```csharp
-public interface INotificationSender
+public interface IDatabase
 {
-    void Send();
+    void Save();
 }
 ```
 
 <br>
 
-Step 2: Create implementations.
+## Step 2: Create Implementations
 
 ```csharp
-class EmailSender : INotificationSender
+public class SqlDatabase : IDatabase
 {
-    public void Send()
+    public void Save()
     {
-        Console.WriteLine("Sending Email");
+        Console.WriteLine("Order saved in SQL Database.");
     }
 }
 
-class SmsSender : INotificationSender
+public class MongoDatabase : IDatabase
 {
-    public void Send()
+    public void Save()
     {
-        Console.WriteLine("Sending SMS");
+        Console.WriteLine("Order saved in MongoDB.");
     }
 }
 ```
 
 <br>
 
-Step 3: Use the interface.
+## Step 3: Use the Interface
 
 ```csharp
-class NotificationService
+public class OrderService
 {
-    private readonly INotificationSender sender;
+    private readonly IDatabase database;
 
-    public NotificationService(INotificationSender sender)
+    public OrderService(IDatabase database)
     {
-        this.sender = sender;
+        this.database = database;
     }
 
-    public void Notify()
+    public void PlaceOrder()
     {
-        sender.Send();
+        Console.WriteLine("Processing Order...");
+
+        database.Save();
+
+        Console.WriteLine("Order Completed.");
     }
 }
 ```
 
-Usage
+<br>
+
+## Usage
+
+Using SQL Database
 
 ```csharp
-NotificationService service =
-    new NotificationService(new EmailSender());
+IDatabase db = new SqlDatabase();
 
-service.Notify();
+OrderService orderService = new OrderService(db);
+
+orderService.PlaceOrder();
 ```
 
-To switch to SMS:
+Output
+
+```text
+Processing Order...
+Order saved in SQL Database.
+Order Completed.
+```
+
+<br>
+
+Switch to MongoDB
 
 ```csharp
-NotificationService service =
-    new NotificationService(new SmsSender());
+IDatabase db = new MongoDatabase();
 
-service.Notify();
+OrderService orderService = new OrderService(db);
+
+orderService.PlaceOrder();
 ```
 
-Notice that **`NotificationService` never changes**.
+Output
 
-Only a different implementation is supplied.
+```text
+Processing Order...
+Order saved in MongoDB.
+Order Completed.
+```
+
+Notice that **OrderService never changes.**
+
+Only the implementation supplied to it changes.
 
 <br>
 
 # Adding New Features
 
-Suppose the client now requests WhatsApp notifications.
+Suppose the company now decides to use **Oracle Database**.
 
 Simply create another implementation.
 
 ```csharp
-class WhatsAppSender : INotificationSender
+public class OracleDatabase : IDatabase
 {
-    public void Send()
+    public void Save()
     {
-        Console.WriteLine("Sending WhatsApp Message");
+        Console.WriteLine("Order saved in Oracle Database.");
     }
 }
 ```
@@ -165,8 +195,11 @@ class WhatsAppSender : INotificationSender
 Usage
 
 ```csharp
-NotificationService service =
-    new NotificationService(new WhatsAppSender());
+IDatabase db = new OracleDatabase();
+
+OrderService orderService = new OrderService(db);
+
+orderService.PlaceOrder();
 ```
 
 No existing classes are modified.
@@ -181,70 +214,90 @@ Interfaces support the **Open/Closed Principle**.
 
 A class should be:
 
-* **Open for extension**
-* **Closed for modification**
+* **Open for Extension**
+* **Closed for Modification**
 
-Instead of changing existing classes, extend the application by creating new implementations.
+Instead of modifying `OrderService`, we extend the application by creating another database class that implements `IDatabase`.
 
 <br>
 
 # Benefits of Interfaces for Extensibility
 
-* Add new features without modifying existing code.
+* Easily switch between different database providers.
+* Add new databases without modifying business logic.
 * Reduce the risk of introducing bugs.
 * Promote loose coupling.
 * Improve maintainability.
-* Make applications easier to scale.
+* Make applications easier to scale and test.
 
 <br>
 
 # Real-World Examples
 
-Interfaces make it easy to swap implementations.
+Interfaces allow applications to swap implementations without changing business logic.
 
 Examples:
 
-* Email, SMS, or WhatsApp notification senders.
-* PayPal, Stripe, or Razorpay payment gateways.
-* SQL Server, MySQL, or PostgreSQL database providers.
+* SQL Server, MongoDB, Oracle, PostgreSQL database providers.
+* Gmail, Outlook, Amazon SES email providers.
+* PayPal, Stripe, Razorpay payment gateways.
 * Local storage or cloud storage providers.
 
-The application depends on the interface, not the concrete implementation.
+The application depends on the **interface**, not the concrete implementation.
 
 <br>
 
 # Best Practices
 
 * Program against interfaces, not concrete classes.
-* Inject interface implementations through constructors.
-* Create a new implementation instead of modifying existing code.
+* Inject interface implementations through constructors (Dependency Injection).
+* Add new implementations instead of modifying existing classes.
 * Keep each implementation focused on a single responsibility.
 
 <br>
 
 # Common Mistakes
 
-## Depending on concrete classes
+## Depending on Concrete Classes
 
 ```csharp
-private EmailSender sender = new EmailSender();
+private SqlDatabase database = new SqlDatabase();
 ```
 
-This creates tight coupling.
+This creates **tight coupling**.
 
 Instead,
 
 ```csharp
-private readonly INotificationSender sender;
+private readonly IDatabase database;
 ```
+
+Now `OrderService` works with **any database** that implements `IDatabase`.
 
 <br>
 
-## Modifying existing classes for every new feature
+## Modifying Existing Classes
 
-Avoid repeatedly adding `if` or `switch` statements for new behaviors.
+Avoid this:
 
-Instead, create a new implementation of the interface.
+```csharp
+if(databaseType == "SQL")
+{
+    ...
+}
+else if(databaseType == "Mongo")
+{
+    ...
+}
+else if(databaseType == "Oracle")
+{
+    ...
+}
+```
+
+Every new database requires modifying existing code.
+
+Instead, simply create another class implementing `IDatabase`.
 
 <br>
 
@@ -258,26 +311,26 @@ Extensibility is the ability to add new functionality to an application without 
 
 ### How do interfaces improve extensibility?
 
-Interfaces allow new implementations to be added without changing the classes that depend on them.
+Interfaces allow different implementations to be plugged into an application without changing the classes that depend on them.
 
 <br>
 
-### Which SOLID principle is supported by interfaces and extensibility?
+### Which SOLID principle is supported by interfaces?
 
 The **Open/Closed Principle (OCP)**.
 
 <br>
 
-### Why is extensibility important?
+### Why are interfaces useful for databases?
 
-It reduces maintenance effort, minimizes bugs, and allows applications to grow without affecting existing functionality.
+They allow applications to switch between SQL Server, MongoDB, Oracle, or any other database without changing the business logic.
 
 <br>
 
 # Summary
 
-* Extensibility means adding new functionality without changing existing code.
+* Extensibility means adding new functionality without modifying existing code.
 * Interfaces make applications extensible by allowing multiple implementations.
-* Classes should depend on interfaces rather than concrete implementations.
-* New features are added by creating new classes that implement the interface.
-* Interfaces help follow the **Open/Closed Principle**, making applications more maintainable and scalable.
+* `OrderService` depends on `IDatabase`, not `SqlDatabase`.
+* New databases are added by creating new classes that implement `IDatabase`.
+* Interfaces help follow the **Open/Closed Principle**, making applications easier to maintain, test, and scale.
