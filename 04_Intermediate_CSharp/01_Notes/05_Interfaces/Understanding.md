@@ -471,6 +471,11 @@ Order Completed.
 Processing Order...
 Order saved in MongoDB.
 Order Completed.
+
+Processing Order... (fake)
+Order saved in MongoDB.
+Order Completed.
+
 ```
 ```
 SqlDatabase
