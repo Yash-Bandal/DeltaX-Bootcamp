@@ -394,7 +394,7 @@ namespace CSharpIntermediate
       _database (reference pointing)
             │
             ▼
-      SqlDatabase Object
+      (database object)   SqlDatabase/MongoDB Object
       */
 
         public void PlaceOrder()
