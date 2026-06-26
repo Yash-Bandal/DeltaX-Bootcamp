@@ -1,5 +1,12 @@
 ## Before using interface
 
+<br>
+
+> [!Note]
+> Interface is just a pipeline (or contract) that makes a promise. It doesn't store anything.
+
+<br>
+
 Suppose you have class `OrderService`
 ```
 Order Service
