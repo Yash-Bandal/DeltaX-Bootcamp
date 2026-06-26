@@ -382,13 +382,20 @@ namespace CSharpIntermediate
     // -----------------------------
     public class OrderService
     {
-        private readonly IDatabase _database;
+        private readonly IDatabase _database; //private readonly field.
 
         // Dependency Injection
         public OrderService(IDatabase database)
         {
-            _database = database;
+            _database = database; 
         }
+
+      /*
+      _database (reference pointing)
+            │
+            ▼
+      SqlDatabase Object
+      */
 
         public void PlaceOrder()
         {
@@ -409,6 +416,12 @@ namespace CSharpIntermediate
         {
             // Create the dependency
             IDatabase db = new SqlDatabase();
+            /*
+            db (we made reference to object, not created it
+             │
+             ▼
+            SqlDatabase Object
+            */
 
             // Inject dependency
             OrderService orderService = new OrderService(db);
@@ -418,7 +431,13 @@ namespace CSharpIntermediate
             Console.WriteLine();
 
             // Change database without changing OrderService
-            db = new MongoDatabase();
+            db = new MongoDatabase();//make nre reference
+            /*
+            db (we made reference to object, not created it
+             │
+             ▼
+            MongoDatabase Object
+            */
 
             orderService = new OrderService(db);
 
@@ -436,6 +455,17 @@ Order Completed.
 Processing Order...
 Order saved in MongoDB.
 Order Completed.
+```
+```
+SqlDatabase
+      │
+implements
+      ▼
+IDatabase
+      │
+used by
+      ▼
+OrderService
 ```
 Notice:
 
