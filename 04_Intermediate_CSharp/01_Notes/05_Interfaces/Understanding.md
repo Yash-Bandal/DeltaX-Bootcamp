@@ -423,6 +423,8 @@ namespace CSharpIntermediate
     {
         static void Main(string[] args)
         {
+            // OrderService orderService = new OrderService(new SqlDatabase()); //all in one line 
+
             // Create the dependency
             IDatabase db = new SqlDatabase();
             /*
