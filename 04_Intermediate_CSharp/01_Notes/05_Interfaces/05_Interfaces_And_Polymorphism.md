@@ -1,5 +1,16 @@
 # 5.5 Interfaces and Polymorphism
 
+
+
+<br>
+
+> [!Tip]
+> Simply, when we have a common base like `Rectangle`, `Circle` are **`Shapes`**, use Inheritance polymorphism
+>
+> when we don't have  a common base like `Shapes`, `CSHarpXYZ`, `CSharpFiles` (are completely unrelated, but need some shared implementation) use Interface polymorphism
+
+<br>
+
 You already saw polymorphism through inheritance — a base class reference calling overridden methods on derived objects.
 
 Interfaces give you the same power, but **without requiring a shared base class**.
