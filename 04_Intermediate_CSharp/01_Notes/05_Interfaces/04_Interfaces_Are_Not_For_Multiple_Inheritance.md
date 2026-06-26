@@ -1,4 +1,11 @@
-## Interfaces are **NOT** for Multiple Inheritance
+## Interfaces are **NOT** for Multiple Inheritance 🏷️
+
+<br>
+
+> [!Note]
+> Chatgpt, other AI agents, some books may say Interface is used to impment inheritace , it is not possible
+
+<br>
 
 A common misconception is that interfaces exist to provide multiple inheritance.
 
