@@ -4,6 +4,15 @@ A common misconception is that interfaces exist to provide multiple inheritance.
 
 While C# allows a class to implement multiple interfaces, **this is not the primary purpose of interfaces**.
 
+
+### There is no code to inherit , just a contact
+We dont inherit any code, we just sign contract, so there is ncode reusability with Interface like inheritance
+
+The syntax looks similar, but concept is differnt
+```csharp
+public class MongoDatabase : IDatabase, ISaveFunction
+```
+
 The main purpose of interfaces is to:
 
 * Define a common **contract**.
