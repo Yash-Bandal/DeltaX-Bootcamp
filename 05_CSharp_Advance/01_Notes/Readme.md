@@ -143,15 +143,3 @@
 - Async/Await
 
 <br>
-
-## 12. Mini Project
-Build an Employee Management System demonstrating:
-- Generic Repository
-- Delegates
-- Lambda Expressions
-- Events
-- Extension Methods
-- LINQ
-- Nullable Types
-- Exception Handling
-- Async File Operations
