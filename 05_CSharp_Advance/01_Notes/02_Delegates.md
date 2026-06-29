@@ -21,6 +21,16 @@ Just like a variable holds a value, a delegate variable holds a **method** — a
 > 
 > Process(PrintWelcome);
 > ```
+> instead of
+>
+> ```
+> SayHello
+>
+> SayBye
+>
+> PrintWelcome
+> ```
+> being handled seperate
 
 
 <Br>
