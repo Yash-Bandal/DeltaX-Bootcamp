@@ -4,6 +4,18 @@
 
 > [!Note]
 > `T` is not Datatype, `T` is like _blank , **Placeholder**
+>
+> Generics are reusable templates with blanks. not just containers
+> You can have:
+>   - Generic classes
+>   - Generic methods
+>   - Generic interfaces
+>   - Generic delegates
+>
+> Eg.
+> ```
+> Box<T> -> Think Box<_____>
+> ```
 
 <br>
 
