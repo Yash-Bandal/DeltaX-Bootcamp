@@ -13,6 +13,14 @@ Just like a variable holds a value, a delegate variable holds a **method** — a
 > Q. Why not just directly call method when needed?
 > - Delegates allow user to change a small piece of code, and change the functionality / action, instead of recoding the entire functionality
 > - Eg. 1 remote button , Turns ON TV, same button can Turn on Fan, with small function change, instead of having 2 seperate functions, ON tv, On fan
+>
+> ```
+> Process(SayHello);
+>
+> Process(SayBye);
+> 
+> Process(PrintWelcome);
+> ```
 
 
 <Br>
