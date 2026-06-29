@@ -413,6 +413,230 @@ ObjectList                        GenericList<T>
 
 <br>
 
+
+
+### Example
+```csharp
+using System;
+using System.Collections.Generic;
+
+namespace CSharpAdvanced
+{
+    // ==========================================
+    // Generic Class
+    // ==========================================
+
+    public class Box<T>
+    {
+        public T Value { get; set; }
+
+        public void Show()
+        {
+            Console.WriteLine($"Value : {Value}");
+        }
+    }
+
+    // ==========================================
+    // Generic Interface
+    // ==========================================
+
+    public interface IRepository<T>
+    {
+        void Add(T item);
+        void Display(T item);
+    }
+
+    // ==========================================
+    // Generic Repository
+    // ==========================================
+
+    public class Repository<T> : IRepository<T>
+    {
+        public void Add(T item)
+        {
+            Console.WriteLine($"{item} Added Successfully.");
+        }
+
+        public void Display(T item)
+        {
+            Console.WriteLine($"Displaying : {item}");
+        }
+    }
+
+    // ==========================================
+    // Sample Class
+    // ==========================================
+
+    public class Employee
+    {
+        public string Name { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+    }
+
+    // ==========================================
+    // Generic Methods
+    // ==========================================
+
+    public static class Utility
+    {
+        public static void Print<T>(T value)
+        {
+            Console.WriteLine(value);
+        }
+
+        public static void Swap<T>(ref T a, ref T b)
+        {
+            T temp = a;
+            a = b;
+            b = temp;
+        }
+    }
+
+    // ==========================================
+    // Program
+    // ==========================================
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("===== Generic Class =====");
+
+            Box<int> intBox = new Box<int>();
+            intBox.Value = 100;
+            intBox.Show();
+
+            Box<string> stringBox = new Box<string>();
+            stringBox.Value = "Hello";
+            stringBox.Show();
+
+            Box<Employee> employeeBox = new Box<Employee>();
+            employeeBox.Value = new Employee { Name = "Yash" };
+            employeeBox.Show();
+
+            Console.WriteLine();
+
+            Console.WriteLine("===== Generic Method =====");
+
+            Utility.Print(50);
+            Utility.Print("Welcome");
+            Utility.Print(3.14);
+
+            Console.WriteLine();
+
+            int x = 10;
+            int y = 20;
+
+            Console.WriteLine($"Before Swap : {x} {y}");
+
+            Utility.Swap(ref x, ref y);
+
+            Console.WriteLine($"After Swap  : {x} {y}");
+
+            Console.WriteLine();
+
+            Console.WriteLine("===== Generic Interface =====");
+
+            IRepository<Employee> repository = new Repository<Employee>();
+
+            Employee employee = new Employee
+            {
+                Name = "Darshan"
+            };
+
+            repository.Add(employee);
+            repository.Display(employee);
+
+            Console.WriteLine();
+
+            Console.WriteLine("===== Generic List =====");
+
+            List<string> students = new List<string>();
+
+            students.Add("Yash");
+            students.Add("Darshan");
+            students.Add("Rahul");
+
+            foreach (string student in students)
+            {
+                Console.WriteLine(student);
+            }
+
+            Console.WriteLine();
+
+            Console.WriteLine("===== Dictionary<TKey, TValue> =====");
+
+            Dictionary<int, string> employees = new Dictionary<int, string>();
+
+            employees.Add(101, "Yash");
+            employees.Add(102, "Darshan");
+
+            foreach (var item in employees)
+            {
+                Console.WriteLine($"{item.Key} -> {item.Value}");
+            }
+        }
+    }
+}
+```
+
+
+
+
+### Output
+
+```text
+===== Generic Class =====
+Value : 100
+Value : Hello
+Value : Yash
+
+===== Generic Method =====
+50
+Welcome
+3.14
+
+Before Swap : 10 20
+After Swap  : 20 10
+
+===== Generic Interface =====
+Darshan Added Successfully.
+Displaying : Darshan
+
+===== Generic List =====
+Yash
+Darshan
+Rahul
+
+===== Dictionary<TKey, TValue> =====
+101 -> Yash
+102 -> Darshan
+```
+
+
+<br>
+
+
+
+# Major Generic Concepts Covered
+
+| Concept                                      | Example                    |
+| -------------------------------------------- | -------------------------- |
+| Generic Class                                | `Box<T>`                   |
+| Generic Property                             | `public T Value`           |
+| Generic Method                               | `Print<T>()`, `Swap<T>()`  |
+| Generic Interface                            | `IRepository<T>`           |
+| Generic Class implementing Generic Interface | `Repository<T>`            |
+| Generic Collection                           | `List<T>`                  |
+| Multiple Generic Types                       | `Dictionary<TKey, TValue>` |
+
+<br>
+
+
 # Interview Questions
 
 ### What are generics?
