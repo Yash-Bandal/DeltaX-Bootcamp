@@ -1,6 +1,6 @@
 
 
-# C# Intermediate Assignment 2 - Mentor Interview Questions & Answers
+# C# Intermediate Assignment 2
 
 > **Goal:** Understand the concepts behind your code, not just memorize answers.
 
