@@ -1,145 +1,37 @@
-# C# Advanced
+# [C# Advanced](https://www.youtube.com/playlist?list=PLOadqenVV4oMUEvmJbTA4Z5XkjIMV_Ucl) — Course Index
 
-## 1. Generics
-- Why Generics?
-- Problems Without Generics
-- Generic Classes
-- Generic Methods
-- Generic Interfaces
-- Generic Constraints
-  - `where T : class`
-  - `where T : struct`
-  - `where T : new()`
-  - `where T : BaseClass`
-  - `where T : Interface`
-- Benefits of Generics
-- Real-world Example
+## Group A — Type System
 
-<br>
+| #   | Topic          | Duration |
+| --- | -------------- | -------- |
+| 1.1 | Generics       | 20:02    |
+| 1.2 | Nullable Types | 8:09     |
+| 1.3 | Dynamic        | 10:00    |
 
-## 2. Delegates
-- What is a Delegate?
-- Why Delegates?
-- Declaring Delegates
-- Creating Delegate Objects
-- Multicast Delegates
-- Anonymous Methods
-- Built-in Delegates
-  - Action
-  - Func
-  - Predicate
-- Real-world Example
+---
 
-<br>
+## Group B — Functions as Data
 
-## 3. Lambda Expressions
-- Why Lambda Expressions?
-- Lambda Syntax
-- Expression Lambda
-- Statement Lambda
-- Lambdas with Delegates
-- Lambdas with Func and Action
-- Real-world Example
+| #   | Topic               | Duration |
+| --- | ------------------- | -------- |
+| 2.1 | Delegates           | 13:40    |
+| 2.2 | Lambda Expressions  | 13:05    |
+| 2.3 | Events & Delegates  | 31:50    |
+| 2.4 | Extension Methods   | 12:17    |
 
-<br>
+---
 
-## 4. Events
-- Why Events?
-- Event vs Delegate
-- Declaring Events
-- Subscribing to Events
-- Unsubscribing from Events
-- EventHandler Delegate
-- Custom Event Arguments
-- Real-world Example
+## Group C — Data & Queries
 
-<br>
+| #   | Topic | Duration |
+| --- | ----- | -------- |
+| 3.1 | LINQ  | 20:37    |
 
-## 5. Extension Methods
-- Why Extension Methods?
-- Creating Extension Methods
-- `this` Keyword
-- Importing Extension Methods
-- Real-world Example
+---
 
-<br>
+## Group D — Runtime Behaviour
 
-## 6. LINQ
-- Why LINQ?
-- IEnumerable
-- Query Syntax
-- Method Syntax
-- Filtering (`Where`)
-- Projection (`Select`)
-- Sorting (`OrderBy`, `OrderByDescending`, `ThenBy`)
-- Aggregation (`Count`, `Sum`, `Average`, `Max`, `Min`)
-- Searching (`First`, `FirstOrDefault`, `Single`, `SingleOrDefault`, `Any`, `All`)
-- Grouping (`GroupBy`)
-- Joining (`Join`)
-- Deferred Execution
-- Immediate Execution
-- Real-world Example
-
-<br>
-
-## 7. Nullable Types
-- Why Nullable Types?
-- Nullable Value Types
-- Nullable Reference Types
-- Null-Coalescing Operator (`??`)
-- Null-Coalescing Assignment (`??=`)
-- Null Conditional Operator (`?.`)
-- Null Forgiving Operator (`!`)
-- Real-world Example
-
-<br>
-
-## 8. Dynamic
-- Why Dynamic?
-- `object` vs `dynamic`
-- Runtime Binding
-- Advantages
-- Risks
-- Real-world Example
-
-<br>
-
-## 9. Exception Handling
-- Why Exceptions?
-- `try`
-- `catch`
-- `finally`
-- `throw`
-- Creating Custom Exceptions
-- Exception Best Practices
-- Real-world Example
-
-<br>
-
-## 10. Asynchronous Programming
-- Why Async?
-- Synchronous vs Asynchronous
-- Task
-- `async` Keyword
-- `await` Keyword
-- Returning Values
-- Exception Handling in Async
-- Parallel Tasks
-- ConfigureAwait (Introduction)
-- Real-world Example
-
-<br>
-
-## 11. Interview Questions
-- Generics
-- Delegates
-- Lambda Expressions
-- Events
-- Extension Methods
-- LINQ
-- Nullable Types
-- Dynamic
-- Exception Handling
-- Async/Await
-
-<br>
+| #   | Topic              | Duration |
+| --- | ------------------ | -------- |
+| 4.1 | Exception Handling | 23:13    |
+| 4.2 | Async              | 20:27    |
