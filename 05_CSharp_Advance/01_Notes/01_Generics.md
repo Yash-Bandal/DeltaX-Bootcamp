@@ -1,5 +1,13 @@
 # 1. Generics
 
+<br>
+
+> [!Note]
+> `T` is not Datatype, `T` is like _blank , **Placeholder**
+
+<br>
+
+
 Generics let you write a class, method, or interface **once** and use it with **any type** — without losing type safety or performance.
 
 ```csharp
