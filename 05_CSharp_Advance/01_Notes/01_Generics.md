@@ -16,6 +16,14 @@ One `List<T>` class. Works for every type. No code duplication.
 
 Before generics (C# 1.0), you had to write separate classes per type, or fall back to `object`.
 
+<br>
+<div align = "center">
+    <img width="600" alt="image" src="https://github.com/user-attachments/assets/a5d7615b-3c24-4c10-a21f-063ec4103c8e" />
+</div>
+
+<br>
+
+
 ## Option A — Duplicate per type
 
 ```csharp
@@ -62,6 +70,13 @@ Problems:
 ✗  No compile-time type checking — errors appear at runtime
 ✗  Casting everywhere — noisy, fragile
 ```
+
+<br>
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/b5a49ab4-36e2-4126-8472-6fa624f0b0cd" />
+</div>
+
+<br>
 
 <br>
 
@@ -164,6 +179,15 @@ int bigger = utils.Max(3, 7);     // T inferred as int
 By default, `T` can be anything — so you can only call methods that exist on `object`.
 
 **Constraints** let you tell the compiler what `T` must be, unlocking more operations.
+
+
+<br>
+<div align = "center">
+
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/d136945e-620c-497c-92f3-835a87290425" />
+</div>
+
+<br>
 
 ```text
 where T : class          →  T must be a reference type
