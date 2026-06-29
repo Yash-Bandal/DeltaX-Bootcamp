@@ -49,8 +49,15 @@ public void SendEmail(string message)
 // Store the method in the delegate variable
 Notify notify = SendEmail;
 
+// Notify notify = SendWhatsapp; //future need,  send same msg via diff platform
+// Notify notify = SendSMS;
+
+
 // Call the method through the delegate
 notify("Order confirmed!");   // Email: Order confirmed!
+
+// notify("Order confirmed!");   // Whatsapp: Order confirmed!
+// notify("Order confirmed!");   // SMS: Order confirmed!
 ```
 
 > The delegate doesn't care **which** method it points to — only that the method matches the **signature** (return type + parameters).
