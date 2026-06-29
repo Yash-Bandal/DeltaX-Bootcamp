@@ -8,7 +8,7 @@
 | 1.2 | Nullable Types | 8:09     |
 | 1.3 | Dynamic        | 10:00    |
 
----
+<br>
 
 ## Group B — Functions as Data
 
@@ -19,7 +19,7 @@
 | 2.3 | Events & Delegates  | 31:50    |
 | 2.4 | Extension Methods   | 12:17    |
 
----
+<br>
 
 ## Group C — Data & Queries
 
@@ -27,7 +27,7 @@
 | --- | ----- | -------- |
 | 3.1 | LINQ  | 20:37    |
 
----
+<br>
 
 ## Group D — Runtime Behaviour
 
@@ -35,3 +35,6 @@
 | --- | ------------------ | -------- |
 | 4.1 | Exception Handling | 23:13    |
 | 4.2 | Async              | 20:27    |
+
+
+<br>
