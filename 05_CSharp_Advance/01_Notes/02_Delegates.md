@@ -73,6 +73,12 @@ notify("Order confirmed!");   // Email: Order confirmed!
 
 ##  Why Do Delegates Exist?
 
+<br>
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/f6bd366a-c537-4c4f-a1dc-08503a04ed75" />
+</div>
+<br>
+
 Without delegates, you hardwire which method gets called:
 
 ```csharp
@@ -134,7 +140,8 @@ The delegate type defines the **contract** — any method matching this signatur
 
 <br>
 <div align = "center">
-  <img  width = "600" alt="image" src="https://github.com/user-attachments/assets/d0198162-2d88-4401-b346-68805f81e53a" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/1f2d364c-0387-4d32-87a3-0ed34c55aa7c" />
+
 
 </div>
 <br>
@@ -405,6 +412,14 @@ A delegate is an object on the heap that holds:
 <br>
 
 ## Delegate vs Interface — When to Use Which
+
+<br>
+<div align = "center">
+
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/5e3079bb-946b-4445-9799-2df6f0be6ace" />
+
+</div>
+<br>
 
 ```text
 ┌─────────────────────────────────────────┬──────────────────────────────────────────┐
