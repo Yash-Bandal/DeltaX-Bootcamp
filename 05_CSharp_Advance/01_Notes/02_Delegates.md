@@ -1,5 +1,6 @@
-# 2. Delegates
+# 2. Delegates (Normal and Multicasts)
 
+## 2.1 Delegates
 A **delegate** is a type that holds a reference to a method.
 
 Just like a variable holds a value, a delegate variable holds a **method** — and you can call that method through the delegate, pass it around, or store it.
@@ -64,7 +65,7 @@ notify("Order confirmed!");   // Email: Order confirmed!
 
 <br>
 
-# Why Do Delegates Exist?
+##  Why Do Delegates Exist?
 
 Without delegates, you hardwire which method gets called:
 
@@ -103,7 +104,7 @@ processor.Process(order, SendSMS);      // notify by SMS — same Process()
 
 <br>
 
-# Declaring a Delegate Type
+## Declaring a Delegate Type
 
 ```csharp
 public delegate ReturnType DelegateName(ParameterType param, ...);
@@ -122,7 +123,7 @@ The delegate type defines the **contract** — any method matching this signatur
 
 <br>
 
-# Assigning Methods to Delegates
+## Assigning Methods to Delegates
 
 
 <br>
@@ -158,7 +159,10 @@ Same variable `op`. Different methods. Different results.
 
 <br>
 
-# Multicast Delegates — Chaining Methods
+## 2.2 Multicast Delegates — Chaining Methods
+
+> [!Important]
+> Holds 1+ function pointers
 
 A delegate can hold **more than one method** at a time using `+=`.
 
