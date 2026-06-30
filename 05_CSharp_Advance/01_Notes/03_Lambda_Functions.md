@@ -3,8 +3,8 @@
 <br>
 
 > [!Tip]
-> - Used for shorted operations, liike Add, Print, Maths expressions, where you dont need to have function name
->    - eg instead of Add(a,b){return a+b}, we write (a,b) => a+b simple 
+>  Used for shorted operations, liike Add, Print, Maths expressions, where you dont need to have function name\
+>  eg instead of Add(a,b){return a+b}, we write (a,b) => a+b simple 
 
 <br>
 
