@@ -12,6 +12,15 @@
 
 A **Lambda Expression** is a **shorter and cleaner way of writing methods**.
 
+<br>
+
+<div align = "center">
+
+  <img width="500" alt="image" src="https://github.com/user-attachments/assets/558472c2-a5f8-4c5a-9131-f1bb3cbc1c8a" />
+
+</div>
+<br>
+
 Instead of creating a separate method and then passing it somewhere, we can write the method **inline** using the `=>` operator.
 
 Think of it as an **anonymous (unnamed) method**.
