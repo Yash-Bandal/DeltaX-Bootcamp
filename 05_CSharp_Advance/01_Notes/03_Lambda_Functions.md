@@ -20,6 +20,7 @@ Think of it as an **anonymous (unnamed) method**.
 
 <div align = "center">
   <img width="577" height="300" alt="image" src="https://github.com/user-attachments/assets/7b97cd3f-df09-41f9-9298-72b0f319beb6" />
+  <p>Lambda function with Generic Delegates</p>
 </div>
 <br>
 
