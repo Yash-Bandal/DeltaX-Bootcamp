@@ -228,6 +228,8 @@ int Square(int x)
 }
 ```
 
+
+
 <br>
 
 ## 3.7 Step-by-Step: How to Write a Lambda
@@ -425,6 +427,57 @@ Return the new collection
 
 <br>
 
+## Example
+```csharp
+
+using CSharpAdvanced;
+using System;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using System.Security.Claims;
+using System.Security.Policy;
+using static System.Net.Mime.MediaTypeNames;
+
+namespace CSharpAdvanced
+{
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+            // Normal function
+            int Square(int x)
+            {
+                return x * x;
+            }
+
+            Console.WriteLine(Square(5));
+
+            // Lambda assigned to Func (Delegate)
+            Func<int, int> square = Square;
+            //Func<int, int> square = x => x * x;
+
+            Console.WriteLine(square(6));
+
+            // Another lambda
+            Func<int, int> cube = x => x * x * x; //Func value return func ptr
+
+            Console.WriteLine(cube(3));
+
+            //// Not enough, gives error
+            //int res = (x1) => x1 * x1;
+
+
+            Action PrintMsg =  () => Console.WriteLine("No argument func"); .//action void func ptr
+            PrintMsg();
+        }
+    }
+}
+
+```
+
+<br>
+
 ## 3.13 When Should You Use Lambdas?
 
 Use lambdas when:
@@ -442,30 +495,7 @@ Avoid lambdas when:
 - The code becomes difficult to read.
 - The same logic is reused in many places (create a named method instead).
 
-<br>
 
-## 3.14 Advantages
-
-- Less code
-- Easier to read
-- No need to create separate methods
-- Works perfectly with LINQ
-- Makes delegate usage much simpler
-- Cleaner and more maintainable code
-
-<br>
-
-## 3.15 Summary
-
-```
-Normal Method
-        ↓
-Delegate
-        ↓
-Anonymous Method
-        ↓
-Lambda Expression
-```
 
 A lambda is simply an **anonymous method written in a much shorter and cleaner way**.
 
