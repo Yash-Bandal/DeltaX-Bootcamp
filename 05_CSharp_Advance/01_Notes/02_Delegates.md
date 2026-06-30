@@ -26,9 +26,9 @@
 > being handled seperate
 >
 > ### Types of Delegates
-> 1. **Normal Delegates :** Holds single `function pointers`
-> 2. **Multicast Delegates :** Holds multiple `function pointers`
-> 3. **Generic Delegates :** `Action` and `Func`
+> 1. [**Normal Delegates :**](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/05_CSharp_Advance/01_Notes/02_Delegates.md#21-delegates) Holds single `function pointers`
+> 2. [**Multicast Delegates :**](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/05_CSharp_Advance/01_Notes/02_Delegates.md#22-multicast-delegates--chaining-methods) Holds multiple `function pointers`
+> 3. [**Generic Delegates :**](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/05_CSharp_Advance/01_Notes/02_Delegates.md#23-built-in-delegate-types--action-and-func) `Action` and `Func`
 
 
 ---
@@ -222,7 +222,7 @@ Log: Order cancelled!
 
 <br>
 
-# Delegates as Method Parameters
+## Delegates as Method Parameters
 
 This is the most important use case — passing behaviour into a method.
 
