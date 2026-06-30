@@ -8,6 +8,8 @@
 > [!Tip]
 > Simply, a delegate is a variable that stores method,
 >
+> Also called `Light weight Interfaces`
+>
 > ### Q. Why not just directly call method when needed?
 > - Delegates allow user to change a small piece of code, and change the functionality / action, instead of recoding the entire functionality
 > - Eg. 1 remote button , Turns ON TV, same button can Turn on Fan, with small function change, instead of having 2 seperate functions, ON tv, On fan
