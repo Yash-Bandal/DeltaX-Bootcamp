@@ -93,7 +93,8 @@ Problems:
 
 <br>
 <div align = "center">
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/b5a49ab4-36e2-4126-8472-6fa624f0b0cd" />
+<img width="620" alt="image" src="https://github.com/user-attachments/assets/bb2c3a2d-819d-4bcb-96c2-dc8ce92a8b7d" />
+
 </div>
 
 <br>
