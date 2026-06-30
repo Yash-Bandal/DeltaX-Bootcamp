@@ -1,4 +1,3 @@
-# C# Advanced
 
 # 4. Events and Delegates
 
