@@ -1,4 +1,4 @@
-# 2. Delegates (Normal and Multicasts)
+# 2. Delegates (Normal , Multicasts , Generics)
 
 
 <br>
@@ -28,6 +28,7 @@
 > ### Types of Delegates
 > 1. **Normal Delegates :** Holds single `function pointers`
 > 2. **Multicast Delegates :** Holds multiple `function pointers`
+> 3. **Generic Delegates :** `Action` and `Func`
 
 
 ---
@@ -258,7 +259,7 @@ One method. Pluggable behaviour. This pattern is the core of LINQ.
 
 <br>
 
-# Built-in Delegate Types — `Action` and `Func`
+## 2.3 Built-in Delegate Types — `Action` and `Func`
 
 Writing a custom delegate type for every use case gets tedious.
 
@@ -274,7 +275,7 @@ Writing a custom delegate type for every use case gets tedious.
 <br>
 
 
-## `Action<T>` — method that returns void
+### `Action<T>` — method that returns void
 
 ```csharp
 Action            →  void method, no parameters
@@ -291,7 +292,7 @@ Action<int, int> add = (a, b) => Console.WriteLine(a + b);
 add(3, 4);        // 7
 ```
 
-## `Func<T, TResult>` — method that returns a value
+### `Func<T, TResult>` — method that returns a value
 
 ```csharp
 Func<TResult>             →  no params, returns TResult
@@ -310,7 +311,7 @@ Console.WriteLine(length("hello")); // 5
 Console.WriteLine(isEven(6));       // True
 ```
 
-## `Predicate<T>` — shorthand for `Func<T, bool>`
+### `Predicate<T>` — shorthand for `Func<T, bool>`
 
 ```csharp
 Predicate<int>    isEven = n => n % 2 == 0;
@@ -321,7 +322,7 @@ Predicate<string> isLong = s => s.Length > 10;
 
 <br>
 
-# Full Example — Pluggable Notification
+## Full Example — Pluggable Notification
 
 ```csharp
 public class Order
@@ -378,7 +379,7 @@ Processing order — total: ₹1,499.00
 
 <br>
 
-# Memory Map — How a Delegate Stores a Method
+## Memory Map — How a Delegate Stores a Method
 
 ```text
                     Delegate variable
@@ -403,7 +404,7 @@ A delegate is an object on the heap that holds:
 
 <br>
 
-# Delegate vs Interface — When to Use Which
+## Delegate vs Interface — When to Use Which
 
 ```text
 ┌─────────────────────────────────────────┬──────────────────────────────────────────┐
