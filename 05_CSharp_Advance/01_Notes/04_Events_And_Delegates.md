@@ -96,6 +96,11 @@ When invoked, all assigned methods execute in order.
 
 <br>
 
+---
+
+<br>
+
+
 ## 4.2 Events
 
 ### 4.2.1 What is an Event?
@@ -113,7 +118,7 @@ Examples
 <br>
 
 ### **Code**
-```cshharp
+```csharp
 using System;
 
 namespace CSharpAdvanced
