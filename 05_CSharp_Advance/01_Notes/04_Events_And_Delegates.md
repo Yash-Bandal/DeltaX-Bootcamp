@@ -9,6 +9,12 @@ A **delegate** is a type that stores a reference to one or more methods.
 
 Instead of calling a method directly, you call the delegate, and it invokes the assigned method(s).
 
+<BR>
+<div align = "center">
+      <img width="600" alt="image" src="https://github.com/user-attachments/assets/e3ff738d-45f8-430e-81fe-41540f16096f" />
+</div>
+<BR>
+
 ### Real-World Analogy
 
 Think of a delegate as a **remote control**.
