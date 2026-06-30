@@ -30,7 +30,130 @@
 > 2. [**Multicast Delegates :**](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/05_CSharp_Advance/01_Notes/02_Delegates.md#22-multicast-delegates--chaining-methods) Holds multiple `function pointers`
 > 3. [**Generic Delegates :**](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/05_CSharp_Advance/01_Notes/02_Delegates.md#23-built-in-delegate-types--action-and-func) `Action` and `Func`
 
+**My Example:**
 
+```csharp
+
+using CSharpAdvanced;
+using System;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using System.Security.Claims;
+using System.Security.Policy;
+using static System.Net.Mime.MediaTypeNames;
+
+namespace CSharpAdvanced
+{
+    internal class Program
+    {
+        public class DelegateUse
+        {
+            //===============================
+            //1 Define Delegate type
+            //===============================
+            public delegate void Greet(string name);
+          
+            //===============================
+            //2 Define Methods, that have same signature as of Delegate
+            //===============================
+            public void GreetHello(string name)
+            {
+                Console.WriteLine("Hello " + name );
+            }
+
+            public void GreetBye(string name)
+            {
+                Console.WriteLine("Bye " + name);
+            }
+
+            public void GreetWelcome(string name)
+            {
+                Console.WriteLine("Welcome " + name);
+            }
+
+            //Greet greet = GreetHello; //error
+
+            //===============================
+            // 3. Assign Method to Delegare
+            //===============================
+
+            // Custom Delegates
+            public void RunCustom()
+            {
+                Console.WriteLine("=== Custom Delegate ===");
+
+                Greet greet =  GreetHello; //greet = object var
+                // Single cast 
+                //greet("Yash"); 
+
+                // Mulitcast
+                greet += GreetBye; //adding multiple delegates 
+                greet -= GreetHello; // remove delegate 
+
+                //greet("Yash");
+                //or
+                greet.Invoke("Yash");
+
+            }
+
+            // Built in - Action (Void)
+            public void RunActionDelegate()
+            {
+                Console.WriteLine("\n=== Action Delegate ===");
+
+                Action<string> action = GreetHello;
+
+                action("Yash");
+            }
+
+            // Built in - Func (Value type)
+            public void RunFuncDelegate()
+            {
+                Console.WriteLine("\n=== Func Delegate ===");
+
+                Func<int, int, int> add = (a, b) => a + b;
+
+                Console.WriteLine(add(10, 20));
+            }
+
+
+
+            //GreetHello();
+            //GreetBye();
+        }
+
+        static void Main(string[] args)
+        {
+            //===============================
+            // 4 Call inside main
+            //===============================
+            DelegateUse  dg = new DelegateUse();
+            dg.RunCustom();
+
+            // Built in types
+            dg.RunFuncDelegate();
+            dg.RunActionDelegate();
+
+            //Instead of this
+            //dg.GreetHello();
+            //dg.GreetBye();
+
+
+        }
+    }
+}
+
+```
+```
+=== Custom Delegate ===
+Bye Yash
+
+=== Func Delegate ===
+30
+
+=== Action Delegate ===
+Hello Yash
+```
 ---
 
 <Br>
