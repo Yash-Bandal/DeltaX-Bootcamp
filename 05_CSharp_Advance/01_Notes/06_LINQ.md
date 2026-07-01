@@ -50,7 +50,9 @@ numbers.Where(n => n > 2);   // Where is an extension method on IEnumerable<int>
                               // n => n > 2 is a lambda — the filter
 ```
 
-Any class implementing `IEnumerable<T>` gets all LINQ methods automatically:
+> [!important]
+> ## Note that..
+>  Any class implementing `IEnumerable<T>` gets all LINQ methods automatically:
 `List<T>`, `Array`, `Dictionary`, `string`, database results, XML — everything.
 
 <br>
