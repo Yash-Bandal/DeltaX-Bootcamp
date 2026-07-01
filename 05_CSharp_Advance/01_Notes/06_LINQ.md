@@ -1,4 +1,5 @@
-# 6. LINQ — Language Integrated Query
+# 6. LINQ — Language Integrated Query ( [Examples](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/05_CSharp_Advance/01_Notes/Vault/01_LINQ_Examples.md) )
+
 
 LINQ lets you query **any collection** using a consistent, readable syntax — directly in C#.
 
