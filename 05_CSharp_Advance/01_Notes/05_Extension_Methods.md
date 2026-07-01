@@ -16,9 +16,8 @@ student.IsEvenRoll();  // they live in a separate static class
 
 > [!tip]
 > **String Methods**\
->  The string methods like `ToUpper()`, `ToLower()`, `ReverseText()` are examples of Extension methods,
->
-> string does notknow they exist, nor these methods modify the string class, we just have a extension
+>  The string methods like `ToUpper()`, `ToLower()`, `ReverseText()` are examples of Extension methods,\
+>  string does notknow they exist, nor these methods modify the string class, we just have a extension
 >
 > **IEnumerable**
 > 1. It is the foundation for all collection types in .NET (like arrays and lists)
