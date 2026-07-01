@@ -52,7 +52,86 @@ student.Greet();
 
 <br>
 
-# Your Example — Full Breakdown
+## Example
+```csharp
+using System;
+
+namespace CSharpAdvanced
+{
+    //====================================
+    //1. Create a normal class
+    //====================================
+    public class Student
+    {
+        public string Name { get; set; }
+        public int RollNo { get; set; }
+
+        public Student(string name, int rollNo)
+        {
+            Name = name;
+            RollNo = rollNo;
+        }
+    }
+
+    //====================================
+    //2. Create a static class
+    //   (Extension methods must be inside
+    //    a static class)
+    //====================================
+    public static class StudentExtension
+    {
+        //====================================
+        //3. Create Extension Method
+        //   - static method
+        //   - first parameter uses 'this'
+        //====================================
+        public static void Greet(this Student student)
+        {
+            Console.WriteLine($"Hello {student.Name}");
+        }
+
+        public static void Welcome(this Student student)
+        {
+            Console.WriteLine($"Welcome {student.Name}");
+        }
+
+        public static bool IsEvenRoll(this Student student)
+        {
+            return student.RollNo % 2 == 0;
+        }
+    }
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //====================================
+            //4. Create Object
+            //====================================
+            Student student = new Student("Yash", 16);
+
+            //====================================
+            //5. Call Extension Methods
+            //====================================
+
+            student.Greet();
+
+            student.Welcome();
+
+            if (student.IsEvenRoll())
+            {
+                Console.WriteLine($"{student.Name} has a Even Roll Number");
+            }
+            else  
+            {
+                Console.WriteLine($"{student.Name} has a Odd Roll Number");
+            }
+            
+        }
+    }
+}
+```
+### Full Breakdown
 
 ```csharp
 public class Student
