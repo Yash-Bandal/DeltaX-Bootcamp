@@ -979,6 +979,9 @@ Paging operators are used to retrieve a specific portion of a collection.
 
 Skips the specified number of elements and returns the remaining elements.
 
+> [!Tip]
+> Eg. Skip(2) -> skips first 2 elements of the list
+
 #### Syntax
 
 ```csharp
