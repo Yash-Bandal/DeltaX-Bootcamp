@@ -1,4 +1,4 @@
-# C# Advanced
+
 
 # 5. Extension Methods
 
@@ -18,7 +18,7 @@ Console.WriteLine(name.ToUpper());
 
 `ToUpper()` is actually an extension method.
 
----
+<br>
 
 ## 5.2 Why Do We Need Extension Methods?
 
