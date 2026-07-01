@@ -15,6 +15,10 @@ Instead of writing manual loops to filter, sort, and transform data, you write d
 
 <br>
 
+<div align = "center">
+    <img width="600" alt="image" src="https://github.com/user-attachments/assets/2ef44529-91af-48cf-a768-31fdf7304287" />
+</div>
+<br>
 
 ```csharp
 // Without LINQ
