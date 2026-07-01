@@ -1,5 +1,7 @@
 # LINQ (Language Integrated Query)
 
+
+
 ## 1. Filtering Operators
 Filtering operators are used to retrieve records that satisfy a condition.
 - Where()
@@ -2425,3 +2427,95 @@ foreach(var number in result)
 
 
 <br>
+
+
+
+# LINQ Operators Summary
+
+## 1. Filtering Operators
+- Where()
+- OfType()
+
+## 2. Projection Operators
+- Select()
+- SelectMany()
+
+## 3. Ordering Operators
+- OrderBy()
+- OrderByDescending()
+- ThenBy()
+- ThenByDescending()
+- Reverse()
+
+## 4. Element Operators
+- First()
+- FirstOrDefault()
+- Last()
+- LastOrDefault()
+- Single()
+- SingleOrDefault()
+- ElementAt()
+- ElementAtOrDefault()
+
+## 5. Quantifier Operators
+- Any()
+- All()
+- Contains()
+
+## 6. Aggregate Operators
+- Count()
+- LongCount()
+- Sum()
+- Average()
+- Min()
+- Max()
+- Aggregate()
+
+## 7. Paging (Partitioning) Operators
+- Skip()
+- SkipWhile()
+- Take()
+- TakeWhile()
+- Chunk()
+
+## 8. Set Operators
+- Distinct()
+- DistinctBy()
+- Union()
+- UnionBy()
+- Intersect()
+- IntersectBy()
+- Except()
+- ExceptBy()
+
+## 9. Grouping Operators
+- GroupBy()
+- ToLookup()
+
+## 10. Joining Operators
+- Join()
+- GroupJoin()
+- Zip()
+
+## 11. Conversion (Materialization) Operators
+- ToList()
+- ToArray()
+- ToDictionary()
+- ToHashSet()
+- ToLookup()
+
+## 12. Generation Operators
+- Empty()
+- Range()
+- Repeat()
+
+## 13. Sequence Operators
+- SequenceEqual()
+- DefaultIfEmpty()
+- Append()
+- Prepend()
+- Concat()
+
+## 14. Miscellaneous Operators
+- Cast()
+- AsEnumerable()
