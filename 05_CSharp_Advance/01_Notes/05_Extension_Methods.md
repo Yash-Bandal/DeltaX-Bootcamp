@@ -15,8 +15,8 @@ student.IsEvenRoll();  // they live in a separate static class
 <br>
 
 > [!tip]
-> **String Methods**
-> The string methods like `ToUpper()`, `ToLower()`, `ReverseText()` are examples of Extension methods,
+> **String Methods**\
+>  The string methods like `ToUpper()`, `ToLower()`, `ReverseText()` are examples of Extension methods,
 >
 > string does notknow they exist, nor these methods modify the string class, we just have a extension
 >
