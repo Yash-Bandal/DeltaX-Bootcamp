@@ -30,6 +30,17 @@ student.IsEvenRoll();  // they live in a separate static class
 3.  First parameter uses  'this'  keyword — that's the type being extended
 ```
 
+General Syntax:
+```csharp
+public static class ClassName
+{
+    public static ReturnType MethodName(this ExistingClass obj)
+    {
+        // Logic
+    }
+}
+```
+
 ```csharp
 public static class StudentExtension          // rule 1 — static class
 {
