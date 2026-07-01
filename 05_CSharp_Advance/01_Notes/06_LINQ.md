@@ -712,6 +712,311 @@ MATERIALISE        ToList, ToArray, ToDictionary, ToHashSet
 </div>
 <br>
 
+**Example:**
+```csharp
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Security.Policy;
+using System.Threading;
+using System.Xml.Linq;
+
+namespace CSharpAdvanced
+{
+    public class Student
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public string City { get; set; }
+        public double Marks { get; set; }
+
+        //extra
+        //public string  _div { get; set; }
+
+        //public int _wt { get; set; }
+
+        //public Student(string div, int wt)
+        //{
+        //    div = _div;
+        //    _wt = wt;
+        //}
+
+    }
+
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //Notice that every element is of type:  Student
+            List<Student> students = new List<Student> 
+            {
+                new Student { Name = "Yash",      Age = 20, City = "Pune",    Marks = 88.5 ,},
+                new Student { Name = "Aarav",     Age = 22, City = "Mumbai",  Marks = 74.0 },
+                new Student { Name = "Priya",     Age = 21, City = "Pune",    Marks = 91.0 },
+                new Student { Name = "Rohan",     Age = 20, City = "Delhi",   Marks = 65.5 },
+                new Student { Name = "Sneha",     Age = 23, City = "Mumbai",  Marks = 82.0 },
+                new Student { Name = "Karan",     Age = 21, City = "Pune",    Marks = 55.0 },
+                new Student { Name = "Ananya",    Age = 22, City = "Delhi",   Marks = 93.0 },
+            };
+
+            //from
+            var vals =
+                from s in students
+                where s.Marks > 80
+                orderby s.Marks
+                //select s.Name;
+                select s.Marks;
+
+            foreach (var item in vals)
+            {
+                Console.WriteLine(item);
+            }
+                /*
+                82
+                88.5
+                91
+                93*/
+
+
+            //where
+            var result = students.Where(s => s.Marks > 80);
+            foreach (var item in result)
+            {
+                Console.WriteLine($"{item.Name} : {item.Marks}");
+            }
+            /*
+            Yash: 88.5
+            Priya: 91
+            Sneha: 82
+            Ananya: 93
+             */
+
+            Console.WriteLine();
+
+            // offtype
+            ArrayList list = new ArrayList()
+            {
+                10,
+                "Hello",
+                20,
+                30.5
+            };
+
+            var numTypes = list.OfType<int>();
+            foreach (var item in numTypes)
+            {
+                Console.WriteLine(item);
+            }
+
+            /*
+             10
+             20
+             */
+
+
+            Console.WriteLine();
+
+            // Select
+            var names = students.Select(s => s.Name);
+            foreach (var item in names)
+            {
+                Console.WriteLine(item);
+            }
+
+            /*  Yash
+                Aarav
+                Priya
+                Rohan
+                Sneha
+                Karan
+                Ananya
+                */
+            Console.WriteLine();
+            
+            
+            // SelectMany flatten
+            List<List<int>> numbers = new List<List<int>>()
+            {
+                new List<int>() { 1, 2, 3 },
+                new List<int>() { 4, 5 },
+                new List<int>() { 6, 7, 8 }
+            };
+
+
+            var flattened = numbers.SelectMany(x => x);
+            foreach (var item in flattened)
+            {
+                Console.WriteLine(item);
+            }
+
+            /*
+                1
+                2
+                3
+                4
+                5
+                6
+                7
+                8
+             */
+
+
+            Console.WriteLine();
+
+            // Order by - Ascending
+            var asc = students.OrderBy(s => s.Marks);
+            foreach (var item in asc)
+            {
+                Console.WriteLine(item.Marks);
+            }
+            /*
+            55
+            65.5
+            74
+            82
+            88.5
+            91
+            93
+              */
+
+
+            Console.WriteLine();
+
+            // Order by  - Descending
+            var desc = students.OrderByDescending(s => s.Marks);
+            foreach (var item in desc)
+            {
+                Console.WriteLine(item.Marks);
+            }
+            /*
+            93
+            91
+            88.5
+            82
+            74
+            65.5
+            55
+             */
+            Console.WriteLine();
+
+            // Then by
+            var thenby = students
+                .OrderBy(s => s.Age)
+                .ThenBy(s => s.Marks);
+
+            //var thenby = students.OrderBy(s => s.Age);
+
+            foreach (var item in thenby)
+            {
+                Console.WriteLine($"Age = {item.Age}  : Name =  {item.Name} : Marks = {item.Marks}");
+            }
+
+            Console.WriteLine();
+/*
+            Age = 20  : Name = Rohan : Marks = 65.5
+            Age = 20  : Name = Yash : Marks = 88.5
+            Age = 21  : Name = Karan : Marks = 55
+            Age = 21  : Name = Priya : Marks = 91
+            Age = 22  : Name = Aarav : Marks = 74
+            Age = 22  : Name = Ananya : Marks = 93
+            Age = 23  : Name = Sneha : Marks = 82
+
+ */
+            // Reverse
+            var rev = asc.Reverse();
+            //var rev = names.Reverse();
+
+
+
+            foreach (var item in rev)
+            {
+                Console.WriteLine(item.Marks);
+                //Console.WriteLine(item);
+            }
+
+            var fresult = students.SingleOrDefault(s => s.Marks > 100);
+
+            Console.WriteLine(fresult == null ? "No Student Found" : fresult.Name);
+            // "No Student Found"
+
+            Console.WriteLine();
+
+            // Skip
+            var sk = students.Skip(2);
+            foreach (var item in sk)
+            {
+                Console.WriteLine(item.Name);
+
+            }
+            /*
+            Priya
+            Rohan
+            Sneha
+            Karan
+            Ananya
+             */
+            Console.WriteLine();
+
+
+            // Take
+            var tk = students.Take(2);
+            foreach (var item in tk)
+            {
+                Console.WriteLine(item.Name);
+
+            }
+
+            /*
+             Yash
+             Aarav
+             */
+            Console.WriteLine();
+
+
+
+            // Then by
+            var grpres = students.GroupBy(s => s.Age);
+
+            //var thenby = students.OrderBy(s => s.Age);
+
+            foreach (var group in grpres)
+            {
+
+                Console.WriteLine($"Age Group {group.Key} : " );
+                foreach (var item in group)
+                {
+                    
+                Console.WriteLine($"Name =  {item.Name} : Marks = {item.Marks}");
+                //Console.WriteLine($"Age = {item.Age}  : Name =  {item.Name} : Marks = {item.Marks}");
+                }
+            }
+
+            /*
+            Age Group 20 :
+            Name = Yash : Marks = 88.5
+            Name = Rohan : Marks = 65.5
+            Age Group 22 :
+            Name = Aarav : Marks = 74
+            Name = Ananya : Marks = 93
+            Age Group 21 :
+            Name = Priya : Marks = 91
+            Name = Karan : Marks = 55
+            Age Group 23 :
+            Name = Sneha : Marks = 82
+             */
+
+
+
+            Console.WriteLine();
+        }
+    }
+}
+```
+
+<br>
 
 # Summary
 
