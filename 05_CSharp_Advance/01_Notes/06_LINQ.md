@@ -4,6 +4,17 @@ LINQ lets you query **any collection** using a consistent, readable syntax — d
 
 Instead of writing manual loops to filter, sort, and transform data, you write declarative expressions that read almost like English.
 
+
+<br>
+
+> [!tip]
+> **IEnumerable**
+> 1. It is the foundation for all collection types in .NET (like arrays and lists)
+> 2. IEnumerable makes a collection loopable. It acts as a wrapper that exposes a pointer (called an "enumerator").
+
+<br>
+
+
 ```csharp
 // Without LINQ
 List<int> result = new List<int>();
