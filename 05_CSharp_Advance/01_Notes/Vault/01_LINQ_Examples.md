@@ -1054,6 +1054,10 @@ foreach(var number in result)
 
 Returns the specified number of elements from the beginning of the collection.
 
+
+> [!Tip]
+> Eg. Take(2) -> Returns first 2 elements of the list
+
 #### Syntax
 
 ```csharp
