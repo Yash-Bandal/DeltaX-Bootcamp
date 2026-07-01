@@ -1,5 +1,3 @@
-# C# Advanced
-
 # 7. Nullable Types
 
 ## What are Nullable Types?
