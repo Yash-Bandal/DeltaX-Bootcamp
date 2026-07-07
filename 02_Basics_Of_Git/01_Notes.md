@@ -86,7 +86,7 @@ Examples:
 
 
  <div align="center">
-  <img src="02_Basics_Of_Git/Assets/1.png" alt="All users" width="400" height="auto" />
+  <img src="https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/6891d1080cd25a22862311bd759347a63b343af8/02_Basics_Of_Git/Assets/1.png" alt="All users" width="500" height="auto" />
 </div>
 
 <br>
@@ -120,40 +120,40 @@ git config --global core.autocrlf true
 
 * LF → CRLF on checkout
 
-        ```
-        LF (Line Feed)
-        \n
+     ```
+     LF (Line Feed)
+     \n
 
-        Meaning:
+     Meaning:
 
-        Move cursor down one line.
-        ```
-        ```
-        CR (Carriage Return)
-        \r
+     Move cursor down one line.
+     ```
+     ```
+     CR (Carriage Return)
+     \r
 
-        Meaning:
+     Meaning:
 
-        Move cursor to beginning of current line.
-        ```
+     Move cursor to beginning of current line.
+     ```
 
 
 
 * CRLF → LF on commit
 
-        ```
-        CRLF
-        \r\n
+     ```
+     CRLF
+     \r\n
 
-        Meaning:
+     Meaning:
 
-        Return to start of line
-        Move down to next line
+     Return to start of line
+     Move down to next line
 
-        Used by:
+     Used by:
 
-        Windows
-        ```
+     Windows
+     ```
 
 **Example**
 
