@@ -152,6 +152,9 @@ namespace CSharpdoubleermediate
 
 # Why is Upcasting Safe?
 
+> [!Note]
+> Upcasting simply simulates creation of seperate `parent` object, without creating it seperately
+
 Every `Child` object is also a `Parent`.
 
 Therefore:
