@@ -72,6 +72,45 @@ The `?` syntax is preferred.
 
 <br>
 
+
+**Example:**
+```csharp
+using System;
+
+
+namespace CSharpAdvanced
+{
+
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //DateTime date = null; //cannot nullify certain objects directly
+          
+            /*
+             Many a times we need to initialize objects or vars to null,
+            like if user not want to enter birthdate, we can declare it null
+             */
+            // So we use nullable
+            
+            Nullable<DateTime> date = null;
+
+            //or
+
+            DateTime ? date2 = null;
+
+
+            Console.WriteLine($"Get Default Value : {date2.GetValueOrDefault()}"); // 01-01-0001 00:00:00
+            Console.WriteLine($"Check Value : {date2.HasValue}"); // False
+            Console.WriteLine($"Value : {date2.Value}"); //exception, 
+        }
+    }
+}
+```
+
+<br>
+
 ## Assigning Values
 
 ```csharp
