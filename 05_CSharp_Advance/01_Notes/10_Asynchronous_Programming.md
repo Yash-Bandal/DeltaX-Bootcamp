@@ -60,7 +60,8 @@ Commonly used for:
 <br>
 
 <div align = "center">
- <img width="500" alt="image" src="https://github.com/user-attachments/assets/0b259bde-cd4d-408b-8360-941ba5d65f3f" />
+<img width="1080" height="608" alt="image" src="https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/e734d2df6dfbab929ae94513188059db567752d1/05_CSharp_Advance/01_Notes/AsyncAwait.gif" />
+
 </div>
 
 <br>
