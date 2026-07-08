@@ -216,7 +216,7 @@ Allowed.
 ## var vs dynamic
 
 | var                   | dynamic          |
-| <br><br><br><br><br><br><br> | <br><br><br><br><br>- |
+| ---------------------- | --------------------- |
 | Compile-time checking | Runtime checking |
 | Type cannot change    | Type can change  |
 | Safer                 | Less safe        |
@@ -340,17 +340,7 @@ Loading classes or methods during runtime
 
 <br>
 
-## 3. COM Interoperability
-
-Used when communicating with older technologies like:
-
-```text
-Microsoft Excel Automation
-```
-
-<br>
-
-## 4. Dynamic APIs
+## 3. Dynamic APIs
 
 When response structure changes frequently.
 
@@ -491,27 +481,3 @@ value.Length;
 Works directly.
 
 Checking happens at runtime.
-
-<br>
-
-## object vs dynamic
-
-| object                 | dynamic               |
-| ---------------------- | --------------------- |****
-| Base type of all types | Runtime resolved type |
-| Needs casting          | No casting needed     |
-| Compile-time checking  | Runtime checking      |
-| Safer                  | More flexible         |
-
-<br>
-
-# Key Takeaways
-
-* `dynamic` delays type checking until runtime.
-* It bypasses compile-time safety.
-* Type can change during execution.
-* `var` is still strongly typed; dynamic is not.
-* Dynamic errors appear during runtime.
-* Dynamic reduces IntelliSense support.
-* Use dynamic only when flexibility is required.
-* Prefer normal strongly typed C# code whenever possible.
