@@ -1,5 +1,9 @@
 # 10. Async Programming
 
+[Understanding](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/05_CSharp_Advance/01_Notes/Asybc_Understanding.md)
+
+<br>
+
 ## What is Async?
 
 Async programming allows a program to perform long-running operations without blocking the main thread.
