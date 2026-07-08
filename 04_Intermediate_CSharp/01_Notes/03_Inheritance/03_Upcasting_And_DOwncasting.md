@@ -136,7 +136,7 @@ namespace CSharpdoubleermediate
             parent1.IntroduceParent();
             //parent1.IntroduceChild(); //error because parent cant access child
 
-            // Downcasting  
+            // Downcasting  - Allow child2 to access child objects from parent1
             Child child2 = (Child)parent1;
             child2.IntroduceParent();
             child2.IntroduceChild();
