@@ -18,7 +18,33 @@ Normally, C# is a strongly typed language.
 
 
 
+**My example**
+```csharp
+using System;
+using System.Runtime.CompilerServices;
 
+
+namespace CSharpAdvanced
+{
+
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            dynamic name = 10;
+            name++;
+            Console.WriteLine(name);  //Currently at runtume 'int'
+
+            name = "Yash"; //implicit  conv
+            //name++; //errir
+            Console.WriteLine(name); //Currently at runtime 'string'
+        }
+    }
+}
+```
+
+<br>
 Example:
 
 ```csharp
