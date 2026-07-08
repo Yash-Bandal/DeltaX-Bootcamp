@@ -13,6 +13,37 @@ Commonly used for:
 
 <br>
 
+> [!Tip]
+> Think of ordering food:
+>
+> ### Sync
+>```
+> You order food.
+>```
+> You stand at counter doing nothing for 20 minutes.
+>
+> ```
+> You = blocked
+>```
+>
+> 
+> ### Async + await
+> You order food.
+> 
+> They give you a token.
+> 
+> You sit, talk, use phone.
+> 
+> When ready, they call you.
+> ```
+> You = free
+>```
+> await means:
+> 
+> > "Continue this method after the result comes, but don't waste the thread while waiting."
+
+<br>
+
 # Synchronous vs Asynchronous
 
 ## Synchronous
