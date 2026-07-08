@@ -95,6 +95,14 @@ Person person = new Person
 
 Console.WriteLine($"{person.Name} - {person.Age}");
 ```
+It actually works like
+```csharp
+Person person = new Person(); // constructor called first
+
+person.Name = "Yash";
+person.Age = 22;
+```
+Here `default parameterless constructor` is auto generated, so we didn't explicitely wrote code
 
 Output
 
