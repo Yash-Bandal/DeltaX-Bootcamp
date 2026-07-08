@@ -57,6 +57,15 @@ Commonly used for:
 
 # Synchronous vs Asynchronous
 
+<br>
+
+<div align = "center">
+<img width="350" alt="image" src="https://github.com/user-attachments/assets/8420286b-5c94-4e5a-bf33-a64459bc4466" />
+ <img width="500" alt="image" src="https://github.com/user-attachments/assets/0b259bde-cd4d-408b-8360-941ba5d65f3f" />
+</div>
+
+<br>
+
 ## Synchronous
 
 Code waits until the task completes.
