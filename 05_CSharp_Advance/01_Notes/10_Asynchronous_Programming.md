@@ -1,5 +1,3 @@
-# C# Advanced
-
 # 10. Async Programming
 
 ## What is Async?
