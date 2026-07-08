@@ -15,7 +15,7 @@ Commonly used for:
 <br>
 
 <div align = "center">
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/8420286b-5c94-4e5a-bf33-a64459bc4466" />
+<img width="350" alt="image" src="https://github.com/user-attachments/assets/8420286b-5c94-4e5a-bf33-a64459bc4466" />
 </div>
 
 <br>
