@@ -6,6 +6,15 @@ Composition represents a **"has-a" relationship** and is often preferred over in
 
 <br>
 
+---
+> [!Note]
+> ### Core Idea
+> 1. **Inheritance** → one class is a type of another class (is-a relationship)
+> 2. **Composition** → one class contains/uses another class object (has-a relationship)
+---
+
+<br>
+
 # What is Composition?
 
 Composition is a relationship where one object is built using one or more other objects.
