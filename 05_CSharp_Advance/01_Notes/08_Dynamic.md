@@ -1,11 +1,14 @@
+# C# Advanced
 
-# 8. Dynamic
+# Dynamic
 
-## What is Dynamic?
+## What is dynamic?
 
-`dynamic` is a type in C# where type checking happens at **runtime** instead of compile time.
+`dynamic` allows a variable's type to be decided at runtime.
 
-Normally, C# is a strongly typed language.
+C# normally checks types during compilation, but `dynamic` delays checking until execution.
+
+
 
 <br>
 <div align = "center">
@@ -42,18 +45,6 @@ namespace CSharpAdvanced
 ```
 
 <br>
-Example:
-
-```csharp
-int number = 10;
-
-number = "Hello";
-```
- 
-Compilation Error.
-
-The compiler already knows `number` is an integer.
-
 
 <br>
 <div align = "center">
@@ -62,250 +53,109 @@ The compiler already knows `number` is an integer.
 <br>
 
 
-<br>
-
-Using dynamic:
+## Syntax
 
 ```csharp
-dynamic value = 10;
-
-value = "Hello";
-value = true;
+dynamic variableName = value;
 ```
-
-Allowed.
-
-The type is decided while the program is running.
-
-<br>
-
-## Static Typing vs Dynamic Typing
-
-### Static Typing
-
-Type is checked during compilation.
 
 Example:
 
 ```csharp
-string name = "Yash";
+dynamic data = 10;
 
-Console.WriteLine(name.Length);
+data = "Hello";
+data = true;
 ```
 
-The compiler knows:
-
-```text
-name is a string
-```
-
-If you write:
-
-```csharp
-name.InvalidMethod();
-```
-
-Compiler gives an error immediately.
+Allowed because type is resolved at runtime.
 
 <br>
 
-### Dynamic Typing
-
-Type checking is delayed until runtime.
-
-Example:
+## dynamic Example
 
 ```csharp
-dynamic name = "Yash";
+dynamic value = "Yash";
 
-Console.WriteLine(name.Length);
-```
-
-Works.
-
-But:
-
-```csharp
-name.InvalidMethod();
-```
-
-Compilation succeeds.
-
-Runtime error occurs:
-
-```text
-RuntimeBinderException
-```
-
-<br>
-
-## How Dynamic Works
-
-Normal variable:
-
-```text
-Compile Time
-
-Check Type
-     |
-     v
-Run Program
-```
-
-Dynamic:
-
-```text
-Compile Time
-     |
-     v
-Run Program
-     |
-     v
-Check Type
-```
-
-The compiler skips type checking.
-
-<br>
-
-# Dynamic Example
-
-```csharp
-dynamic value;
-
-value = 10;
-
-Console.WriteLine(value.GetType());
-
-value = "Hello";
-
-Console.WriteLine(value.GetType());
+Console.WriteLine(value.Length);
 ```
 
 Output:
 
 ```text
-System.Int32
-
-System.String
+4
 ```
 
-Same variable stores different types.
-
-<br>
-
-# Dynamic vs var
-
-Many beginners confuse them.
-
-## var
-
-Type is decided at compile time.
+But:
 
 ```csharp
-var number = 10;
+dynamic value = "Yash";
+
+value.InvalidMethod();
 ```
 
-Compiler converts it to:
+Compiles successfully.
 
-```csharp
-int number = 10;
-```
-
-Cannot change later:
-
-```csharp
-number = "Hello";
-```
-
-Error.
-
-<br>
-
-## dynamic
-
-Type can change at runtime.
-
-```csharp
-dynamic value = 10;
-
-value = "Hello";
-```
-
-Allowed.
+Fails at runtime.
 
 <br>
 
 ## var vs dynamic
 
-| var                   | dynamic          |
-| ---------------------- | --------------------- |
-| Compile-time checking | Runtime checking |
-| Type cannot change    | Type can change  |
-| Safer                 | Less safe        |
-| Better performance    | Slower           |
-| Used frequently       | Used rarely      |
+### var
+
+Type decided at compile time.
+
+```csharp
+var number = 10;
+
+number = "Hello"; // Error
+```
 
 <br>
 
-# Dynamic with Methods
+### dynamic
 
-Example:
+Type decided at runtime.
 
 ```csharp
 dynamic number = 10;
 
-Console.WriteLine(number + 5);
+number = "Hello"; // Works
 ```
-
-Output:
-
-```text
-15
-```
-
-Now:
-
-```csharp
-number = "Hello";
-
-Console.WriteLine(number + 5);
-```
-
-Output:
-
-```text
-Hello5
-```
-
-Behavior depends on runtime type.
 
 <br>
 
-# Dynamic Objects
+## object vs dynamic
 
-Dynamic allows calling members without compiler checking.
+### object
 
-Example:
+Requires casting.
 
 ```csharp
-dynamic person = GetPerson();
+object name = "Yash";
 
-Console.WriteLine(person.Name);
-Console.WriteLine(person.Age);
+int length =
+    ((string)name).Length;
 ```
 
-The compiler trusts that these properties exist.
+<br>
 
-If they don't:
+### dynamic
 
-Runtime error.
+No casting required.
+
+```csharp
+dynamic name = "Yash";
+
+int length = name.Length;
+```
 
 <br>
 
 # ExpandoObject
 
-`ExpandoObject` allows creating objects dynamically.
+Used to create objects dynamically.
 
 Namespace:
 
@@ -313,194 +163,87 @@ Namespace:
 using System.Dynamic;
 ```
 
-Example:
+<br>
+
+## Steps
+
+### 1. Create Dynamic Object
 
 ```csharp
 dynamic employee =
     new ExpandoObject();
+```
 
+<br>
+
+### 2. Add Properties
+
+```csharp
 employee.Name = "Yash";
 employee.Age = 21;
+```
 
+<br>
+
+### 3. Access Properties
+
+```csharp
 Console.WriteLine(employee.Name);
+Console.WriteLine(employee.Age);
 ```
 
 Output:
 
 ```text
 Yash
-```
-
-Properties are added at runtime.
-
-<br>
-
-# Real-World Use Cases of Dynamic
-
-## 1. Working with JSON
-
-Example:
-
-```csharp
-dynamic data = jsonObject;
-
-Console.WriteLine(data.name);
-```
-
-Useful when structure is unknown.
-
-<br>
-
-## 2. Reflection
-
-Used when inspecting objects dynamically.
-
-Example:
-
-```text
-Loading classes or methods during runtime
+21
 ```
 
 <br>
 
-## 3. Dynamic APIs
+# Common Use Cases
 
-When response structure changes frequently.
+Used with:
 
-<br>
-
-# Dynamic and IntelliSense
-
-With normal objects:
-
-```csharp
-string name = "Yash";
-
-name.
-```
-
-Visual Studio shows:
-
-```text
-Length
-ToUpper()
-Contains()
-```
-
-With dynamic:
-
-```csharp
-dynamic name = "Yash";
-
-name.
-```
-
-No IntelliSense support because type is unknown.
-
-<br>
-
-# Performance Impact
-
-Dynamic is slower because:
-
-Normal C#:
-
-```text
-Compile Time Type Checking
-Fast Execution
-```
-
-Dynamic:
-
-```text
-Runtime Type Checking
-Extra Processing
-```
-
-Avoid unnecessary dynamic usage.
-
-<br>
-
-# Common Mistake
-
-Using dynamic everywhere.
-
-Bad:
-
-```csharp
-dynamic age = 21;
-dynamic name = "Yash";
-dynamic salary = 50000;
-```
-
-Good:
-
-```csharp
-int age = 21;
-string name = "Yash";
-double salary = 50000;
-```
-
-Use strong typing whenever possible.
-
-<br>
-
-# When Should You Use Dynamic?
-
-Use dynamic when:
-
-* Type is unknown until runtime
-* Working with external systems
 * Dynamic JSON data
 * Reflection
-* COM objects
+* COM objects (Excel Automation)
+* Unknown runtime objects
 
-Avoid dynamic for normal application code.
-
-<br>
-
-# Interview Questions
-
-## Is C# dynamically typed?
-
-No.
-
-C# is primarily a statically typed language.
-
-`dynamic` only allows dynamic behavior.
-
-<br>
-
-## Difference between object and dynamic?
-
-### object
-
-Compiler checks members.
+Example:
 
 ```csharp
-object value = "Hello";
+dynamic response = GetApiResponse();
 
-value.Length;
-```
-
-Compilation Error.
-
-Need casting:
-
-```csharp
-((string)value).Length;
+Console.WriteLine(response.Name);
 ```
 
 <br>
 
-### dynamic
+# Important Points
 
-```csharp
-dynamic value = "Hello";
+* Avoid using dynamic unnecessarily.
+* No compile-time checking.
+* Runtime errors are possible.
+* No IntelliSense support.
+* Slower than normal typed variables.
 
-value.Length;
-```
+<br>
 
-Works directly.
+# Quick Revision
 
-Checking happens at runtime.
+| Feature      | var          | dynamic   |
+| ------------ | ------------ | --------- |
+| Type decided | Compile time | Runtime   |
+| Type change  | No           | Yes       |
+| Safe         | Yes          | Less safe |
+| Usage        | Common       | Rare      |
+
+<br>
+
+# Key Takeaways
+
+* `dynamic` skips compile-time type checking.
+* Type is resolved during runtime.
+* Useful when object structure is unknown.
+* Prefer normal types unless dynamic behavior is required.
