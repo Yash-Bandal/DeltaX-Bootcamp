@@ -23,11 +23,8 @@ Normally, C# is a strongly typed language.
 using System;
 using System.Runtime.CompilerServices;
 
-
 namespace CSharpAdvanced
 {
-
-
     internal class Program
     {
         static void Main(string[] args)
