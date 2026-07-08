@@ -16,6 +16,8 @@ Commonly used for:
 * Network requests
 
 
+### They Improve Responsiveness
+
 <br>
 
 <div align = "center">
