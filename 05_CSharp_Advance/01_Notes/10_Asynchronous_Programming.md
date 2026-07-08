@@ -77,6 +77,9 @@ public async Task GetDataAsync()
 
 # await Keyword
 
+> [!Note]
+> A method waits, but the thread does not wait.
+
 `await` waits for an asynchronous operation to finish without blocking the thread.
 
 Syntax:
