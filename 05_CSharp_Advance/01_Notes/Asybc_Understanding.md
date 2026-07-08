@@ -1,5 +1,8 @@
 # Async vs Sync Programming Dry Run
 
+> [!Note]
+> The original C# thread is free. The operation is still happening somewhere else, its not like its always idle
+
 Assume a file download takes **5 seconds**.
 
 # 1. Normal Synchronous Code
