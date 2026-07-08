@@ -7,7 +7,7 @@
         public void Save();
     }
    ```
-2. Prews `ctor` and declare default empty constructor
+2. Press `ctor` and declare default empty constructor
     ```
     ctor
     ```
