@@ -75,7 +75,7 @@ return 2
 
 - **If `virtual` is not used** in the base class, the derived class **cannot override** the method. Attempting to use `override` results in a compile-time error.
 
-- **If neither `virtual` nor `override` is used**, both classes simply have their own independent methods. The method that executes depends on the **reference type**, not the actual object, so runtime polymorphism does not occur.
+- **If neither `virtual` nor `override` is used**, both classes simply have their own independent methods. The method that executes depends on the **reference type**, not the actual object, so runtime polymorphism does not occur. Compiler reads it as `public new void Method()`
 
 **Example:**
 
