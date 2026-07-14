@@ -388,7 +388,7 @@ works
 
 **What?**
 
-A compile-time constant whose value **must be known at compile time** and **can never change**.
+A constant value that never changes.
 
 **Syntax**
 
@@ -401,22 +401,14 @@ const double PI = 3.14159;
 - Mathematical constants
 - Fixed strings
 - Fixed numbers
-- Values that are the same for every object
 
 **Examples**
 
 ```csharp
-const int MaxMarks = 100;
 const string Country = "India";
 const double PI = 3.14159;
 ```
 
-**Why use const?**
-
-- Value is fixed forever.
-- Memory is not allocated per object.
-- Faster because the value is substituted by the compiler during compilation.
-- `const` members are **implicitly static** (shared by the class).
 
 
 
@@ -424,7 +416,7 @@ const double PI = 3.14159;
 
 **What?**
 
-A variable whose value can be assigned **only once**.
+A variable whose value is assigned only once, usually in the constructor.
 
 It can be assigned:
 - At declaration, or
@@ -520,9 +512,3 @@ Each object can have a different value, but once assigned, it cannot be modified
 
 
 
-
-**Keywords**
-
-- `const`
-- `readonly`
-- `static` *(because every `const` is implicitly `static`)*
