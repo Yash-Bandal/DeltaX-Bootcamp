@@ -36,6 +36,20 @@ constantly reads your text to catch mistakes early.
 
 <br>
 
+> [!Note]
+> ### First Principle
+> Suppose Parent has a method `Show()`. - 
+> Now Child also wants a method named `Show()`.
+>
+> There are only 2 possibilities
+>
+> **Replace** parent's implementation (override) - Runtime polymorphism/
+> **Hide** parent's implementation (new) - Compile-time selection
+>
+> Everything revolves around these two ideas.
+
+<br>
+
 # 4.1 Method Overriding
 
 
