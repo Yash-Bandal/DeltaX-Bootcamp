@@ -246,6 +246,13 @@ They are used, when we want to access any members without creating its object
 Think of them somewhat like reference type, 
 #### 11.1 Consider cases
 
+
+<br>
+<div align = "center">
+    <img width="600" height="" alt="image" src="https://github.com/user-attachments/assets/9da88144-3f2c-4acd-9e0c-aa9fd268ff6f" />
+</div>
+<br>
+
 **Case 1**
 ```csharp
 class Student
