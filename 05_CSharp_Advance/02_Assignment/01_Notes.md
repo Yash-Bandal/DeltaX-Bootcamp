@@ -74,6 +74,16 @@ return 2
 
 <br>
 
+### 5. Why we prefer interfaces over abstract classes?
+The thing is, we can use abstract classes to implement functionality of interfaces, but abstract classes cannot completely replace interfaces
+
+Because
+
+Abstract classes group similar classes, and interfaces can group different classes that arent related
+
+Interfaces provide loose coupling, and high extensibility, testibility scalability and maintibility
+
+<br>
 
 ### 6. Remember, a value type variable default is `0` , `false`, or similar `0 based`, and a reference type is `null`
    
