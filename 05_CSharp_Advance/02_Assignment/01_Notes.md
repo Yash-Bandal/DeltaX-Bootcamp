@@ -384,3 +384,145 @@ works
 | Implicitly `static`                | Can be instance or `static`                      |
 | Used for values that never change  | Used for values known only at runtime            |
 
+**const**
+
+**What?**
+
+A compile-time constant whose value **must be known at compile time** and **can never change**.
+
+**Syntax**
+
+```csharp
+const double PI = 3.14159;
+```
+
+**Use when**
+
+- Mathematical constants
+- Fixed strings
+- Fixed numbers
+- Values that are the same for every object
+
+**Examples**
+
+```csharp
+const int MaxMarks = 100;
+const string Country = "India";
+const double PI = 3.14159;
+```
+
+**Why use const?**
+
+- Value is fixed forever.
+- Memory is not allocated per object.
+- Faster because the value is substituted by the compiler during compilation.
+- `const` members are **implicitly static** (shared by the class).
+
+
+
+**readonly**
+
+**What?**
+
+A variable whose value can be assigned **only once**.
+
+It can be assigned:
+- At declaration, or
+- Inside the constructor.
+
+After that, it cannot be changed.
+
+**Syntax**
+
+```csharp
+readonly DateTime CreatedOn;
+
+public Student()
+{
+    CreatedOn = DateTime.Now;
+}
+```
+
+**Use when**
+
+- Value is different for each object.
+- Value is known only at runtime.
+- Value should never change after object creation.
+
+**Examples**
+
+```csharp
+readonly Guid Id = Guid.NewGuid();
+readonly DateTime JoiningDate;
+
+public Employee()
+{
+    JoiningDate = DateTime.Now;
+}
+```
+
+**Why use readonly?**
+
+Suppose every employee has a unique ID.
+
+```csharp
+readonly Guid EmployeeId = Guid.NewGuid();
+```
+
+You cannot use `const` because `Guid.NewGuid()` generates the value **at runtime**, not during compilation.
+
+
+
+**With vs Without**
+
+**const**
+
+```csharp
+const int Age = 18;
+```
+
+Every object always has:
+
+```text
+Age = 18
+```
+
+The value can never change.
+
+
+
+**readonly**
+
+```csharp
+readonly int Age;
+
+public Person(int age)
+{
+    Age = age;
+}
+```
+
+```csharp
+Person p1 = new Person(20);
+Person p2 = new Person(25);
+```
+
+Memory:
+
+```text
+p1.Age = 20
+
+p2.Age = 25
+```
+
+Each object can have a different value, but once assigned, it cannot be modified.
+
+
+
+
+
+**Keywords**
+
+- `const`
+- `readonly`
+- `static` *(because every `const` is implicitly `static`)*
