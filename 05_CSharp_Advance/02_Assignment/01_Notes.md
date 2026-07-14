@@ -5,7 +5,13 @@
         - If nothing found, `First` returns exception, so application crashes
     - If we use `FirstOrDefault`, it returns `null`, therefore application is not breaked
 
+<br>
+
+
 ### 2. Where, select, Max, Min does not print or write anything,     
+
+<br>
+
 
 ### 3. Use `Join` instead `foreach`, because
    - `foreach` prints **`Console.WriteLine()`** everytime,
@@ -18,6 +24,9 @@ Console.WriteLine(string.Join(", ", data));
 // Less optimized
 data.ToList().ForEach(x => Console.WriteLine(x));
 ```
+
+<br>
+
 
 ### 4.   `Select()` processes one element at a time.
 Suppose the user enters:
@@ -63,8 +72,14 @@ parseId = 2
 return 2
 ```
 
+<br>
+
+
 ### 6. Remember, a value type variable default is `0` , `false`, or similar `0 based`, and a reference type is `null`
    
+<br>
+
+
 ### 7. Why is the `virtual` keyword applicable only at runtime and not at compile time?
 
 - **Method Overloading** happens **within the same class**. The compiler sees all overloaded methods together and chooses the correct one based on the **method signature (number/type of parameters)**. Hence, it is **compile-time polymorphism**.
@@ -87,6 +102,9 @@ calculator.GetResult();
 - With `virtual` + `override` → `AdvancedCalculator.GetResult()` executes.
 - Without `virtual` + `override` → `Calculator.GetResult()` executes.
 
+<br>
+
+
 ### 8. What is difference between abstract classes and interfaces?
 ```
 Abstract Class  →  related things sharing a common base
@@ -99,6 +117,7 @@ Interface       →  unrelated things sharing a capability
                    e.g. Circle, Car, Person  all can be IDrawable
 
 ```
+
 #### Can we use abstract classes in place of Interfaces?
 Yes, but we should avoid this
 
@@ -129,6 +148,9 @@ class FileLogger : BaseLogger, ILogger
 Perfectly valid.
 
 This is the biggest reason interfaces are preferred.
+
+<br>
+
 
 
 ### 9.1 Difference between new and override
@@ -206,8 +228,14 @@ override → Replaces parent implementation.
 new → Hides parent method.
 ```
 
+<br>
+
+
 ### 10 What to do if you dont want to allow overriding a method further?
 Seal the method using `Seal` keyword
+
+
+<br>
 
 
 ### 11 Static Keyword
@@ -334,6 +362,9 @@ Name = "Yash"
 ----------------
 ```
 works
+
+<br>
+
 
 
 
