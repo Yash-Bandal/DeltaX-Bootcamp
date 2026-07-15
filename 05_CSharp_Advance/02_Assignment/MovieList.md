@@ -422,12 +422,28 @@ var result = MovieList
     [Will Smith, Tommy Lee Jones]
 ]
 ```
-
 Type:
 
 ```csharp
 IEnumerable<List<Actor>>
 ```
+
+## Flatten all actors (SelectMany)
+```csharp
+var res = MovieList
+    .SelectMany(m => m.Actors)
+    .Distinct()
+    .OrderBy(a => a)
+    .ToList();
+```
+Result:
+```
+Sam Worthington
+Tommy Lee Jones
+Will Smith
+Zoe Saldana
+```
+
 
 <br>
 
