@@ -42,7 +42,7 @@
     This works because List<string> implements IEnumerable<string>.
     
     However, this won't compile:
-    
+    ```csharp    
     movies.Add("Alien");   // ❌ Error
-   
+    ```
 2. **Dependency Injection** : Dependency Injection (DI) in C# is a design pattern where a class receives its required dependencies from an external source rather than creating them itself using the new keyword
