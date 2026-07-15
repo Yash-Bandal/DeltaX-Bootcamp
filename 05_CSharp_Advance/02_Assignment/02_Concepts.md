@@ -8,3 +8,9 @@ List<string> result = movies
 
 ### 2. Why catch the exception only in Program.cs?
 MovieService detects errors, but Program.cs decides how to present them to the user. This separates business logic from user interface.
+
+
+
+### Structure
+1. Service Layer - Used for Business logic, implementations and validations
+2. Program.cs - Entry exit point, input output show (thus we show exception here) in console app
