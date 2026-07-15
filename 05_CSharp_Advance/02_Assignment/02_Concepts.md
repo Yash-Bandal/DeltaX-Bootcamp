@@ -5,3 +5,6 @@ List<string> result = movies
     .Where(m => m.StartsWith("A")) //returns IEnumerable
     .ToList();  //returns List
 ```
+
+### 2. Why catch the exception only in Program.cs?
+MovieService detects errors, but Program.cs decides how to present them to the user. This separates business logic from user interface.
