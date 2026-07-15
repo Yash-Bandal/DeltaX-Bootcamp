@@ -741,3 +741,71 @@ var result = MovieList
     Avatar
 ]
 ```
+
+<br>
+
+# 34  Latest movie
+### Query
+```csharp
+var res = MovieList
+    .OrderByDescending(m => m.YearOfRelease)
+    .FirstOrDefault();
+```
+### Output
+```
+{
+    Name = Avatar 2,
+    YearOfRelease = 2022,
+    Producer = James Cameron
+}
+```
+
+<br>
+
+
+# 35 Movies with more than one actor
+### Query
+```csharp
+var res = MovieList
+    .Where(m => m.Actors.Count > 1)
+    .Select(m => new
+    {
+        m.Name,
+        ActorCount = m.Actors.Count
+    })
+    .ToList();
+```
+### Output
+```
+[
+    { Name = Avatar, ActorCount = 2 },
+    { Name = Avatar 2, ActorCount = 2 },
+    { Name = Men in Black, ActorCount = 2 }
+]
+```
+
+<br>
+
+# 36 Order by producer, then release year
+### Query
+```csharp
+var res = MovieList
+    .OrderBy(m => m.Producer)
+    .ThenBy(m => m.YearOfRelease)
+    .Select(m => new
+    {
+        m.Name,
+        m.Producer,
+        m.YearOfRelease
+    })
+    .ToList();
+```
+### Output
+```
+[
+    Avatar (James Cameron, 2009),
+    Avatar 2 (James Cameron, 2022),
+    I Am Legend (Akiva Goldsman, 2007),
+    Men in Black (Walter Parkes, 1997)
+]
+```
