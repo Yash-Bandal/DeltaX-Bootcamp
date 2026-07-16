@@ -10,7 +10,7 @@ Instead of directly writing database queries throughout the application, all dat
 <br>
 
 <div align = "center">
-     <img width="455" height="224" alt="image" src="https://github.com/user-attachments/assets/a9d46f44-a9c3-4793-a89e-93646e774f8d" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/a909504e-5ef0-4102-ac96-b84c1db6dfbc" />
 </div>
 <br>
 
