@@ -9,6 +9,11 @@ Instead of directly writing database queries throughout the application, all dat
 
 <br>
 
+<div align = "center">
+     <img width="455" height="224" alt="image" src="https://github.com/user-attachments/assets/a9d46f44-a9c3-4793-a89e-93646e774f8d" />
+</div>
+<br>
+
 ## Why Use Repository Pattern?
 
 Benefits:
