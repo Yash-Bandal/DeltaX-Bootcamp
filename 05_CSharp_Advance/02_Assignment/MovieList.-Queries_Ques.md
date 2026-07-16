@@ -825,3 +825,18 @@ var res = MovieList
     Men in Black (Walter Parkes, 1997)
 ]
 ```
+
+<br>
+
+# 37. Movies after 2000 and with name avatar
+Using `AND (&&)`
+
+Filter movies:
+
+Released after 2000\
+Name contains "Avatar"
+```csharp
+var filteredMovies = MovieList.Where(m =>
+    m.YearOfRelease > 2000 &&
+    m.Name.Contains("Avatar"));
+```
