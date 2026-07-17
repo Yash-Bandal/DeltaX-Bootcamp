@@ -1,3 +1,4 @@
+### Dependency Injection
 Program.cs
 ```csharp
 ActorService actorService = new ActorService(new ActorRepository()); // DI
@@ -16,7 +17,7 @@ public ActorService(IActorRepository actorRepository)
 
 <br>
 
-Normal
+### Normal
 ```csharp
 ActorService actorService = new ActorService(); 
 ```
