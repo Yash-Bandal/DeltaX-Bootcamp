@@ -33,3 +33,18 @@ public ActorService(IActorRepository actorRepository)
 }
 ```
 
+<br>
+
+## Note
+We build in this order
+```
+✓ Models
+✓ Repositories
+✓ Services
+✓ MovieService
+
+⬇
+
+Program.cs
+```
+
