@@ -93,3 +93,10 @@ It rejects:
 2002/10/12
 October 12, 2002
 ```
+
+### Future validation
+
+```csharp
+if (movie.YearOfRelease > DateTime.Now.Year)
+    throw new InvalidDataException("Movie year cannot be in the future.");
+```
