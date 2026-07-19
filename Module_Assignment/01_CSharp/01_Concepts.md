@@ -48,3 +48,7 @@ We build in this order
 Program.cs
 ```
 
+
+Q. thnks, but why program agains interface instead of class
+
+Q. Why what when use, what if not used
