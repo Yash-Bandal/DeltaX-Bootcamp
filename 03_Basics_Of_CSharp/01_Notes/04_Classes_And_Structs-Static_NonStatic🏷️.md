@@ -1,6 +1,12 @@
 
 # 4. Classes and Structures
 
+<br>
+
+[Static vs Non Static](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/03_Basics_Of_CSharp/01_Notes/04_Classes_And_Structs-Static_NonStatic.md#static-members) 🏷️
+
+<br>
+
 ## 4.1 Classes
 
 ### What is a Class?
