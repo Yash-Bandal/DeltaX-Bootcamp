@@ -959,7 +959,7 @@ When a developer writes a C# application, the flow looks like this:
        Intermediate Language (IL - Universal to all devices) +  + Metadata
            |
            v
-       Byte Code packed intoAssembly (.exe or .dll) package - IL
+       Byte Code packed into Assembly (.exe or .dll) package - IL
            |
            v
    CLR Environment
