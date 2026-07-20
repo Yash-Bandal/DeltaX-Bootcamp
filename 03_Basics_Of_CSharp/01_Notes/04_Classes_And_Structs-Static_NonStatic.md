@@ -322,6 +322,8 @@ Benefit:
 | No object creation required               | Requires object creation                      |
 
 <br>
+
+
 > [!Note]
 > ### Why Do We Need `Static`?
 > We need it when we want a concept, that only has 1 single instance(object) in memory, *i.e* only 1 copy\
