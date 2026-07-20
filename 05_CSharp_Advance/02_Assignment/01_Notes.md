@@ -248,7 +248,7 @@ Seal the method using `Seal` keyword
 <br>
 
 
-### 11 Static Keyword
+### 11 [Static Keyword](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/03_Basics_Of_CSharp/01_Notes/04_Classes_And_Structs.md#static-members)
 Static member belongs to the class itself,
 
 They are used, when we want to access any members without creating its object 
