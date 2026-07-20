@@ -31,7 +31,7 @@ private readonly IActorRepository _actorRepository;
  
 public ActorService(IActorRepository actorRepository)
 {
-    _actorRepository new ActorRepository();
+    _actorRepository = new ActorRepository();
 }
 ```
 
