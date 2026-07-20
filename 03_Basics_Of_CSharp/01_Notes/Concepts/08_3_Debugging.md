@@ -2,6 +2,12 @@
 
 <br>
 
+```
+Add Breakpoints to methods -> Press F5 -> Then Press F10 to jump function wise (Step over)
+                                       -> Step F11 to step into - Line by line
+
+You can hover over variables, to see what objects, fields it holds 
+```
 ---
 > [!Tip]
 > 1. Press `F10` to execute 1 line at a time (step over)
