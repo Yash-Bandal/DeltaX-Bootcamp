@@ -312,6 +312,16 @@ Benefit:
 
 # Static Members
 
+| Static                                    | Non-Static                                    |
+| ----------------------------------------- | --------------------------------------------- |
+| Belongs to the **class**                  | Belongs to an **object (instance)**           |
+| Only **one copy** exists in memory        | Every object gets its **own copy**            |
+| Accessed using the **class name**         | Accessed using an **object**                  |
+| Created when the class is loaded          | Created when the object is created            |
+| Cannot access non-static members directly | Can access both static and non-static members |
+| No object creation required               | Requires object creation                      |
+
+<br>
 > [!Note]
 > ### Why Do We Need `Static`?
 > We need it when we want a concept, that only has 1 single instance(object) in memory, *i.e* only 1 copy\
