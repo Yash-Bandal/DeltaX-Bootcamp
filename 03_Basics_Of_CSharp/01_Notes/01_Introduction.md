@@ -947,28 +947,34 @@ Understanding the architecture helps answer:
 When a developer writes a C# application, the flow looks like this:
 
 ```text
-Developer
-    |
-    v
-C# Source Code
-    |
-    v
-C# Compiler
-    |
-    v
-Intermediate Language (IL)
-    |
-    v
-CLR
-    |
-    v
-JIT Compiler
-    |
-    v
-Machine Code
-    |
-    v
-Operating System
+       Developer
+           |
+           v
+       C# Source Code
+           |
+           v
+       C# Compiler
+           |
+           v
+       Intermediate Language (IL) - (Universal to all devices)
+           |
+           v
+       Byte Code packed into `.dll` package - IL + Metadata
+           |
+           v
+   CLR Environment
++----------------------+
+|          CLR         |
+|           |          |
+|           v          |
+|       JIT Compiler   |
++----------------------+
+           |
+           v
+       Machine Code (Specific to that device)
+           |
+           v
+       Operating System
 ```
 
 This is the complete journey from code to execution.
