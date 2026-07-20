@@ -1,4 +1,13 @@
+## Architecture
+
+<br>
+<div align = "center">
+<img width="700" alt="image" src="https://github.com/user-attachments/assets/d0d2d4a6-b8b5-4648-aeee-02ccb99c197c" />
+</div>
+<br>
+
 ## Model
+
 Repo Returns
 ```js
 Movie
