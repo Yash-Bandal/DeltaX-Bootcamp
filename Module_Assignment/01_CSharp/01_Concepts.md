@@ -153,8 +153,8 @@ MovieResponseDTO
 Program.cs
 ```
 Notice:
-    - Repository still works with Movie
-    - Program never sees Movie
-    - Service converts between DTO and Model
+- Repository still works with Movie
+- Program never sees Movie
+- Service converts between DTO and Model
 
 This is exactly how APIs are written
