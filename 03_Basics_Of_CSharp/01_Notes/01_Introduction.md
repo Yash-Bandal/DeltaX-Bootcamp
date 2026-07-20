@@ -971,7 +971,7 @@ When a developer writes a C# application, the flow looks like this:
 +----------------------+
            |
            v
-       Machine Code (Specific to that device)
+       Native Machine Code (Specific to that device)
            |
            v
        Operating System
