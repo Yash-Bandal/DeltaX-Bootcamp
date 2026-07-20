@@ -1,6 +1,8 @@
 ### Dependency Injection
 Dependency Injection is a design pattern where an object receives the objects it depends on from the outside, instead of creating them itself.
 
+It reduces coupling
+
 Program.cs
 ```csharp
 ActorService actorService = new ActorService(new ActorRepository()); // DI
