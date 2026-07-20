@@ -1,4 +1,5 @@
 ## Model
+Repo Returns
 ```js
 Movie
 {
@@ -13,6 +14,23 @@ Movie
 
     Producer =
         Producer { Name = "James Cameron" }
+}
+```
+mapping convert to
+```js
+MovieResponseDTO
+{
+    Id = 1,
+    Name = "Avatar",
+
+    Actors =
+    [
+        "Sam Worthington",
+        "Zoe Saldana"
+    ],
+
+    Producer =
+        "James Cameron"
 }
 ```
 
