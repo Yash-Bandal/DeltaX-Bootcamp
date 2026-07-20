@@ -950,7 +950,7 @@ When a developer writes a C# application, the flow looks like this:
        Developer
            |
            v
-       C# Source Code
+       C# Source Code (Press Run Button)
            |
            v
        C# Compiler
