@@ -1,4 +1,22 @@
-### Dependency Injection
+## Model
+```js
+Movie
+{
+    Id = 1,
+    Name = "Avatar",
+
+    Actors =
+    [
+        Actor { Name = "Sam Worthington" },
+        Actor { Name = "Zoe Saldana" }
+    ],
+
+    Producer =
+        Producer { Name = "James Cameron" }
+}
+```
+
+## Dependency Injection
 Dependency Injection is a design pattern where an object receives the objects it depends on from the outside, instead of creating them itself.
 
 It reduces coupling
