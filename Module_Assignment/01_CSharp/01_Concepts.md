@@ -98,9 +98,63 @@ It rejects:
 October 12, 2002
 ```
 
-### Future validation
+## Future validation
 
 ```csharp
 if (movie.YearOfRelease > DateTime.Now.Year)
     throw new InvalidDataException("Movie year cannot be in the future.");
 ```
+
+## Why DTOs?
+
+Currently your flow is:
+```
+Program.cs
+      │
+      ▼
+MovieService.Add(...)
+      │
+      ▼
+Movie Model
+      │
+      ▼
+Repository
+```
+You're directly passing the Movie model between layers.
+
+With DTOs, the flow becomes:
+```
+Program.cs
+      │
+      ▼
+MovieRequestDTO
+      │
+      ▼
+MovieService
+      │
+(converts)
+      ▼
+Movie Model
+      │
+      ▼
+Repository
+```
+and when retrieving movies:
+```
+Repository
+      │
+Movie Model
+      │
+(converts)
+      ▼
+MovieResponseDTO
+      │
+      ▼
+Program.cs
+```
+Notice:
+    - Repository still works with Movie
+    - Program never sees Movie
+    - Service converts between DTO and Model
+
+This is exactly how APIs are written
