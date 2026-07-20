@@ -42,6 +42,10 @@ MovieResponseDTO
         "James Cameron"
 }
 ```
+DTO hides the **internal model** from the presentation layer. 
+
+Instead of exposing complete `Movie`, `Actor`, and `Producer` objects, it exposes only the required data, making the application more secure, loosely coupled, and easier to maintain.
+
 
 ## Dependency Injection
 Dependency Injection is a design pattern where an object receives the objects it depends on from the outside, instead of creating them itself.
