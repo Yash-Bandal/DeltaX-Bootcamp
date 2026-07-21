@@ -15,14 +15,12 @@ Movie
     Id = 1,
     Name = "Avatar",
 
-    Actors =
+    ActorIds = 
     [
-        Actor { Name = "Sam Worthington" },
-        Actor { Name = "Zoe Saldana" }
+        1,2
     ],
 
-    Producer =
-        Producer { Name = "James Cameron" }
+    Producer Id = 1
 }
 ```
 mapping convert to
@@ -34,17 +32,20 @@ MovieResponseDTO
 
     Actors =
     [
-        "Sam Worthington",
-        "Zoe Saldana"
+        Actor { Name = "Sam Worthington" },
+        Actor { Name = "Zoe Saldana" }
     ],
 
     Producer =
-        "James Cameron"
+        Producer { Name = "James Cameron" }
 }
 ```
 DTO hides the **internal model** from the presentation layer. 
 
 Instead of exposing complete `Movie`, `Actor`, and `Producer` objects, it exposes only the required data, making the application more secure, loosely coupled, and easier to maintain.
+
+
+
 
 
 ## Dependency Injection
