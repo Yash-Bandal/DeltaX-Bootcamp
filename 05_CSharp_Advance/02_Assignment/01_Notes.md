@@ -179,7 +179,7 @@ This is the biggest reason interfaces are preferred.
 
 > [!Tip]
 >  We cannot perform override without using `override` nd `virtual` keywords
->
+
 > [!Important]
 > Compiler only knows the Reference Type.
 >
