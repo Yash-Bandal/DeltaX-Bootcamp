@@ -6,7 +6,7 @@
     | Concrete collection                  | Interface                                      |
     | Stores data                          | Represents a sequence of data                  |
     | Can add/remove items                 | Read-only from the consumer's perspective      |
-    | Supports indexing (`list[0]`)        | No indexing                                    |
+    | Supports indexing (`list[0]`)        | No indexing 🏷️                                |
     | Has methods like `Add()`, `Remove()` | Only enumeration (plus LINQ extension methods) |
     | Implements `IEnumerable<string>`     | Doesn't store data itself                      |
     
