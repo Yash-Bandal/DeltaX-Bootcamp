@@ -94,7 +94,8 @@ Interfaces provide loose coupling, and high extensibility, testibility scalabili
 ```csharp
  public class ActorService : IActorService
 ```
-No, its interface implementation
+No, its interface implementation\
+It is interface implementation
 
 ### 6. Remember, a value type variable default is `0` , `false`, or similar `0 based`, and a reference type is `null`
    
