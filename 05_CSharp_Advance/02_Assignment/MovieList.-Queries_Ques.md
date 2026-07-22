@@ -1,3 +1,35 @@
+If actor ids
+
+show movie actor names from actor ids, give full query
+
+1 movie can have 1+ actors
+```csharp
+var result = movies.Select(movie => new
+{
+    Movie = movie.Name,
+
+    Actors = actors
+                .Where(actor => movie.ActorIds.Contains(actor.Id))
+                .Select(actor => actor.Name)
+                .ToList()
+});
+```
+```
+Movie : Avengers
+Actors:
+- Robert Downey Jr.
+- Chris Evans
+- Scarlett Johansson
+
+Movie : Interstellar
+Actors:
+- Matthew McConaughey
+- Anne Hathaway
+
+Movie : Titanic
+Actors:
+- Leonardo DiCaprio
+```
 # Data 
 ```js
 MovieList
@@ -253,7 +285,7 @@ false
 
 <br>
 
-# 10. Check whether all movies have producers
+# 10. Check whether all movies have producers 🏷️
 
 ### Query
 
