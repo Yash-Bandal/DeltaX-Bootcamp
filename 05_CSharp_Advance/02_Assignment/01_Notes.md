@@ -9,6 +9,7 @@
 As there is no condition to fulfil, it returns the very first element inside the **collection**\
 , if empty return Error
 
+
 <br>
 
 
@@ -78,7 +79,7 @@ return 2
 
 <br>
 
-### 5. Why we prefer interfaces over abstract classes?
+### 5.1 Why we prefer interfaces over abstract classes?
 The thing is, we can use abstract classes to implement functionality of interfaces, but abstract classes cannot completely replace interfaces
 
 Because
@@ -88,6 +89,12 @@ Abstract classes group similar classes, and interfaces can group different class
 Interfaces provide loose coupling, and high extensibility, testibility scalability and maintibility
 
 <br>
+
+### 5.2 Is this inheritance
+```csharp
+ public class ActorService : IActorService
+```
+No, its interface implementation
 
 ### 6. Remember, a value type variable default is `0` , `false`, or similar `0 based`, and a reference type is `null`
    
