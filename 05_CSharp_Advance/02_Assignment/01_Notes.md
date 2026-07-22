@@ -1,9 +1,13 @@
 ## Questions
 
-### 1. Difference between `First` and `FirstOrDefault`
+### 1.1  Difference between `First` and `FirstOrDefault`
     - `First` returns the first element that matches the condition, like where
         - If nothing found, `First` returns exception, so application crashes
     - If we use `FirstOrDefault`, it returns `null`, therefore application is not breaked
+
+### 1.2 What will happen if we just use First(), no condition argument inside ()
+As there is no condition to fulfil, it returns the very first element inside the **collection**\
+, if empty return Error
 
 <br>
 
