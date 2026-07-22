@@ -179,6 +179,11 @@ This is the biggest reason interfaces are preferred.
 
 > [!Tip]
 >  We cannot perform override without using `override` nd `virtual` keywords
+>
+> [!Important]
+> Compiler only knows the Reference Type.
+>
+> CLR checks the Actual Object during Runtime.
 
 | `override`                                                        | `new`                                     |
 | ----------------------------------------------------------------- | ----------------------------------------- |
