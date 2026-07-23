@@ -1,6 +1,6 @@
 If actor ids
 
-show movie actor names from actor ids, give full query
+####  Show movie actor names from actor ids, give full query
 
 1 movie can have 1+ actors
 ```csharp
@@ -30,6 +30,20 @@ Movie : Titanic
 Actors:
 - Leonardo DiCaprio
 ```
+
+### Write a query to select producer whose birthdate is above  25 september 2000
+```csharp
+var producerNames = producers
+    .Where(p => p.DOB > new DateTime(2000, 9, 25))
+    .Select(p => p.Name);
+```
+If want only First
+```csharp
+Producer producer = producers
+    .FirstOrDefault(p => p.DOB > new DateTime(2000, 9, 25));
+```
+
+
 # Data 
 ```js
 MovieList
