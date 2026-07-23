@@ -1,6 +1,6 @@
 If actor ids
 
-####  Show movie actor names from actor ids, give full query
+###  Show movie actor names from actor ids, give full query
 
 1 movie can have 1+ actors
 ```csharp
@@ -43,6 +43,50 @@ Producer producer = producers
     .FirstOrDefault(p => p.DOB > new DateTime(2000, 9, 25));
 ```
 
+### Youngest producer
+Code
+```csharp
+var result = producers
+    .OrderByDescending(p => p.DOB)
+    .First();
+```
+Why descending, because, if 3 actors with dob year 1980, 1999, 2003, so `2003` is the biggest val, and youngest prod birth year
+
+
+### Oldest actor
+Code
+```csharp
+var result = actors
+    .OrderBy(a => a.DOB)
+    .First();
+```
+
+### Movies with producer born after 1995
+Code
+```csharp
+var result = movies
+    .Where(m => m.Producer.DOB.Year > 1995);
+```
+
+### Movies having actor "Tom Cruise"
+Code
+```csharp
+var result = movies
+    .Where(m => m.Actors.Any(a => a.Name == "Tom Cruise"));
+```
+### Distinct producer names
+Code
+```csharp
+var result = movies
+    .Select(m => m.Producer.Name)
+    .Distinct();
+```
+### Group movies by producer
+Code
+```csharp
+var result = movies
+    .GroupBy(m => m.Producer.Name);
+```
 
 # Data 
 ```js
