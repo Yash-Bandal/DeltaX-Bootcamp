@@ -5,19 +5,62 @@ All queries below run against this exact dataset, so every output is the *real* 
 ```csharp
 List<Movie> movies = new List<Movie>
 {
-    new Movie { Id = 1, Name = "Avatar",       YearOfRelease = 2009, Plot = "Humans explore Pandora.",                  ActorIds = new List<int> { 1, 2 }, ProducerId = 1 },
-    new Movie { Id = 2, Name = "Men in Black", YearOfRelease = 1997, Plot = "Secret agents protect Earth.",             ActorIds = new List<int> { 3, 4 }, ProducerId = 2 },
-    new Movie { Id = 3, Name = "I Am Legend",  YearOfRelease = 2007, Plot = "A lone survivor fights infected humans.",  ActorIds = new List<int> { 3 },    ProducerId = 3 }
+    new Movie
+    {
+        Id = 1, Name = "Avatar",
+        YearOfRelease = 2009,
+        Plot = "Humans explore Pandora.",
+        ActorIds = new List<int> { 1, 2 },
+        ProducerId = 1
+    },
+    new Movie
+    {
+        Id = 2, Name = "Men in Black",
+        YearOfRelease = 1997,
+        Plot = "Secret agents protect Earth.",
+        ActorIds = new List<int> { 3, 4 },
+        ProducerId = 2
+    },
+    new Movie
+    {
+        Id = 3,
+        Name = "I Am Legend",
+        YearOfRelease = 2007,
+        Plot = "A lone survivor fights infected humans.",
+        ActorIds = new List<int> { 3 },
+        ProducerId = 3
+    }
 };
-
+```
+```csharp
 List<Actor> actors = new List<Actor>
 {
-    new Actor { Id = 1, Name = "Sam Worthington",  DOB = new DateTime(1976, 8, 2) },
-    new Actor { Id = 2, Name = "Zoe Saldana",      DOB = new DateTime(1978, 6, 19) },
-    new Actor { Id = 3, Name = "Will Smith",       DOB = new DateTime(1968, 9, 25) },
-    new Actor { Id = 4, Name = "Tommy Lee Jones",  DOB = new DateTime(1946, 9, 15) }
-};
-
+    new Actor
+    {
+        Id = 1,
+        Name = "Sam Worthington",
+        DOB = new DateTime(1976, 8, 2)
+     },
+    new Actor
+    {
+        Id = 2,
+        Name = "Zoe Saldana",
+        DOB = new DateTime(1978, 6, 19)
+    },
+    new Actor
+    {
+        Id = 3,
+        Name = "Will Smith",
+        DOB = new DateTime(1968, 9, 25)
+    },
+    new Actor
+    {
+         Id = 4,
+         Name = "Tommy Lee Jones",
+         DOB = new DateTime(1946, 9, 15) }
+    };
+```
+```csharp
 List<Producer> producers = new List<Producer>
 {
     new Producer { Id = 1, Name = "James Cameron",  DOB = new DateTime(1954, 8, 16) },
