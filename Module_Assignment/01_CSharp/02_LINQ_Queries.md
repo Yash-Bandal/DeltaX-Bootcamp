@@ -2,10 +2,12 @@
 
 
 > [!caution]
-> Q. Can you do `.First().Select()?`\
-> No. In almost all cases, you cannot do:
+> Q. Can you do `.First().Select()?`, or `.First().Where()`, or .`Count().Select()` or `.Any().Where()`?\
+> No. In almost all cases, you cannot do any:
+>```csharp
+> employees.First().Select(...) ❌
+>```
 
-employees.First().Select(...)
 
 All queries below run against this exact dataset, so every output is the *real* computed result — not a placeholder.
 
