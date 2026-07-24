@@ -1,5 +1,12 @@
 # LINQ Practice — (Movies / Actors / Producers)
 
+
+> [!caution]
+> Q. Can you do `.First().Select()?`\
+> No. In almost all cases, you cannot do:
+
+employees.First().Select(...)
+
 All queries below run against this exact dataset, so every output is the *real* computed result — not a placeholder.
 
 ```csharp
