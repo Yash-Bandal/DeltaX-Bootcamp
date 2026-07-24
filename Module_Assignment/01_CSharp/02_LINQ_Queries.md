@@ -447,7 +447,7 @@ var result = actors.GroupBy(a => a.DOB.Year);
 <br>
 
 ### 25. Movies featuring "Tom Cruise" (not in the dataset)
-
+**Approach 1:**
 ```csharp
 var result = movies.Where(m => m.ActorIds.Contains(
     actors.FirstOrDefault(a => a.Name == "Tom Cruise")?.Id ?? -1));
@@ -456,6 +456,16 @@ var result = movies.Where(m => m.ActorIds.Contains(
 ```text
 (empty list — Tom Cruise isn't in the actors table)
 ```
+
+**Aproach 2:**
+```csharp
+int actorId = actors
+    .FirstOrDefault(a => a.Name == "Tom Cruise")?.Id ?? -1;
+
+var result = movies
+    .Where(m => m.ActorIds.Contains(actorId));
+```
+**Note:** `??` is required in case of `__orDefault` methods
 
 > [!Important]
 > Use `FirstOrDefault` + `?.Id ?? -1` (or a null check) instead of `First` when the match might not exist — `First` throws `InvalidOperationException` on no match.
