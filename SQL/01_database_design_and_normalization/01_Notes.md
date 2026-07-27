@@ -19,7 +19,7 @@ The first step in database design is to **identify all the objects (entities)** 
 **Key Insight:** Don’t aim for perfection in the first phase. Database designs are iterative; you can add tables or columns as the application’s features evolve.
 
 <div align = "center">
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/14c45f17-4bfd-4a04-b5c6-41240e8097f8" />
+<img width="700" alt="image" src="https://github.com/user-attachments/assets/8ab101db-8b1c-4dbf-9f1b-3d07d0604fbf" />
 </div>
 
 ### 2. Normalization: Why Separate Tables?
