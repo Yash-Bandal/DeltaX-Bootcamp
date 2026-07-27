@@ -10,6 +10,27 @@
 >
 > Note that, `FirstOrDefault()` by default returns **null**, for filtered object, if you have a number like id, you have to use `?.id ?? -1` .
 
+> [!Note]
+> ### Pattern: Access a related object from another collection
+> If you're iterating over one collection and need to access an object from another collection using a matching ID (foreign key), use First() (or FirstOrDefault()) to retrieve the related object, then access its properties.
+> ```csharp
+> workingCollection
+>    .Where(item =>
+>        otherCollection
+>            .First(other => other.Id == item.ForeignKey)
+>            .Property OP value);
+> ```
+> or
+> ```csharp
+> workingCollection
+>    .Select(item => new
+>    {
+>        Item = item,
+>        Related = otherCollection.First(...)
+>    })
+>    .Where(x => ...)
+>    .Select(x => ...)
+> ```
 
 All queries below run against this exact dataset, so every output is the *real* computed result — not a placeholder.
 
