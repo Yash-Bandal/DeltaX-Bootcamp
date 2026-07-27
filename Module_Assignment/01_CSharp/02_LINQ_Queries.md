@@ -377,7 +377,7 @@ Actors: Will Smith
 ```csharp
 var result = movies
     .SelectMany(m => m.ActorIds)
-    .Select(id => actors.First(a => a.Id == id).Name);
+    .Select(id => actors.First(a => a.Id == id).Name); //we are mapping id => actorObj.name
 ```
 
 ```text
