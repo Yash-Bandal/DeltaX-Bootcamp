@@ -2,6 +2,13 @@
 ###  **Database design** 
 Tutorial for creating a car listing application. The process focuses on moving from a conceptual idea to a structured SQL database.
 
+
+> [!Tip]
+> 1. Dont waste to much time in making design perfect, use time in development, ou can refine design later as per requirements
+> 2. Prefer to use proper names for table primary keys, ids , instead of `id`, name it `usersId`, `carsId`, `makeId`, `BodyTypesId`
+> 3. Design **Linking** `Relationship tables`, like eg. `movieActors` table, `carPictures` tables
+> 4. For cols you want to deactivate, you can flag them , like `isActive` set **false/true**
+
 ### 1. The Initial Design Process
 The first step in database design is to **identify all the objects (entities)** that will be part of the system. For a car listing application, the primary entities include:
 *   **Users:** People who post and view listings.
@@ -10,6 +17,10 @@ The first step in database design is to **identify all the objects (entities)** 
 *   **Pictures:** Media associated with the listings.
 
 **Key Insight:** Don’t aim for perfection in the first phase. Database designs are iterative; you can add tables or columns as the application’s features evolve.
+
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/14c45f17-4bfd-4a04-b5c6-41240e8097f8" />
+</div>
 
 ### 2. Normalization: Why Separate Tables?
 Instead of putting all information (like the "Make" of a car) into a single "Cars" table as text, it is best practice to **break them into separate tables**.
