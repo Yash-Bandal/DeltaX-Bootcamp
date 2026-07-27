@@ -16,7 +16,8 @@ List<Movie> movies = new List<Movie>
 {
     new Movie
     {
-        Id = 1, Name = "Avatar",
+        Id = 1,
+        Name = "Avatar",
         YearOfRelease = 2009,
         Plot = "Humans explore Pandora.",
         ActorIds = new List<int> { 1, 2 },
@@ -24,7 +25,8 @@ List<Movie> movies = new List<Movie>
     },
     new Movie
     {
-        Id = 2, Name = "Men in Black",
+        Id = 2,
+        Name = "Men in Black",
         YearOfRelease = 1997,
         Plot = "Secret agents protect Earth.",
         ActorIds = new List<int> { 3, 4 },
