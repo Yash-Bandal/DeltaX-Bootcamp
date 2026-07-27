@@ -8,7 +8,7 @@
 > employees.First().Select(...) ❌
 >```
 >
-> Note that, `FirstOrDefault()` by default returns **null**, for filtered object, if you have a number like id, you can use `?.id ?? -1` .
+> Note that, `FirstOrDefault()` by default returns **null**, for filtered object, if you have a number like id, you have to use `?.id ?? -1` .
 
 
 All queries below run against this exact dataset, so every output is the *real* computed result — not a placeholder.
