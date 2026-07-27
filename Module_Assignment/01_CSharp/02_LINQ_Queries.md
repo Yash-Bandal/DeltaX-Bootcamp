@@ -11,7 +11,7 @@
 > Note that, `FirstOrDefault()` by default returns **null**, for filtered object, if you have a number like id, you have to use `?.id ?? -1` .
 
 > [!Note]
-> ### Pattern: Access a related object from another collection
+> ### Pattern: Access a related object from another collection (Eg [30]()https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/Module_Assignment/01_CSharp/02_LINQ_Queries.md#30-movies-with-a-producer-born-after-1995-%EF%B8%8F-imp))
 > If you're iterating over one collection and need to access an object from another collection using a matching ID (foreign key), use First() (or FirstOrDefault()) to retrieve the related object, then access its properties.
 > ```csharp
 > workingCollection
