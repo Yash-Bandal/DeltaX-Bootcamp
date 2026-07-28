@@ -118,7 +118,14 @@ Operations like:
 
 become slower because duplicate data exists in many rows.
 
+
 <br>
+
+---
+
+<br>
+
+
 
 # First Normal Form (1NF)
 
@@ -203,8 +210,6 @@ EmployeeID
 
 Split data into multiple tables and connect them using a **Foreign Key**.
 
-<br>
-
 ---
 
 <br>
@@ -287,6 +292,8 @@ Department information is stored only once.
 - Smaller tables
 - Better consistency
 
+---
+
 <br>
 
 # Third Normal Form (3NF)
@@ -356,14 +363,14 @@ Move department information into another table.
 | EmployeeID | Name | DepartmentID |
 |------------|------|--------------|
 
----
+<br>
 
 ### Departments
 
 | DepartmentID | DepartmentName | DepartmentHead |
 |--------------|----------------|----------------|
 
----
+<br>
 
 ## Avoid Computed Columns
 
