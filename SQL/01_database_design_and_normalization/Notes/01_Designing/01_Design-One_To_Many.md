@@ -1,3 +1,4 @@
+### Definition
 A **one-to-many relationship** occurs when a single record in one table is related to multiple records in another table. For example, one customer can place many orders, but each order belongs to only one customer.
 
 ### **7 Steps to Design a One-to-Many Relationship**
