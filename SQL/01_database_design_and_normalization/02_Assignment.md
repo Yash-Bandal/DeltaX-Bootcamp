@@ -9,10 +9,11 @@ The relationships of the different entities are as follows:
 - An Actor can act in multiple movies
 - A Producer can produce multiple movies.
 
-<div align = "center">
-<img width="700" alt="image" src="https://github.com/user-attachments/assets/07de511e-df46-4a38-8a10-11ba62936814" />
-</div>
 
+
+<div align = "center">
+<img width="700" alt="image" src="https://github.com/user-attachments/assets/ab731e3e-f356-422c-a0dd-47f2eab9cfe4" />
+</div>
 
 
 ## Problem 2
@@ -32,8 +33,9 @@ This needs to be preserved. Design a Database for the above scenario.
 > No need of `users_ratings_restaurant` table, because we already have users -> ratings -> DishRestaurant
 
 <div align = "center">
-<img width="700" alt="image" src="https://github.com/user-attachments/assets/ab731e3e-f356-422c-a0dd-47f2eab9cfe4" />
+<img width="700" alt="image" src="https://github.com/user-attachments/assets/07de511e-df46-4a38-8a10-11ba62936814" />
 </div>
+
 
 ### Swiggy/Zomato Database Design - Relationship Explanation
 
