@@ -1,4 +1,4 @@
-# Database Normalization
+<img width="626" height="434" alt="image" src="https://github.com/user-attachments/assets/be09dcdd-7525-4a9f-b8df-ab7f337c31be" /># Database Normalization
 
 ## What is Database Normalization?
 Database Normalization is the process of organizing data in a database to:
@@ -138,6 +138,10 @@ A table is in **First Normal Form (1NF)** if:
 - Every row is uniquely identified by a Primary Key
 
 <br>
+<div align = "center">
+      <img width="650" alt="image" src="https://github.com/user-attachments/assets/6509c45b-f416-4c70-b89c-2e8350622c6b" />
+</div>
+<br>
 
 ## Rules of 1NF
 
@@ -152,6 +156,9 @@ Each cell should contain only one value.
 | John | Math, Science |
 
 The Subjects column stores multiple values.
+
+> [!caution]
+> Now, if non-atomic, its not possible to apply SEELECT, DELETE, INSERT on just one subject
 
 <br>
 
@@ -261,6 +268,10 @@ A table is in **Second Normal Form (2NF)** if:
 > Thus we use **Listing / Junction Tables**
 
 <br>
+<div align = "center">
+      <img width="650" alt="image" src="https://github.com/user-attachments/assets/3dde22ae-36ed-4743-b6d5-6c62978a62f0" />
+</div>
+<br>
 
 ## Why 2NF?
 
@@ -308,6 +319,12 @@ A table is in **Third Normal Form (3NF)** if:
 - No transitive dependency
 
 <br>
+<div align = "center">
+      <img width="650" alt="image" src="https://github.com/user-attachments/assets/4133b799-7c17-4d72-a1ab-6068dcd09831" />
+</div>
+<br>
+
+
 
 ## Functional Dependency
 
