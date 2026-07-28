@@ -70,6 +70,31 @@ When building the database:
 2.  Use the **UI (Edit Top 200 Rows)** or **SQL scripts** to populate initial data.
 3.  If you realize a mistake (like a missing column), you can use an `ALTER` script or, if the database is still in development without data, drop and recreate the table.
 
-***
+<br>
 
-To help you study these concepts further, I can **create a quiz** on database normalization and relationships or **generate flashcards** for SQL data types and key terms. Would you like me to do that?
+# Keys
+
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/0862ba43-4f8b-4a74-9d2c-0ddaddb364d8" />
+   <br>
+   <img width="500"  alt="image" src="https://github.com/user-attachments/assets/f912f5ec-0576-4e3a-9c23-bae3b6429d69" />
+</div>
+
+
+**Super Key:**
+
+> [!Note]
+> A super key is different from composite key, composite key can have only 2 or 3 max cols, that too group of 2 seperate `primary keys`
+>
+> Super key can have extra redundant non key attrubutes
+
+<div align = "center">
+<img width="500"  alt="image" src="https://github.com/user-attachments/assets/5e64e272-b02f-4460-a869-274ce8ba3b52" />
+</div>
+
+
+**Candidate Key:**
+
+<div align = "center">
+<img width="500"  alt="image" src="https://github.com/user-attachments/assets/a8d920d0-f87c-4588-9596-f192e50b89bf" />
+</div>
