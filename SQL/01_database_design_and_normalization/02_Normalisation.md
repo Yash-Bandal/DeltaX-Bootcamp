@@ -481,7 +481,12 @@ X → Y
 
 Then **X** must be a **Candidate Key**.
 
-
+<br>
+<div align = "center">
+      <img width="550" alt="image" src="https://github.com/user-attachments/assets/fd2a367c-0e1c-46e5-b0f5-1b33bf71b5f6" />
+      <br>
+      <img width="550" alt="image" src="https://github.com/user-attachments/assets/d6494102-2748-4c62-882f-ce17a53d12fb" />
+</div>
 <br>
 
 
