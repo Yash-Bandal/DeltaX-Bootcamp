@@ -32,6 +32,21 @@ Without normalization, the same information is stored repeatedly, causing severa
 
 Here, **IT** and **London** are repeated for every employee.
 
+using `3NF`
+
+**Departments**
+| DepartmentID | Department | Location |
+| ------------ | ---------- | -------- |
+| 1            | IT         | London   |
+
+**Employees**
+| EmployeeID | EmployeeName | DepartmentID |
+| ---------- | ------------ | ------------ |
+| 1          | Alice        | 1            |
+| 2          | Bob          | 1            |
+| 3          | Charlie      | 1            |
+
+
 <br>
 
 ### 2. Data Inconsistency
