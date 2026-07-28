@@ -10,6 +10,16 @@ Database Normalization is the process of organizing data in a database to:
 
 There are **six normal forms (1NF–6NF)**, but in real-world applications, most databases are normalized up to **Third Normal Form (3NF)**.
 
+
+<br>
+
+
+> [!Tip]
+> ### `2NF` vs `3NF` major difference
+>  - In 2NF, the Primary key is a **Composite Primary Key**
+>  - In 3NF, the Primary key is perfectly fine, **Normal primary key**
+> 
+
 <br>
 
 # Why Do We Need Normalization?
@@ -376,7 +386,55 @@ MonthlySalary
 
 Calculate AnnualSalary when needed.
 
+**Before 3NF**
+```
+Employees
+
++-----------+-------------+--------------+----------------+
+|EmployeeID |EmployeeName |DepartmentID  |DepartmentName  |
++-----------+-------------+--------------+----------------+
+|101        |Yash         |D1            |IT              |
+|102        |Rahul        |D2            |HR              |
+|103        |Aman         |D1            |IT              |
++-----------+-------------+--------------+----------------+
+
+EmployeeID → DepartmentID
+
+DepartmentID → DepartmentName
+
+Transitive Dependency exists
+```
+
+**After 3NF**
+```
+Employees
+
++-----------+-------------+--------------+
+|EmployeeID |EmployeeName |DepartmentID  |
++-----------+-------------+--------------+
+|101        |Yash         |D1            |
+|102        |Rahul        |D2            |
+|103        |Aman         |D1            |
++-----------+-------------+--------------+
+
+
+Departments
+
++--------------+----------------+
+|DepartmentID  |DepartmentName  |
++--------------+----------------+
+|D1            |IT              |
+|D2            |HR              |
++--------------+----------------+
+```
+
+
+<br>
+
+
 ---
+
+<br>
 
 # Summary
 
