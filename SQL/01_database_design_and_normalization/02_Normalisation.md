@@ -1,4 +1,4 @@
-<img width="626" height="434" alt="image" src="https://github.com/user-attachments/assets/be09dcdd-7525-4a9f-b8df-ab7f337c31be" /># Database Normalization
+# Database Normalization
 
 ## What is Database Normalization?
 Database Normalization is the process of organizing data in a database to:
