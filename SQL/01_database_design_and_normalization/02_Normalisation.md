@@ -199,15 +199,17 @@ EmployeeID
 
 <br>
 
----
-
-<br>
-
 ## 1NF Solution
 
 Split data into multiple tables and connect them using a **Foreign Key**.
 
 <br>
+
+---
+
+<br>
+
+
 
 # Second Normal Form (2NF)
 
