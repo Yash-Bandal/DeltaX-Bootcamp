@@ -189,6 +189,10 @@ EmployeeID
 
 <br>
 
+---
+
+<br>
+
 ## 1NF Solution
 
 Split data into multiple tables and connect them using a **Foreign Key**.
@@ -197,6 +201,7 @@ Split data into multiple tables and connect them using a **Foreign Key**.
 
 # Second Normal Form (2NF)
 
+
 ## Definition
 
 A table is in **Second Normal Form (2NF)** if:
@@ -204,6 +209,39 @@ A table is in **Second Normal Form (2NF)** if:
 - It satisfies **1NF**
 - Redundant data is moved into separate tables
 - Relationships are maintained using Foreign Keys
+- Ensure no `Partial Dependency`
+
+> [!Note]
+>### Partial Dependency
+> **Definition**:
+> A non-key attribute depends on only a part of a composite primary key instead of the whole composite key.
+>```
+> Primary Key = (StudentID, CourseID)
+>```
+> This is called a Composite Key.
+>
+>  The primary key has 2 columns
+>
+> `(StudentID, CourseID)`
+>
+> But StudentName depends only on
+>
+> `StudentID`
+>
+> not on the complete key.
+>
+> Likewise,
+>
+> CourseName depends only on
+>
+> `CourseID`
+>
+> not the whole key.
+> Only part of the composite key determines the value.
+>
+> That is why it is called **`Partial Dependency`**
+>
+> Thus we use **Listing / Junction Tables**
 
 <br>
 
