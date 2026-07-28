@@ -218,7 +218,7 @@ Instead of storing department information repeatedly:
 | 1 | Alice | 1 |
 | 2 | Bob | 1 |
 
----
+<br>
 
 ### Departments
 
