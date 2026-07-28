@@ -454,6 +454,122 @@ Departments
 +--------------+----------------+
 ```
 
+---
+
+<br>
+
+
+
+# Boyce-Codd Normal Form (BCNF)
+
+## What is BCNF?
+
+**Boyce-Codd Normal Form (BCNF)** is a stricter version of **Third Normal Form (3NF)**.
+
+A table is in **BCNF** if:
+
+- It is already in **3NF**
+- **Every determinant must be a Candidate Key**
+
+> **Determinant:** An attribute (or set of attributes) that determines another attribute.
+
+If:
+
+```
+X → Y
+```
+
+Then **X** must be a **Candidate Key**.
+
+
+<br>
+
+
+
+# Why Do We Need BCNF?
+
+Sometimes a table satisfies **3NF** but still contains redundancy because a **non-candidate key** determines another attribute.
+
+BCNF removes these remaining anomalies.
+
+
+<br>
+
+
+
+# Example
+
+### Student_Course
+
+| Student | Course | Instructor |
+|---------|--------|------------|
+| Alice | DBMS | John |
+| Bob | DBMS | John |
+| Charlie | OS | David |
+
+Functional Dependencies:
+
+```
+(Student, Course) → Instructor
+Instructor → Course
+```
+
+Candidate Key:
+
+```
+(Student, Course)
+```
+
+Here,
+
+```
+Instructor → Course
+```
+
+is a problem because **Instructor** is **not** a Candidate Key.
+
+Therefore, the table is in **3NF** but **not in BCNF**.
+
+
+<br>
+
+
+
+# BCNF Solution
+
+Split the table into two tables.
+
+### Student_Instructor
+
+| Student | Instructor |
+|---------|------------|
+| Alice | John |
+| Bob | John |
+| Charlie | David |
+
+### Instructor_Course
+
+| Instructor | Course |
+|------------|--------|
+| John | DBMS |
+| David | OS |
+
+Now every determinant is a Candidate Key.
+
+
+<br>
+
+
+
+# Difference Between 3NF and BCNF
+
+| 3NF | BCNF |
+|------|------|
+| Every non-key attribute depends only on the Primary Key. | Every determinant must be a Candidate Key. |
+| May still allow some redundancy. | Removes more redundancy than 3NF. |
+| Less strict. | More strict than 3NF. |
+
+
 
 <br>
 
