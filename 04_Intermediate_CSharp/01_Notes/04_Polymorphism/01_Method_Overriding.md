@@ -30,7 +30,7 @@
 
 ```
 
-Errors that appear automatically while you are typing—before you ever press the "Run" button—are caught during compile time, /
+Errors that appear automatically while you are typing—before you ever press the "Run" button—are caught during compile time, \
 specifically by a real-time process called static analysis.Modern code editors run a `background compiler` or `linter` that 
 constantly reads your text to catch mistakes early.
 
@@ -43,7 +43,7 @@ constantly reads your text to catch mistakes early.
 >
 > There are only 2 possibilities
 >
-> **Replace** parent's implementation (override) - Runtime polymorphism/
+> **Replace** parent's implementation (override) - Runtime polymorphism\
 > **Hide** parent's implementation (new) - Compile-time selection
 >
 > Everything revolves around these two ideas.
