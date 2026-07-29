@@ -26,7 +26,7 @@ class Employee
 <br>
 
 > [!Important]
-> Always initialize `List<dataType>` whenever it is declared inside class, dont leave it empty
+> Always initialize `List<dataType>` whenever it is declared inside class, dont leave it empty to avoid `NullExceptionError`
 >
 > Thus, either initialze it at top, or inside constructor, but never leave it empty
 
