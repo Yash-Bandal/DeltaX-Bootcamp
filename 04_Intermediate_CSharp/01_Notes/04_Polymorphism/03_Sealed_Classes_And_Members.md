@@ -5,6 +5,9 @@
 > [!Tip]
 > Not much used, ms docs just gave this method t slightly increase performance
 
+> [!Important]
+> `Seal` , nor inherit further, nor override
+
 <br>
 
 A **sealed class** cannot be inherited.
