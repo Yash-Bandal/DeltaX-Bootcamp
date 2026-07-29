@@ -10,15 +10,15 @@ They are one of the key tools used to implement **Encapsulation**, a fundamental
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/ea4010ae-07f0-43ef-85a7-8bd661894cdc" />
 </div>
 
-
+> [!Tip]
+> ### Internal
+> Accessible anywhere inside this DLL/EXE, but not outside it. That is inside same `Assembly / Project`
 
 
 <br>
 
 
-> [!Tip]
-> ### Internal
-> Accessible anywhere inside this DLL/EXE, but not outside it.
+
 
 # What is Encapsulation?
 
