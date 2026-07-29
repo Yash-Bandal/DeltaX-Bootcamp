@@ -46,3 +46,9 @@
     movies.Add("Alien");   // ❌ Error
     ```
 2. **Dependency Injection** : Dependency Injection (DI) in C# is a design pattern where a class receives its required dependencies from an external source rather than creating them itself using the new keyword
+
+3. Implicit and Explicit
+    ```
+    Implicit = Happens automatically.
+    Explicit = You do it yourself.
+    ```
