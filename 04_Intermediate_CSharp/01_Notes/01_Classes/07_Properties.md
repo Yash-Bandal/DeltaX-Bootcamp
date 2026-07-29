@@ -210,7 +210,8 @@ It is the most commonly used type of property in modern C#.
 
 # Read-Only Properties
 
-A property with only a `get` accessor cannot be modified outside the class.
+
+A property with only a `get` accessor cannot be modified outside the class. (Behave somewhat like Readonly functionality
 
 ```csharp
 public string Company
@@ -239,6 +240,25 @@ class Employee
 }
 ```
 
+## Under the hood
+
+This:
+```csharp
+public string Company { get; }
+```
+is roughly compiled into something like:
+```csharp
+private readonly string _company;
+
+public string Company
+{
+    get
+    {
+        return _company;
+    }
+}
+```
+The compiler creates the hidden backing field for you.
 <br>
 
 # Properties with Validation
