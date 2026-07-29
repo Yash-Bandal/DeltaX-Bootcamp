@@ -15,6 +15,11 @@ They are one of the key tools used to implement **Encapsulation**, a fundamental
 
 <br>
 
+
+> [!Tip]
+> ### Internal
+> Accessible anywhere inside this DLL/EXE, but not outside it.
+
 # What is Encapsulation?
 
 **Encapsulation** is the process of hiding an object's internal data and exposing only what is necessary.
