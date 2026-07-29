@@ -8,7 +8,7 @@ These operations exist because C# has a unified type system where **every type u
 
 
 > [!note]
-> Boxing is implicit (Automatic), unboxing is icit (manual)
+> Boxing is implicit (Automatic), unboxing is explicit (manual)
 
 <br>
 
