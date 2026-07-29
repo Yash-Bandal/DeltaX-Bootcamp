@@ -6,6 +6,10 @@ Unboxing is converting that reference type back into a **value type**.
 
 These operations exist because C# has a unified type system where **every type ultimately derives from `object`** — including primitives like `int`, `bool`, `double`.
 
+
+> [!note]
+> Boxing is implicit (Automatic), unboxing is icit (manual)
+
 <br>
 
 
