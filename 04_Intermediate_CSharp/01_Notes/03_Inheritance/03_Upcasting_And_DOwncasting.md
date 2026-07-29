@@ -12,6 +12,9 @@ These operations change the type of the `reference (✓)` used to access an obje
 </div>
 <br>
 
+> [!Tip]
+> Dcasti is risky sometimes, see cases below, so we use `is` and `as` for safe downcasting
+
 # Understanding the Inheritance Hierarchy
 
 Consider the following classes:
