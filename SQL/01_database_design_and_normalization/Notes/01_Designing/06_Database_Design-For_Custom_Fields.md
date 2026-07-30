@@ -230,6 +230,12 @@ Create separate tables for each customer type.
 
 Same as above class table inheritance, just no central  master/main table  
 
+<br>
+<div align = "center">
+<img width="680" alt="image" src="https://github.com/user-attachments/assets/63501c06-2dcd-4c9a-89a3-77ba9d354ec9" />
+</div>
+<br>
+
 ### regular_customer
 
 | customer_id | name |
@@ -282,12 +288,13 @@ Instead of storing "Address" as text, create an `address` table.
 
 ### Advantages
 
+- Uses database features in the best way
 - Highly normalized
 - Best data integrity
-- Easy validation
+- Can use inbuilt  validation and constraints
 
 ### Disadvantages
-
+- Not very flexible 
 - More tables
 - More joins
 
@@ -296,6 +303,14 @@ Instead of storing "Address" as text, create an `address` table.
 # 7. JSON
 
 Store all custom fields inside a JSON column.
+
+<br>
+<div align = "center">
+
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/52b73c13-3d71-4910-a697-9de420e617e9" />
+
+</div>
+<br>
 
 ### Customer Table
 
@@ -324,6 +339,8 @@ VALUES (
 ### Disadvantages
 
 - Harder to validate
+- Restricted to available JSON Functions
+- Potential to get messy
 - Some queries become slower
 - Indexing JSON fields can be more complex
 
@@ -332,6 +349,14 @@ VALUES (
 # 8. Dynamic Schema
 
 The application changes the database structure at runtime.
+
+<br>
+<div align = "center">
+
+<img width="680" alt="image" src="https://github.com/user-attachments/assets/7ff8e5e7-bee8-4896-899f-076e67468d09" />
+
+</div>
+<br>
 
 Example:
 
