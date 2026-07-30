@@ -278,10 +278,3 @@ No table modification is required.
 
 <br>
 
-# Key Takeaways
-
-- Product attributes vary across different product categories.
-- A column-based design becomes difficult to maintain as attributes grow.
-- The **Entity-Attribute-Value (EAV)** model stores attributes as rows instead of columns.
-- EAV provides excellent flexibility and scalability while reducing unused (`NULL`) columns.
-- The trade-off is increased query complexity and the need for proper indexing.
