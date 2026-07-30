@@ -135,7 +135,9 @@ This reduces duplicate attribute names and improves consistency.
 
 <br>
 
-# 3. Single Table
+# 3. Single Table 
+> [!Note]
+> Its single table, not single column
 
 Store every possible custom field as a column.
 
