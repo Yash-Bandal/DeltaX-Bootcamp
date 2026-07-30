@@ -1,4 +1,4 @@
-# Database Design: Product Attributes
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d3549f87-bdad-4f17-b5a5-1ef2e78a9e58" /><img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ef84776b-7b29-44c6-8a21-7011791a3230" /># Database Design: Product Attributes
 
 Designing a database for **product attributes** is a common challenge, especially in eCommerce where different products have different characteristics.
 
@@ -21,6 +21,14 @@ For example:
   - Camera
 
 Since every product type has different attributes, creating a column for every possible attribute is not practical.
+
+<br>
+
+<div align = "center">
+  <img width="600" alt="image" src="https://github.com/user-attachments/assets/9e03ccb7-e242-4ba1-a793-e208c60e4a4f" />
+  <p>Can add more</p>
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/2d87ad35-ef63-4aca-b8d2-69d04e3eed97" />
+</div>
 
 <br>
 
