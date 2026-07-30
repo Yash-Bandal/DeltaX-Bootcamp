@@ -73,6 +73,15 @@ FROM employee AS e
 LEFT JOIN employee AS m
     ON e.manager_id = m.employee_id;
 ```
+or, without `AS`
+```sql
+SELECT
+    e.employee_name AS Employee,
+    m.employee_name AS Manager
+FROM employee AS e
+LEFT JOIN employee AS m
+    ON e.manager_id = m.employee_id;
+```
 
 <br>
 
