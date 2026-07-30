@@ -75,21 +75,30 @@ WHERE customer_id = 1;
 
 ### Advantages
 
+- Less space taken for `sparse` columns
 - Extremely flexible
 - Unlimited custom fields
 - No schema changes
 
 ### Disadvantages
 
+- Difficult to enforce data validation, and data types
+- No effective column indexing
 - Complex queries
 - Poor performance for large datasets
-- Difficult to enforce data types
+
 
 <br>
 
 # 2. Modified EAV
 
 A variation of EAV where attributes are stored separately.
+
+<br>
+<div align = "center">
+    <img width="600" alt="image" src="https://github.com/user-attachments/assets/c83a40fe-95fc-4e40-867e-6c6a9d81feb0" />
+</div>
+<br>
 
 ### Tables
 
@@ -112,7 +121,9 @@ A variation of EAV where attributes are stored separately.
 This reduces duplicate attribute names and improves consistency.
 
 ### Advantages
-
+- Additional data validation compared to EAV
+- Less need for additional functions to transform data 
+- Highly flexible than EAV
 - Better normalization
 - Saves storage
 - Easier to manage attributes
@@ -128,6 +139,12 @@ This reduces duplicate attribute names and improves consistency.
 
 Store every possible custom field as a column.
 
+<br>
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/379dfaa7-a228-458c-9487-5aa3befdd4c4" />
+</div>
+<br>
+
 ### Customer Table
 
 | customer_id | name | birthday | favorite_color | membership |
@@ -139,9 +156,11 @@ Store every possible custom field as a column.
 - Very fast queries
 - Simple SQL
 - Easy indexing
+- Data validation possible     
+- Good Performance
 
 ### Disadvantages
-
+- Hard to work with so many tables
 - Many unused (`NULL`) columns
 - Requires schema changes whenever a new field is added
 - Not scalable for frequently changing custom fields
@@ -177,9 +196,15 @@ Store common fields in one table and specialized fields in separate tables.
 
 <br>
 
-# 5. Concrete Table Inheritance
+# 5. Concrete/Class Table Inheritance
 
 Create separate tables for each customer type.
+
+<br>
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/130953a8-f36e-44a2-9e28-2e84375af6af" />
+</div>
+<br>
 
 ### regular_customer
 
