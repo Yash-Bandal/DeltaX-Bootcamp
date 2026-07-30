@@ -6,7 +6,7 @@ A **many-to-many relationship** occurs when multiple records in one table are as
 To determine if a relationship is many-to-many, ask two questions:
 *   **Question 1:** Does a record in Table A relate to many records in Table B?
 *   **Question 2:** Does a record in Table B relate to many records in Table A?
-*   If the answer to **both** is "yes," you have a many-to-many relationship [History: One-to-Many Notes].
+*   If the answer to **both** is "yes," you have a many-to-many relationship.
 
 ### **2. The Implementation: Linking Tables**
 In SQL, you cannot link two tables directly for a many-to-many relationship because it would violate **First Normal Form (1NF)**, which requires atomic values (no lists of IDs in a single cell) [History: Database Normalisation Notes].
