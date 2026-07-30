@@ -41,6 +41,12 @@ The **EAV model** stores data vertically instead of horizontally.
 
 Instead of creating new columns, every custom field becomes a new row.
 
+<br>
+<div align = "center">
+    <img width="600" alt="image" src="https://github.com/user-attachments/assets/b0f43d55-debe-4cfb-b939-6c6d972d96bf" />
+</div>
+<br>
+
 ### Tables
 
 #### `customer`
