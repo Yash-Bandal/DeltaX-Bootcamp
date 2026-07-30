@@ -1,6 +1,6 @@
 # Many to Many
 ### Definition
-A **many-to-many relationship** occurs when multiple records in one table are associated with multiple records in another. Based on the database design principles discussed in the sources and our conversation history, here are the short notes on designing these relationships:
+A **many-to-many relationship** occurs when multiple records in one table are associated with multiple records in another.
 
 ### **1. Identification (The Two-Question Test)**
 To determine if a relationship is many-to-many, ask two questions:
