@@ -2,6 +2,12 @@
 ### Definition
 A **many-to-many relationship** occurs when multiple records in one table are associated with multiple records in another.
 
+<br>
+<div align = "center">
+  <img width="600" alt="image" src="https://github.com/user-attachments/assets/8f137b64-f78c-417f-bcb0-b1d8402a7134" />
+</div>
+<br>
+
 ### **1. Identification (The Two-Question Test)**
 To determine if a relationship is many-to-many, ask two questions:
 *   **Question 1:** Does a record in Table A relate to many records in Table B?
