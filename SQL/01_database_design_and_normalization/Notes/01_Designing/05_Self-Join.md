@@ -24,7 +24,8 @@ A Self Join is commonly used when:
 - Comparing rows within the same table.
 
  <br>
-<div agn ="center">
+ 
+<div align ="center">
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/365aa095-8f2f-4ca2-867a-0a724fd7a73e" />
 </div>
 
