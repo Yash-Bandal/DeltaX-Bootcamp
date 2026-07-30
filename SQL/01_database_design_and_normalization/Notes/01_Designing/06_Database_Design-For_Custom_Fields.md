@@ -210,12 +210,15 @@ Class Table Inheritance (CTI) is a database design pattern where:
 
 ### Advantages
 
+- All columns are in database already
+- Tables are smaller     than single table
 - Well normalized
 - Easy to maintain
 - Avoids many NULL values
 
 ### Disadvantages
-
+ - Not that flexible
+ - Multiple tables can be confusing
 - More joins required
 - More tables to manage
 
@@ -224,7 +227,8 @@ Class Table Inheritance (CTI) is a database design pattern where:
 # 5. Concrete Table Inheritance
 
 Create separate tables for each customer type.
-Class Table Inheritance (CTI) is a database design pattern where:
+
+Same as above class table inheritance, just no central  master/main table  
 
 ### regular_customer
 
@@ -239,12 +243,12 @@ Class Table Inheritance (CTI) is a database design pattern where:
 | 1 | Alice | Gold | 1200 |
 
 ### Advantages
-- All tables are in Database
+
 - No joins needed
 - Fast access
 
 ### Disadvantages
-
+- Extra logic to handle different record types 
 - Data duplication
 - Difficult to maintain common fields
 
@@ -253,6 +257,12 @@ Class Table Inheritance (CTI) is a database design pattern where:
 # 6. Normalized Tables
 
 Create proper relational tables for every custom feature.
+<br>
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/7a638923-bde1-46a5-9f79-72a1bb02363d" />
+</div>
+<br>
+
 
 Example:
 
