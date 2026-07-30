@@ -1,4 +1,4 @@
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/eb4f028c-a6b5-4372-9fd5-2fcaa283100f" /># Database Design for Custom Fields
+# Database Design for Custom Fields
 
 Many applications allow users to create **custom fields**, such as adding extra information to customers, products, or employees.
 
