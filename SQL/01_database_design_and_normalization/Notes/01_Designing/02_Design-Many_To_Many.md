@@ -11,7 +11,7 @@ To determine if a relationship is many-to-many, ask two questions:
 ### **2. The Implementation: Linking Tables**
 In SQL, you cannot link two tables directly for a many-to-many relationship because it would violate **First Normal Form (1NF)**, which requires atomic values (no lists of IDs in a single cell) [History: Database Normalisation Notes].
 *   **Solution:** Create a third table, known as a **linking table**, **join table**, or **bridge table** [History: Car Listing Tutorial].
-*   **Structure:** This table typically contains two main columns: the **Primary Key from Table A** and the **Primary Key from Table B**. Both act as Foreign Keys in this new table [History: Car Listing Tutorial].
+*   **Structure:** This table typically contains two main columns: the **Primary Key from Table A** and the **Primary Key from Table B**. Both act as Foreign Keys in this new table [Junction Tables](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/SQL/01_database_design_and_normalization/02_Assignment.md#assignment---database-design).
 
 ### **3. Example: Car Listings and Pictures**
 Using the car listing application example:
