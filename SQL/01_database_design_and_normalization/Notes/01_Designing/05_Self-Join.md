@@ -7,7 +7,9 @@ Unlike other joins, a self join **does not require another table**. Instead, the
 <br>
 
 > [!Important]
-> Note that, `Manager` is also an `Employee`
+> Note that, `Manager` is also an `Employee`!
+>
+> So we don't create a seperate Manager table, and maintain a single `Employee` table
 
 <br>
 
