@@ -1,4 +1,4 @@
-# Database Design for Custom Fields
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/eb4f028c-a6b5-4372-9fd5-2fcaa283100f" /># Database Design for Custom Fields
 
 Many applications allow users to create **custom fields**, such as adding extra information to customers, products, or employees.
 
@@ -171,17 +171,40 @@ Store every possible custom field as a column.
 
 Store common fields in one table and specialized fields in separate tables.
 
+
+
+Class Table Inheritance (CTI) is a database design pattern where:
+- A parent (base) table stores the fields common to all types.
+- Each child (subclass) table stores only the fields specific to that type.
+- The child table's primary key is also a foreign key referencing the parent table.
+  
+<br>
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/130953a8-f36e-44a2-9e28-2e84375af6af" />
+</div>
+<br>
+
+
+
 ### customer
 
-| customer_id | name |
-| :---------- | :--- |
-| 1 | Alice |
+| customer_id | first_name | last_name |
+| ----------- | ---------- | --------- |
+| 1           | Alice      | Smith     |
+| 2           | Bob        | Jones     |
 
-### premium_customer
+### general_customer
 
-| customer_id | membership | reward_points |
-| :---------- | :--------- | :------------ |
-| 1 | Gold | 1200 |
+| customer_id | max_order | additional_info |
+| ----------- | --------- | --------------- |
+| 1           | 10        | New customer    |
+
+
+### priority_customer
+| customer_id | status | credit_amount |
+| ----------- | ------ | ------------- |
+| 2           | Gold   | 10000         |
+
 
 ### Advantages
 
@@ -196,15 +219,10 @@ Store common fields in one table and specialized fields in separate tables.
 
 <br>
 
-# 5. Concrete/Class Table Inheritance
+# 5. Concrete Table Inheritance
 
 Create separate tables for each customer type.
-
-<br>
-<div align = "center">
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/130953a8-f36e-44a2-9e28-2e84375af6af" />
-</div>
-<br>
+Class Table Inheritance (CTI) is a database design pattern where:
 
 ### regular_customer
 
@@ -219,7 +237,7 @@ Create separate tables for each customer type.
 | 1 | Alice | Gold | 1200 |
 
 ### Advantages
-
+- All tables are in Database
 - No joins needed
 - Fast access
 
