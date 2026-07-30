@@ -14,6 +14,34 @@ The goal is to support:
 
 # Requirements
 
+<br>
+<div align = "center">
+
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/781b2ee3-1f89-4308-85b7-3119253514f0" />
+
+</div>
+<br>
+
+
+<br>
+<div align = "center">
+<table>
+  <tr>
+    <td align="center">
+      <img width="250" alt="image" src="https://github.com/user-attachments/assets/1da25aa8-1fad-45d1-9c14-c23b4ba65c7e" />
+      <br>
+      <strong>Message</strong>
+    </td>
+    <td align="center">
+      <img width="400" alt="image" src="https://github.com/user-attachments/assets/6357cf89-95c8-4751-8ead-10fb5c2728e6" />
+      <br>
+      <strong>Sending</strong>
+    </td>
+  </tr>
+</table>
+</div>
+<br>
+
 Users should be able to:
 
 - Send text messages.
@@ -120,6 +148,18 @@ This is a **Many-to-Many Relationship**, so we use a **junction table**.
 | 2 | 2 | 2026-07-01 | NULL |
 | 2 | 3 | 2026-07-01 | NULL |
 | 2 | 4 | 2026-07-15 | NULL |
+
+<br>
+
+
+<div align = "center">
+<p>Group Table</p>
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/26019675-4a66-4b29-bde6-33d8eb8f729b" />
+<p>Conversation Table</p>
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/c3601f79-7bab-48d5-b72d-84418b0d8897" />
+<p>Enhancements</p>
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/be22de29-6cd8-4177-bcd3-e72e9bbeb78a" />
+</div>
 
 <br>
 
