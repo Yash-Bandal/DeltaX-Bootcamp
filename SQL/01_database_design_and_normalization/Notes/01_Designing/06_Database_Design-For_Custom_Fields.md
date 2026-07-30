@@ -367,6 +367,24 @@ ADD COLUMN linkedin_profile VARCHAR(100);
 
 Whenever users create a new custom field, the application automatically modifies the table.
 
+### How applications execute these commands
+
+Instead of typing SQL manually, the program sends SQL to the database.
+
+For example, in Python:
+```python
+cursor.execute("""
+ALTER TABLE customer
+ADD COLUMN twitter_handle VARCHAR(100)
+""")
+```
+Or in Java:
+```java
+statement.execute(
+    "ALTER TABLE customer ADD COLUMN twitter_handle VARCHAR(100)"
+);
+```
+
 ### Advantages
 
 - Behaves like normal columns
