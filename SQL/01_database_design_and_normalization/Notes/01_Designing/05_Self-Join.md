@@ -6,6 +6,11 @@ Unlike other joins, a self join **does not require another table**. Instead, the
 
 <br>
 
+> [!Important]
+> Note that, `Manager` is also an `Employee`
+
+<br>
+
 ## Why Use a Self Join?
 
 A Self Join is commonly used when:
