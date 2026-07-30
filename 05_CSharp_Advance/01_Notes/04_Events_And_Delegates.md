@@ -117,6 +117,19 @@ Examples
 
 <br>
 
+```
+                Notification
+           ╭──────────────────────╮
+          ╱                        ╲
+         /                          V
++--------+                          +--------+
+| Obj A  |                          | Obj B  |
++--------+                          +--------+
+
+```
+
+<br>
+
 ### **Code**
 ```csharp
 using System;
