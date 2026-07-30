@@ -1,4 +1,4 @@
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d3549f87-bdad-4f17-b5a5-1ef2e78a9e58" /><img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ef84776b-7b29-44c6-8a21-7011791a3230" /># Database Design: Product Attributes
+# Database Design: Product Attributes
 
 Designing a database for **product attributes** is a common challenge, especially in eCommerce where different products have different characteristics.
 
