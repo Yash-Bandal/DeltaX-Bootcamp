@@ -17,6 +17,12 @@ Before creating any tables, ask:
 
 > **What features should the application support?**
 
+<br>
+<div align = "center">
+    <img width="500" alt="image" src="https://github.com/user-attachments/assets/40625b1d-7b71-4fa4-9ce3-a1797db67f41" />
+</div>
+<br>
+
 Suppose our social network should allow users to:
 
 - Create an account
