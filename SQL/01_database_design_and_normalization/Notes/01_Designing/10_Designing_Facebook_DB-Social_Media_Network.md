@@ -1,5 +1,21 @@
 # Database Design: Social Network (Facebook)
 
+<br>
+
+---
+
+> [!Important]
+> ### Observe
+> There are pros and cons of every design, use the one that suits the database, and has proper implementation
+>
+> Eg. To store posts, we could have different tables (img, text, video), or store all in single table
+>
+> Here we are storing in a single table, assuming it points to the server , that stores the posts
+
+---
+
+<br>
+
 In this tutorial, we'll design a simple social networking database similar to **Facebook**.
 
 Rather than creating all tables at once, we'll start with the application's requirements and design the database one feature at a time.
@@ -49,6 +65,16 @@ So the first entity is:
 ```
 User Profile
 ```
+> [!Tip]
+> ### Important
+> Self join is useful for hierarchies , Not suitable for us
+
+<br>
+<div align = "center">
+<img width="250" alt="image" src="https://github.com/user-attachments/assets/1588926c-2d56-402f-816e-907b98e563a2" />
+</div>
+<br>
+
 
 ## Attributes
 
@@ -108,6 +134,13 @@ User B
 
 Many ↔ Many
 ```
+
+<br>
+<div align = "center">
+<img width="250" alt="image" src="https://github.com/user-attachments/assets/fe6c4881-4357-46ab-ac8b-2a751060614e" />
+</div>
+<br>
+
 
 A **many-to-many relationship** cannot be stored directly in one table.
 
@@ -180,6 +213,14 @@ One User
 Many Posts
 ```
 
+<br>
+<div align = "center">
+    <img width="400" alt="image" src="https://github.com/user-attachments/assets/f8b32e76-4870-44b9-b2c4-5c757003296e" />
+</div>
+<br>
+
+
+
 This is a **one-to-many relationship**.
 
 ### User Post
@@ -204,9 +245,23 @@ The actual image is stored on a file server or cloud storage.
 
 <br>
 
+---
 
+# Feature
+## See posts friends have added 
+Assume its a News feed posted on app, \
+That is designed in application, no database changes
+
+
+
+---
+
+<br>
 
 # Step 5: Design Likes
+
+### Requirement
+Ability to Like and add comments to posts others have added
 
 A user can like many posts.
 
@@ -214,11 +269,22 @@ A post can be liked by many users.
 
 Again, we have a many-to-many relationship.
 
+
+
+
 ```
 Users
     ↕
 Posts
 ```
+
+<br>
+<div align = "center">
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/7c6092ca-82ce-4514-8c28-a979d8922150" />
+</div>
+<br>
+
+
 
 So we create another junction table.
 
@@ -255,6 +321,16 @@ One user can write many comments.
 
 Each comment belongs to exactly one post and one user.
 
+<br>
+<div align = "center">
+    <p>
+we can have multiple text comments, so create seperate entity
+    </p>
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/6e66a9b9-0757-49cf-8b07-4e74dff91734" />
+</div>
+<br>
+
+
 ### Post Comment
 
 | comment_id | post_id | profile_id | comment_text |
@@ -276,21 +352,12 @@ Each comment stores:
 
 # Overall Database Design
 
-```
-                 user_profile
-                 ------------
-                 profile_id
+<br>
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/6e66a9b9-0757-49cf-8b07-4e74dff91734" />
+</div>
+<br>
 
-       ┌─────────────┼──────────────┐
-       │             │              │
-       ▼             ▼              ▼
-
- friendship      user_post     post_comment
-                     │                ▲
-                     │                │
-                     ▼                │
-                 post_like────────────┘
-```
 
 The `user_profile` table is the central entity.
 
@@ -325,6 +392,19 @@ This keeps the data:
 - Easy to maintain
 - Scalable
 
+
+<br>
+
+## Example query
+
+<br>
+<div align = "center">
+    <p>1</p>
+<img width="450" alt="image" src="https://github.com/user-attachments/assets/4822bcf1-fa59-4407-9763-2e5333acce2f" />
+    <p>2</p>
+<img width="450" alt="image" src="https://github.com/user-attachments/assets/0cd19943-c588-460a-ab69-c4beb97c45ba" />
+</div>
+<br>
 
 <br>
 
