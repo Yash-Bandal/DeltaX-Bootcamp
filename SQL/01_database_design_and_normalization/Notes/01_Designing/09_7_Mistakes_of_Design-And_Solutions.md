@@ -151,6 +151,11 @@ Easy to read.
 
 Relationships should be enforced by the database.
 
+Referential integrity is a database rule that ensures relationships between tables remain valid.
+
+Simply put:
+> A foreign key value must always refer to an existing row in the parent table (or be NULL if allowed). It prevents invalid or orphaned records.
+
 ## ❌ Bad Design
 
 ### Customer
