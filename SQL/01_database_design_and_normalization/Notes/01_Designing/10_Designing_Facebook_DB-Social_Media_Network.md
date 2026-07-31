@@ -21,11 +21,11 @@ This is how databases are typically designed in real projects.
 > Here we are storing in a single table, assuming it points to the server , that stores the posts
 
 > [!note] 
-> There is no execution flow inside a relational database like there is in a program.
+> There is **no** **execution flow** inside a relational database like there is in a program.
 >
->  But there is a relationship graph that describes how entities are connected.
+>  But there is a **relationship graph** that describes how entities are connected.
 >
-> The diagram is not showing "what happens first." It is showing who knows whom.
+> The diagram is not showing "what happens first." It is showing `who knows whom`.
 
 > [!Tip]
 > **Think in terms of requirements, not tables.**
@@ -184,6 +184,48 @@ User B
 
 Many ↔ Many
 ```
+
+This is slightly different.
+
+Requirement
+```
+Alice is friends with Bob.
+```
+Who is involved?
+```
+User
+
+and
+
+User
+```
+
+Notice something interesting.
+
+The same table is related to itself.
+```
+User
+
+      ↔
+
+User
+```
+This is called a **`self-referencing`** **many-to-many** relationship.
+
+The friendship table simply connects two users.
+
+friendship
+```
+profile_request
+profile_accept
+```
+
+| Request | Accept  |
+| ------- | ------- |
+| Alice   | Bob     |
+| Alice   | Charlie |
+| Bob     | David   |
+
 
 <br>
 <div align = "center">
