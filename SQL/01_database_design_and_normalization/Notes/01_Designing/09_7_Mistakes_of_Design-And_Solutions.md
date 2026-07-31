@@ -53,9 +53,10 @@ Other tables reference `employee_id`, while SSN becomes just another attribute.
 
 <br>
 
-# 2. Storing Redundant Data
+# 2. Storing Redundant Data, 
 
-Do not store values that can be calculated.
+> [!Important]
+> Do not store values that can be calculated.
 
 ## ❌ Bad Design
 
