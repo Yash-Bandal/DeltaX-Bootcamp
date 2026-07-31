@@ -18,3 +18,5 @@ MovieService detects errors, but Program.cs decides how to present them to the u
 
 ### 3. Dynamic Keyword (Imp asked)
 The dynamic keyword does not mean the value is determined at runtime. Instead, it means the type checking and member resolution are deferred until runtime instead of compile time.
+
+Simply, Dynamic tells the CSharp compiler to not check the variable at compile time, instead handle or check it at runtime. 
