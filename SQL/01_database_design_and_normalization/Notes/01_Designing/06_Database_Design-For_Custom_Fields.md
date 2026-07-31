@@ -57,6 +57,8 @@ Instead of creating new columns, every custom field becomes a new row.
 
 #### `customer_attribute`
 
+
+#    **E**  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;      **A** &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;        **V**
 | customer_id | attribute | value |
 | :---------- | :-------- | :---- |
 | 1 | Birthday | 12-Jan-2000 |
