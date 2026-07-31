@@ -14,3 +14,7 @@ MovieService detects errors, but Program.cs decides how to present them to the u
 ### Structure
 1. Service Layer - Used for Business logic, implementations and validations
 2. Program.cs - Entry exit point, input output show (thus we show exception here) in console app
+
+
+### 3. Dynamic Keyword (Imp asked)
+The dynamic keyword does not mean the value is determined at runtime. Instead, it means the type checking and member resolution are deferred until runtime instead of compile time.
