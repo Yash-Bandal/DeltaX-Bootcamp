@@ -61,6 +61,14 @@ Everything revolves around users.
 
 Before someone can upload a photo, like a post, or follow another user, they must first have an account.
 
+
+<br>
+<div align = "center">
+<img width="158" height="163" alt="image" src="https://github.com/user-attachments/assets/75c6e6ca-0719-4408-b301-3fd77b091a3f" />
+</div>
+<br>
+
+
 ## User
 
 | user_id | profile_name | first_name | last_name | signup_date |
@@ -113,6 +121,13 @@ One User
 Many Posts
 ```
 
+
+<br>
+<div align = "center">
+<img width="405" height="158" alt="image" src="https://github.com/user-attachments/assets/efc9e347-045a-4238-be30-6789566bbf5b" />
+</div>
+<br>
+
 This is a **One-to-Many** relationship.
 
 ## Post
@@ -141,6 +156,12 @@ Then this design would work.
 | 101 | beach.jpg |
 
 But Instagram allows carousel posts.
+
+<br>
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/a473ed79-65ec-4348-a3ad-cc2d87adaf4e" />
+</div>
+<br>
 
 Example:
 
@@ -215,6 +236,12 @@ Also yes.
 
 Therefore,
 
+<br>
+<div align = "center">
+<img width="419" height="301" alt="image" src="https://github.com/user-attachments/assets/b75c750c-3527-404f-a153-709fded7b271" />
+</div>
+<br>
+
 ```
 Many Users
 
@@ -256,7 +283,16 @@ Instagram allows users to edit photos.
 
 Think carefully.
 
+
 A filter belongs to a single media item.
+
+
+<br>
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/df19b5da-4451-4579-8408-8de050efe875" />
+</div>
+<br>
+
 
 ```
 Photo
@@ -318,6 +354,13 @@ The simplest design stores:
 - Longitude
 
 inside the post.
+
+
+<br>
+<div align = "center">
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/da92746d-221c-4566-812d-f468ae616f73" />
+</div>
+<br>
 
 ## Post
 
@@ -545,28 +588,12 @@ No major schema redesign is needed.
 
 # Putting Everything Together
 
-```
-                User
-                 │
-      ┌──────────┼──────────┐
-      │          │          │
-      ▼          ▼          ▼
-   Post      Follower    Comment
-      │          │
-      ▼          │
- Post Media      │
-   │    │        │
-   │    ▼        │
-   │  Media Tag  │
-   │
-   ▼
-Effects
 
-Post
- │
- ▼
-Like
-```
+<br>
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/b4fc27c5-c393-4768-8ae2-819a98ebe4b0" />
+</div>
+<br>
 
 Every table represents either:
 
