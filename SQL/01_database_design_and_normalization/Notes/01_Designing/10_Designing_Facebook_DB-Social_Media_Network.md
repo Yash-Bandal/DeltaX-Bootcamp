@@ -71,7 +71,7 @@ User Profile
 
 <br>
 <div align = "center">
-<img width="250" alt="image" src="https://github.com/user-attachments/assets/1588926c-2d56-402f-816e-907b98e563a2" />
+<img width="350" alt="image" src="https://github.com/user-attachments/assets/1588926c-2d56-402f-816e-907b98e563a2" />
 </div>
 <br>
 
@@ -137,7 +137,7 @@ Many ↔ Many
 
 <br>
 <div align = "center">
-<img width="250" alt="image" src="https://github.com/user-attachments/assets/fe6c4881-4357-46ab-ac8b-2a751060614e" />
+<img width="350" alt="image" src="https://github.com/user-attachments/assets/fe6c4881-4357-46ab-ac8b-2a751060614e" />
 </div>
 <br>
 
