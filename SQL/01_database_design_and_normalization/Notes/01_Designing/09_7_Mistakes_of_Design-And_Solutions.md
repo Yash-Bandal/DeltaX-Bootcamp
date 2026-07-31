@@ -18,7 +18,7 @@ These are some of the most common mistakes made when designing relational databa
 <br>
 
 <div align = "center">
-<img width="350" alt="image" src="https://github.com/user-attachments/assets/ae6ea89f-c7b0-4632-82ab-7562ce2666be" />
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/ae6ea89f-c7b0-4632-82ab-7562ce2666be" />
 </div>
 
 <br>
