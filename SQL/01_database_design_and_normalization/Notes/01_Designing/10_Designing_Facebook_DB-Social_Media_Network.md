@@ -1,5 +1,13 @@
 # Database Design: Social Network (Facebook)
 
+
+
+In this tutorial, we'll design a simple social networking database similar to **Facebook**.
+
+Rather than creating all tables at once, we'll start with the application's requirements and design the database one feature at a time.
+
+This is how databases are typically designed in real projects.
+
 <br>
 
 ---
@@ -16,14 +24,6 @@
 
 <br>
 
-In this tutorial, we'll design a simple social networking database similar to **Facebook**.
-
-Rather than creating all tables at once, we'll start with the application's requirements and design the database one feature at a time.
-
-This is how databases are typically designed in real projects.
-
-
-<br>
 
 
 
