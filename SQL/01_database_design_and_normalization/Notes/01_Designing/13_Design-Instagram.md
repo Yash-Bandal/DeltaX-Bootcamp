@@ -1,4 +1,4 @@
-<img width="391" height="290" alt="image" src="https://github.com/user-attachments/assets/7d671d86-45c9-4d98-b2d8-9dd5a5ac230d" /># Database Design: Instagram
+# Database Design: Instagram
 
 In this tutorial, we'll design a simplified relational database for an application similar to **Instagram**.
 
