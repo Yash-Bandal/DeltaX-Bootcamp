@@ -4,6 +4,20 @@ These are some of the most common mistakes made when designing relational databa
 
 <br>
 
+### Overview
+| Mistake | Better Design |
+|----------|---------------|
+| Business key as PK | Use surrogate key |
+| Store calculated data | Calculate when needed |
+| Spaces in table names | Use `snake_case` |
+| No foreign keys | Enforce referential integrity |
+| Multiple values in one column | Normalize into separate columns |
+| Multiple similar columns | Create child tables |
+| Wrong data types | Use appropriate native types |
+
+
+<br>
+
 # 1. Using Business Data as the Primary Key
 
 Business identifiers may seem unique, but they can change over time.
