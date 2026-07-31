@@ -2,6 +2,14 @@
 
 Designing a database for **product attributes** is a common challenge, especially in eCommerce where different products have different characteristics.
 
+> [!Tip]
+> ### Base, One to many, Many to Many
+> 
+> ### Think,
+> 1. One product has Many Attributes/Entries
+> 2. One Attributes may have many values
+> 3. Thus Entity -> Many Attributes -> 1 Attribute Many values
+
 For example:
 
 - A **Laptop** may have:
