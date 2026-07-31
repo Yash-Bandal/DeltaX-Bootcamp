@@ -55,6 +55,12 @@ Everything begins with students.
 
 Each student has information that belongs only to them.
 
+<br>
+<div align = "center">
+  <img width="200"  alt="image" src="https://github.com/user-attachments/assets/91b59a80-fb63-4b55-9673-b8d156691650" />
+</div>
+<br>
+
 Examples:
 
 - First name
@@ -97,6 +103,15 @@ Possible houses:
 - Hufflepuff
 - Ravenclaw
 - Slytherin
+
+
+
+
+<br>
+<div align = "center">
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/26a6442f-8162-4819-bf20-1cdd1fa99fe0" />
+</div>
+<br>
 
 Our first thought might be:
 
@@ -200,6 +215,19 @@ Transfiguration
 
 Defence Against the Dark Arts
 ```
+
+<br>
+<div align = "center">
+        <img width="400" alt="image" src="https://github.com/user-attachments/assets/41b0dc55-1953-45c6-8240-a015bea44fa2" />
+        <br>
+        <img width="550" alt="image" src="https://github.com/user-attachments/assets/591ed1b0-e663-41cc-8d9e-85a2de2e1da1" />
+        <br>
+        <p>
+                House Points
+        </p>
+        <img width="400" alt="image" src="https://github.com/user-attachments/assets/0c184059-216e-40b2-94a5-f0320f0fdf08" />
+</div>
+<br>
 
 Yes.
 
@@ -561,6 +589,14 @@ Each match references two existing teams.
 
 
 # Putting Everything Together
+
+
+<br>
+<div align = "center">
+<img width="700" alt="image" src="https://github.com/user-attachments/assets/ec31c9ae-e8cc-4740-8ac6-fe086bd89172" />
+</div>
+<br>
+
 
 As new requirements arrive, we don't randomly create tables.
 
