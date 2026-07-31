@@ -20,7 +20,57 @@ This is how databases are typically designed in real projects.
 >
 > Here we are storing in a single table, assuming it points to the server , that stores the posts
 
----
+> [!note] 
+> There is no execution flow inside a relational database like there is in a program.
+>
+>  But there is a relationship graph that describes how entities are connected.
+>
+> The diagram is not showing "what happens first." It is showing who knows whom.
+
+> [!Tip]
+> **Think in terms of requirements, not tables.**
+>
+> Don't start by asking:
+>
+> *"What tables should I create?"*
+>
+> Instead, start with a requirement:
+>
+> **Requirement:** Users can comment on posts.
+>
+> Now analyze the relationship:
+>
+> - Can one **user** write multiple comments? → **Yes**
+> - Can one **post** receive multiple comments? → **Yes**
+>
+> ```
+> One User
+>      │
+>      ▼
+> Many Comments
+>
+> One Post
+>      │
+>      ▼
+> Many Comments
+> ```
+>
+> Since **both Users and Posts have a one-to-many relationship with Comments**, the `post_comment` table naturally becomes the bridge that connects them.
+>
+> Each row in `post_comment` represents:
+>
+> - **One user**
+> - writing **one comment**
+> - on **one post**
+>
+> This way of thinking can be applied to every new feature:
+>
+> 1. What is the requirement?
+> 2. What entities are involved?
+> 3. What is the relationship between them? (One-to-One, One-to-Many, Many-to-Many)
+> 4. Does it require a foreign key or a junction table?
+>
+> Once the relationships are clear, the database design almost builds itself.
 
 <br>
 
@@ -284,6 +334,24 @@ Posts
 </div>
 <br>
 
+Now likes can be counted, so we dont have a countable attribute, `Like_count`
+
+**Example:**
+| profile | post    |
+| ------- | ------- |
+| Alice   | Post 10 |
+| Bob     | Post 10 |
+| Charlie | Post 10 |
+
+```
+Count rows.
+
+3 rows
+
+↓
+
+3 likes
+```
 
 
 So we create another junction table.
