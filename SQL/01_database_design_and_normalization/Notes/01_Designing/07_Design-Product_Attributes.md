@@ -2,6 +2,7 @@
 
 Designing a database for **product attributes** is a common challenge, especially in eCommerce where different products have different characteristics.
 
+
 > [!Tip]
 > ### Base, One to many, Many to Many
 > 
@@ -12,23 +13,41 @@ Designing a database for **product attributes** is a common challenge, especiall
 
 For example:
 
-- A **Laptop** may have:
+- **Laptop**
   - RAM
   - Processor
   - Storage
   - Screen Size
 
-- A **T-Shirt** may have:
+- **T-Shirt**
   - Color
   - Size
   - Material
 
-- A **Phone** may have:
+- **Phone**
   - Storage
   - Battery Capacity
   - Camera
 
-Since every product type has different attributes, creating a column for every possible attribute is not practical.
+There are multiple ways to model product attributes depending on whether the attributes are **fixed** or **dynamic**.
+
+- **Reference Table (Lookup Table) Pattern** → Best when attributes are predefined.
+- **Entity-Attribute-Value (EAV) Pattern** → Best when attributes vary between products.
+
+<br>
+
+# 1. Reference Table (Lookup Table Pattern)
+
+Use this design when the list of product attributes is **known beforehand**.
+
+For example, if every clothing product always has:
+
+- Size
+- Color
+- Material
+
+then each attribute can have its own lookup table.
+
 
 <br>
 
@@ -39,6 +58,79 @@ Since every product type has different attributes, creating a column for every p
 </div>
 
 <br>
+
+
+## Database Structure
+
+```
+product
+--------
+id
+name
+description
+
+        │
+        ▼
+
+product_entry
+-------------
+product_id
+size_id
+colour_id
+material_id
+
+      │
+      ├────────► size
+      ├────────► colour
+      └────────► material
+```
+
+Each lookup table stores valid values.
+
+### `size`
+
+| id | size_value |
+|---:|------------|
+| 1 | S |
+| 2 | M |
+| 3 | L |
+
+### `colour`
+
+| id | colour_value |
+|---:|--------------|
+| 1 | Black |
+| 2 | Blue |
+| 3 | White |
+
+### `material`
+
+| id | material_value |
+|---:|----------------|
+| 1 | Cotton |
+| 2 | Polyester |
+
+### Advantages
+
+- Eliminates duplicate values.
+- Enforces valid values using foreign keys.
+- Faster and easier to query.
+- Good normalization.
+
+### Disadvantages
+
+Adding a new type of attribute requires modifying the schema.
+
+Example:
+
+```sql
+ALTER TABLE product_entry
+ADD COLUMN brand_id INT;
+```
+
+This approach is suitable when product attributes are relatively stable.
+
+
 
 # The Design Challenge
 
@@ -68,6 +160,8 @@ Every time a new product type introduces a new attribute, the table must be modi
 <br>
 
 # Better Solution: EAV (Entity-Attribute-Value)
+
+
 
 Instead of storing attributes as columns, store them as **rows**.
 
