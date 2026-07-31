@@ -245,7 +245,177 @@ appointment_date
 
 The `patient_id` is a **Foreign Key** pointing to the `Patient` table.
 
+<br>
 
+---
+
+> [!Note]
+> ### Why isn't there a direct relationship between `Doctor` and `Patient`?
+>
+> A common question is:
+>
+> > **Can't one doctor have many patients?**
+>
+> Yes, absolutely.
+>
+> - One doctor can treat many patients.
+> - One patient can also visit many doctors.
+>
+> However, this **doesn't mean** we should directly connect the `Doctor` and `Patient` tables.
+>
+> The important question is:
+>
+> **What is the real-world relationship?**
+>
+> Suppose Alice visits Dr. Brown on Monday.
+>
+> ```
+> Alice
+>
+> visits
+>
+> Dr. Brown
+>
+> ↓
+>
+> Appointment
+> ```
+>
+> A week later:
+>
+> ```
+> Alice
+>
+> visits
+>
+> Dr. Wilson
+>
+> ↓
+>
+> Another Appointment
+> ```
+>
+> Now ask yourself:
+>
+> **What actually connects Alice and Dr. Brown?**
+>
+> Not the doctor.
+>
+> Not the patient.
+>
+> It's the **appointment**.
+>
+> The appointment is the real-world event that connects them.
+>
+> Instead of thinking of the relationship as:
+>
+> ```
+> Patient ───────── Doctor
+> ```
+>
+> think of it as:
+>
+> ```
+> Patient
+>    ↓
+> Appointment
+>    ↓
+> Doctor
+> ```
+>
+> The `Appointment` table represents one meeting between one patient and one doctor.
+>
+> <br>
+>
+> #### Why not store `doctor_id` inside the `Patient` table?
+>
+> Imagine the table looks like this:
+>
+> | patient_id | doctor_id |
+> |------------|-----------|
+> | 1 | Dr. Brown |
+>
+> Later, Alice visits Dr. Wilson.
+>
+> | patient_id | doctor_id |
+> |------------|-----------|
+> | 1 | Dr. Wilson |
+>
+> Now we've **lost the information** that Alice previously visited Dr. Brown.
+>
+> It becomes even worse if Alice regularly visits multiple doctors:
+>
+> - Dr. Brown (Cardiologist)
+> - Dr. Wilson (Dentist)
+> - Dr. Smith (Dermatologist)
+>
+> We'd end up needing columns like:
+>
+> ```
+> doctor_id_1
+> doctor_id_2
+> doctor_id_3
+> ...
+> ```
+>
+> This is poor database design because the number of doctors isn't fixed and the table would constantly need new columns.
+>
+> <br>
+>
+> #### What's the actual relationship?
+>
+> Ask two questions:
+>
+> **Can one doctor treat many patients?**
+>
+> ✅ Yes.
+>
+> **Can one patient visit many doctors?**
+>
+> ✅ Yes.
+>
+> Therefore, the relationship is:
+>
+> ```
+> Many Patients
+>
+>        ↔
+>
+> Many Doctors
+> ```
+>
+> A **many-to-many relationship** requires another table.
+>
+> In this design, the `Appointment` table already acts as that table.
+>
+> ---
+>
+> #### Why is `Appointment` more than just a junction table?
+>
+> It doesn't only connect patients and doctors—it also stores information **about the visit**.
+>
+> | appointment_id | patient_id | doctor_id | date | time |
+> |----------------|------------|-----------|------|------|
+> | 101 | Alice | Dr. Brown | June 10 | 10:00 |
+> | 102 | Alice | Dr. Wilson | June 20 | 2:00 |
+> | 103 | Bob | Dr. Brown | June 15 | 9:30 |
+>
+> Each appointment can also store:
+>
+> - Appointment date
+> - Appointment time
+> - Arrival time
+> - Completion time
+> - Status
+> - Diagnosis
+> - Prescription
+> - Notes
+>
+> Since the **relationship itself has its own data**, it deserves its own table.
+>
+> **Rule of thumb:** If the relationship between two entities has attributes of its own (such as date, time, status, or notes), model it as a separate table instead of creating a direct relationship between the two entities.
+
+---
 
 <br>
 
