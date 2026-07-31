@@ -29,6 +29,36 @@ For example:
   - Battery Capacity
   - Camera
 
+<br>
+
+
+# The Design Challenge
+
+Suppose we create a simple `product` table.
+
+| product_id | name | color | size | material | RAM | Storage | Battery |
+| :--------- | :--- | :---- | :--- | :------- | :-- | :------ | :------ |
+| 1 | T-Shirt | Blue | L | Cotton | NULL | NULL | NULL |
+| 2 | Laptop | NULL | NULL | NULL | 16 GB | 512 GB | NULL |
+| 3 | Phone | Black | NULL | NULL | NULL | 128 GB | 5000 mAh |
+
+### Problems
+
+- Many unused (`NULL`) columns
+- Difficult to maintain
+- New attributes require schema changes
+
+Example:
+
+```sql
+ALTER TABLE product
+ADD COLUMN processor VARCHAR(100);
+```
+
+Every time a new product type introduces a new attribute, the table must be modified.
+
+<br>
+
 There are multiple ways to model product attributes depending on whether the attributes are **fixed** or **dynamic**.
 
 - **Reference Table (Lookup Table) Pattern** → Best when attributes are predefined.
@@ -129,33 +159,6 @@ ADD COLUMN brand_id INT;
 ```
 
 This approach is suitable when product attributes are relatively stable.
-
-
-
-# The Design Challenge
-
-Suppose we create a simple `product` table.
-
-| product_id | name | color | size | material | RAM | Storage | Battery |
-| :--------- | :--- | :---- | :--- | :------- | :-- | :------ | :------ |
-| 1 | T-Shirt | Blue | L | Cotton | NULL | NULL | NULL |
-| 2 | Laptop | NULL | NULL | NULL | 16 GB | 512 GB | NULL |
-| 3 | Phone | Black | NULL | NULL | NULL | 128 GB | 5000 mAh |
-
-### Problems
-
-- Many unused (`NULL`) columns
-- Difficult to maintain
-- New attributes require schema changes
-
-Example:
-
-```sql
-ALTER TABLE product
-ADD COLUMN processor VARCHAR(100);
-```
-
-Every time a new product type introduces a new attribute, the table must be modified.
 
 <br>
 
