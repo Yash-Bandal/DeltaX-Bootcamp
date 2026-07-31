@@ -9,6 +9,8 @@ A database should be designed to answer the application's questions and support 
 In this tutorial, we'll design a simple **Doctor Appointment System**.
 
 
+> [!Tip]
+> At start you can have only minimal required attributes, later you can add them as required
 
 <br>
 
@@ -21,6 +23,14 @@ Before thinking about tables, understand **what the application should do**.
 Suppose the client says:
 
 > Patients should be able to book appointments with doctors. Each appointment has a date and time. When the patient arrives and when the appointment finishes should also be recorded.
+
+
+
+<br>
+<div align = "center">
+ <img width="500" alt="image" src="https://github.com/user-attachments/assets/e6d9149e-7e5f-4b63-947a-a627514b61a1" />
+</div>
+<br>
 
 This short description already tells us a lot.
 
@@ -80,6 +90,13 @@ Database design is an iterative process.
 
 
 <br>
+<div align = "center">
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/a91a90c8-a089-4a69-9d2d-ac31032811bf" />
+</div>
+<br>
+
+
+<br>
 
 
 
@@ -99,6 +116,14 @@ A patient might have:
 - Date of Birth
 - Phone Number
 - Email
+
+
+<br>
+<div align = "center">
+        <img width="450" height="365" alt="image" src="https://github.com/user-attachments/assets/3ed75502-c940-4169-ab11-57b7ad509f6e" />
+</div>
+<br>
+
 
 Example:
 
@@ -275,6 +300,13 @@ as another foreign key.
 
 
 <br>
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/be5ec7e0-014d-4532-8041-0666a0295825" />
+</div>
+<br>
+
+
+<br>
 
 
 
@@ -357,6 +389,21 @@ Once the design is complete, go back to the original requirements.
 Ask yourself:
 
 > Can the database answer every question the application needs?
+
+
+
+<br>
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/7745896e-b882-4abe-b4f3-6aee16843cfd" />
+        <p>Check</p>
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/e0bbb5d0-a93e-4e15-9b80-0211faf83039" />
+        <p>2nd</p>
+        <img width="400" alt="image" src="https://github.com/user-attachments/assets/8de774ad-441b-4342-b8ce-c97569bf9218" />
+        <p>2nd</p>
+        <img width="400"  alt="image" src="https://github.com/user-attachments/assets/4cec4499-32f7-4f81-ae1c-deda4ffe77cc" />
+</div>
+<br>
+
 
 For example:
 
@@ -504,41 +551,15 @@ Trying realistic scenarios often reveals missing relationships or design flaws.
 
 
 
-# Complete ER Diagram
+# Complete Database Design
 
-```
-Patient
---------
-patient_id
-first_name
-last_name
 
-        ▲
-        │
-        │ patient_id
-        │
 
-Appointment
-------------
-appointment_id
-patient_id
-doctor_id
-appointment_date
-appointment_time
-arrival_time
-completion_time
-
-        │
-        │ doctor_id
-        ▼
-
-Doctor
--------
-doctor_id
-first_name
-last_name
-specialty
-```
+<br>
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/8b861ae0-7167-49e7-8c2b-36b3c750124a" />
+</div>
+<br>
 
 
 
