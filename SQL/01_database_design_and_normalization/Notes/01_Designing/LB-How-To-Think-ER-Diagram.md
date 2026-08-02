@@ -70,6 +70,10 @@ Relations
 <br>
 
 <div align = "center">
+   <p>ER Diagram</p>
+   <img width="700" alt="image" src="https://github.com/user-attachments/assets/9490ab82-d205-4bbe-9e96-f59ea950cd22" />
+<br>
+   <p>Database Ddesign model</p>
 <img width="700" alt="image" src="https://github.com/user-attachments/assets/9eaee308-71ae-466a-9200-6fa502aba6ab" />
 </div>
 
