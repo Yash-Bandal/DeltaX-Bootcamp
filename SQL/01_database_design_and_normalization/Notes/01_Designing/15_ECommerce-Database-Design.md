@@ -7,6 +7,13 @@
 
 <br>
 
+
+<div align = "center">
+        <img width="745" height="479" alt="image" src="https://github.com/user-attachments/assets/91f8e07e-251d-422b-9cd2-799a210907e5" />
+</div>
+
+<br>
+
 # Step 1: Understand the Requirements
 
 Before designing the database, identify what the application should support.
@@ -27,6 +34,12 @@ The instructor defined these requirements:
 - Promotions & discounts
 
 These requirements help identify the required tables.
+
+<br>
+
+<div align = "center">
+<img width="700" alt="image" src="https://github.com/user-attachments/assets/62a67b67-e680-4ed8-a840-46f7383859b6" />
+</div>
 
 <br>
 
