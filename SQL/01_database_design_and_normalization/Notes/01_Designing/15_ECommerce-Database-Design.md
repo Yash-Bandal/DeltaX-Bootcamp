@@ -66,6 +66,17 @@ phone
 password
 ```
 
+
+<br>
+
+
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/9e95d154-1c62-4582-8abd-976790dc0dad" />
+</div>
+
+<br>
+
+
 ### Important
 
 - `user_id` is the Primary Key.
@@ -162,6 +173,15 @@ Store:
 
 The `is_default` field allows users to select their default address.
 
+
+
+<br>
+
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/b0c2b6e4-de23-4acb-9eec-8bf6dcf5de32" />
+</div>
+
+
 <br>
 
 # Step 4: Payment Methods
@@ -190,7 +210,20 @@ In production systems, it's often better to use a third-party payment provider i
 
 <br>
 
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/2696c366-9118-4c62-be4c-f45247a932e0" />
+</div>
+
+<br>
+
+
+
+<br>
+
 # Step 5: Product Categories
+
+
+
 
 Products belong to categories.
 
@@ -234,6 +267,14 @@ Benefits:
 - No separate Category/Subcategory tables
 
 <br>
+
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/bed7931b-54b9-4b40-9401-27338f0bce68" />
+</div>
+
+<br>
+
+
 
 # Step 6: Product
 
@@ -349,6 +390,14 @@ White
 
 Blue
 ```
+
+<br>
+
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/2665691e-f05e-4e63-b658-56ffff118e4a" />
+</div>
+
+<br>
 
 ### Design Note
 
@@ -467,6 +516,16 @@ Shopping Cart Item stores:
 - Product Item
 - Quantity
 
+
+<br>
+
+<div align = "center">
+        <img width="515" height="248" alt="image" src="https://github.com/user-attachments/assets/a7317636-70b2-48a5-a5a7-991e78da60f6" />
+</div>
+
+<br>
+
+
 <br>
 
 # Step 11: Orders
@@ -512,6 +571,15 @@ Order Status examples:
 - Ordered
 - Processing
 - Delivered
+
+
+<br>
+
+<div align = "center">
+        <img width="245" height="158" alt="image" src="https://github.com/user-attachments/assets/a8da90ec-8a2f-47e6-ada0-02b0c8e80ee3" />
+</div>
+
+<br>
 
 ### Design Tip
 
@@ -578,7 +646,14 @@ Store:
 - Rating (1–5)
 - Comment
 
-This ensures only verified purchases can leave reviews.
+This ensures only verified purchases can leave reviews
+
+<br>
+
+<div align = "center">
+        <img width="245" height="158" alt="image" src="https://github.com/user-attachments/assets/a8da90ec-8a2f-47e6-ada0-02b0c8e80ee3" />
+</div>
+
 
 <br>
 
@@ -619,6 +694,14 @@ Promotion stores:
 - Discount Rate
 - Start Date
 - End Date
+
+<br>
+
+<div align = "center">
+<img width="497" height="370" alt="image" src="https://github.com/user-attachments/assets/a4c4991f-85d6-4537-bd00-85cc7aa9f880" />
+</div>
+
+<br>
 
 <br>
 
