@@ -7,6 +7,69 @@
 
 <br>
 
+### Think like a customer using the application
+
+This is how architects think.
+
+Imagine opening Amazon.
+
+You ask
+
+What happens?
+
+```
+User logs in.
+
+↓
+
+User browses categories.
+
+↓
+
+Category shows products.
+
+↓
+
+User adds product.
+
+↓
+
+Product goes into cart.
+
+↓
+
+Checkout.
+
+↓
+
+Choose address.
+
+↓
+
+Choose payment.
+
+↓
+
+Create order.
+
+↓
+
+Order contains items.
+
+↓
+
+Leave review.
+```
+
+That story itself almost designs the database.
+
+Each noun becomes an entity.
+
+Each arrow becomes a relationship.
+
+
+<br>
+
 
 <div align = "center">
         <img width="745" height="479" alt="image" src="https://github.com/user-attachments/assets/91f8e07e-251d-422b-9cd2-799a210907e5" />
