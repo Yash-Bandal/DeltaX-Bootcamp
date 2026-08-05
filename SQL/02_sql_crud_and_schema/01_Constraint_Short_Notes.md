@@ -69,6 +69,10 @@ VALUES
 
 -- Step 4: Turn identity insert back off
 SET IDENTITY_INSERT Foundation.Actor OFF;
+
+-- Then If you delete all rows in table, the table id would not be reset, so
+-- it may start from another value,
+-- So use DBCC to reset index
 ```
 
 
@@ -79,6 +83,7 @@ SET IDENTITY_INSERT Foundation.Actor OFF;
 * You must explicitly include the identity column in the `INSERT`.
 * Always turn `IDENTITY_INSERT` **OFF** after completing the operation.
 * Deleting and reinserting is useful for **data correction, migration, or reseeding** scenarios.
+* If you delete 
 
 
 
