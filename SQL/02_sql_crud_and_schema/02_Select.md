@@ -1,4 +1,4 @@
-# SQL Server – SELECT Statement (Quick Notes)
+# SQL Server – SELECT Statement 
 
 ## SELECT
 
