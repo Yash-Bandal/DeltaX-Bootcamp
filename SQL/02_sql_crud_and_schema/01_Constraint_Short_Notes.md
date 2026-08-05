@@ -9,14 +9,33 @@
 | **CHECK**       | Restricts values based on a condition.                                                                    | `CHECK (Salary >= 0)`                                 |
 | **DEFAULT**     | Automatically assigns a default value if none is provided.                                                | `Status VARCHAR(20) DEFAULT 'Active'`                 |
 
+<br>
+
+---
+
+<br>
+
 
 ### Default Constraint
 <img width="700" alt="image" src="https://github.com/user-attachments/assets/0eefb1ce-0bcd-4e67-8967-be74baef3171" />
+
+<br>
+
+---
+
+<br>
 
 
 ### Check Constraint
 <img width="700" alt="image" src="https://github.com/user-attachments/assets/a0672aa0-302d-4286-9a4b-f49e7e6e9605" />
 <img width="641" height="409" alt="image" src="https://github.com/user-attachments/assets/eaaa2210-1f0b-4423-ab90-2e55cad4e4e2" />
+
+
+<br>
+
+---
+
+<br>
 
 
 ### Identity Constraint
@@ -93,4 +112,27 @@ SET IDENTITY_INSERT Foundation.Actor OFF;
 * Migrating data between environments
 * Seeding databases with fixed IDs
 * Fixing inconsistent identity sequences
+
+<br>
+
+---
+
+<br>
+
+
+### Unique Constraint
+
+| Feature | Primary Key | Unique Key |
+| :--- | :--- | :--- |
+| **Purpose** | Uniquely identifies each record/row. | Prevents duplicate data within a column. |
+| **Quantity** | Only **one** allowed per table. | **Multiple** allowed per table. |
+| **NULL Values** | Strictly **no NULL** values allowed. | Allows **one NULL** value (varies by database). |
+| **Default Index** | Automatically creates a **Clustered Index**. | Automatically creates a **Non-Clustered Index**. |
+| **Modifications** | Difficult to change or remove. | Easy to change or drop. |
+
+<br>
+
+---
+
+<br>
 
