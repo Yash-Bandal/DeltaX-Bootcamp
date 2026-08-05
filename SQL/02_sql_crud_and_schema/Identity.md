@@ -1,202 +1,102 @@
-# SQL Server Identity
+# SQL Server – IDENTITY (Quick Notes)
 
-## What is an IDENTITY Column?
+## What is IDENTITY?
 
-An **IDENTITY** column automatically generates numeric values whenever a new row is inserted.
-
-### Syntax
+Automatically generates numeric values for a column (commonly the Primary Key).
 
 ```sql
-IDENTITY(seed, increment)
+Id INT IDENTITY(seed, increment)
 ```
-
-* **Seed** → Starting value
-* **Increment** → Value added for each new row
 
 Example:
-
-```sql
-CREATE TABLE Foundation.Actor
-(
-    Id INT IDENTITY(1,1),
-    Name VARCHAR(100)
-);
-```
-
-Generated values:
-
-| Insert | Id |
-| ------ | -: |
-| 1st    |  1 |
-| 2nd    |  2 |
-| 3rd    |  3 |
-
----
-
-# IDENTITY(seed, increment)
-
-## Syntax
 
 ```sql
 Id INT IDENTITY(1,1)
 ```
 
-Examples
+Generates: **1, 2, 3, 4...**
 
-```sql
-IDENTITY(1,1)      -- 1,2,3,4...
-IDENTITY(100,1)    -- 100,101,102...
-IDENTITY(10,10)    -- 10,20,30...
-IDENTITY(1000,-1)  -- 1000,999,998...
-```
+<br>
 
----
+## Important Points
 
-# Properties of IDENTITY
+* Automatically generates values on **INSERT**.
+* Usually used with **Primary Key**.
+* Cannot manually insert values unless `IDENTITY_INSERT` is ON.
+* Identity values are **not guaranteed to be consecutive**.
 
-* Auto-generates values.
-* Usually used for **Primary Keys**.
-* Values are **unique** (unless manually overridden).
-* Does **not** guarantee consecutive numbers.
-* Deleted IDs are **not reused**.
-* Rollbacks still consume identity values.
+<br>
+
+## Does DELETE Reset Identity?
+
+**No.**
 
 Example:
 
-```sql
-INSERT INTO Actor VALUES ('John');   -- Id = 1
+```text
+Ids: 1, 2, 3
 
-ROLLBACK;
+DELETE Id = 3
 
-INSERT INTO Actor VALUES ('Jane');   -- Id = 2
+INSERT New Row
+
+Generated Id = 4
 ```
 
-ID **1** is skipped permanently.
+Deleted identity values are **not reused**.
 
----
+<br>
 
-# Creating an Identity Column
+## Does ROLLBACK Reuse Identity?
 
-```sql
-CREATE TABLE Student
-(
-    Id INT IDENTITY(1,1),
-    Name VARCHAR(50)
-);
+**No.**
+
+```text
+INSERT → Id = 5
+
+ROLLBACK
+
+Next INSERT → Id = 6
 ```
 
----
+Identity values are consumed even if the transaction rolls back.
 
-# Inserting Data
+<br>
 
-Do **not** include the identity column.
+## SET IDENTITY_INSERT
 
-```sql
-INSERT INTO Student(Name)
-VALUES ('Alice');
-```
-
-Generated
-
-| Id | Name  |
-| -: | ----- |
-|  1 | Alice |
-
----
-
-# Explicit Identity Insert
-
-Normally SQL Server prevents inserting values into an identity column.
-
-❌ Invalid
-
-```sql
-INSERT INTO Student(Id, Name)
-VALUES (100, 'Bob');
-```
-
-Error:
-
-> Cannot insert explicit value for identity column...
-
----
-
-# SET IDENTITY_INSERT
-
-Allows explicit values to be inserted into an identity column.
-
-## Syntax
+Allows inserting explicit values into an identity column.
 
 ```sql
 SET IDENTITY_INSERT Student ON;
 
 INSERT INTO Student(Id, Name)
-VALUES
-(100, 'Bob');
+VALUES (100, 'Alice');
 
 SET IDENTITY_INSERT Student OFF;
 ```
 
-Result
-
-|  Id | Name |
-| --: | ---- |
-| 100 | Bob  |
-
----
-
-# Rules of IDENTITY_INSERT
-
-* Only **one table per session** can have `IDENTITY_INSERT ON`.
-* Identity column **must** be included in the INSERT statement.
-* Turn it OFF after use.
-
-Common uses:
+**Uses**
 
 * Data migration
 * Restoring deleted records
-* Importing legacy data
-* Database seeding
+* Importing existing data
 
----
+<br>
 
-# Current Identity Value
+# Retrieving the Last Identity Value
 
-## IDENT_CURRENT()
+| Function                 | Scope   | Session | Best Use                              |
+| ------------------------ | ------- | ------- | ------------------------------------- |
+| `SCOPE_IDENTITY()`       | Current | Current | ✅ Recommended                         |
+| `@@IDENTITY`             | Any     | Current | Avoid (affected by triggers)          |
+| `IDENT_CURRENT('Table')` | Any     | Any     | Get last identity of a specific table |
 
-Returns the last identity value generated for a table.
+<br>
 
-```sql
-SELECT IDENT_CURRENT('Student');
-```
+## 1. SCOPE_IDENTITY()
 
-Example output
-
-```
-100
-```
-
-Works across **all sessions**.
-
----
-
-# Retrieving Last Generated Identity
-
-There are **three** methods.
-
-| Function               | Scope         | Session         |
-| ---------------------- | ------------- | --------------- |
-| SCOPE_IDENTITY()       | Current Scope | Current Session |
-| @@IDENTITY             | Any Scope     | Current Session |
-| IDENT_CURRENT('Table') | Any Scope     | Any Session     |
-
----
-
-# 1. SCOPE_IDENTITY()
-
-Returns the last identity value generated in the **current scope** and **current session**.
-
-Example
+Returns the last identity generated in the **current scope and current session**.
 
 ```sql
 INSERT INTO Student(Name)
@@ -205,239 +105,28 @@ VALUES ('Alice');
 SELECT SCOPE_IDENTITY();
 ```
 
-Output
+✅ Safest and most commonly used.
 
-```
-1
-```
+<br>
 
----
+## 2. @@IDENTITY
 
-## Characteristics
+Returns the last identity generated in the **current session**, even from a **trigger**.
 
-✔ Current Session
+If an INSERT trigger inserts into another table, `@@IDENTITY` returns the trigger's identity value instead of the original table's.
 
-✔ Current Scope
+<br>
 
-✔ Safe
+## 3. IDENT_CURRENT()
 
-✔ Recommended
-
----
-
-# 2. @@IDENTITY
-
-Returns the last identity value generated in the **current session**, regardless of scope.
-
-Example
-
-```sql
-INSERT INTO Student(Name)
-VALUES ('Alice');
-
-SELECT @@IDENTITY;
-```
-
-Normally
-
-```
-1
-```
-
-However, triggers can change the result.
-
----
-
-## Trigger Example
-
-Tables
-
-```sql
-Student
---------
-Id
-
-Audit
------
-Id
-```
-
-Trigger
-
-```sql
-INSERT Student
-      ↓
-Trigger Executes
-      ↓
-INSERT Audit
-```
-
-Suppose
-
-```
-Student.Id = 15
-Audit.Id = 220
-```
-
-Results
-
-```sql
-SELECT @@IDENTITY;
-```
-
-Returns
-
-```
-220
-```
-
-because it captures the identity generated by the trigger.
-
----
-
-# 3. IDENT_CURRENT()
-
-Returns the last identity value generated for a specific table.
-
-Syntax
+Returns the last identity value generated for a **specific table**, regardless of session.
 
 ```sql
 SELECT IDENT_CURRENT('Student');
 ```
 
-Characteristics
+<br>
 
-✔ Any Scope
+## Interview Tip
 
-✔ Any Session
-
-✔ Table-specific
-
----
-
-# Difference Between the Three
-
-Suppose
-
-```
-Table Student
-Latest Id = 15
-
-Table Audit
-Latest Id = 220
-```
-
-Trigger inserts into Audit whenever Student receives a row.
-
-Current insert
-
-```
-INSERT Student
-```
-
-Results
-
-| Function                 | Returns |
-| ------------------------ | ------- |
-| SCOPE_IDENTITY()         | 15      |
-| @@IDENTITY               | 220     |
-| IDENT_CURRENT('Student') | 15      |
-| IDENT_CURRENT('Audit')   | 220     |
-
----
-
-# Scope vs Session
-
-## Session
-
-A connection to SQL Server.
-
-Example
-
-```
-SSMS Window 1
-```
-
-Session A
-
-```
-SSMS Window 2
-```
-
-Session B
-
-Both are different sessions.
-
----
-
-## Scope
-
-A block of execution.
-
-Examples
-
-* Stored Procedure
-* Trigger
-* Function
-* Batch
-* Dynamic SQL
-
-Every trigger has its own scope.
-
----
-
-# Why SCOPE_IDENTITY() is Preferred
-
-Suppose your application registers a new user.
-
-```sql
-INSERT INTO Users(Name)
-VALUES ('Alice');
-```
-
-Immediately retrieve the generated ID.
-
-```sql
-SELECT SCOPE_IDENTITY();
-```
-
-Even if triggers insert records into:
-
-* Audit
-* Logs
-* Notifications
-
-you still receive the correct **Users.Id**.
-
----
-
-# Best Practices
-
-✔ Use `INT IDENTITY(1,1)` for surrogate primary keys.
-
-✔ Use `SCOPE_IDENTITY()` after INSERT to retrieve the generated ID.
-
-✔ Avoid `@@IDENTITY` because triggers can return unexpected values.
-
-✔ Use `IDENT_CURRENT()` only when you need the latest identity value for a specific table, regardless of who inserted it.
-
-✔ Use `SET IDENTITY_INSERT ON` only for data migration, restoration, or importing existing IDs.
-
-✔ Do not assume identity values are continuous. Gaps can occur due to rollbacks, deletes, server restarts, or failed inserts.
-
----
-
-# Quick Revision
-
-| Topic                    | Key Point                                         |
-| ------------------------ | ------------------------------------------------- |
-| IDENTITY                 | Auto-generates numeric values                     |
-| Seed                     | Starting value                                    |
-| Increment                | Step between values                               |
-| `IDENTITY(1,1)`          | Starts at 1, increments by 1                      |
-| `SET IDENTITY_INSERT ON` | Allows manual identity values                     |
-| `SCOPE_IDENTITY()`       | Current scope + current session (recommended)     |
-| `@@IDENTITY`             | Current session, any scope (affected by triggers) |
-| `IDENT_CURRENT('Table')` | Any session, any scope, table-specific            |
-| Rollback                 | Identity value is not reused                      |
-| Delete                   | Deleted identity values are not reused            |
+> **Always use `SCOPE_IDENTITY()`** to get the ID of the row you just inserted. It is not affected by triggers and only returns the identity generated by your current statement.
