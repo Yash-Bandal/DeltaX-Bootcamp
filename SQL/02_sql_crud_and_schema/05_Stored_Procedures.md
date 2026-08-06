@@ -1,4 +1,4 @@
-# SQL Server – Stored Procedures (Quick Notes)
+# SQL Server – Stored Procedures 
 
 ## What is a Stored Procedure?
 
