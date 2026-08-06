@@ -1,6 +1,6 @@
 # SQL Server – Stored Procedures 
 
-## What is a Stored Procedure?
+## 1. What is a Stored Procedure?
 
 A **Stored Procedure (SP)** is a precompiled collection of one or more SQL statements stored in the database and executed as a single unit.
 
@@ -50,9 +50,14 @@ Execute
 EXEC usp_GetActors;
 ```
 
+
 <br>
 
-## Procedure with Parameters
+---
+
+<br>
+
+## 2. Procedure with Parameters
 
 ```sql
 CREATE PROCEDURE usp_GetMovieById
@@ -73,7 +78,7 @@ EXEC usp_GetMovieById 1;
 
 <br>
 
-## Multiple Parameters
+### 2.1 Multiple Parameters
 
 ```sql
 CREATE PROCEDURE usp_GetMovies
@@ -90,7 +95,7 @@ END;
 
 <br>
 
-## Default Parameter
+### 2.2 Default Parameter
 
 ```sql
 CREATE PROCEDURE usp_GetMoviesByYear
@@ -110,12 +115,17 @@ EXEC usp_GetMoviesByYear;
 EXEC usp_GetMoviesByYear 2024;
 ```
 
+
 <br>
 
-# Returning Values
+---
+
+<br>
 
 
-## OUTPUT Parameter
+
+# 3. Otput Paramter and Return Value
+## 3.1 OUTPUT Parameter
 
 <div align = "center">
 <img width="490" height="365" alt="image" src="https://github.com/user-attachments/assets/656f0dbd-60d1-4f25-9952-9c5a45ee39a5" />
@@ -163,31 +173,108 @@ ELSE
 
 <br>
 
-## RETURN Value
+---
+
+<br>
+
+    
+## 3.2  OUTPUT Parameter vs RETURN Value
+
+
+<div align = "center">
+    <img width="491" height="329" alt="image" src="https://github.com/user-attachments/assets/7f9e0c45-8f4d-4c05-9f65-8d7f431289e1" />
+</div>
+
+| OUTPUT Parameter                                              | RETURN Value                                     |
+| ------------------------------------------------------------- | ------------------------------------------------ |
+| Returns **data** from a stored procedure                      | Returns an **integer status/value**              |
+| Can return multiple values (using multiple OUTPUT parameters) | Returns only one integer                         |
+| Commonly used for counts, IDs, names, etc.                    | Commonly used for Success (0) / Error (non-zero) |
+| Declared with `OUTPUT` keyword                                | Uses `RETURN` statement                          |
+
+<br>
+
+### OUTPUT Parameter
+
+Used to return data through a parameter.
+
+#### Example
 
 ```sql
-CREATE PROCEDURE usp_TotalMovies
+CREATE PROCEDURE usp_GetMovieCount
+    @Count INT OUTPUT
 AS
 BEGIN
-    RETURN (SELECT COUNT(*) FROM Foundation.Movies);
+    SELECT @Count = COUNT(*)
+    FROM Foundation.Movies;
 END;
 ```
 
 Execute
 
 ```sql
-DECLARE @Result INT;
+DECLARE @MovieCount INT;
 
-EXEC @Result = usp_TotalMovies;
+EXEC usp_GetMovieCount @MovieCount OUTPUT;
 
-SELECT @Result;
+SELECT @MovieCount;
 ```
 
-> **Note:** Use `RETURN` for status codes. Use `OUTPUT` parameters to return data.
+Result
+
+```text
+6
+```
 
 <br>
 
-# Managing Stored Procedures
+### RETURN Value
+
+Used to return an integer status or code.
+
+#### Example
+
+```sql
+CREATE PROCEDURE usp_CheckMovie
+AS
+BEGIN
+    RETURN 0;      -- Success
+END;
+```
+
+Execute
+
+```sql
+DECLARE @Status INT;
+
+EXEC @Status = usp_CheckMovie;
+
+SELECT @Status;
+```
+
+Result
+
+```text
+0
+```
+
+<br>
+
+### When to Use
+
+* **OUTPUT Parameter** → Return actual data (Count, Id, Name, Total, etc.).
+* **RETURN Value** → Return status or error codes (`0 = Success`, non-zero = Failure).
+
+> **Best Practice:** Use **OUTPUT parameters** for returning data and **RETURN** only for status/error codes.
+
+
+<br>
+
+---
+
+<br>
+
+# 4.  Managing Stored Procedures
 ## Steps in easy
 ### 1. Step 1 : use system stored procedure `sp_helptext` to get code on window
    ```sql
@@ -231,7 +318,13 @@ Gives the code of the procedure
 > END
 > ```
 
+
 <br>
+
+---
+
+<br>
+
 
 ## DROP Procedure
 
@@ -266,6 +359,31 @@ Suppresses the "(n rows affected)" message.
 ```sql
 SET NOCOUNT ON;
 ```
+
+
+<br>
+
+---
+
+<br>
+
+<div align = "center">
+<img width="485" height="287" alt="image" src="https://github.com/user-attachments/assets/9bd38abc-df25-48dd-9e50-6960f3ea42a2" />
+</div>
+
+
+```sql
+sp_help usp_procedure_name
+
+sp_helptext usp_procedure_name
+
+sp_depends usp_procedure_name
+```
+
+
+<br>
+
+---
 
 <br>
 
