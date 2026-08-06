@@ -109,6 +109,15 @@ Used with `LIKE` for pattern matching.
 
 Examples
 
+> [!Note]
+> #### You also have `NOT LIKE`
+> ```sql
+> SELECT *
+> FROM Foundation.Actor
+> WHERE Name NOT LIKE 'A%';
+> ```
+
+
 Starts with A
 
 ```sql
