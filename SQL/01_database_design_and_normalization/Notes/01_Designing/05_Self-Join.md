@@ -8,6 +8,7 @@ Unlike other joins, a self join **does not require another table**. Instead, the
  
 <div align ="center">
  <img width="600"  alt="image" src="https://github.com/user-attachments/assets/265b6218-5e46-42ee-ade4-7fc1a17cb4b4" />
+<p>Inner Join , Todd NULL row is eliminated, as it just returns matching rows</p>
 </div>
 
 
