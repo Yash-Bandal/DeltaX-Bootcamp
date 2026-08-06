@@ -9,7 +9,7 @@
 
 
 <div  align= "center">
-<img width="800" alt="image" src="https://github.com/user-attachments/assets/d5855eac-ef81-489f-a878-9dd5623c2fb8" />
+<img width="650" alt="image" src="https://github.com/user-attachments/assets/d5855eac-ef81-489f-a878-9dd5623c2fb8" />
 </div>
 
 These joins are mainly used to find **unmatched records** between two tables.
