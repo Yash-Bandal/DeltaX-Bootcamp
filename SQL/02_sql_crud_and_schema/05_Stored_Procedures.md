@@ -326,11 +326,47 @@ Gives the code of the procedure
 <br>
 
 
-## DROP Procedure
+## 5. DROP Procedure
 
 ```sql
 DROP PROCEDURE usp_GetActors;
 ```
+
+<br>
+
+---
+
+<br>
+
+> [!Tip]
+> An **Execution Plan** is a roadmap created by SQL Server that shows **how a query will be executed**.
+> 
+> It tells SQL Server:
+> - Which indexes to use
+> - Whether to perform a Table Scan or Index Seek
+> - Join order
+> - Estimated cost of each operation
+
+<br>
+
+## Difference between `AD-Hoc` queries (Direct) & `SPs`
+Ad Hoc queries means, directly executing the query full code, without stored proc
+
+The Difference is that, stored procedures always use the same execution plan, even if input paramter changes
+
+Adhoc queries also use the same execution plan, just that with a single change in paramter/ space in query, a new execution plan is created
+
+eg
+```sql
+SELECT * FROM TABLETest WHERE id = 1
+```
+re run, will use same exec plan
+
+but, just by making some structure changes (extra spaces here), new plan created
+```sql
+SELECT * FROM TABLETest   WHERE  id = 1
+```
+
 
 <br>
 
