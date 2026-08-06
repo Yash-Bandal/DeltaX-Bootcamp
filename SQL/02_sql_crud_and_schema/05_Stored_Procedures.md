@@ -163,8 +163,14 @@ SELECT @Result;
 <br>
 
 # Managing Stored Procedures
+## Steps in easy
+### 1. Step 1 : use system stored procedure `sp_helptext` to get code on window
+   ```sql
+   EXEC sp_helptext usp_GetActors
+   ```
+### 2.Step 2 : Change `CREATE` to `ALTER` and make modifications
 
-## ALTER Procedure
+**ALTER Procedure**
 
 ```sql
 ALTER PROCEDURE usp_GetActors
