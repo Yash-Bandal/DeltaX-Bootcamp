@@ -1,7 +1,13 @@
 # UNION vs UNION ALL
 
+>[!Important]
+>  For `UNION` and `UNION ALL` to work, the Number, Data types, and the order of the Columns in the select statements should be same
+
+
+<br>
+
 | Feature | UNION | UNION ALL |
-|<br><br><br>|<br><br>-|<br><br><br>--|
+|--|--|--|
 | Removes duplicate rows | ✅ Yes | ❌ No |
 | Keeps duplicate rows | ❌ No | ✅ Yes |
 | Performance | Slower (checks duplicates) | Faster |
