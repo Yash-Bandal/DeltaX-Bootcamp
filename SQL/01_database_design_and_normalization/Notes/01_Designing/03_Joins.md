@@ -2,6 +2,12 @@
 
 **SQL Joins** are a fundamental feature of SQL that allow you to retrieve data from two or more related tables in a single query. Because well-designed databases split data into separate tables to maintain organization, joins are essential for combining that data into a single result set.
 
+> [!Tip]
+> ### Also See Advance Joins
+> 
+> <img width="643" height="419" alt="image" src="https://github.com/user-attachments/assets/d69662ad-5829-4989-bd47-7c51ff921e2a" />
+
+
 <br>
 <div align = "center">
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/3dc9ab4f-b29d-4ec7-bca7-92b1b21af6e5" />
