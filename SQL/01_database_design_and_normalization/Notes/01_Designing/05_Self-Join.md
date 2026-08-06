@@ -1,4 +1,4 @@
-# SQL Self Join
+<img width="627" height="400" alt="image" src="https://github.com/user-attachments/assets/c8f89833-ad4b-40d9-89a3-1298ceb7b94d" /># SQL Self Join
 
 A **Self Join** is a join where a table is joined with **itself**. It is useful when the rows within the same table are related to each other.
 
@@ -26,6 +26,8 @@ A Self Join is commonly used when:
  <br>
  
 <div align ="center">
+ <img width="627" height="400" alt="image" src="https://github.com/user-attachments/assets/265b6218-5e46-42ee-ade4-7fc1a17cb4b4" />
+<br>
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/365aa095-8f2f-4ca2-867a-0a724fd7a73e" />
 </div>
 
