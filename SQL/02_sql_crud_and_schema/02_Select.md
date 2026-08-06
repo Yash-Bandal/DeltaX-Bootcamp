@@ -144,11 +144,14 @@ Second character is 'a'
 WHERE Name LIKE '_a%';
 ```
 
-Starts with A, B, or C
+Starts with M, S, or T
 
 ```sql
-WHERE Name LIKE '[ABC]%';
+WHERE Name LIKE '[MST]%';
 ```
+Select all the names starting with any of these, M, S, and T
+<img width="254" height="89" alt="image" src="https://github.com/user-attachments/assets/2a83103a-9202-4258-aace-5601432907b1" />
+
 
 Starts with any letter from A to M
 
