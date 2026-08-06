@@ -182,6 +182,7 @@ END;
 ```sql
 EXEC sp_helptext 'usp_GetActors';
 ```
+Gives the code of the procedure
 
 > Doesn't work if created with `WITH ENCRYPTION`.
 
