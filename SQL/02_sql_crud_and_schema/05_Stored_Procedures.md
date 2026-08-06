@@ -4,39 +4,41 @@
 
 A **Stored Procedure (SP)** is a precompiled collection of one or more SQL statements stored in the database and executed as a single unit.
 
-<br>
-
-# Advantages
+### Advantages
 
 * Reusable code
 * Better performance (execution plan is cached)
 * Reduces network traffic
-* Improves security (grant EXECUTE instead of table access)
+* Improves security
 * Easier maintenance
 
 <br>
 
-# Naming Convention
+# Creating Stored Procedures
 
-Avoid `sp_` (reserved for system stored procedures).
+## Naming Convention
+
+Avoid `sp_` (reserved for system procedures).
 
 Use:
 
 ```text
-usp_GetMovies
-usp_AddActor
+usp_GetActors
+usp_AddMovie
 usp_UpdateProducer
-usp_DeleteMovie
+usp_DeleteActor
 ```
 
 <br>
 
-# Create a Stored Procedure
+## Create a Procedure
 
 ```sql
 CREATE PROCEDURE usp_GetActors
 AS
 BEGIN
+    SET NOCOUNT ON;
+
     SELECT *
     FROM Foundation.Actors;
 END;
@@ -46,15 +48,11 @@ Execute
 
 ```sql
 EXEC usp_GetActors;
-
--- or
-
-EXECUTE usp_GetActors;
 ```
 
 <br>
 
-# Procedure with Parameters
+## Procedure with Parameters
 
 ```sql
 CREATE PROCEDURE usp_GetMovieById
@@ -70,16 +68,12 @@ END;
 Execute
 
 ```sql
-EXEC usp_GetMovieById @MovieId = 1;
-
--- or
-
 EXEC usp_GetMovieById 1;
 ```
 
 <br>
 
-# Multiple Parameters
+## Multiple Parameters
 
 ```sql
 CREATE PROCEDURE usp_GetMovies
@@ -96,7 +90,7 @@ END;
 
 <br>
 
-# Default Parameter Value
+## Default Parameter
 
 ```sql
 CREATE PROCEDURE usp_GetMoviesByYear
@@ -113,19 +107,14 @@ Execute
 
 ```sql
 EXEC usp_GetMoviesByYear;
-```
-
-or
-
-```sql
 EXEC usp_GetMoviesByYear 2024;
 ```
 
 <br>
 
-# OUTPUT Parameter
+# Returning Values
 
-Returns a value through a parameter.
+## OUTPUT Parameter
 
 ```sql
 CREATE PROCEDURE usp_GetMovieCount
@@ -149,9 +138,7 @@ SELECT @MovieCount;
 
 <br>
 
-# Return Value
-
-Returns an integer status/value.
+## RETURN Value
 
 ```sql
 CREATE PROCEDURE usp_TotalMovies
@@ -171,13 +158,13 @@ EXEC @Result = usp_TotalMovies;
 SELECT @Result;
 ```
 
-> **Note:** `RETURN` is generally used for **status codes** (0 = Success, non-zero = Error). Use **OUTPUT parameters** to return data.
+> **Note:** Use `RETURN` for status codes. Use `OUTPUT` parameters to return data.
 
 <br>
 
-# ALTER Procedure
+# Managing Stored Procedures
 
-Modify an existing procedure.
+## ALTER Procedure
 
 ```sql
 ALTER PROCEDURE usp_GetActors
@@ -190,9 +177,17 @@ END;
 
 <br>
 
-# DROP Procedure
+## View Procedure Definition
 
-Delete a procedure.
+```sql
+EXEC sp_helptext 'usp_GetActors';
+```
+
+> Doesn't work if created with `WITH ENCRYPTION`.
+
+<br>
+
+## DROP Procedure
 
 ```sql
 DROP PROCEDURE usp_GetActors;
@@ -200,9 +195,11 @@ DROP PROCEDURE usp_GetActors;
 
 <br>
 
-# Encrypted Procedure
+# Useful Options
 
-Hide the procedure definition.
+## WITH ENCRYPTION
+
+Hides the procedure definition.
 
 ```sql
 CREATE PROCEDURE usp_GetActors
@@ -216,75 +213,32 @@ END;
 
 <br>
 
-# View Procedure Definition
+## SET NOCOUNT ON
+
+Suppresses the "(n rows affected)" message.
 
 ```sql
-sp_helptext usp_GetActors;
-```
-
-or
-
-```sql
-EXEC sp_helptext 'usp_GetActors';
-```
-
-> Won't work if the procedure was created with `WITH ENCRYPTION`.
-
-<br>
-
-# System Stored Procedures
-
-Built-in procedures provided by SQL Server.
-
-Examples
-
-```sql
-EXEC sp_help Foundation.Actors;
-
-EXEC sp_helpdb;
-
-EXEC sp_helptext 'usp_GetActors';
-```
-
-<br>
-
-# Best Practices
-
-* Prefix user procedures with `usp_`.
-* Always use `BEGIN...END`.
-* Use parameters instead of hardcoded values.
-* Use `SET NOCOUNT ON;` to avoid "(n rows affected)" messages.
-
-Example
-
-```sql
-CREATE PROCEDURE usp_GetActors
-AS
-BEGIN
-    SET NOCOUNT ON;
-
-    SELECT *
-    FROM Foundation.Actors;
-END;
+SET NOCOUNT ON;
 ```
 
 <br>
 
 # Quick Revision
 
-| Statement          | Purpose                      |
-| ------------------ | ---------------------------- |
-| `CREATE PROCEDURE` | Create a procedure           |
-| `EXEC` / `EXECUTE` | Execute a procedure          |
-| `ALTER PROCEDURE`  | Modify a procedure           |
-| `DROP PROCEDURE`   | Delete a procedure           |
-| `@Parameter`       | Input parameter              |
-| `OUTPUT`           | Return values via parameters |
-| `RETURN`           | Return integer status/value  |
-| `WITH ENCRYPTION`  | Hide procedure definition    |
-| `SET NOCOUNT ON`   | Suppress row count messages  |
+| Statement          | Purpose                          |
+| ------------------ | -------------------------------- |
+| `CREATE PROCEDURE` | Create a procedure               |
+| `EXEC` / `EXECUTE` | Execute a procedure              |
+| `ALTER PROCEDURE`  | Modify a procedure               |
+| `sp_helptext`      | View procedure definition        |
+| `DROP PROCEDURE`   | Delete a procedure               |
+| `@Parameter`       | Input parameter                  |
+| `OUTPUT`           | Return values through parameters |
+| `RETURN`           | Return integer status/value      |
+| `WITH ENCRYPTION`  | Hide procedure definition        |
+| `SET NOCOUNT ON`   | Suppress row count messages      |
 
 ### Interview Tip
 
-* **Procedure** = Executes SQL and can modify data.
-* **Function** = Must return a value and has more restrictions (e.g., cannot perform transactions or modify tables in the same way as procedures).
+* **Stored Procedure** → Executes SQL statements and can return result sets, output parameters, or status codes.
+* Prefer **parameterized procedures** over hardcoded queries for better reusability and security.
