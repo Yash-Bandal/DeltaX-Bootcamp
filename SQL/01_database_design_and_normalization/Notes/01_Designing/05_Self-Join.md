@@ -1,4 +1,4 @@
-<img width="627" height="400" alt="image" src="https://github.com/user-attachments/assets/c8f89833-ad4b-40d9-89a3-1298ceb7b94d" /># SQL Self Join
+# SQL Self Join
 
 A **Self Join** is a join where a table is joined with **itself**. It is useful when the rows within the same table are related to each other.
 
