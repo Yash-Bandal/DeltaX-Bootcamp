@@ -8,7 +8,16 @@
 
 <br>
 
+
+
 ### WHERE vs HAVING
+
+> [!caution]
+> You cannot use where with aggregate
+
+<img width="610" height="328" alt="image" src="https://github.com/user-attachments/assets/d4b25306-93c6-48ec-9c0d-d4632334a205" />
+
+
 ❌ Incorrect
 ```sql
 SELECT *
