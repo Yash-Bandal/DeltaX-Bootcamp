@@ -37,3 +37,79 @@ FROM tblEmployee
 GROUP BY Department
 HAVING SUM(Salary) > 4000;
 ```
+
+<br>
+
+## UNION vs UNION ALL
+
+| Feature | UNION | UNION ALL |
+|---------|-------|-----------|
+| Removes duplicate rows | ✅ Yes | ❌ No |
+| Keeps duplicate rows | ❌ No | ✅ Yes |
+| Performance | Slower (checks duplicates) | Faster |
+| Use when | Need unique results | Need all results, including duplicates |
+
+### Example Tables
+
+#### Table A
+
+| Name |
+|------|
+| Alice |
+| Bob |
+| Charlie |
+
+#### Table B
+
+| Name |
+|------|
+| Bob |
+| David |
+| Emma |
+
+### UNION
+
+```sql
+SELECT Name FROM TableA
+UNION
+SELECT Name FROM TableB;
+```
+
+#### Result
+
+| Name |
+|------|
+| Alice |
+| Bob |
+| Charlie |
+| David |
+| Emma |
+
+> **Note:** Duplicate values (e.g., **Bob**) are removed.
+
+<br>
+
+### UNION ALL
+
+```sql
+SELECT Name FROM TableA
+UNION ALL
+SELECT Name FROM TableB;
+```
+
+### Result
+
+| Name |
+|------|
+| Alice |
+| Bob |
+| Charlie |
+| Bob |
+| David |
+| Emma |
+
+duplicate Bob not removed
+
+
+<br>
+
