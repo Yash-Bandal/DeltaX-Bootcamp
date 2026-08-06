@@ -1,6 +1,6 @@
 # SQL Server – Stored Procedures 
 
-## 1. What is a Stored Procedure?
+# 1. What is a Stored Procedure?
 
 A **Stored Procedure (SP)** is a precompiled collection of one or more SQL statements stored in the database and executed as a single unit.
 
@@ -14,7 +14,7 @@ A **Stored Procedure (SP)** is a precompiled collection of one or more SQL state
 
 <br>
 
-# Creating Stored Procedures
+## Creating Stored Procedures
 
 ## Naming Convention
 
