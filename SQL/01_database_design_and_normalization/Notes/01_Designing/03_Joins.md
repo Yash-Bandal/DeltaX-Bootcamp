@@ -9,6 +9,11 @@
 
 
 <br>
+
+
+## Basics
+
+<br>
 <div align = "center">
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/3dc9ab4f-b29d-4ec7-bca7-92b1b21af6e5" />
   <br>
@@ -20,6 +25,7 @@
 <br>
 
 <br>
+
 
 ## 1. Key Concepts
 
