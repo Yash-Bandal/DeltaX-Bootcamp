@@ -251,6 +251,13 @@ FROM Foundation.Movie;
 
 # SELECT Execution Order
 
+> [!Tip]
+> Filtering and applying groupby is more efficient, and not filtering and applying condition after
+
+<img width="549" height="151" alt="image" src="https://github.com/user-attachments/assets/fd7b5871-ccca-4237-9984-8cc4ffaea9a6" />
+
+Here we have same output, but the `where` is more efficient
+
 Although we write:
 
 ```sql
