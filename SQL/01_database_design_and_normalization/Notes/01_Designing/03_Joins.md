@@ -37,6 +37,12 @@
 - **Behavior:** If a record in the first table has no match in the second (or vice versa), it is excluded from the results.
 - **Syntax:** Use `INNER JOIN` or simply `JOIN` (the word "INNER" is optional but recommended for clarity).
 
+<br>
+<div align = "center">
+  <img width="300"  alt="image" src="https://github.com/user-attachments/assets/760ca245-e279-4384-a272-d910f714c662" />
+</div>
+<br>
+
 ```sql
 SELECT columns
 FROM table1
@@ -60,6 +66,7 @@ ON table1.column = table2.column;
   <p>Result</p>
   <img width="600" alt="image" src="https://github.com/user-attachments/assets/14a48a37-faad-4b9f-ab50-89b07094fac2" />
 
+
 </div>
 <br>
 
@@ -71,6 +78,11 @@ ON table1.column = table2.column;
 - **Definition:** Returns **all records** from the "left" table (the one specified first) and the matched records from the "right" table.
 - **Behavior:** If there is no match in the right table, the result will show `NULL` values for those columns.
 
+<br>
+<div align = "center">
+  <img width="300"  alt="image" src="https://github.com/user-attachments/assets/c72a89e4-6e7b-4ae1-a133-da495f0eaad0" />
+</div>
+<br>
 
 ```sql
 SELECT columns
@@ -105,6 +117,14 @@ ON table1.column = table2.column;
 - **Definition:** Returns **all records** from the "right" table (the one specified second) and the matched records from the "left" table.
 - **Behavior:** If no match is found in the left table, `NULL` values are shown for those fields.
 - **Note:** Many developers prefer using Left Joins exclusively, as any Right Join can be rewritten as a Left Join by swapping the table order.
+
+
+<br>
+<div align = "center">
+<img  width="300" alt="image" src="https://github.com/user-attachments/assets/16450629-1729-414a-b104-8e4ec2ab8101" />
+</div>
+<br> 
+
 
 ```sql
 SELECT columns
@@ -149,6 +169,14 @@ ON table1.column = table2.column;
 
 > [Tip]
 > Less used
+
+
+<br>
+<div align = "center">
+  <img width="300"  alt="image" src="https://github.com/user-attachments/assets/760d60ba-361e-4b6e-a3c4-216a17ac5233" />
+
+</div>
+<br> 
 
 <br>
 
@@ -197,6 +225,9 @@ ON table1.column = table2.column;
 <br>
 
 ## 4. Summary Table of Join Types
+
+
+<img width="523" height="401" alt="image" src="https://github.com/user-attachments/assets/44ac813b-7b00-43d9-89d4-e1e0d8399c47" />
 
 | Join Type | Result Set Includes... |
 | :-------- | :--------------------- |
