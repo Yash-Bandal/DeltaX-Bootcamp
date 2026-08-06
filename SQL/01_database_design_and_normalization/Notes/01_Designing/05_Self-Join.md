@@ -4,6 +4,13 @@ A **Self Join** is a join where a table is joined with **itself**. It is useful 
 
 Unlike other joins, a self join **does not require another table**. Instead, the same table is referenced twice using **table aliases**.
 
+ <br>
+ 
+<div align ="center">
+ <img width="600"  alt="image" src="https://github.com/user-attachments/assets/265b6218-5e46-42ee-ade4-7fc1a17cb4b4" />
+</div>
+
+
 <br>
 
 > [!Important]
@@ -26,8 +33,6 @@ A Self Join is commonly used when:
  <br>
  
 <div align ="center">
- <img width="627" height="400" alt="image" src="https://github.com/user-attachments/assets/265b6218-5e46-42ee-ade4-7fc1a17cb4b4" />
-<br>
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/365aa095-8f2f-4ca2-867a-0a724fd7a73e" />
 </div>
 
