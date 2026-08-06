@@ -21,7 +21,7 @@ Join Condition:
 M.ProducerId = P.Id
 ```
 
----
+<br>
 
 # 1. LEFT JOIN + WHERE Right IS NULL
 
@@ -41,7 +41,7 @@ Find movies **without a producer**.
 
 > With current data → **No rows** (every movie has a producer).
 
----
+<br>
 
 # 2. RIGHT JOIN + WHERE Left IS NULL
 
