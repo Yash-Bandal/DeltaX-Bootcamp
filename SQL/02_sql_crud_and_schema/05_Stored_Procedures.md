@@ -114,8 +114,15 @@ EXEC usp_GetMoviesByYear 2024;
 
 # Returning Values
 
+
 ## OUTPUT Parameter
 
+<div align = "center">
+<img width="490" height="365" alt="image" src="https://github.com/user-attachments/assets/656f0dbd-60d1-4f25-9952-9c5a45ee39a5" />
+</div>
+
+
+### Step 1 : Define `Returning paramteer` procedure
 ```sql
 CREATE PROCEDURE usp_GetMovieCount
     @Count INT OUTPUT
@@ -126,15 +133,33 @@ BEGIN
 END;
 ```
 
+### Step 2 : Declare output parameter variable
+
 Execute
 
 ```sql
 DECLARE @MovieCount INT;
+```
 
+### Step 3 : Pass variable & Call procedure
+```sql
 EXEC usp_GetMovieCount @MovieCount OUTPUT;
 
 SELECT @MovieCount;
 ```
+
+### Step 4 :  Print or select
+```sql
+PRINT @MovieCount
+```
+you can use `if..else` to verify if null f=or not
+```sql
+IF (@MovieCount is null)
+    Print '@MovieCount is Null'
+ELSE
+    Print '@MovieCount is not null'
+```
+
 
 <br>
 
@@ -190,7 +215,21 @@ EXEC sp_helptext 'usp_GetActors';
 ```
 Gives the code of the procedure
 
+
 > Doesn't work if created with `WITH ENCRYPTION`.
+
+> [!Note]
+> ### Encryption
+> Add `WITH ENCRYTION` constraint to not allow ALTER , or modification of procedure (sealing)
+> ```sql
+> CREATE/ALTER PROCEDURE {usp_proc__name}
+> @Parameter
+> WITH ENCRYPTION
+> AS
+>   BEGIN
+>    query
+> END
+> ```
 
 <br>
 
