@@ -150,6 +150,8 @@ Starts with M, S, or T
 WHERE Name LIKE '[MST]%';
 ```
 Select all the names starting with any of these, M, S, and T
+
+
 <img width="254" height="89" alt="image" src="https://github.com/user-attachments/assets/2a83103a-9202-4258-aace-5601432907b1" />
 
 
