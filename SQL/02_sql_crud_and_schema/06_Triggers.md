@@ -1,4 +1,4 @@
-# SQL Server – Triggers (Quick Notes)
+# SQL Server – Triggers 
 
 ## What is a Trigger?
 
