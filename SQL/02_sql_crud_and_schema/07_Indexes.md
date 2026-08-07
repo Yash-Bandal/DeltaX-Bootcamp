@@ -41,6 +41,18 @@ Required Row ✅
 
 # Database Pages
 
+
+<br>
+<div align = "center">
+     <p>Data is stored in pages, user sees a list of rows and cols, but at backend it is stored like this</p>
+     <img width="500" alt="image" src="https://github.com/user-attachments/assets/4032bd05-4cc7-4fc1-a61f-76b3b8215d37" />
+     <br>
+     <p>This is how a page of 8kb looks combining multiple bytes</p>
+     <img width="686" height="388" alt="image" src="https://github.com/user-attachments/assets/22898111-2caa-4b0f-bc3c-f3b57f5a26a2" />
+
+</div>
+<br>
+
 SQL Server stores data in **8 KB Pages**.
 
 A page contains:
@@ -54,6 +66,13 @@ Multiple pages form a table.
 <br>
 
 # Heap
+
+<br>
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/bac53c74-d75f-45dd-aec7-781dff48cd48" />
+</div>
+<br>
+
 
 A table **without a clustered index** is called a **Heap**.
 
@@ -83,11 +102,27 @@ This structure allows SQL Server to locate rows efficiently.
 
 # Types of Indexes
 
+<br>
+<div align = "center">
+     <img width="500" alt="image" src="https://github.com/user-attachments/assets/a567b3dc-85f4-47c0-97e4-8f5eef9ab5c1" />
+</div>
+<br>
+
 ## 1. Clustered Index
 
 Physically sorts the table data based on the indexed column.
 
+<br>
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/241d6b60-e5f6-4800-9dea-c5630ee68d01" />
+     <img width="500" alt="image" src="https://github.com/user-attachments/assets/ce72601b-5987-4a39-b7c6-e75c3f08922e" />
+     <img width="500" alt="image" src="https://github.com/user-attachments/assets/9b6e98f8-20a0-4adb-804d-1657e060ad0f" />
+</div>
+<br>
+
+
 Leaf nodes contain the **actual data rows**.
+
 
 ```sql
 CREATE CLUSTERED INDEX IX_Foundation_Movies_Id
