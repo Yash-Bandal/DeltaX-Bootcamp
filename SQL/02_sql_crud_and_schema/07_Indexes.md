@@ -1,4 +1,4 @@
-# SQL Server – Indexes (Quick Notes)
+# SQL Server – Indexes 
 
 ## What is an Index?
 
