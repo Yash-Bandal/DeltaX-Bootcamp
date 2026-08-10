@@ -1,10 +1,10 @@
-# SQL Server – Indexes 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/719b15da-9f3c-4197-a965-e81f793ff89f" /># SQL Server – Indexes 
 
 ## What is an Index?
 
 An **Index** is a database object that helps SQL Server locate rows quickly without scanning the entire table.
 
-📖 **Analogy:** Like an index in a book—you directly jump to the required page instead of reading every page.
+ **Analogy:** Like an index in a book—you directly jump to the required page instead of reading every page.
 
 Without Index
 
@@ -117,6 +117,12 @@ Leaf Nodes
 This structure allows SQL Server to locate rows efficiently.
 
 <br>
+<div align = "center">
+     <img width="500" alt="image" src="https://github.com/user-attachments/assets/ce72601b-5987-4a39-b7c6-e75c3f08922e" />
+</div>
+<br>
+
+
 
 
 ## 1. Clustered Index
@@ -126,14 +132,49 @@ Physically sorts the table data based on the indexed column.
 <br>
 <div align = "center">
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/241d6b60-e5f6-4800-9dea-c5630ee68d01" />
-     <img width="500" alt="image" src="https://github.com/user-attachments/assets/ce72601b-5987-4a39-b7c6-e75c3f08922e" />
-     <img width="500" alt="image" src="https://github.com/user-attachments/assets/9b6e98f8-20a0-4adb-804d-1657e060ad0f" />
 </div>
 <br>
 
 
+
+
+### Think, How is a B-Tree formed?
+
+> [!Note]
+> The index `eg:1:100` is just a pointer, nothing much
+
+The Intermediate nodes are Index pages, 
+
+A Index page is a intermediate page, that stores key values (pointers) to another page. It does not store the actual rows, 
+
 Leaf nodes contain the **actual data rows**.
 
+<br>
+<div align = "center">
+     <img width="500" alt="image" src="https://github.com/user-attachments/assets/9b6e98f8-20a0-4adb-804d-1657e060ad0f" />
+     <p>Now another index</p>
+    <img width="500" alt="image" src="https://github.com/user-attachments/assets/520faae6-0c55-4af5-b866-09bb2f5ad3e2" />
+</div>
+<br>
+
+> [!Important]
+> #### Observe
+> We dont have a pointer for each row above, we have pointer for groups
+>  - 1 -> 5
+>  - 6 -> 10
+>  - 11 -> 15
+>  - 16 -> 20
+> Thats why we call it clustered index
+
+If index required is between 1 -> 10, eg. 7, go to left of B Tree, eliminating right
+
+<br>
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/251d0e45-50ad-4d6a-b4af-7736c8ea29de" />
+     <br>
+     <img width="500" alt="image" src="https://github.com/user-attachments/assets/84abc920-b5a3-484b-9c98-233cf37770e1" />
+</div>
+<br>
 
 ```sql
 CREATE CLUSTERED INDEX IX_Foundation_Movies_Id
@@ -163,16 +204,44 @@ A separate structure that stores:
 * Indexed column(s)
 * Pointer to the actual row
 
+> [!Note]
+> Using a non clustered index, no index is organized or changed , like we do in Clustered, it remains as it is unorganized
+>
+> We maintain a `Row Locator page`, that maintans **A pointer for each ID**.
+
+
+<br>
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/4676e93c-cfa0-4ac9-a006-f855ff3d9831" />
+     <p>An offset is also mapped along with the directly generated intermediate index page</p>
+     <br>
+     <img width="500" alt="image" src="https://github.com/user-attachments/assets/4ea98e29-469d-439c-856e-3650b2b1c3fe" />
+</div>
+<br>
+
+Intermediate Row locator Page
+
+<br>
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/5a620a58-c9d1-476a-afb6-e048e4f4ff53" />
+</div>
+<br>
+
+The index pages are sorted, not the data pages , then bottom to top same BTree operation as clustered index
+
+<br>
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/238c757a-5fb4-4d23-a926-413690ef0326" />
+</div>
+<br>
+
+
 ```sql
 CREATE NONCLUSTERED INDEX IX_Foundation_Actors_Name
 ON Foundation.Actors (Name);
 ```
 
-### Characteristics
 
-* Multiple allowed per table
-* Faster lookups on searched columns
-* Slightly slower writes because indexes are maintained
 
 Example
 
@@ -181,6 +250,19 @@ SELECT *
 FROM Foundation.Actors
 WHERE Name = 'Yami Gautam';
 ```
+
+### Comparison
+
+We just have `1` More extra Layer in **non clustered** as compared to **clustered** index BTree
+<br>
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/0e4f983f-f8fc-4228-ad3a-29c6196879c1" />
+     <p>Think of clustered as First Index page of Book, and non clustered as Last page of Book </p>
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/2657bd0e-73ce-4313-b9e2-a0e48278d4d3" />
+</div>
+<br>
+
+
 
 <br>
 
