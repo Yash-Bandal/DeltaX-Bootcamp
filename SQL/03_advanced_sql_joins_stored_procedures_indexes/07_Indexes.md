@@ -457,7 +457,7 @@ ON Foundation.Actor_Movies (MovieId);
 # Quick Revision
 
 | Topic                | Key Point                                         |
-| <br><br><br><br><br><br>-- | <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>- |
+| ------------------- | ------------------------------- |
 | Index                | Speeds up data retrieval                          |
 | Heap                 | Table without a clustered index                   |
 | Page Size            | 8 KB                                              |
