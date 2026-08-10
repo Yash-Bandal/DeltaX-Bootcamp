@@ -37,21 +37,25 @@ Required Row ✅
 * Faster Reads ✅
 * Slower INSERT, UPDATE, DELETE ❌ (indexes must also be updated)
 
+# Types of Indexes
+
+<br>
+<div align = "center">
+     <img width="500" alt="image" src="https://github.com/user-attachments/assets/a567b3dc-85f4-47c0-97e4-8f5eef9ab5c1" />
+</div>
+<br>
+
+
+---
+
 <br>
 
 # Database Pages
 
+ Data is stored in pages, user sees a **Table**, that is a list of `rows` and `cols`, but at backend they are `Pages`, like this below
 
-<br>
-<div align = "center">
-     <p>Data is stored in pages, user sees a list of rows and cols, but at backend it is stored like this</p>
-     <img width="500" alt="image" src="https://github.com/user-attachments/assets/4032bd05-4cc7-4fc1-a61f-76b3b8215d37" />
-     <br>
-     <p>This is how a page of 8kb looks combining multiple bytes</p>
-     <img width="686" height="388" alt="image" src="https://github.com/user-attachments/assets/22898111-2caa-4b0f-bc3c-f3b57f5a26a2" />
-
-</div>
-<br>
+ A page is a smallest unit of data storage in a Database (8kb). It stores anything (Data, Metadata, Indexes).
+ 
 
 SQL Server stores data in **8 KB Pages**.
 
@@ -64,15 +68,23 @@ A page contains:
 Multiple pages form a table.
 
 <br>
-
-# Heap
-
-<br>
 <div align = "center">
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/bac53c74-d75f-45dd-aec7-781dff48cd48" />
+     <p>Data is stored in pages, user sees a list of rows and cols, but at backend it is stored like this</p>
+     <img width="500" alt="image" src="https://github.com/user-attachments/assets/4032bd05-4cc7-4fc1-a61f-76b3b8215d37" />
+     <br>
+     <p>This is how a page of 8kb looks combining multiple bytes</p>
+    <img width="500" alt="image" src="https://github.com/user-attachments/assets/2ac17b28-f430-429d-b751-18eb4693c39f" />
+
+
 </div>
 <br>
 
+
+<br>
+
+# Heap
+
+Think of heap storage as You have Index pages of book, but all are very randomly stored inside a box, such that it is hard to find a single row we want
 
 A table **without a clustered index** is called a **Heap**.
 
@@ -81,6 +93,12 @@ Characteristics
 * Data stored randomly
 * Faster inserts
 * Slower reads (often requires Full Table Scan)
+  
+<br>
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/bac53c74-d75f-45dd-aec7-781dff48cd48" />
+</div>
+<br>
 
 <br>
 
@@ -100,13 +118,6 @@ This structure allows SQL Server to locate rows efficiently.
 
 <br>
 
-# Types of Indexes
-
-<br>
-<div align = "center">
-     <img width="500" alt="image" src="https://github.com/user-attachments/assets/a567b3dc-85f4-47c0-97e4-8f5eef9ab5c1" />
-</div>
-<br>
 
 ## 1. Clustered Index
 
