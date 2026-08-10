@@ -1,10 +1,12 @@
 # SQL Server – Indexes 
 
-## Quick Overview
-
 <br>
 
 ---
+
+
+## Quick Overview
+
 
 
 | Topic                | Key Point                                         |
