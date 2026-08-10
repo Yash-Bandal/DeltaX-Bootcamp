@@ -1,5 +1,30 @@
 # SQL Server – Indexes 
 
+## Quick Overview
+
+<br>
+
+---
+
+
+| Topic                | Key Point                                         |
+| ------------------- | ------------------------------- |
+| Index                | Speeds up data retrieval                          |
+| Heap                 | Table without a clustered index                   |
+| Page Size            | 8 KB                                              |
+| B-Tree               | Root → Intermediate → Leaf                        |
+| Clustered Index      | Physically sorts table data                       |
+| Non-Clustered Index  | Separate structure with row pointers              |
+| Composite Index      | Index on multiple columns                         |
+| Leftmost Prefix Rule | Query must start with the leftmost indexed column |
+| `CREATE INDEX`       | Creates an index                                  |
+| `DROP INDEX`         | Removes an index                                  |
+
+---
+
+<br>
+
+
 ## What is an Index?
 
 An **Index** is a database object that helps SQL Server locate rows quickly without scanning the entire table.
@@ -454,20 +479,7 @@ ON Foundation.Actor_Movies (MovieId);
 
 <br>
 
-# Quick Revision
 
-| Topic                | Key Point                                         |
-| ------------------- | ------------------------------- |
-| Index                | Speeds up data retrieval                          |
-| Heap                 | Table without a clustered index                   |
-| Page Size            | 8 KB                                              |
-| B-Tree               | Root → Intermediate → Leaf                        |
-| Clustered Index      | Physically sorts table data                       |
-| Non-Clustered Index  | Separate structure with row pointers              |
-| Composite Index      | Index on multiple columns                         |
-| Leftmost Prefix Rule | Query must start with the leftmost indexed column |
-| `CREATE INDEX`       | Creates an index                                  |
-| `DROP INDEX`         | Removes an index                                  |
 
 ### Interview Tips
 
