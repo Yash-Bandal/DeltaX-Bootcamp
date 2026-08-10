@@ -1,4 +1,4 @@
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/719b15da-9f3c-4197-a965-e81f793ff89f" /># SQL Server – Indexes 
+# SQL Server – Indexes 
 
 ## What is an Index?
 
