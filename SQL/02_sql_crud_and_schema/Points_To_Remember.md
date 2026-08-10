@@ -123,3 +123,38 @@ duplicate Bob not removed
 | Matching Condition | Not required | Required (`ON` clause, except `CROSS JOIN`) |
 | Duplicate Handling | `UNION` removes duplicates, `UNION ALL` keeps them | No duplicate removal by default |
 | Use Case | Merge similar data from multiple tables | Retrieve related data from multiple tables |
+
+## With and Without Group BY
+Think of it like this:
+
+Without GROUP BY:
+
+```sql
+SELECT COUNT(*)
+FROM Table;
+```
+
+➡ Counts every row in the table.
+
+With GROUP BY:
+```sql
+SELECT Actor1, Actor2, COUNT(*)
+FROM ...
+GROUP BY Actor1, Actor2;
+```
+
+It's almost as if SQL does this internally:
+```
+For each unique (Actor1, Actor2):
+
+    Count how many rows belong to THIS pair
+
+    Output one row
+```
+So COUNT(*) is per group, not for the entire table.
+
+A nice way to think about it is:
+
+GROUP BY splits the table into many mini-tables, and COUNT(*) counts rows inside each mini-table.
+
+This mental model works for SUM(), AVG(), MIN(), MAX(), etc. as well.
