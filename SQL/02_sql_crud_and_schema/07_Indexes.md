@@ -229,6 +229,8 @@ Intermediate Row locator Page
 
 The index pages are sorted, not the data pages , then bottom to top same BTree operation as clustered index
 
+The sorted pointers are mapped to respective indexes, eg, pointer 1-> index 1, so at the end when user request index 13, BTree takes flow to pointer 13-> that is mapped to Index 13
+
 <br>
 <div align = "center">
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/238c757a-5fb4-4d23-a926-413690ef0326" />
@@ -259,14 +261,44 @@ We just have `1` More extra Layer in **non clustered** as compared to **clustere
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/0e4f983f-f8fc-4228-ad3a-29c6196879c1" />
      <p>Think of clustered as First Index page of Book, and non clustered as Last page of Book </p>
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/2657bd0e-73ce-4313-b9e2-a0e48278d4d3" />
+     <br>
+     <img width="500" alt="image" src="https://github.com/user-attachments/assets/a889e2ca-6b7c-428d-ac36-09f07759f0ef" />
+</div>
+<br>
+
+We can have only `1 Clustered Index` per table, as data can be Physically sorted only once , think Logically (Clustered is the main one)
+
+But we can have `1+ Non Clustered Index` per table, as we can have multiple pointers 
+
+You cannot have both fast reads and fast writes, there is always a `Trade Off`, heao is though the fastest writes, as no indexes there, but slow very slow reads
+
+<br>
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/4ba13b38-06d8-4124-9932-dcbc5ac0a08f" />
+     <br>
+     <img width="500" alt="image" src="https://github.com/user-attachments/assets/d2ddb04b-b8a6-42ab-9fe7-bcc752d267c0" />
 </div>
 <br>
 
 
+<br>
+
+### Syntax
+
+
+<br>
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/757f10fc-282b-45a9-8a06-100b097a0c53" />
+</div>
+<br>
+
 
 <br>
 
+
 # Composite Index
+
+`
 
 An index on multiple columns.
 
@@ -274,6 +306,8 @@ An index on multiple columns.
 CREATE INDEX IX_Foundation_Movies_Producer_Year
 ON Foundation.Movies (ProducerId, YearOfRelease);
 ```
+
+
 
 Works best for
 
@@ -287,6 +321,21 @@ or
 WHERE ProducerId = 1
 AND YearOfRelease = 2024
 ```
+
+> [!Tip]
+> While using multiple Columns as Index, ensure you use sequence in Queries
+> eg
+> 
+> ```sql
+> FROM Sales.DBCUstomers
+> WHERE ProducerId = 1 AND YearOfRelease > 2020;
+> ```
+>Will use Index
+> ```sql
+> FROM Sales.DBCUstomers
+> WHERE  YearOfRelease > 2020 AND ProducerId = 1
+> ```
+> Will not
 
 <br>
 
