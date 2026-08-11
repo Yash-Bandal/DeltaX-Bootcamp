@@ -47,7 +47,8 @@ A **Non-Clustered Index** should be created on the **Name** column.
 - The table already has a **Primary Key (`Id`)**, which by default creates a **Clustered Index** (if one doesn't already exist).
 - A table can have **only one Clustered Index**, so we should not change the physical order of rows just because users frequently search by movie name.
 - A **Non-Clustered Index** creates a separate sorted structure on `Name`, allowing SQL Server to quickly locate matching rows.
-
+- Clustered index is efficient in terms of searching in Range (Between), and Non clustered in terms of equality (Filtering - with WHERE and all)
+  
 <br>
 
 ## Query
