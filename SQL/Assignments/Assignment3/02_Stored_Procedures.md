@@ -1,5 +1,6 @@
 # SQL Assignment 3 - Stored Procedures Notes
 
+
 Database Used:
 
 ```sql
@@ -8,6 +9,13 @@ GO
 ```
 
 <br>
+<div align = "center">
+    <img width="700" alt="image" src="https://github.com/user-attachments/assets/bc957e51-c774-4018-94f2-0079000d7e19" />
+</div>
+<br>
+
+
+
 
 
 
