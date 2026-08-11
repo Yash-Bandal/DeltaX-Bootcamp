@@ -675,4 +675,4 @@ Actor
 - Always delete **child records before parent records** to satisfy foreign key constraints.
 - `DELETE AM FROM ... JOIN ...` deletes only the matching rows from the table represented by alias `AM`, **not the entire table**.
 - A safe way to understand `DELETE ... JOIN` is to first write it as `SELECT AM.*`; then replace `SELECT AM.*` with `DELETE AM`.
-```
+
