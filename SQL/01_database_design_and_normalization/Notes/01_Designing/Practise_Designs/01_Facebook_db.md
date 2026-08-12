@@ -63,6 +63,17 @@ WHERE A.given_name = 'Alice';
 
 Then reverse for below
 
+| profile_request|P.Name | profile_accept | P.Name|
+| --------------- |--| -------------- | -------|
+| 5            |  F1 | 14             | Alice |
+| 9             |  F2 | 14             | Alice |
+
+
+| profile_request|P.Name | profile_accept | P.Name|
+| --------------- |--| -------------- | -------|
+| 14            |  Alice | 4             | F3 |
+| 14             |  Alice | 7             | F4 |
+
 ### Logic
 
 - A user can appear in either friendship column.
