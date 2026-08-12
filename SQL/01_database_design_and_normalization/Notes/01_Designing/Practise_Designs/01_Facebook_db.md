@@ -20,6 +20,14 @@
 
 ### Query
 
+I want to get **Requester** details where **acceptor** is **Alice**
+
+Then
+
+I want to get **Acceptor** details where **requester** is **Alice**
+
+And Union
+
 ```sql
 SELECT
     P.id,
