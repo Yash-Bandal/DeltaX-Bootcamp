@@ -97,6 +97,19 @@ WHERE post_id = 101;
 - Each row in `post_like` represents one like.
 - Count rows for the given `post_id`.
 
+### All posts
+```sql
+SELECT
+    UP.id AS PostID,
+    UP.written_text,
+    COUNT(PL.id) AS TotalLikes
+FROM user_post UP
+LEFT JOIN post_like PL
+    ON UP.id = PL.post_id
+GROUP BY
+    UP.id,
+    UP.written_text;
+```
 <br>
 
 # 3. Which posts has Bob liked?
