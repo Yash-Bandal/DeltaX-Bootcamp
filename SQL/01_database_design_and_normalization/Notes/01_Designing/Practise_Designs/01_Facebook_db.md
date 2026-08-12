@@ -47,6 +47,13 @@ INNER JOIN user_profile A
     ON A.id = F.profile_request
 WHERE A.given_name = 'Alice';
 ```
+1. Start with `friendship` (F).
+2. Join `user_profile` as P using profile_request to get the **requester**'s details.
+3. Join `user_profile` again as A using profile_accept to get the **accepter**'s details.
+4. Filter where the accepter is Alice.
+5. Return the requester (P)
+
+Then reverse for below
 
 ### Logic
 
