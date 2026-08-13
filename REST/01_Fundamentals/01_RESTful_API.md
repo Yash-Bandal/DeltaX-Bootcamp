@@ -698,7 +698,7 @@ Returns Image URL
 
 # Important Topics to Read
 
-## CORS
+## [Cross-Origin Requests (CORS)](https://learn.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-3.1)
 
 Allows or blocks requests coming from another domain.
 
