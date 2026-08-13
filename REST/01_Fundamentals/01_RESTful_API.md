@@ -525,11 +525,11 @@ Example
 MovieService
 
         |
-        |<br>- MovieRepository
+        |---- MovieRepository
         |
-        |<br>- ActorRepository
+        |----  ActorRepository
         |
-        |<br>- ProducerRepository
+        |----  ProducerRepository
 ```
 
 Example
