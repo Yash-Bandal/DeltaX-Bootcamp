@@ -594,21 +594,38 @@ Benefits
 
 <br>
 
----
-
-<br>
-
-
+> [!Note]
+> - DI is a software design pattern which enables the development of loosely coupled code.
+> - Through DI, you can decrease tight coupling between software components.
+> - It is an implementation of Inversion-of-Control, which makes unit testing convenient.
 
 # Inversion of Control (IoC)
 
+<br>
+<div align = "center">
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/144489b2-1095-4c09-95a3-d7bd3f2f1e57" />
+</div>
+<br>
+
 DI is an implementation of IoC.
+
+- IoC (Inversion of Control) is a **big-picture design** principle where you stop your code from creating and managing the objects it needs.
+- Instead, an outside framework or container creates them and hands them to your code. 
+- **Dependency Injection (DI)** is just the specific method used to do this.
 
 Instead of your class creating dependencies,
 
 the framework provides them.
 
+
 <br>
+<div align = "center">
+       <img width="500" alt="image" src="https://github.com/user-attachments/assets/557c73de-0c20-4af7-ad35-d12d7524c67e" />
+</div>
+<br>
+
+
+
 
 # Mocking
 
