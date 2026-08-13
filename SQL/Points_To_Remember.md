@@ -95,8 +95,7 @@ SELECT Name FROM TableB;
 | Alice |
 | Bob |
 | Charlie |
-| David |
-| Emma |
+
 
 > **Note:** Duplicate values (e.g., **Bob**) are removed.
 
@@ -118,8 +117,7 @@ SELECT Name FROM TableB;
 | Bob |
 | Charlie |
 | Bob |
-| David |
-| Emma |
+
 
 duplicate Bob not removed
 
@@ -131,7 +129,7 @@ duplicate Bob not removed
 | Feature | UNION | JOIN |
 |---------|-------|------|
 | Purpose | Combines rows from two or more `SELECT` queries | Combines columns from two or more tables |
-| Combines | Rows | Columns |
+| Combines 🏷️ | Rows | Columns |
 | Number of Columns | Must be the same in both queries | Can be different |
 | Matching Condition | Not required | Required (`ON` clause, except `CROSS JOIN`) |
 | Duplicate Handling | `UNION` removes duplicates, `UNION ALL` keeps them | No duplicate removal by default |
@@ -183,7 +181,7 @@ Whenever you use an aggregate function (`COUNT`, `SUM`, `AVG`, `MIN`, `MAX`):
 
 > **Every non-aggregated column in the `SELECT` must appear in the `GROUP BY` clause.**
 
-### ❌ Wrong
+### ❌ Wrong 🏷️
 
 ```sql
 SELECT
