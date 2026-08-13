@@ -1,7 +1,7 @@
 # Points to Rememmber
 
 ## Index
-1. [Primary Key vs Unique](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/SQL/Points_To_Remember.md#1-unique-vs-primary-key)
+1. [Primary Key vs Unique](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/SQL/Points_To_Remember.md#1-primary-key-vs-unique)
 2. [Where vs Having - No Aggregates with WHERE](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/SQL/Points_To_Remember.md#2-where-vs-having)
 3. [UNION vs UNION ALL](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/SQL/Points_To_Remember.md#3-union-vs-union-all)
 4. [UNION vs Join](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/SQL/Points_To_Remember.md#4-union-vs-join)
