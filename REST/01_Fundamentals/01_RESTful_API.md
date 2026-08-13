@@ -449,6 +449,10 @@ Database
 
 # Repository Pattern
 
+These classes handle getting data into and out of our data store, with the important caveat that each Repository only works against a single Model class.  So, if your models are Dogs, Cats, and Rats, you would have a Repository for each, the DogRepository would not call anything in the CatRepository, and so on.
+
+
+
 Repository handles only database operations.
 
 Each Repository manages only one entity.
@@ -463,7 +467,7 @@ ProducerRepository
 
 MovieRepository should not access ActorRepository directly.
 
-Example
+Example of operations
 
 ```csharp
 MovieRepository.GetMovieById()
@@ -474,6 +478,7 @@ MovieRepository.DeleteMovie()
 <br>
 
 # Service Layer
+These classes can query multiple Repository classes and combine their data to form new, more complex business objects.
 
 Service contains business logic.
 
