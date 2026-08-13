@@ -50,6 +50,19 @@ INNER JOIN Channel_Profile C
     ON S.subscribed_to = C.Id
 WHERE S.subscribed_by = 101;      -- Alice's ChannelId
 ```
+```sql
+SELECT
+    C2.Name AS SubscribedChannel
+FROM Subscription S
+
+INNER JOIN Channel_Profile C1
+    ON S.subscribed_by = C1.Id
+
+INNER JOIN Channel_Profile C2
+    ON S.subscribed_to = C2.Id
+
+WHERE C1.Name = 'Alice';
+```
 
 ### Logic
 
