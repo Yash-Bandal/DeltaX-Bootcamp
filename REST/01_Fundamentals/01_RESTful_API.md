@@ -84,6 +84,10 @@ This is a **Web Service**.
 
 <br>
 
+---
+
+<br>
+
 # What is an API?
 
 API (Application Programming Interface) is a set of rules that allows two software applications to communicate.
@@ -178,6 +182,11 @@ It uses existing standards like
 - MIME Types
 
 <br>
+
+---
+
+<br>
+
 
 # Core Concepts of REST
 
@@ -363,6 +372,10 @@ Deletes user with Id = 2.
 
 <br>
 
+---
+
+<br>
+
 # ASP.NET Core
 
 ASP.NET Core is Microsoft's
@@ -387,7 +400,19 @@ Supports
 
 <br>
 
+---
+
+<br>
+
+
 # MVC (Model View Controller)
+
+
+<br>
+<div align = "center">
+<img width="550" alt="image" src="https://github.com/user-attachments/assets/70418005-1f4e-4192-9617-602bfc2f2a93" />
+</div>
+<br>
 
 MVC separates an application into three parts.
 
@@ -451,6 +476,11 @@ Database
 ```
 
 <br>
+
+---
+
+<br>
+
 
 # Repository Pattern
 
@@ -530,6 +560,12 @@ Service
 
 <br>
 
+---
+
+<br>
+
+
+
 # Dependency Injection (DI)
 
 Dependency Injection is a design pattern that provides required objects from outside instead of creating them manually.
@@ -557,6 +593,12 @@ Benefits
 - Better Code Reuse
 
 <br>
+
+---
+
+<br>
+
+
 
 # Inversion of Control (IoC)
 
@@ -600,6 +642,12 @@ Now testing becomes easier.
 
 <br>
 
+---
+
+<br>
+
+
+
 # Uploading Images to Firebase
 
 Package
@@ -624,6 +672,12 @@ Returns Image URL
 ```
 
 <br>
+
+---
+
+<br>
+
+
 
 # Important Topics to Read
 
@@ -785,6 +839,12 @@ These are useful but not required for the assignment.
 
 <br>
 
+---
+
+<br>
+
+
+
 # Quick Interview Points
 
 - HTTP is a protocol.
@@ -800,3 +860,10 @@ These are useful but not required for the assignment.
 - Mocking replaces real dependencies during testing.
 - JWT is used for authentication.
 - CORS controls cross-origin requests.
+  
+<br>
+
+---
+
+<br>
+
