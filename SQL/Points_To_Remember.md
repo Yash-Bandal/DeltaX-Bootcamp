@@ -1,4 +1,15 @@
-### Unique vs Primary key
+# Points to Rememmber
+
+## Index
+1. [Unique vs Primary Key]()
+2. [Where vs Having - No Aggregates with WHERE]
+3. [UNION vs UNION ALL]
+4. [UNION vs Join]
+5. [With and Without Group BY]
+6. [Group by Primary Key + Display Columns]
+
+
+### 1. Unique vs Primary key
 | Feature | Primary Key | Unique Key |
 | :--- | :--- | :--- |
 | **Quantity** | Only **one** allowed per table. | **Multiple** allowed per table. |
@@ -10,7 +21,7 @@
 
 
 
-### WHERE vs HAVING
+### 2. WHERE vs HAVING
 
 > [!caution]
 > You cannot use where with aggregate
@@ -40,7 +51,7 @@ HAVING SUM(Salary) > 4000;
 
 <br>
 
-## UNION vs UNION ALL
+## 3. UNION vs UNION ALL
 
 | Feature | UNION | UNION ALL |
 |---------|-------|-----------|
@@ -113,7 +124,7 @@ duplicate Bob not removed
 
 <br>
 
-## UNION vs JOIN
+## 4. UNION vs JOIN
 
 | Feature | UNION | JOIN |
 |---------|-------|------|
@@ -124,7 +135,9 @@ duplicate Bob not removed
 | Duplicate Handling | `UNION` removes duplicates, `UNION ALL` keeps them | No duplicate removal by default |
 | Use Case | Merge similar data from multiple tables | Retrieve related data from multiple tables |
 
-## With and Without Group BY
+<br>
+
+## 5. With and Without Group BY
 Think of it like this:
 
 Without GROUP BY:
@@ -158,3 +171,59 @@ A nice way to think about it is:
 GROUP BY splits the table into many mini-tables, and COUNT(*) counts rows inside each mini-table.
 
 This mental model works for SUM(), AVG(), MIN(), MAX(), etc. as well.
+
+
+<br>
+
+## 6. Group by Primary Key + Display Columns
+
+Whenever you use an aggregate function (`COUNT`, `SUM`, `AVG`, `MIN`, `MAX`):
+
+> **Every non-aggregated column in the `SELECT` must appear in the `GROUP BY` clause.**
+
+### ❌ Wrong
+
+```sql
+SELECT
+    C.Name,
+    COUNT(S.subscribed_to)
+FROM Channel_Profile C
+INNER JOIN Subscription S
+    ON C.Id = S.subscribed_to
+GROUP BY
+    S.subscribed_to;
+```
+
+**Reason:** `C.Name` is selected but not included in `GROUP BY`.
+
+
+
+### ✅ Right
+
+```sql
+SELECT
+    C.Name,
+    COUNT(S.subscribed_to)
+FROM Channel_Profile C
+INNER JOIN Subscription S
+    ON C.Id = S.subscribed_to
+GROUP BY
+    C.Id,
+    C.Name;
+```
+
+
+
+### Easy Memory Trick
+
+✅ **Ask yourself:**
+
+> **"Am I printing this column directly?"**
+
+If **Yes**, then:
+- Either put it in `GROUP BY`
+- Or wrap it inside an aggregate function.
+
+Otherwise, SQL Server throws an error.
+
+<br>
