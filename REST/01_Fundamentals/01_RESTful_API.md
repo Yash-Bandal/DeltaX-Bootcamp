@@ -270,7 +270,7 @@ Returns
     },
     {
         "id":2,
-        "name":"Ashwini"
+        "name":"Kshitij"
     }
 ]
 ```
@@ -304,8 +304,8 @@ Body
 
 ```json
 {
-    "firstName":"Ashwini",
-    "lastName":"Gupt"
+    "firstName":"Kshitj",
+    "lastName":"Nangare"
 }
 ```
 
@@ -321,8 +321,8 @@ Body
 
 ```json
 {
-    "firstName":"Ashwini",
-    "lastName":"Gupta"
+    "firstName":"Kshitij",
+    "lastName":"Nangare"
 }
 ```
 
@@ -340,7 +340,7 @@ Body
 
 ```json
 {
-    "lastName":"Gupta"
+    "lastName":"Nangare"
 }
 ```
 
