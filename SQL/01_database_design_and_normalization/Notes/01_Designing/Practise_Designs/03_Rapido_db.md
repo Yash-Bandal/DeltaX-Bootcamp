@@ -1,147 +1,15 @@
 # Rapido Database Design & SQL Practice
 
+## Database Design
 <br>
 <div align = "center">
 <img width="650" alt="image" src="https://github.com/user-attachments/assets/f724503a-837a-4362-bc2f-ecd734da3baf" />
 </div>
 <br>
 
-# Database Design
 
-## Users
 
-| Column | Description |
-|---------|-------------|
-| ID | Primary Key |
-| Name | User Name |
-| Email | Email Address |
-| Phone_Number | Contact Number |
-| Created_At | Account Creation Time |
 
-<br>
-
-## Riders
-
-| Column | Description |
-|---------|-------------|
-| ID | Primary Key |
-| Name | Rider Name |
-| Phone_Number | Contact Number |
-| Vehicle_Number | Vehicle Registration Number |
-| Vehicle_Type | Bike, Auto, Cab, etc. |
-| Created_At | Registration Time |
-
-<br>
-
-## Rides
-
-| Column | Description |
-|---------|-------------|
-| ID | Primary Key |
-| User_ID | FK → Users.ID |
-| Rider_ID | FK → Riders.ID |
-| Pickup_Location | Pickup Address |
-| Drop_Location | Destination |
-| Fare | Ride Fare |
-| Status | Requested, Accepted, Started, Completed, Cancelled |
-| Requested_At | Ride Request Time |
-| Started_At | Ride Start Time |
-| Completed_At | Ride End Time |
-
-<br>
-
-## Ratings
-
-| Column | Description |
-|---------|-------------|
-| ID | Primary Key |
-| Ride_ID | FK → Rides.ID |
-| From_User_ID | User who gave rating |
-| To_User_ID | User/Rider who received rating |
-| Rating_Value | Rating (1-5) |
-| Review | Optional Review |
-| Created_At | Rating Time |
-
-<br>
-
-# Normalized User Design (Avoid Update Anomaly)
-
-## Users
-
-| Column |
-|---------|
-| ID |
-| Name |
-| Category_ID |
-
-<br>
-
-## Category
-
-| Column |
-|---------|
-| ID |
-| Name |
-
-Example
-
-| ID | Name |
-|---------|---------|
-| 1 | Customer |
-| 2 | Rider |
-
-<br>
-
-## Customers
-
-| Column |
-|---------|
-| ID |
-| User_ID |
-| Pickup_Location |
-
-<br>
-
-## Riders
-
-| Column |
-|---------|
-| ID |
-| User_ID |
-| Vehicle_Number |
-
-<br>
-
-## Ratings
-
-| Column |
-|---------|
-| ID |
-| Ride_ID |
-| From_User_ID |
-| To_User_ID |
-
-<br>
-
-# Relationships
-
-```
-Users (1)
-   │
-   ├──────────────┐
-   │              │
-   ▼              ▼
-Customers       Rides
-                   ▲
-                   │
-                   │
-                Riders
-                   │
-                   ▼
-                Ratings
-```
-
-<br>
 
 # SQL Practice Queries
 
