@@ -221,6 +221,21 @@ ORDER BY Total_Rides DESC;
 - Count bookings in each hour.
 - Highest count = peak booking hour.
 
+> [!Note]
+> ```sql
+> DATEPART(HOUR, Requested_At)
+> ```
+>
+> | Requested_At | DATEPART(HOUR, Requested_At) |
+> | ------------ | ---------------------------- |
+> | 08:10        | 8                            |
+> | 08:45        | 8                            |
+> | 09:05        | 9                            |
+> | 09:15        | 9                            |
+> | 09:30        | 9                            |
+> | 10:12        | 10                           |
+
+
 <br>
 
 ## 10. User-Rider Pairs Having 3 or More Completed Rides Together
