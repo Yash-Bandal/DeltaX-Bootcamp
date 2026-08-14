@@ -7,7 +7,7 @@
 4. [UNION vs Join](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/SQL/Points_To_Remember.md#4-union-vs-join)
 5. [With and Without Group BY](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/SQL/Points_To_Remember.md#5-with-and-without-group-by)
 6. [Group by Primary Key + Display Columns](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/SQL/Points_To_Remember.md#6-group-by-primary-key--display-columns)
-7. [Group By and Aggregate]()
+7. [Group By and Aggregate](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/SQL/Points_To_Remember.md#dont-group-by-aggregating-column)
 
 <br>
 
@@ -232,9 +232,7 @@ Otherwise, SQL Server throws an error.
 <br>
 
 
----
 
-<br>
 
 ## Dont Group By Aggregating Column
 Do not GROUP BY the column that you're aggregating.
