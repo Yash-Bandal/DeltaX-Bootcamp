@@ -69,16 +69,21 @@ ORDER BY Total_Rides DESC;
 
 ```sql
 SELECT
-    r.ID,
-    r.Name,
-    AVG(rt.Rating_Value) AS Avg_Rating
-FROM Riders r
-JOIN Ratings rt
-    ON r.ID = rt.To_User_ID
+    U.Id,
+    U.Name,
+    AVG(RT.Rating_Value) AS Avg_Rating
+FROM Rider R
+INNER JOIN User U
+    ON R.User_ID = U.Id
+INNER JOIN Ratings RT
+    ON RT.To_User_ID = U.Id
 GROUP BY
-    r.ID,
-    r.Name;
+    U.Id,
+    U.Name;
 ```
+
+> [!Caution]
+> Do not GROUP BY the column that you're aggregating. eg `GROUP BY RT.Rating_Value
 
 ### Logic
 
