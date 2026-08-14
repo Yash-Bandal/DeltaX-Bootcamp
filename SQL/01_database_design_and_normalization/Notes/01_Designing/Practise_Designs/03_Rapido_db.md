@@ -2,7 +2,7 @@
 
 <br>
 <div align = "center">
-<img width="650" alt="image" src="https://github.com/user-attachments/assets/c5f670e8-9c47-4cbf-a027-f2dda59b4e39" />
+<img width="650" alt="image" src="https://github.com/user-attachments/assets/f724503a-837a-4362-bc2f-ecd734da3baf" />
 </div>
 <br>
 
