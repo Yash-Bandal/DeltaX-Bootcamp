@@ -75,14 +75,14 @@
 ## Category
 
 | Column |
-|---------|-------------|
+|---------|
 | ID |
 | Name |
 
 Example
 
 | ID | Name |
-|---------|-------------|
+|---------|---------|
 | 1 | Customer |
 | 2 | Rider |
 
@@ -111,7 +111,7 @@ Example
 ## Ratings
 
 | Column |
-|<br><br><br>|
+|---------|
 | ID |
 | Ride_ID |
 | From_User_ID |
