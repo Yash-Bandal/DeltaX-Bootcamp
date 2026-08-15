@@ -1,0 +1,8 @@
+D:\CSharpFundamentalsAssign\CSharpFundamentalsAssign\bin\Debug\CSharpFundamentalsAssign.exe.config
+D:\CSharpFundamentalsAssign\CSharpFundamentalsAssign\bin\Debug\CSharpFundamentalsAssign.exe
+D:\CSharpFundamentalsAssign\CSharpFundamentalsAssign\bin\Debug\CSharpFundamentalsAssign.pdb
+D:\CSharpFundamentalsAssign\CSharpFundamentalsAssign\obj\Debug\CSharpFundamentalsAssign.csproj.AssemblyReference.cache
+D:\CSharpFundamentalsAssign\CSharpFundamentalsAssign\obj\Debug\CSharpFundamentalsAssign.csproj.CoreCompileInputs.cache
+D:\CSharpFundamentalsAssign\CSharpFundamentalsAssign\obj\Debug\CSharpFundamentalsAssign.exe
+D:\CSharpFundamentalsAssign\CSharpFundamentalsAssign\obj\Debug\CSharpFundamentalsAssign.pdb
+D:\CSharpFundamentalsAssign\CSharpFundamentalsAssign\obj\Debug\CSharpFundamentalsAssign.exe.config
