@@ -8,7 +8,7 @@
 5. [With and Without Group BY](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#5-with-and-without-group-by)
 6. [Group by Primary Key + Display Columns](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#6-group-by-primary-key--display-columns)
 7. [Group By and Aggregate](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#7-dont-group-by-aggregating-column)
-8. [Functions vs Stored Procedures]()
+8. [Functions vs Stored Procedures](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#8-stored-procedure-vs-function)
 
 <br>
 
@@ -310,3 +310,35 @@ Execute:
 ```sql
 EXEC GetEmployeeDetails 101;
 ```
+
+<br>
+
+# Database Anomalies
+
+Anomalies are problems caused by **redundant / poorly designed data**.
+
+### 1. Update Anomaly
+
+Same data exists in multiple rows → changing it requires multiple updates.
+
+**Example:** Course name `SQL` stored for 10 students. Changing it requires updating all 10 rows.
+
+### 2. Insertion Anomaly
+
+Cannot insert new information without unrelated information.
+
+**Example:** Cannot add a new course unless at least one student is enrolled.
+
+### 3. Deletion Anomaly
+
+Deleting one piece of data accidentally deletes other useful information.
+
+**Example:** Deleting the only student enrolled in `C#` also removes the C# course information.
+
+> **Remember:**
+> **Update → Multiple changes**
+> **Insert → Can't add independently**
+> **Delete → Unwanted data loss**
+
+
+<br>
