@@ -248,7 +248,7 @@ GROUP BY Department, Salary;
 
 <br>
 
-## 8. Stored Procedure vs Function — SQL Server
+## 8. Stored Procedure vs Function 
 
 > [!Important]
 > **Core difference**
