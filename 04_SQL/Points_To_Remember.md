@@ -270,7 +270,7 @@ GROUP BY Department, Salary;
 | Transactions                  | Restricted                                         | Yes                                            |
 | Dynamic SQL                   | No                                                 | Yes                                            |
 | Called from procedure         | Yes                                                | —                                              |
-| Called directly from `SELECT` | Yes                                                | No                                             |
+
 
 Function example
 ```sql
