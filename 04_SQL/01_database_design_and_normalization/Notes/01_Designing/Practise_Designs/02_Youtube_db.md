@@ -1227,6 +1227,26 @@ INNER JOIN Channel_Profile C2
 
 Self-join the `Subscription` table to find pairs where both channels subscribe to each other.
 
+| Id | subscribed_by | subscribed_to |
+| -: | ------------: | ------------: |
+|  1 |            10 |            20 |
+|  2 |            20 |            10 |
+
+| Id | Name  |
+| -: | ----- |
+| 10 | Alice |
+| 20 | Bob   |
+
+after first join (2 iterations)
+| S1.Id | S1.by | S1.to | S2.Id | S2.by | S2.to |
+| ----: | ----: | ----: | ----: | ----: | ----: |
+|     1 |    10 |    20 |     2 |    20 |    10 |
+|     2 |    20 |    10 |     1 |    10 |    20 |
+
+| S1.Id | S1.by | S1.to | S2.Id | S2.by | S2.to | C1.Name | C2.Name |
+| ----: | ----: | ----: | ----: | ----: | ----: | ----: | ----: |
+|     1 |    10 |    20 |     2 |    20 |    10 | Alice | Bob |
+|     2 |    20 |    10 |     1 |    10 |    20 | Bob | Alice |
 
 <br>
 
