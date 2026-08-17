@@ -316,8 +316,18 @@ EXEC GetEmployeeDetails 101;
 <br>
 
 ##  9. Database Anomalies
+In database systems, anomalies are unexpected or undesired behaviors that can occur when manipulating data,
 
-Anomalies are problems caused by **redundant / poorly designed data**.
+They are problems caused by **redundant / poorly designed data**.
+
+**eg: of bad db**
+
+| StudentID | StudentName | CourseID | CourseName | Instructor |
+| --------- | ----------- | -------- | ---------- | ---------- |
+| 1         | Yash        | C101     | SQL        | Rahul      |
+| 2         | Amit        | C101     | SQL        | Rahul      |
+| 3         | John        | C102     | C#         | Priya      |
+
 
 ### 1. Update Anomaly
 
