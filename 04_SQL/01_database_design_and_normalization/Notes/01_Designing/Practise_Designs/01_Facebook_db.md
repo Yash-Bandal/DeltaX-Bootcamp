@@ -14,6 +14,23 @@
 - `post_comment` → Stores comments made on posts.
 - `friendship` → Stores friendships between users.
 
+
+<br>
+
+| Important Question                                 | Number in Full Markdown |
+| -------------------------------------------------- | ----------------------: |
+| 1. [Total number of posts created by each user](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/01_database_design_and_normalization/Notes/01_Designing/Practise_Designs/01_Facebook_db.md#9-find-the-total-number-of-posts-created-by-each-user)      |                  **#9** |
+| 2. [Post with highest number of likes](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/01_database_design_and_normalization/Notes/01_Designing/Practise_Designs/01_Facebook_db.md#21-find-the-post-that-has-received-the-highest-number-of-likes)               |                 **#21** |
+| 3. [Total number of friends for each user](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/01_database_design_and_normalization/Notes/01_Designing/Practise_Designs/01_Facebook_db.md#18-find-the-total-number-of-friends-for-each-user)           |                 **#18** |
+| 4. [Users who have not created any posts](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/01_database_design_and_normalization/Notes/01_Designing/Practise_Designs/01_Facebook_db.md#10-find-all-users-who-have-not-created-any-posts)            |                 **#10** |
+| 5. [Users who are friends with each other](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/01_database_design_and_normalization/Notes/01_Designing/Practise_Designs/01_Facebook_db.md#20-find-the-mutual-friends-of-alice-and-bob)           |                 **#20** |
+| 6. [Total number of comments received by each post](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/01_database_design_and_normalization/Notes/01_Designing/Practise_Designs/01_Facebook_db.md#16-find-the-number-of-comments-on-every-post)  |                 **#16** |
+| 7. [Top 5 users with highest number of friends](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/01_database_design_and_normalization/Notes/01_Designing/Practise_Designs/01_Facebook_db.md#19-find-the-top-5-users-with-the-highest-number-of-friends)      |                 **#19** |
+| 8. [Posts that have not received any likes](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/01_database_design_and_normalization/Notes/01_Designing/Practise_Designs/01_Facebook_db.md#13-find-all-posts-that-have-not-received-any-likes)          |                 **#13** |
+| 9. [Total engagement for each post](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/01_database_design_and_normalization/Notes/01_Designing/Practise_Designs/01_Facebook_db.md#42-find-the-total-engagement-for-each-post)                  |                 **#42** |
+| 10. [Users who liked posts created by their friends](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/01_database_design_and_normalization/Notes/01_Designing/Practise_Designs/01_Facebook_db.md#46-find-users-who-have-liked-posts-created-by-their-friends) |                 **#46** |
+
+
 <br>
 
 # 1. Who are Alice's friends?
