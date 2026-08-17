@@ -1221,6 +1221,7 @@ INNER JOIN Channel_Profile C1
     ON S1.subscribed_by = C1.Id
 INNER JOIN Channel_Profile C2
     ON S1.subscribed_to = C2.Id;
+WHERE S1.subscribed_by < S1.subscribed_to;
 ```
 
 ### Logic
@@ -1247,6 +1248,12 @@ after first join (2 iterations)
 | ----: | ----: | ----: | ----: | ----: | ----: | ----: | ----: |
 |     1 |    10 |    20 |     2 |    20 |    10 | Alice | Bob |
 |     2 |    20 |    10 |     1 |    10 |    20 | Bob | Alice |
+
+Op 
+| Name1  | Name 2 |
+ | ----- | -------|
+  | Alice | Bob| 
+
 
 <br>
 
