@@ -348,8 +348,8 @@ Deleting one piece of data accidentally deletes other useful information.
 **Example:** Deleting the only student enrolled in `C#` also removes the C# course information.
 
 > **Remember:**
-> **Update → Multiple changes**
-> **Insert → Can't add independently**
+> **Update → Multiple changes**\
+> **Insert → Can't add independently**\
 > **Delete → Unwanted data loss**
 
 
