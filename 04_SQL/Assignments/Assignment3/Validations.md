@@ -1,4 +1,19 @@
-### SP With Validation
+## SP With Validation
+> [!Note]
+> ```
+> THROW 50001, 'Something went wrong', 1;
+>      │       │                     │
+>      │       │                     └── State
+>      │       └──────────────────────── Message
+>      └──────────────────────────────── Error number
+> ```
+> ### What is 50001?
+>
+> This is your custom error number
+>
+> SQL Server has its **own error numbers**, and for errors you create yourself, you can use numbers from `50000` onward.
+
+
 ```sql
 USE IMDB_Dummy;
 GO
