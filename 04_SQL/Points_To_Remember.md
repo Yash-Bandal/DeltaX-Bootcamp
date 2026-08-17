@@ -10,6 +10,7 @@
 7. [Group By and Aggregate](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#7-dont-group-by-aggregating-column)
 8. [Functions vs Stored Procedures](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#8-stored-procedure-vs-function)
 9. [Anomalies](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#9-database-anomalies)
+10. [SQL Injection] 
 
 <br>
 
@@ -343,3 +344,25 @@ Deleting one piece of data accidentally deletes other useful information.
 
 
 <br>
+
+## 10. SQL Injection
+SQL injection (SQLi) is a **Security flaw** / **Vulnerability** / **Attack** where bad actors type malicious database commands into website entry boxes, like a login or search form. 
+
+If the website is not built safely, it runs this hidden code
+### How to avoid it?
+1. Parameterized queries / Prepared statements — most important.
+       Unsafe:
+       ```sql
+       SELECT * FROM Users
+       WHERE Name = ' + userInput + ';
+       ```
+       Safe:
+       ```sql
+       SELECT * FROM Users
+       WHERE Name = @Name;
+       ```
+   
+2. Validate and constrain input — datatype, length, allowed values, etc.
+3. Avoid dynamic SQL where possible; if necessary, parameterize it.
+   
+   So even if the user enters malicious SQL, it is treated as plain data, preventing SQL Injection.
