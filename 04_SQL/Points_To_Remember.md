@@ -8,6 +8,7 @@
 5. [With and Without Group BY](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#5-with-and-without-group-by)
 6. [Group by Primary Key + Display Columns](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#6-group-by-primary-key--display-columns)
 7. [Group By and Aggregate](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#7-dont-group-by-aggregating-column)
+8. [Functions vs Stored Procedures]()
 
 <br>
 
@@ -234,7 +235,7 @@ Otherwise, SQL Server throws an error.
 
 
 
-## 7 Dont Group By Aggregating Column
+## 7 Don't Group By Aggregating Column
 Do not GROUP BY the column that you're aggregating.
 
 WRONG
@@ -242,4 +243,70 @@ WRONG
 SELECT Department, AVG(Salary)
 FROM Employees
 GROUP BY Department, Salary;
+```
+
+
+<br>
+
+## 8. Stored Procedure vs Function — SQL Server
+
+> [!Important]
+> **Core difference**
+>
+> Function is mainly used to calculate/return a value.\
+> Stored Procedure is used to perform an operation/business process.
+
+|                               | Function                                           | Stored Procedure                               |
+| ----------------------------- | -------------------------------------------------- | ---------------------------------------------- |
+| Purpose                       | Return a value/table                               | Perform a task                                 |
+| Return                        | Must return a value/table                          | Can return nothing, result sets, output params |
+| Call from `SELECT`            | Yes                                                | No                                             |
+| Can modify data               | Generally no side-effecting `INSERT/UPDATE/DELETE` | Yes                                            |
+| Input parameters              | Yes                                                | Yes                                            |
+| Output parameters             | No                                                 | Yes                                            |
+| Multiple result sets          | No                                                 | Yes                                            |
+| Transactions                  | Restricted                                         | Yes                                            |
+| Dynamic SQL                   | No                                                 | Yes                                            |
+| Called from procedure         | Yes                                                | —                                              |
+| Called directly from `SELECT` | Yes                                                | No                                             |
+
+Function example
+```sql
+CREATE FUNCTION GetEmployeeSalary
+(
+    @EmployeeId INT
+)
+RETURNS DECIMAL(10,2)
+AS
+BEGIN
+    DECLARE @Salary DECIMAL(10,2);
+
+
+    SELECT @Salary = Salary
+    FROM Employees
+    WHERE Id = @EmployeeId;
+
+
+    RETURN @Salary;
+END;
+```
+Use it:
+```sql
+SELECT dbo.GetEmployeeSalary(101);
+```
+
+Stored Procedure example
+```sql
+CREATE PROCEDURE GetEmployeeDetails
+    @EmployeeId INT
+AS
+BEGIN
+    SELECT *
+    FROM Employees
+    WHERE Id = @EmployeeId;
+END;
+```
+Execute:
+```sql
+EXEC GetEmployeeDetails 101;
 ```
