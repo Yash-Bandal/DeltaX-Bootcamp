@@ -313,7 +313,7 @@ EXEC GetEmployeeDetails 101;
 
 <br>
 
-# Database Anomalies
+##  9. Database Anomalies
 
 Anomalies are problems caused by **redundant / poorly designed data**.
 
