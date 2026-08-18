@@ -11,8 +11,11 @@
 8. [Functions vs Stored Procedures](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#8-stored-procedure-vs-function)
 9. [Anomalies](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#9-database-anomalies)
 10. [SQL Injection](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#10-sql-injection)
-
+11. [Transactions]()
+    
 <br>
+
+
 
 
 ### 1. Primary key vs Unique 
@@ -376,3 +379,67 @@ If the website is not built safely, it runs this hidden code
 3. Avoid dynamic SQL where possible; if necessary, parameterize it.
    
    So even if the user enters malicious SQL, it is treated as plain data, preventing SQL Injection.
+
+
+<br>
+
+## 11. Transactions
+A Transaction is a Sequence of operation performed as a single unit of Task/Work.
+
+It works on the Idea, either `Commit all` or `Nothing`.
+
+
+### 1. What is `@@TRANCOUNT`?
+
+`@@TRANCOUN` is a SQL Server system variable that tells you how many **Active Transactions** are currently open in your session.
+```
+BEGIN TRANSACTION;
+-- @@TRANCOUNT = 1
+
+BEGIN TRANSACTION;
+-- @@TRANCOUNT = 2
+
+       .
+       .       
+       .
+       
+COMMIT;
+-- @@TRANCOUNT = 1
+
+COMMIT;
+-- @@TRANCOUNT = 0
+```
+```sql
+IF @@TRANCOUNT > 0
+    ROLLBACK TRANSACTION;
+```
+
+It means:\
+"If a transaction is currently open or Active, roll it back."
+
+### When would @@TRANCOUNT be 0?
+Observe the code, we write validation checks `IF..THROW` before we `BEGIN TRANSACTION`
+
+So, if validation fails, and throws something, Begin transaction is never reached, and `@TRANCOUNT` remains 0
+
+
+
+### Why not simply write ROLLBACK?
+
+You could write:
+```sql
+BEGIN CATCH
+    ROLLBACK TRANSACTION;
+    THROW;
+
+END CATCH
+```
+But if there is no active transaction, ROLLBACK TRANSACTION itself can produce an error:
+
+> "The ROLLBACK TRANSACTION request has no corresponding BEGIN TRANSACTION."
+
+so its safe to write
+```sql
+IF @@TRANCOUNT > 0
+    ROLLBACK TRANSACTION;
+```
