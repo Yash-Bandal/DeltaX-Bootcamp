@@ -16,6 +16,9 @@
 <br>
 
 
+## Terms
+**1. Cascading referential integrity constraint** - A cascading referential integrity constraint is a database rule 
+that automatically updates or deletes dependent child table rows when a parent table row is updated or deleted.
 
 
 ### 1. Primary key vs Unique 
