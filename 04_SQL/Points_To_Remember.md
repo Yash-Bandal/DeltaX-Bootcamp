@@ -21,6 +21,13 @@
 that automatically updates or deletes dependent child table rows when a parent table row is updated or deleted.
 
 
+<br>
+
+---
+
+<br>
+
+
 ### 1. Primary key vs Unique 
 | Feature | Primary Key | Unique Key |
 | :--- | :--- | :--- |
