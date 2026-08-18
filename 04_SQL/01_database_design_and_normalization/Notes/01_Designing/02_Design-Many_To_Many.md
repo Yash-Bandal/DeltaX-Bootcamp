@@ -11,7 +11,7 @@ A **many-to-many** relationship occurs when multiple records in one table relate
 - **Example:** A *Student* can enroll in many *Classes*, and a single *Class* can have many *Students* enrolled in it.
 
 **Reference:**  
-[Junction Tables](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/SQL/01_database_design_and_normalization/02_Assignment.md#assignment---database-design)
+[Junction Tables](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Assignments/Assignment1.md#assignment---database-design)
 
 <br>
 
