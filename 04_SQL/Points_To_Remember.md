@@ -33,7 +33,8 @@ that automatically updates or deletes dependent child table rows when a parent t
 <br>
 
 ## Notes
-**1.** Self Join is used in Hierarchy cases, eg. Employee table, find manager and associated employee
+1. Self Join is used in Hierarchy cases, eg. Employee table, find manager and associated employee
+2. Use Self Referencing, in cases like friendships, subscribers, followers..
 
 <br>
 
