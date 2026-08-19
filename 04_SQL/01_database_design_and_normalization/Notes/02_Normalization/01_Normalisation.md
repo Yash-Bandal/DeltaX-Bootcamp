@@ -570,7 +570,7 @@ Now every determinant is a Candidate Key.
 
 | 3NF | BCNF |
 |------|------|
-| Every non-key attribute depends only on the Primary Key. | Every determinant must be a Candidate Key. |
+| Every non-key attribute depends only on the Primary Key. | Every determinant must be a Candidate Key, Non-key attribute should not determine another attibute |
 | May still allow some redundancy. | Removes more redundancy than 3NF. |
 | Less strict. | More strict than 3NF. |
 
