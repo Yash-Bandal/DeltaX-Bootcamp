@@ -32,6 +32,15 @@ that automatically updates or deletes dependent child table rows when a parent t
 
 <br>
 
+## Notes
+**1.** Self Join is used in Hierarchy cases, eg. Employee table, find manager and associated employee
+
+<br>
+
+---
+
+<br>
+
 ## Things worth Noting
 
 ### 1. Primary key vs Unique 
