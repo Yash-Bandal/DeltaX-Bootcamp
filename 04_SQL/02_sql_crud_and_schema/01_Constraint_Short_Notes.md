@@ -38,11 +38,18 @@
 <br>
 
 
-### Identity Constraint
+### Identity Constraint'
+
+
 - Like `Auto Increment` in MySQL
 - But, you cannot insert in a table having identity constraint, so we use this below
 
 ### `SET IDENTITY_INSERT`
+
+
+> [!Tip]
+> In simple, Identity (Like Id) is auto added to a tabe on inserting data,\
+> but if you want to add manually, you need to TURN **ON** `IDENTITY_INSERT`
 
 **Purpose:** Allows inserting explicit values into an `IDENTITY` column, typically used when you need to manually restore or re-seed specific primary key values.
 
