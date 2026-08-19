@@ -1,6 +1,6 @@
 # UNION vs UNION ALL
 
->[!Important]
+> [!Important]
 >  For `UNION` and `UNION ALL` to work, the Number, Data types, and the order of the Columns in the select statements should be same
 
 
@@ -65,7 +65,6 @@ SELECT Name FROM TableB;
 
 | Name |
 |------|
-
 | Alice |
 | Bob |
 | Charlie |
