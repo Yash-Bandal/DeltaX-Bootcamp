@@ -525,4 +525,15 @@ Here, Employee is the **N-side**, so `DeptId` goes into `Employee`.
 | Core Purpose | To act as a "candidate" to become the Primary Key. | To enforce uniqueness when single columns fail to do so. |
 | Minimality | Strictly minimal. Removing one column destroys uniqueness. | Not necessarily minimal. It can sometimes include extra columns. |
 
+& Superkey vs Composite key
+
+| Feature | Superkey | Composite Key |
+|---|---|---|
+| Definition | Any combination of fields that uniquely identifies a row. | A key composed of two or more columns to ensure uniqueness. |
+| Minimality | Not required to be minimal; often contains extra columns. | Must be minimal; removing any column breaks uniqueness. |
+| Number of Columns | Can be a single column or multiple columns. | Must always consist of 2 or more columns. |
+| Redundancy | Contains redundant attributes. | Contains zero redundant attributes. |
+
+
+
 
