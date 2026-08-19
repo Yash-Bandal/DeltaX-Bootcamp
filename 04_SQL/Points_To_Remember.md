@@ -13,7 +13,8 @@
 10. [SQL Injection](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#10-sql-injection)
 11. [Transactions](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#11-transactions)
 12. [3NF and No junction table](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#12-3nf)
-    
+13. [Candidate Vs Composite key]()
+
 <br>
 
 
@@ -511,3 +512,17 @@ DeptId | DeptName
 > **1:N → FK on the N-side**
 
 Here, Employee is the **N-side**, so `DeptId` goes into `Employee`.
+
+
+<br>
+
+##  13. Candidate Key vs. Composite Key
+
+| Feature | Candidate Key | Composite Key |
+|---|---|---|
+| Primary Definition | A minimal super key that can uniquely identify a row. | A database key made up of two or more columns. |
+| Column Count | Can be a single column or multiple columns. | Must always have multiple columns. |
+| Core Purpose | To act as a "candidate" to become the Primary Key. | To enforce uniqueness when single columns fail to do so. |
+| Minimality | Strictly minimal. Removing one column destroys uniqueness. | Not necessarily minimal. It can sometimes include extra columns. |
+
+
