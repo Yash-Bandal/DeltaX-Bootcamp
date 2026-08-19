@@ -14,6 +14,7 @@
 11. [Transactions](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#11-transactions)
 12. [3NF and No junction table](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#12-3nf)
 13. [Candidate Vs Composite key]()
+14. [Delete vs Truncate vs Drop]
 
 <br>
 
@@ -534,6 +535,17 @@ Here, Employee is the **N-side**, so `DeptId` goes into `Employee`.
 | Number of Columns | Can be a single column or multiple columns. | Must always consist of 2 or more columns. |
 | Redundancy | Contains redundant attributes. | Contains zero redundant attributes. |
 
+
+
+<br>
+
+## 14. Delete vs Truncate vs Drop
+
+| Command    | Removes             | `WHERE` allowed? | Table and its Structure remains? | Typical use             |
+| ---------- | ------------------- | ---------------: | -------------: | ----------------------- |
+| `DELETE`   | Can delete some Selected rows or all rows        |            ✅ Yes |          ✅ Yes | Remove specific recordsm SLow because of where filter functionility |
+| `TRUNCATE` | **All rows** , `Resets` the table       |             ❌ No |          ✅ Yes | Empty a table quickly   |
+| `DROP`     | Delete he Entire table/object |             ❌ No |           ❌ No | Remove the table itself |
 
 
 
