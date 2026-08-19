@@ -26,7 +26,7 @@
 ### Table B
 
 | Name |
-|<br><br>|
+|------|
 | Bob |
 | David |
 | Emma |
