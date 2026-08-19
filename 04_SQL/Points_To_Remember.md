@@ -12,6 +12,7 @@
 9. [Anomalies](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#9-database-anomalies)
 10. [SQL Injection](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#10-sql-injection)
 11. [Transactions](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#11-transactions)
+12. [3NF and No junction table]
     
 <br>
 
@@ -456,3 +457,57 @@ so its safe to write
 IF @@TRANCOUNT > 0
     ROLLBACK TRANSACTION;
 ```
+
+<br>
+
+## 12. 3NF 
+3NF ensures table is in 2nf, and no transitive dependency exists
+
+```text
+Employee
+--------------------------------
+EmployeeId | EmployeeName | DeptId | DeptName
+1          | Yash         | D10    | IT
+2          | Rahul        | D10    | IT
+3          | Amit         | D20    | HR
+```
+
+* **PK:** `EmployeeId`
+* `DeptId` is **NOT part of the candidate key**.
+* Still violates **3NF** because of a **transitive dependency**:
+
+```text
+EmployeeId → DeptId
+DeptId     → DeptName
+
+Therefore:
+EmployeeId → DeptName   (transitively)
+```
+
+### Fix
+
+Split into:
+
+```text
+Employee
+-------------------------
+EmployeeId | EmployeeName | DeptId
+
+Department
+----------------
+DeptId | DeptName
+```
+
+* `DeptId` in `Employee` becomes an **FK**.
+* Relationship is **1:N**:
+  * **1 Department → Many Employees**
+  * **1 Employee → 1 Department** (assuming each employee belongs to one department)
+* Therefore, **NO junction table**.
+
+### Remember
+
+> **M:N → Junction table**
+
+> **1:N → FK on the N-side**
+
+Here, Employee is the **N-side**, so `DeptId` goes into `Employee`.
