@@ -292,10 +292,13 @@ Pairs who never worked together
 
 ## Method 2 — LEFT JOIN
 
--- Using LEFT JOIN (Optimal)
--- Think what it looks of actor with no common movie
--- it looks A1.Name/AM1.Name has val, A1.Name/AM1.Name has NULL,
-
+- Using LEFT JOIN (Optimal)
+- Think what it looks of actor with no common movie
+- it looks A1.Name/AM1.Name has val, A1.Name/AM1.Name has NULL,
+```
+ A1 + AM1 → has a value (Actor 1's movie)
+ A2 + AM2 → NULL (no matching movie for Actor 2)
+```
 ```sql
 SELECT
     A1.Name AS Actor1,
