@@ -320,21 +320,48 @@ HAVING COUNT(AM2.MovieId) = 0;
 
 ```text
 1. Get all unique actor pairs
+   A1.Id < A2.Id
+
         ↓
-2. Get movies of Actor 1
+
+2. LEFT JOIN Actor_Movies as AM1
+   Get movies of Actor1
+
         ↓
-3. Get movies of Actor 2
+
+3. LEFT JOIN Actor_Movies as AM2
+   Get movies of Actor2
+
+   AND require:
+   AM1.MovieId = AM2.MovieId
+
         ↓
-4. Require AM1.MovieId = AM2.MovieId
+
+4. If Actor2 has the same movie
+   → AM2.MovieId gets a value
+
+   If Actor2 doesn't have that movie
+   → AM2.MovieId = NULL
+
         ↓
-5. Matching movie → AM2.MovieId has a value
-   No matching movie → AM2.MovieId is NULL
+
+5. GROUP BY the actor pair
+
         ↓
-6. GROUP BY actor pair
+
+6. Count AM2.MovieId
+
+   Matching movie → counted
+   NULL           → NOT counted
+
         ↓
-7. COUNT(AM2.MovieId)
+
+7. HAVING COUNT(AM2.MovieId) = 0
+
         ↓
-8. Keep pairs where count = 0
+
+   Only actor pairs with ZERO
+   common movies remain
 ```
 
 ### Why not simply use `WHERE AM2.MovieId IS NULL`?
