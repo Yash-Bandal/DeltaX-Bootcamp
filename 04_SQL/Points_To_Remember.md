@@ -13,11 +13,11 @@
 10. [SQL Injection](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#10-sql-injection)
 11. [Transactions](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#11-transactions)
 12. [3NF and No junction table](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#12-3nf)
-13. [Candidate Vs Composite key]()
-14. [Delete vs Truncate vs Drop]
-15. [`COUNT(column)` and `NULL`]()
-16. [GROUP BY and SELECT]
-17. [DISTINCT vs GROUP BY - Think of 2 methods of Finding Unique]
+13. [Candidate Vs Composite key](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#13-candidate-key-vs-composite-key)
+14. [Delete vs Truncate vs Drop](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#14-delete-vs-truncate-vs-drop)
+15. [`COUNT(column)` and `NULL`](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#15-countcolumn-and-null)
+16. [GROUP BY and SELECT](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#16-group-by-and-select)
+17. [DISTINCT vs GROUP BY - Think of 2 methods of Finding Unique](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#17-distinct-vs-group-by)
 
 <br>
 
@@ -593,7 +593,8 @@ COUNT(AM2.MovieId) = 0
 
 → **group-level** check.
 
----
+<br>
+
 
 ## 16. `GROUP BY` and `SELECT`
 
