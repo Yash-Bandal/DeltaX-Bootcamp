@@ -40,54 +40,95 @@ Actor_Movies
 ## Procedure
 
 ```sql
+
+DROP PROCEDURE IF EXISTS Foundation.usp_InsertMovie;
+GO
+```
+```sql
 CREATE PROCEDURE Foundation.usp_InsertMovie
 (
-    @Name VARCHAR(150),
-    @YearOfRelease INT,
-    @Plot VARCHAR(300),
-    @PosterImagePath VARCHAR(200),
-    @ProducerId INT,
-    @Language VARCHAR(50),
-    @Profit INT,
-    @ActorIds VARCHAR(50)
+	@Name VARCHAR(150),
+	@YearOfRelease INT,
+	@Plot VARCHAR(300),
+	@PosterImagePath VARCHAR(200),
+	@ProducerId INT,
+	@Language VARCHAR(50),
+	@Profit INT,
+	@ActorIds VARCHAR(50)
 )
 AS
 BEGIN
+	BEGIN TRY
+	
+		-- Set default values
+		SET @Plot = ISNULL(@Plot, 'Not available');
+		SET @PosterImagePath = ISNULL(@PosterImagePath, 'default.jpg');
+		SET @Profit = ISNULL(@Profit, 0);
 
-    DECLARE @MovieId INT;
+		-- Validations
+		IF @Name IS NULL OR TRIM(@Name) = ''
+			THROW 50001, 'Movie Name cannot be NULL or Empty', 1;
 
-    INSERT INTO Foundation.Movies
-    (
-        Name,
-        YearOfRelease,
-        Plot,
-        PosterImagePath,
-        ProducerId,
-        Language,
-        Profit
-    )
-    VALUES
-    (
-        @Name,
-        @YearOfRelease,
-        @Plot,
-        @PosterImagePath,
-        @ProducerId,
-        @Language,
-        @Profit
-    );
+		IF @YearOfRelease IS NULL
+			THROW 50002, 'Year of Release cannot be NULL', 1;
 
-    SET @MovieId = SCOPE_IDENTITY();
+		IF @Language IS NULL OR TRIM(@Language) = ''
+			THROW 50003, 'Language cannot be NULL or Empty', 1;
 
-    INSERT INTO Foundation.Actor_Movies
-    (
-        MovieId,
-        ActorId
-    )
-    SELECT
-        @MovieId,
-        CAST(value AS INT)
-    FROM STRING_SPLIT(@ActorIds, ',');
+		IF @ProducerId IS NULL
+			THROW 50004, 'Producer Id cannośt be NULL', 1;
+
+		IF @ActorIds IS NULL OR TRIM(@ActorIds) = ''
+            THROW 50005, 'Actor IDs cannot be NULL or empty.', 1;
+
+		-- Transacition
+		BEGIN TRANSACTION
+		
+		DECLARE @MovieId INT;
+
+			-- Insert Movie
+			INSERT INTO Foundation.Movies
+			(
+				Name,
+				YearOfRelease,
+				Plot,
+				PosterImagePath,
+				ProducerId,
+				Language,
+				Profit
+			)
+			VALUES
+			(
+				@Name,
+				@YearOfRelease,
+				@Plot,
+				@PosterImagePath,
+				@ProducerId,
+				@Language,
+				@Profit 
+			);
+
+			SET @MovieId = SCOPE_IDENTITY();
+
+			-- Insert Actors
+			INSERT INTO Foundation.Actor_Movies 
+			(
+				MovieId,
+				ActorId
+			)
+			SELECT
+				@MovieId,
+				CAST(value as INT)
+			FROM STRING_SPLIT(@ActorIds, ',');
+
+		COMMIT TRANSACTION;
+
+	END TRY
+	
+	BEGIN CATCH	
+		ROLLBACK TRAN;
+		THROW;
+	END CATCH
 
 END;
 GO
@@ -251,19 +292,33 @@ Delete a movie and its actor mappings.
 ```sql
 CREATE PROCEDURE Foundation.usp_DeleteMovie
 (
-    @MovieId INT
+	@MovieId INT
 )
 AS
 BEGIN
+	BEGIN TRY
+		-- Validation
+		IF @MovieId IS NULL
+			THROW 50001, 'MovieId cannot be NULL.', 1;
 
-    DELETE FROM Foundation.Actor_Movies
-    WHERE MovieId = @MovieId;
+		-- Transaction
+		BEGIN TRANSACTION
 
-    DELETE FROM Foundation.Movies
-    WHERE Id = @MovieId;
+			DELETE FROM Foundation.Actor_Movies
+			WHERE MovieId = @MovieId;
 
+			DELETE FROM Foundation.Movies
+			WHERE Id = @MovieId;
+
+		COMMIT TRANSACTION
+	END TRY
+
+	BEGIN CATCH
+		ROLLBACK TRAN;
+		THROW;
+	END CATCH
 END;
-GO
+
 ```
 
 <br>
@@ -348,22 +403,38 @@ Delete
 ```sql
 CREATE PROCEDURE Foundation.usp_DeleteProducerMovie
 (
-    @ProducerId INT
+	@ProducerId INT
 )
 AS
 BEGIN
+	
+	BEGIN TRY
+		-- Validation
+		IF @ProducerId IS NULL
+			THROW 50001, '@ProducerId cannot be NULL', 1;
 
-    DELETE AM
-    FROM Foundation.Actor_Movies AM
-    INNER JOIN Foundation.Movies M
-        ON AM.MovieId = M.Id
-    WHERE M.ProducerId = @ProducerId;
+		-- Transaction
+		BEGIN TRANSACTION
 
-    DELETE FROM Foundation.Movies
-    WHERE ProducerId = @ProducerId;
+			DELETE AM 
+			FROM Foundation.Actor_Movies AM
+			INNER JOIN Foundation.Movies M
+				ON AM.MovieId = M.Id
+			WHERE M.ProducerId = @ProducerId;
 
-    DELETE FROM Foundation.Producers
-    WHERE Id = @ProducerId;
+			DELETE FROM Foundation.Movies
+			WHERE ProducerId = @ProducerId;
+
+			DELETE FROM Foundation.Producers
+			WHERE Id = @ProducerId;
+
+		COMMIT TRANSACTION
+	END TRY
+
+	BEGIN CATCH
+		ROLLBACK TRAN;
+		THROW;
+	END CATCH
 
 END;
 GO
@@ -512,16 +583,31 @@ Only remove the actor and its mappings.
 ```sql
 CREATE PROCEDURE Foundation.usp_DeleteActor
 (
-    @ActorId INT
+	@ActorId INT
 )
-AS
+AS 
 BEGIN
+	BEGIN TRY
+		-- Validation
+		IF @ActorId IS NULL
+			THROW 50001, 'ActorId cannot be NULL', 1;
+		
+		-- Transaction
+		BEGIN TRANSACTION
 
-    DELETE FROM Foundation.Actor_Movies
-    WHERE ActorId = @ActorId;
+			DELETE FROM Foundation.Actor_Movies
+			WHERE ActorId = @ActorId;
 
-    DELETE FROM Foundation.Actors
-    WHERE Id = @ActorId;
+			DELETE FROM Foundation.Actors
+			WHERE Id = @ActorId;
+
+		COMMIT TRANSACTION
+	END TRY
+
+	BEGIN CATCH
+		ROLLBACK TRAN;
+		THROW;
+	END CATCH
 
 END;
 GO
