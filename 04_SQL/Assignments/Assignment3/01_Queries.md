@@ -292,6 +292,10 @@ Pairs who never worked together
 
 ## Method 2 — LEFT JOIN
 
+-- Using LEFT JOIN (Optimal)
+-- Think what it looks of actor with no common movie
+-- it looks A1.Name/AM1.Name has val, A1.Name/AM1.Name has NULL,
+
 ```sql
 SELECT
     A1.Name AS Actor1,
@@ -315,6 +319,12 @@ GROUP BY
 
 HAVING COUNT(AM2.MovieId) = 0;
 ```
+| A1.Name | AM1.MovieId | A2.Name | AM2.MovieId |
+| ------- | ----------: | ------- | ----------: |
+| A       |           1 | B       |           1 |
+| A       |           1 | C       |        NULL |
+| B       |           1 | C       |        NULL |
+
 
 ### How to consciously think about it
 
