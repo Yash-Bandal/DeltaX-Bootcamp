@@ -15,6 +15,9 @@
 12. [3NF and No junction table](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#12-3nf)
 13. [Candidate Vs Composite key]()
 14. [Delete vs Truncate vs Drop]
+15. [`COUNT(column)` and `NULL`]()
+16. [GROUP BY and SELECT]
+17. [DISTINCT vs GROUP BY - Think of 2 methods of Finding Unique]
 
 <br>
 
@@ -557,5 +560,171 @@ Here, Employee is the **N-side**, so `DeptId` goes into `Employee`.
 | `TRUNCATE` | **All rows** , `Resets` the table       |             ❌ No |          ✅ Yes | Empty a table quickly   |
 | `DROP`     | Delete he Entire table/object |             ❌ No |           ❌ No | Remove the table itself |
 
+
+<br>
+
+
+## 15. `COUNT(column)` and `NULL`
+
+* `COUNT(column)` **does not count `NULL` values**.
+* Therefore:
+
+```sql
+HAVING COUNT(AM2.MovieId) = 0
+```
+
+means:
+
+> This group has **zero non-NULL `AM2.MovieId` values**.
+
+Useful for detecting groups with **no matching rows** after a `LEFT JOIN`.
+
+### Important distinction
+
+```sql
+AM2.MovieId IS NULL
+```
+
+→ **row-level** check.
+
+```sql
+COUNT(AM2.MovieId) = 0
+```
+
+→ **group-level** check.
+
+---
+
+## 16. `GROUP BY` and `SELECT`
+
+After using `GROUP BY`, every column in `SELECT` must be either:
+
+1. A column present in `GROUP BY`
+2. An aggregate expression such as `COUNT()`, `SUM()`, `MAX()`, `MIN()`, `AVG()`
+
+Example:
+
+```sql
+SELECT
+    Language,
+    SUM(Profit)
+FROM Foundation.Movies
+GROUP BY Language;
+```
+
+Here:
+
+```text
+Language  → GROUP BY column
+SUM(...)  → Aggregate
+```
+
+### Mental model
+
+```text
+FROM / JOIN
+    ↓
+GROUP BY
+    ↓
+Creates groups
+    ↓
+Aggregate functions operate inside groups
+    ↓
+SELECT projects grouped/aggregated result
+```
+
+
+
+###  Can an Aggregated Column Also Be in `GROUP BY`?
+
+**Yes, syntactically.**
+
+```sql
+SELECT
+    Language,
+    Profit,
+    SUM(Profit)
+FROM Foundation.Movies
+GROUP BY
+    Language,
+    Profit;
+```
+
+But this changes the grouping.
+
+Instead of:
+
+```text
+Hindi
+ ├── 500
+ ├── 250
+ └── 350
+     ↓
+SUM = 1100
+```
+
+you get:
+
+```text
+Hindi + 500 → SUM = 500
+Hindi + 250 → SUM = 250
+Hindi + 350 → SUM = 350
+```
+
+### Rule
+
+> `GROUP BY` determines **what defines a group**. Aggregation operates on the rows **inside that group**.
+
+So grouping by the column you're trying to aggregate is usually inappropriate when you want the aggregate across that entire category.
+
+<br>
+
+
+## 17. `DISTINCT` vs `GROUP BY`
+
+Both can remove duplicate result rows.
+
+### `DISTINCT`
+
+Use when your intention is simply:
+
+> **Remove duplicate rows.**
+
+```sql
+SELECT DISTINCT
+    A.Id,
+    A.Name
+FROM ...
+```
+
+### `GROUP BY`
+
+Use when your intention is:
+
+> **Create groups for aggregation or group-level filtering.**
+
+```sql
+SELECT
+    A.Id,
+    A.Name,
+    COUNT(*)
+FROM ...
+GROUP BY
+    A.Id,
+    A.Name;
+```
+
+
+### Mental shortcut
+
+```text
+DISTINCT
+→ "Give me unique rows."
+
+GROUP BY
+→ "Create groups so I can calculate something for each unique/distinct group."
+```
+
+<br>
 
 
