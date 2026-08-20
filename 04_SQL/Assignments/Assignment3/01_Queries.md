@@ -77,6 +77,41 @@ Actors
 
 <br>
 
+### Alternative Using GROUP BY
+
+```sql
+SELECT
+    A.Id,
+    A.Name AS ActorName
+FROM Foundation.Producers P
+INNER JOIN Foundation.Movies M
+    ON P.Id = M.ProducerId
+INNER JOIN Foundation.Actor_Movies AM
+    ON M.Id = AM.MovieId
+INNER JOIN Foundation.Actors A
+    ON AM.ActorId = A.Id
+WHERE P.Name = 'Aditya Dhar'
+GROUP BY
+    A.Id,
+    A.Name;
+```
+
+### DISTINCT vs GROUP BY
+
+```text
+DISTINCT
+→ Remove duplicate result rows.
+
+GROUP BY
+→ Create groups, usually for aggregation/group-level filtering.
+```
+
+For simply finding unique actors, `DISTINCT` expresses the intention more directly.
+
+
+<br>
+
+
 # 3. Actors who acted together in Two or More Movies
 
 ### Query
@@ -107,11 +142,59 @@ HAVING COUNT(*) >= 2;
 
 ### Logic
 
-- Self join `Actor_Movies` to compare actors in the same movie.
-- `ActorId < ActorId` removes self-pairs and duplicate pairs.
-- Group each actor pair.
-- Count movies worked together.
-- Keep only pairs appearing in two or more movies.
+```
+Actor_Movies
+     ↓
+Self Join on MovieId
+     ↓
+Find actors in the same movie
+     ↓
+ActorId < ActorId
+     ↓
+Remove self-pairs and duplicate A-B / B-A pairs
+     ↓
+GROUP BY actor pair
+     ↓
+COUNT movies together
+     ↓
+HAVING COUNT(*) >= 2
+```
+
+### Why `ActorId < ActorId`?
+
+Without it:
+
+```text
+A + B
+B + A
+A + A
+B + B
+```
+
+With it:
+
+```text
+A + B
+```
+
+
+Only one direction remains, and an actor cannot pair with themselves.
+
+
+### Important GROUP BY + COUNT concept
+
+`COUNT(*)` counts rows **inside each group**, not the entire table.
+
+```text
+GROUP BY Actor1, Actor2
+        ↓
+Creates one group per actor pair
+        ↓
+COUNT(*)
+        ↓
+Counts rows inside that pair's group
+```
+
 
 ### Join Path
 
@@ -162,7 +245,8 @@ ORDER BY DateOfBirth DESC;
 
 # 5. Actors who have Never Worked Together
 
-### Query
+## Method 1 — `EXCEPT`
+
 
 ```sql
 SELECT
@@ -205,6 +289,117 @@ Pairs who worked together
 
 Pairs who never worked together
 ```
+
+## Method 2 — LEFT JOIN
+
+```sql
+SELECT
+    A1.Name AS Actor1,
+    A2.Name AS Actor2
+FROM Foundation.Actors A1
+INNER JOIN Foundation.Actors A2
+    ON A1.Id < A2.Id
+
+LEFT JOIN Foundation.Actor_Movies AM1
+    ON A1.Id = AM1.ActorId
+
+LEFT JOIN Foundation.Actor_Movies AM2
+    ON A2.Id = AM2.ActorId
+    AND AM1.MovieId = AM2.MovieId
+
+GROUP BY
+    A1.Id,
+    A2.Id,
+    A1.Name,
+    A2.Name
+
+HAVING COUNT(AM2.MovieId) = 0;
+```
+
+### How to consciously think about it
+
+```text
+1. Get all unique actor pairs
+        ↓
+2. Get movies of Actor 1
+        ↓
+3. Get movies of Actor 2
+        ↓
+4. Require AM1.MovieId = AM2.MovieId
+        ↓
+5. Matching movie → AM2.MovieId has a value
+   No matching movie → AM2.MovieId is NULL
+        ↓
+6. GROUP BY actor pair
+        ↓
+7. COUNT(AM2.MovieId)
+        ↓
+8. Keep pairs where count = 0
+```
+
+### Why not simply use `WHERE AM2.MovieId IS NULL`?
+
+Because the same actor pair can have both matching and non-matching rows.
+
+Example:
+
+```text
+A's movies: 1, 2
+B's movies: 1, 3
+```
+
+Joined result can contain:
+
+```text
+A + B + Movie 1
+A + B + NULL
+```
+
+`WHERE AM2.MovieId IS NULL` would incorrectly keep A-B.
+
+Instead:
+
+```sql
+HAVING COUNT(AM2.MovieId) = 0
+```
+
+asks:
+
+> Did this entire actor pair have zero matching movies?
+
+### `COUNT(column)` and NULL
+
+`COUNT(column)` does not count NULL.
+
+```text
+AM2.MovieId
+-----------
+1
+NULL
+NULL
+
+COUNT(AM2.MovieId) = 1
+```
+
+Therefore:
+
+```text
+COUNT(AM2.MovieId) = 0
+```
+
+means there were **no matching movie rows**.
+
+Important distinction:
+
+```text
+IS NULL
+→ Row-level check
+
+COUNT(column) = 0
+→ Group-level check
+```
+
+
 
 ### Sample Output
 
@@ -393,3 +588,372 @@ Producers
 | Rajkumar Hirani | Hindi | 2 |
 | Rajkumar Hirani | Marathi | 1 |
 | Mani Ratnam | Tamil | 2 |
+
+
+<br>
+
+---
+
+<br>
+
+
+
+---
+
+# Core SQL Concepts From These Queries
+
+## 1. GROUP BY
+
+`GROUP BY` creates groups based on specified columns.
+
+```sql
+GROUP BY Language
+```
+
+means:
+
+```text
+Hindi group
+English group
+Tamil group
+...
+```
+
+Then aggregate functions operate inside those groups.
+
+---
+
+## 2. SELECT After GROUP BY
+
+After grouping, a selected column must generally be:
+
+```text
+1. Present in GROUP BY
+
+OR
+
+2. Inside an aggregate function
+```
+
+Valid:
+
+```sql
+SELECT
+    Language,
+    SUM(Profit)
+FROM Movies
+GROUP BY Language;
+```
+
+Invalid:
+
+```sql
+SELECT
+    Language,
+    Name,
+    SUM(Profit)
+FROM Movies
+GROUP BY Language;
+```
+
+`Name` is neither grouped nor aggregated.
+
+---
+
+## 3. Can an Aggregated Column Also Be in GROUP BY?
+
+Technically yes:
+
+```sql
+SELECT
+    Language,
+    Profit,
+    SUM(Profit)
+FROM Movies
+GROUP BY
+    Language,
+    Profit;
+```
+
+But this changes the groups.
+
+Instead of:
+
+```text
+Hindi
+ ├── 500
+ ├── 250
+ └── 350
+     ↓
+SUM = 1100
+```
+
+you get:
+
+```text
+Hindi + 500 → 500
+Hindi + 250 → 250
+Hindi + 350 → 350
+```
+
+### Rule
+
+> `GROUP BY` defines what makes rows belong to the same group. Aggregation operates on the rows inside that group.
+
+---
+
+## 4. DISTINCT vs GROUP BY
+
+### DISTINCT
+
+Use when the intention is simply:
+
+```text
+Remove duplicate result rows
+```
+
+```sql
+SELECT DISTINCT
+    A.Id,
+    A.Name
+FROM ...;
+```
+
+### GROUP BY
+
+Use when the intention is:
+
+```text
+Create groups for aggregation
+```
+
+```sql
+SELECT
+    A.Id,
+    A.Name,
+    COUNT(*)
+FROM ...
+GROUP BY
+    A.Id,
+    A.Name;
+```
+
+### Quick Rule
+
+```text
+DISTINCT
+→ "Give me unique rows."
+
+GROUP BY
+→ "Create groups so I can calculate something for each group."
+```
+
+Both can sometimes produce the same result, but they express different intentions.
+
+---
+
+## 5. WHERE vs HAVING
+
+### WHERE
+
+Filters individual rows **before grouping**.
+
+```sql
+WHERE Language = 'Hindi'
+```
+
+### HAVING
+
+Filters groups **after grouping/aggregation**.
+
+```sql
+HAVING COUNT(*) >= 2
+```
+
+### Mental Execution Flow
+
+```text
+FROM / JOIN
+     ↓
+WHERE
+     ↓
+GROUP BY
+     ↓
+Aggregation
+     ↓
+HAVING
+     ↓
+SELECT
+```
+
+---
+
+## 6. Self JOIN
+
+A table can be joined with itself using different aliases.
+
+```sql
+Actor_Movies AM1
+        JOIN
+Actor_Movies AM2
+```
+
+Useful when comparing rows within the same table.
+
+Example:
+
+```text
+AM1 → Actor 1
+AM2 → Actor 2
+```
+
+---
+
+## 7. `A1.Id < A2.Id`
+
+Used when creating unique pairs.
+
+Without it:
+
+```text
+A-B
+B-A
+A-A
+B-B
+```
+
+With:
+
+```sql
+A1.Id < A2.Id
+```
+
+we get:
+
+```text
+A-B
+A-C
+B-C
+```
+
+It removes:
+
+- Self-pairs
+- Reverse duplicates
+
+---
+
+## 8. LEFT JOIN for "No Match"
+
+General pattern:
+
+```text
+All rows
+   ↓
+LEFT JOIN matching rows
+   ↓
+Unmatched side becomes NULL
+   ↓
+GROUP BY / IS NULL
+   ↓
+Find missing relationships
+```
+
+For the actor problem:
+
+```text
+All actor pairs
+      ↓
+Try to find common movies
+      ↓
+No common movie
+      ↓
+COUNT(common movie) = 0
+```
+
+---
+
+## 9. STRING_AGG
+
+`STRING_AGG()` combines multiple values into one string.
+
+```sql
+STRING_AGG(A.Name, ', ')
+```
+
+Example:
+
+```text
+Vicky Kaushal
+Yami Gautam
+Paresh Rawal
+
+        ↓
+
+Vicky Kaushal, Yami Gautam, Paresh Rawal
+```
+
+With:
+
+```sql
+GROUP BY M.Id
+```
+
+it performs the aggregation **inside each movie's group**.
+
+```text
+JOIN
+ ↓
+Multiple actor rows per movie
+ ↓
+GROUP BY movie
+ ↓
+STRING_AGG(actor names)
+ ↓
+One row per movie
+```
+
+---
+
+# High-Value Mental Models
+
+```text
+DISTINCT
+→ Remove duplicate rows
+
+GROUP BY
+→ Create groups
+
+COUNT()
+→ Count rows/values inside each group
+
+COUNT(column)
+→ NULL values are not counted
+
+SUM()
+→ Add values inside each group
+
+HAVING
+→ Filter groups
+
+WHERE
+→ Filter rows
+
+A1.Id < A2.Id
+→ Unique pairs, no self-pairs
+
+LEFT JOIN + NULL
+→ Find unmatched rows
+
+LEFT JOIN + GROUP BY + COUNT() = 0
+→ Find groups with no matching rows
+
+STRING_AGG()
+→ Combine multiple values into one string
+
+SELF JOIN
+→ Compare rows within the same table
+
+DATEDIFF()
+→ Difference between two dates
+```
