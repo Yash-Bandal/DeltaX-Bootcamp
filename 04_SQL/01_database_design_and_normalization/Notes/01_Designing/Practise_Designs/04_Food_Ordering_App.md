@@ -221,6 +221,33 @@ GROUP BY MI.item_id, MI.name
 ORDER BY TotalQuantityOrdered DESC;
 ```
 
+We are grouping based on Mi.Item and its name, not grouping on resto id and name
+
+so we are just using resto_menu_item table to perform join of menuitem and orderitem , intermediate
+
+This thus gives General top 3 items
+
+### Restaurant specific Top 5 items
+```sql
+SELECT TOP 5
+    R.name AS Restaurant,
+    MI.name AS MenuItem,
+    SUM(OI.quantity) AS TotalQuantityOrdered
+FROM MenuItems MI
+INNER JOIN Restaurant_MenuItems RMI
+    ON MI.item_id = RMI.item_id
+INNER JOIN Restaurants R
+    ON R.restaurant_id = RMI.restaurant_id
+INNER JOIN OrderItems OI
+    ON RMI.Id = OI.restaurant_menuitemId
+GROUP BY
+    R.restaurant_id,
+    R.name,
+    MI.item_id,
+    MI.name
+ORDER BY TotalQuantityOrdered DESC;
+```
+
 <br>
 
 ## 4. Top 3 restaurants by average rating
