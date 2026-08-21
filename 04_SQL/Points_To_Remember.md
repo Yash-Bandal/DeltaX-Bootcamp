@@ -45,6 +45,15 @@ that automatically updates or deletes dependent child table rows when a parent t
 ## Notes
 1. Self Join is used in Hierarchy cases, eg. Employee table, find manager and associated employee
 2. Use Self Referencing, in cases like friendships, subscribers, followers..
+3. Avoid Duplicates in Self join - Using condition
+   ```sql
+   ON T1.Id < T2.Id 
+   ```
+   or
+   ```sql
+   ON T1.OtherId = T2.OtherId
+   AND T1.Id < T2.Id
+   ```
 
 <br>
 
