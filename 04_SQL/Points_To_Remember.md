@@ -1,5 +1,12 @@
 # Points to Rememmber
 
+> [!note]
+> There is a Design Tradeoff in Database Design
+>
+> You Can either have 'Good Speed', or 'Less Space`
+
+<br>
+
 ## Index
 1. [Primary Key vs Unique](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#1-primary-key-vs-unique)
 2. [Where vs Having - No Aggregates with WHERE](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/Points_To_Remember.md#2-where-vs-having)
