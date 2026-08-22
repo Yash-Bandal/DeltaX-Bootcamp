@@ -508,6 +508,63 @@ ORDER BY ConsecutiveDayOrders DESC;
 
 <br>
 
+**Subhojit**
+```sql
+Find most fav dish of users who  joined after 1st aug
+
+
+
+SELECT  TOP 1 MI.Name , COUNT(*) as TotalOrders
+FROM MenuItem MI INNER JOIN RestaurantMenuItem RMI
+ON MI.Id = RMI.ItemId
+INNER JOIN OrderItems OI
+ON OI.itemId = RMI.itemId
+INNER JOIN Orders O 
+ON O.Id = OI.orderId
+INNER JOIN Customer C
+ON O.customer_id = C.Id
+WHERE  CAST(joineddate as date) > '01-08-2026'
+GROUP BY MI.Id, MI.Name
+ORDER BY TotalOrders DESC;
+
+
+Find the p of customers who never ordered  a dish on the same day
+
+
+SELECT C1.Name, C2.Name
+FROM Customers C1 
+INNER JOIN Customers C2
+ON C1.Id < C2.Id
+LEFT JOIN Orders O1
+ON C1.ID = O1.cusotomerId
+LEFT JOIN Orders O2
+ON C2.Id =O2.customerId
+AND O1.order_date = O2.order_date
+GROUP BY
+C1.Id, C2.Id, C1.Name, C2.Name
+HAVING COUNT(O2.order_date) = 0; 
+
+
+Find the name of dishes which
+ were never reviewed the day they were ordered
+
+
+SELECT MI.Name 
+FROM Menuitem MI 
+INNER JOIN Restaurant_MenuItem RMI
+ON RMI.ItemId = MI.Id
+INNER JOIN OrderItems OI
+ON OI.itemId = RMI.itemId
+LEFT JOIN Orders O
+ON OI.orderId = O.Id
+LEFT JOIN Reviews RW
+ON RW.restaurantmenuitem = RMI.Id
+AND CAST(O.order_Date as Date) = CAST(R.Reviewdate as date)
+WHERE R.ReviewDate IS NULL
+GROUP BY MI.Id, MI.Name
+
+```
+
 # Quick Concept Map
 
 | Query | Main SQL Concept                   |
