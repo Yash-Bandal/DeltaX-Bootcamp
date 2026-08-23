@@ -337,7 +337,7 @@ GROUP BY
     C.customer_id,
     C.name,
     O.restaurant_id
-HAVING COUNT(O.order_id) > 1;
+HAVING OrderCount > 1;
 ```
 
 <br>
