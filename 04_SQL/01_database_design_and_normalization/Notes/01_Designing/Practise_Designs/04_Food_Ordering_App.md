@@ -299,7 +299,7 @@ FROM Customers C
 INNER JOIN Orders O
     ON C.customer_id = O.customer_id
 GROUP BY C.customer_id, C.name
-HAVING COUNT(DISTINCT O.restaurant_id) >= 2;
+HAVING RestaurantsOrderedFrom >= 2;
 ```
 
 <br>
