@@ -344,6 +344,9 @@ HAVING OrderCount > 1;
 
 ## 21. Customers ordering from at least 2 restaurants
 
+> [!Tip]
+> When you dont want to show the count, use calculation instead of cariable inside HAVING Clause
+
 **Question:** Retrieve the names of customers who have ordered from at least 2 different restaurants.
 
 ```sql
