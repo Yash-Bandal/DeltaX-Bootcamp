@@ -8,6 +8,24 @@
 
 <br>
 
+> [!note]
+>
+> ### Using `SELECT` Alias
+> You cannot normally use the SELECT alias OrderCount inside HAVING in SQL Server:
+>```sql
+> HAVING ordercount > 1   -- ❌
+>```
+> Use the aggregate expression directly:
+>```sql
+> HAVING COUNT(O.Id) > 1
+>```
+> You can use that with `Order By`
+> ```sql
+>ORDER BY ordercount DESC;
+> ```
+
+<br>
+
 
 # SQL Practice Questions
 
@@ -299,7 +317,7 @@ FROM Customers C
 INNER JOIN Orders O
     ON C.customer_id = O.customer_id
 GROUP BY C.customer_id, C.name
-HAVING RestaurantsOrderedFrom >= 2;
+HAVING COUNT(DISTINCT O.restaurant_id) >= 2;
 ```
 
 <br>
@@ -337,7 +355,7 @@ GROUP BY
     C.customer_id,
     C.name,
     O.restaurant_id
-HAVING OrderCount > 1;
+HAVING COUNT(O.order_id) > 1;
 ```
 
 <br>
@@ -345,7 +363,7 @@ HAVING OrderCount > 1;
 ## 21. Customers ordering from at least 2 restaurants
 
 > [!Tip]
-> When you dont want to show the count, use calculation instead of cariable inside HAVING Clause
+> When you dont want to show the count.. use this
 
 **Question:** Retrieve the names of customers who have ordered from at least 2 different restaurants.
 
