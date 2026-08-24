@@ -466,6 +466,22 @@ INNER JOIN user_profile UP
     OR UP.id = F.profile_accept
 GROUP BY UP.given_name;
 ```
+Also count ids wi nriends
+```sql
+SELECT
+    UP.id,
+    UP.given_name,
+    UP.surname,
+    COUNT(F.id) AS friends
+FROM user_profile UP
+LEFT JOIN friendship F
+    ON UP.id = F.profile_request
+    OR UP.id = F.profile_accept
+GROUP BY
+    UP.id,
+    UP.given_name,
+    UP.surname;
+```
 
 > Note: This can be improved using `UNION` to avoid the `OR` condition
 > in the join.
