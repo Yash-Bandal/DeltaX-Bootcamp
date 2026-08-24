@@ -1,33 +1,41 @@
 # REST APIs — ASP.NET Core Web API
 
 <br>
-<div align="center">
-  <p><b>REST Architecture</b></p>
-  <img width="600" alt="REST architecture" src="https://github.com/user-attachments/assets/d7d71f55-60fb-4dc5-96d3-2f83513df4ec" />
-</div>
+<table align = "center"> 
+  <tr>
+    <td align="center">
+      <p><b>REST Architecture</b></p>
+      <img width="400" alt="REST architecture" src="https://github.com/user-attachments/assets/d7d71f55-60fb-4dc5-96d3-2f83513df4ec" />
+    </td>
+    <td align="center">
+      <p><b>API Gateway - Intermediate Server</b></p>
+      <img width="400" alt="API Gateway - Intermediate server" src="https://github.com/user-attachments/assets/f0fc8661-4f74-44cc-a05e-d507042e3901" />
+    </td>
+  </tr>
+</table>
+<br>
 
 
-<div align="center">
-  <p><b>API Gateway - Intermediate Server</b></p>
-  <img width="600" alt="API Gateway - Intermediate server" src="https://github.com/user-attachments/assets/f0fc8661-4f74-44cc-a05e-d507042e3901" />
-</div>
-
-<div align="center">
-  <p><b>Types of API for Different Frameworks</b></p>
-  <img width="600" alt="Types of API for different frameworks" src="https://github.com/user-attachments/assets/81e62b30-9bad-445a-939c-71e2ac2419a7" />
-</div>
-
-<div align="center">
-  <p><b>API Structure</b></p>
-  <img width="600" alt="API Structure" src="https://github.com/user-attachments/assets/b8c5bf42-b678-4db0-973a-8af468f9aa61" />
-</div>
-
-<div align="center">
-  <p><b>JWT</b></p>
-  <img width="500" alt="JWT" src="https://github.com/user-attachments/assets/4466c28f-01a5-4874-a51c-0844d87373e1" />
-</div>
+<table align = "center">
+  <tr>
+    <td align="center">
+      <p><b>Types of API for Different Frameworks</b></p>
+      <img width="300" alt="Types of API for different frameworks" src="https://github.com/user-attachments/assets/81e62b30-9bad-445a-939c-71e2ac2419a7" />
+    </td>
+    <td align="center">
+      <p><b>API Structure</b></p>
+      <img width="450" alt="API Structure" src="https://github.com/user-attachments/assets/b8c5bf42-b678-4db0-973a-8af468f9aa61" />
+    </td>
+    <td align="center">
+      <p><b>JWT</b></p>
+      <img width="300" alt="JWT" src="https://github.com/user-attachments/assets/4466c28f-01a5-4874-a51c-0844d87373e1" />
+    </td>
+    <td></td>
+  </tr>
+</table>
 
 <br>
+
 
 ## 1. Course Overview
 
