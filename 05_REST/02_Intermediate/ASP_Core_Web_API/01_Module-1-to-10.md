@@ -350,7 +350,7 @@ HTTP enables communication between distributed systems, even when the client and
 
 <div align="center">
   <p><b>v7 - Request Response</b></p>
-  <img width="600" alt="v7 - Request response" src="https://github.com/user-attachments/assets/b42d292c-9279-44c9-bf37-8df7f8a58385" />
+  <img width="700" alt="v7 - Request response" src="https://github.com/user-attachments/assets/b42d292c-9279-44c9-bf37-8df7f8a58385" />
 </div>
 
 
@@ -454,7 +454,7 @@ Contains returned data, if any.
 
 
 <br>
-<table>
+<table align = "center">
   <tr>
     <td align="center"><b>GET</b></td>
     <td align="center"><b>POST</b></td>
