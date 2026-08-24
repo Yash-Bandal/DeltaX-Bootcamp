@@ -1,5 +1,34 @@
 # REST APIs — ASP.NET Core Web API
 
+<br>
+<div align="center">
+  <p><b>REST Architecture</b></p>
+  <img width="600" alt="REST architecture" src="https://github.com/user-attachments/assets/d7d71f55-60fb-4dc5-96d3-2f83513df4ec" />
+</div>
+
+
+<div align="center">
+  <p><b>API Gateway - Intermediate Server</b></p>
+  <img width="600" alt="API Gateway - Intermediate server" src="https://github.com/user-attachments/assets/f0fc8661-4f74-44cc-a05e-d507042e3901" />
+</div>
+
+<div align="center">
+  <p><b>Types of API for Different Frameworks</b></p>
+  <img width="600" alt="Types of API for different frameworks" src="https://github.com/user-attachments/assets/81e62b30-9bad-445a-939c-71e2ac2419a7" />
+</div>
+
+<div align="center">
+  <p><b>API Structure</b></p>
+  <img width="600" alt="API Structure" src="https://github.com/user-attachments/assets/b8c5bf42-b678-4db0-973a-8af468f9aa61" />
+</div>
+
+<div align="center">
+  <p><b>JWT</b></p>
+  <img width="500" alt="JWT" src="https://github.com/user-attachments/assets/4466c28f-01a5-4874-a51c-0844d87373e1" />
+</div>
+
+<br>
+
 ## 1. Course Overview
 
 This course focuses on building **RESTful Web APIs using ASP.NET Core**.
@@ -26,9 +55,30 @@ Main topics:
 
 No prior ASP.NET Core or Entity Framework experience is required.
 
+
+
+<br>
+
+<div align="center">
+  <p><b>v1 - All Concepts</b></p>
+  <img width="600" alt="v1 - all concepts" src="https://github.com/user-attachments/assets/a587601f-decb-40c0-b1a5-6330091a86ef" />
+</div>
+
+
 <br>
 
 # 2. Why Do We Need Web APIs?
+
+
+<div align="center">
+  <p><b>v3 - Need, Diagram</b></p>
+  <img width="600" alt="v3 - Need, diagram" src="https://github.com/user-attachments/assets/b9a95adc-8933-4902-b297-2b6dd50f607d" />
+</div>
+
+
+
+
+
 
 Consider an application available on multiple platforms:
 
@@ -92,6 +142,14 @@ A Web API centralizes this logic:
 <br>
 
 # 3. Role of a Web API
+
+<br>
+<div align="center">
+  <p><b>General Core Workflow for All API Frameworks</b></p>
+  <img width="600" alt="General core workflow for all API frameworks" src="https://github.com/user-attachments/assets/8d4062e5-a4db-4403-a84e-c284f65c558f" />
+</div>
+<br>
+
 
 A Web API acts as an intermediary between clients and backend resources.
 
@@ -259,6 +317,16 @@ HTTP enables communication between distributed systems, even when the client and
 
 <br>
 
+
+
+
+<div align="center">
+  <p><b>v7 - Request Response</b></p>
+  <img width="600" alt="v7 - Request response" src="https://github.com/user-attachments/assets/b42d292c-9279-44c9-bf37-8df7f8a58385" />
+</div>
+
+
+
 # 8. HTTP Request
 
 An HTTP request is sent by the client to the server.
@@ -355,6 +423,37 @@ Contains returned data, if any.
 <br>
 
 # 10. HTTP Methods / Verbs
+
+
+<br>
+<table>
+  <tr>
+    <td align="center"><b>GET</b></td>
+    <td align="center"><b>POST</b></td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img width="300" alt="GET" src="https://github.com/user-attachments/assets/c7f0d3a2-4f26-4cef-b3dd-9b5f53e89f18" />
+    </td>
+    <td align="center">
+      <img width="300" alt="POST" src="https://github.com/user-attachments/assets/2ca35d14-da1b-4901-a195-e44dc7b19f39" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><b>PUT/PATCH</b></td>
+    <td align="center"><b>DELETE</b></td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img width="300" alt="PUT/PATCH" src="https://github.com/user-attachments/assets/441274a5-d174-4710-90bb-edd310908495" />
+    </td>
+    <td align="center">
+      <img width="300" alt="DELETE" src="https://github.com/user-attachments/assets/b68a7dbc-1a46-43f9-a83f-facce340159b" />
+    </td>
+  </tr>
+</table>
+<br>
+
 
 | Method | Purpose |
 |---|---|
