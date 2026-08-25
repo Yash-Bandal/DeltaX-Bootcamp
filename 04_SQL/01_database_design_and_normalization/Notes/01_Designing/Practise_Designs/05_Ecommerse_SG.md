@@ -46,3 +46,16 @@ A payment has a status such as Pending, Successful, or Failed
 <br>
 
 
+
+
+> [!Notes]
+
+### Redundant Allowed Case
+Here only OrderItem can have the authority to store price, which is also present in variants
+
+Because, If the restaurant changes the variant's current price later, old orders must remain unchanged.
+
+
+> [!Tip]
+1. No need to have attributes that can be made available by joining,
+ -  Like, no need to have userId in orders, payments, if it can be made available by joining
