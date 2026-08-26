@@ -32,6 +32,7 @@ The database should contain the following entities:
 * Employee_Roles
 * Leaves
 * Salaries
+* Payroll_Salaries
 * Payrolls
 
 ### Important Business Rules
@@ -52,7 +53,7 @@ The database should contain the following entities:
 
 <br>
 <div align = "center">
-<img width="700" alt="image" src="https://github.com/user-attachments/assets/1babfa03-f049-4c60-96c2-00866717b16c" />
+<img width="700" alt="image" src="https://github.com/user-attachments/assets/be4c9149-e277-419d-b145-c96f7ed5b841" />
 </div>
 <br>
 
