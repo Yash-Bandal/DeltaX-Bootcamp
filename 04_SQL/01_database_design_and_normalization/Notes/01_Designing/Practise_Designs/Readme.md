@@ -5,6 +5,13 @@
 
 <br>
 
+### Check Prompt
+```
+Is the shared design Ok, check all relations, anomalies, redundancies, consistency and appropriate constraint usage
+```
+
+<br>
+
 ### Rules
 Yep. Based on the patterns we've been discussing, here are the **general DB design observations** I'd keep as rules rather than tying them to one particular schema.
 
