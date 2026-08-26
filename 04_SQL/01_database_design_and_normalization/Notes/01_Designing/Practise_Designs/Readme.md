@@ -11,6 +11,7 @@ Is the shared design Ok, check all relations, anomalies, redundancies, consisten
 
 <br>
 
+
 ### Rules
 Yep. Based on the patterns we've been discussing, here are the **general DB design observations** I'd keep as rules rather than tying them to one particular schema.
 
@@ -45,6 +46,8 @@ Yep. Based on the patterns we've been discussing, here are the **general DB desi
 
    * Before adding an FK, ask: *What business relationship does this represent?*
 
+7. **Junction table represents a relationship between its two parent entities.** 🏷️
+   - Don't treat the junction table itself as the entity being liked/owned/etc.
 ---
 
 ### Entity vs relationship
