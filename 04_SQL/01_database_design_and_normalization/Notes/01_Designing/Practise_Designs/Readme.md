@@ -6,7 +6,8 @@
 
 ### Check Prompt
 ```
-Is the shared design Ok, check all relations, anomalies, redundancies, consistency and appropriate constraint usage
+Is the shared design Ok, check all relations, anomalies, redundancies, consistency
+and appropriate constraint usage
 ```
 
 <br>
