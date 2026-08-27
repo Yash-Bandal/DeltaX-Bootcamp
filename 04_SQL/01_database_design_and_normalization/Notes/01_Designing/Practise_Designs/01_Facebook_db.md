@@ -3,8 +3,8 @@
 ## Database Tables
 
 <br>
-<p>Instagram</p>
 <div align = "center">
+<p>Instagram</p>
     <img width="650" alt="image" src="https://github.com/user-attachments/assets/b8029e50-3e55-4e99-a7df-c4b8bd826828" />
 <p>FB</p>
 <img width="650" alt="image" src="https://github.com/user-attachments/assets/c69cd20e-ba1c-4ae2-9e6b-1efcd40106bc" />
