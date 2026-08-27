@@ -1,4 +1,3 @@
-Below is a complete `canvas.md`-style set of notes. I’ve kept the **logic short**, but included the important JOIN direction and what the output represents.
 
 # SQL Practice Queries — Basic & Advanced
 
