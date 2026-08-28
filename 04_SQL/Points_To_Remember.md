@@ -94,6 +94,10 @@ that automatically updates or deletes dependent child table rows when a parent t
    ```
    Producers who produced movies released in consecutive years 
    ```
+   Example Hint Keywords
+   ```
+   "consecutive", "previous/next", "before/after", or "compare one row with another row"
+   ```
 
 <br>
 
