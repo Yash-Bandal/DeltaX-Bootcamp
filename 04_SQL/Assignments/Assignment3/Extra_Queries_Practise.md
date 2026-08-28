@@ -888,7 +888,7 @@ HAVING COUNT(AM.ActorId) > 2
 
 ---
 
-## 32. Producers who produced movies released in consecutive years
+## 32. Producers who produced movies released in consecutive years 🏷️
 
 ### Query
 
