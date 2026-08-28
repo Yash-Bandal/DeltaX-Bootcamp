@@ -90,6 +90,10 @@ that automatically updates or deletes dependent child table rows when a parent t
               FROM Foundation.Movies
           );
        ```
+5. WHen I need to compare a row to another row from the same table → consider a self join
+   ```
+   Producers who produced movies released in consecutive years 
+   ```
 
 <br>
 
