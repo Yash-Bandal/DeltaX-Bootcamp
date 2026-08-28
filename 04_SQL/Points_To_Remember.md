@@ -69,7 +69,27 @@ that automatically updates or deletes dependent child table rows when a parent t
    GROUP BY id,name  -- Also wrong
    )
    ```
-
+4. Like what you need in `SELECT` must be in `GROUP BY`, similarly, dont forget,\
+   **What you need in `HAVING` (Non aggregate - Like here M.Profit) should also be in `GROUP BY`**
+   ```sql
+      SELECT
+       M.Name AS MovieName,
+       M.Profit,
+       COUNT(AM.ActorId) AS ActorCount
+   FROM Foundation.Movies M
+   INNER JOIN Foundation.Actor_Movies AM
+       ON M.Id = AM.MovieId
+   GROUP BY
+       M.Id,
+       M.Name,
+               -- Need here
+   HAVING COUNT(AM.ActorId) > 2
+      AND M.Profit >  --Need 
+          (
+              SELECT AVG(Profit)
+              FROM Foundation.Movies
+          );
+       ```
 
 <br>
 
