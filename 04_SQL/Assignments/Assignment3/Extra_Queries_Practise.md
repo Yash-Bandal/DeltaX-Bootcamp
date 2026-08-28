@@ -848,7 +848,7 @@ Producer → Movies → Actor_Movies. Count distinct actors per producer and kee
 
 ---
 
-## 31. Movies with more than 2 actors and profit greater than average
+## 31. Movies with more than 2 actors and profit greater than average 🏷️
 
 ### Query
 
