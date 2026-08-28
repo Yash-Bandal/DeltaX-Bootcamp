@@ -35,6 +35,25 @@
 **2. Cascading referential integrity constraint** - A cascading referential integrity constraint is a database rule 
 that automatically updates or deletes dependent child table rows when a parent table row is updated or deleted.
 
+<br>
+
+## Tips
+1. You forget sometimes to use `Group By` before `Having`
+2. Also many times, you forget to use `DISTINCT` inside COUNT/Aggregate
+   ```sql
+   SELECT
+     P.Name as ProducerName
+   FROM Foundation.Producers P 
+   INNER JOIN Foundation.Movies M
+     ON P.Id = M.Producerid
+   Group by P.Id, P.Name   -- you forgot here
+   HAVING COUNT(Distinct M.Languages) = 
+   (
+    SELECT Count(Distinct Languages ) From Movies;
+   )
+   ```
+
+
 
 <br>
 
