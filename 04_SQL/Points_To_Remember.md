@@ -52,7 +52,23 @@ that automatically updates or deletes dependent child table rows when a parent t
     SELECT Count(Distinct Languages ) From Movies;
    )
    ```
-
+3. You sometimes use Aggregate along with `WHERE`,
+    - Remember that Aggregate works on Group by, so you can use it with having after groups are formed
+      
+   ❌ Wrong Syntax
+   ```sql
+   SELECT M.Name as MovieName
+   FROM Foundation.Movies M
+   INNER JOIN Foundation.ActorMovies AM
+   ON M.Id = AM.ActorId
+   WHERE COUNT(AM.ActorId) > 2
+   GROUP BY M.Id, M.Name
+   HAVING M.Profit >
+   (
+   SELECT AVG(Profit) From Foundation.Movies
+   GROUP BY id,name  -- Also wrong
+   )
+   ```
 
 
 <br>
