@@ -469,7 +469,7 @@ Departments
 A table is in **BCNF** if:
 
 - It is already in **3NF**
-- **Every determinant must be a [Candidate Key](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/SQL/01_database_design_and_normalization/01_Notes.md#keys)**
+- **Every determinant must be a [Candidate Key](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/01_database_design_and_normalization/Notes/01_Designing/KEYS_&_Fundamentals_Of_Design.md#candidate-and-super-key)**
 
 > **Determinant:** An attribute (or set of attributes) that determines another attribute.
 
