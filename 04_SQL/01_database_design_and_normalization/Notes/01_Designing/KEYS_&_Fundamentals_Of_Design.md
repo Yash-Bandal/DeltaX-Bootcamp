@@ -81,6 +81,10 @@ When building the database:
 </div>
 
 
+
+
+## Candidate and Super Key
+
 **Super Key:**
 
 > [!Note]
@@ -98,3 +102,31 @@ When building the database:
 <div align = "center">
 <img width="500"  alt="image" src="https://github.com/user-attachments/assets/a8d920d0-f87c-4588-9596-f192e50b89bf" />
 </div>
+
+
+ A **Candidate Key can have 1 or more columns**.
+
+Example:
+
+| Student_ID | Course_ID | Name  | Marks |
+| ---------- | --------- | ----- | ----- |
+| 101        | C1        | Rahul | 80    |
+| 101        | C2        | Rahul | 75    |
+| 102        | C1        | Priya | 90    |
+
+Suppose **Student_ID alone is NOT unique**, and **Course_ID alone is NOT unique**.
+
+But together:
+
+**{Student_ID, Course_ID}** → uniquely identifies each row.
+
+So:
+
+* `{Student_ID, Course_ID}` = **Candidate Key** ✅ (minimal)
+* `{Student_ID, Course_ID, Name}` = **Super Key** ✅ (uniquely identifies, but has an extra column)
+* `{Student_ID, Course_ID, Marks}` = **Super Key** ✅
+
+
+**Candidate Key = Super Key with NO unnecessary column.**
+
+
