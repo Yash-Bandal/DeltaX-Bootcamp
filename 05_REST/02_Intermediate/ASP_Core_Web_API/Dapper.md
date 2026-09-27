@@ -1,6 +1,6 @@
 # Dapper — Complete Notes
 
-[Setup and Refactoring](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/05_REST/02_Intermediate/ASP_Core_Web_API/Dapper_Configuration_%26_Setup.md)
+
 
 ## Index
 
@@ -9,10 +9,8 @@
   - [1.2 Dapper vs EF Core](#12-dapper-vs-ef-core)
   - [1.3 Basic Dapper Flow](#13-basic-dapper-flow)
 - [2. Setup Dapper](#2-setup-dapper)
-  - [2.1 NuGet Package](#21-nuget-package)
-  - [2.2 Connection String](#22-connection-string)
-  - [2.3 Create Database Connection](#23-create-database-connection)
-  - [2.4 General Repository Template](#24-general-repository-template)
+  - [NuGet Package](#nuget-package)
+  - [Connection String](#connection-string)
 - [3. Core Dapper Methods](#3-core-dapper-methods)
   - [3.1 `Execute`](#31-execute)
   - [3.2 `ExecuteAsync`](#32-executeasync)
@@ -236,7 +234,11 @@ C# Object
 
 # 2. Setup Dapper
 
-## 2.1 NuGet Package
+## [Setup and Refactoring](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/05_REST/02_Intermediate/ASP_Core_Web_API/Dapper_Configuration_%26_Setup.md)
+
+**Overview**
+
+##  NuGet Package
 
 Install:
 
@@ -250,11 +252,6 @@ For SQL Server, also use the appropriate SQL Server ADO.NET provider, commonly:
 Microsoft.Data.SqlClient
 ```
 
-or, depending on the application's version/setup:
-
-```text
-System.Data.SqlClient
-```
 
 
 Search: 
@@ -266,15 +263,6 @@ Search:
 | **FirebaseStorage.net** | **1.0.3** |
 
 
-The important point is:
-
-```text
-Dapper
-   +
-SQL Server provider
-   +
-Connection string
-```
 
 
 <br>
@@ -283,7 +271,7 @@ Connection string
 
 <br>
 
-## 2.2 Connection String
+##  Connection String
 
 Know More - Which string to select 
 
@@ -326,82 +314,7 @@ For SQL authentication, a connection string may look like:
 Never hardcode production credentials in source code.
 
 
-<br>
 
----
-
-<br>
-
-## 2.3 Create Database Connection
-
-Basic connection:
-
-```csharp
-using System.Data;
-using Microsoft.Data.SqlClient;
-
-IDbConnection db =
-    new SqlConnection(connectionString);
-```
-
-Commonly:
-
-```csharp
-using var connection = new SqlConnection(connectionString);
-
-connection.Open();
-
-// Dapper operation
-```
-
-For async operations:
-
-```csharp
-using var connection = new SqlConnection(connectionString);
-
-await connection.OpenAsync();
-```
-
-> [!Important]
-> Dapper does not create the database connection for you. It operates on an ADO.NET connection such as `SqlConnection`.
-
-
-<br>
-
----
-
-<br>
-
-## 2.4 General Repository Template
-
-A common pattern:
-
-```csharp
-public class BookRepository : IBookRepository
-{
-    private readonly IConfiguration _configuration;
-
-    public BookRepository(IConfiguration configuration)
-    {
-        _configuration = configuration;
-    }
-
-    private IDbConnection CreateConnection()
-    {
-        return new SqlConnection(
-            _configuration.GetConnectionString("BookStoreDB")
-        );
-    }
-}
-```
-
-Then:
-
-```csharp
-using var connection = CreateConnection();
-```
-
-and execute Dapper operations on it.
 
 
 <br>
