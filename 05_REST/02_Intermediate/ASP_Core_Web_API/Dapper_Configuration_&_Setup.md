@@ -4,6 +4,25 @@
 > **Project:** IMDB API  
 > **Database:** MS SQL Server
 
+
+<br>
+
+# Index
+
+1. [Install Required NuGet Packages](#1-install-required-nuget-packages)
+2. [Create `ConnectionString.cs`](#2-create-connectionstringcs)
+3. [Add Connection String to `appsettings.json`](#3-add-connection-string-to-appsettingsjson)
+4. [Register `ConnectionString` with DI](#4-register-connectionstring-with-di)
+5. [Access the Connection String in Repository](#5-access-the-connection-string-in-repository)
+6. [Replace the Static List with SQL Queries](#6-replace-the-static-list-with-sql-queries)
+7. [Create a Base Repository](#7-create-a-base-repository)
+8. [Create `BaseRepository<T>`](#8-create-baserepositoryt)
+9. [Inherit the Base Repository](#9-inherit-the-base-repository)
+10. [Replace Repeated Connection Code](#10-replace-repeated-connection-code)
+11. [What Changed?](#11-what-changed)
+12. [Next: Dapper Stored Procedures](#12-next-dapper-stored-procedures)
+13. [Key Concepts to Remember](#key-concepts-to-remember)
+
 <br>
 
 ## 1. Install Required NuGet Packages
