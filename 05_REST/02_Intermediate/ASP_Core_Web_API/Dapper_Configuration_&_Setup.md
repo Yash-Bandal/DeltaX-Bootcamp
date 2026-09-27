@@ -22,7 +22,7 @@ First, install the required NuGet packages through **Manage NuGet Packages**.
 
 <br>
 
-# 2. Create `ConnectionString.cs`
+## 2. Create `ConnectionString.cs`
 
 Create `ConnectionString.cs` at the **root level**, alongside:
 
@@ -47,7 +47,7 @@ You could access configuration directly using `IConfiguration`, but a cleaner ap
 
 <br>
 
-# 3. Add Connection String to `appsettings.json`
+## 3. Add Connection String to `appsettings.json`
 
 Add the connection string under the `ConnectionStrings` section:
 
@@ -67,7 +67,7 @@ Here:
 
 <br>
 
-# 4. Register `ConnectionString` with DI
+## 4. Register `ConnectionString` with DI
 
 Inside `Startup.cs`, register the configuration class with the Dependency Injection container.
 
@@ -116,7 +116,7 @@ public class ConnectionString
 
 <br>
 
-# 5. Access the Connection String in Repository
+## 5. Access the Connection String in Repository
 
 Now, inside the repository where the connection string is required, inject `IOptions<ConnectionString>`.
 
@@ -213,7 +213,7 @@ It is commonly used for strongly typed configuration.
 
 <br>
 
-# 6. Replace the Static List with SQL Queries
+## 6. Replace the Static List with SQL Queries
 
 Previously, the repository was using an in-memory list:
 
@@ -397,7 +397,7 @@ It creates an **anonymous object** that Dapper uses as the query's parameter obj
 
 <br>
 
-# 7. Create a Base Repository
+## 7. Create a Base Repository
 
 At this point, we notice that these lines are repeated in multiple repository methods:
 
@@ -430,7 +430,7 @@ Instead of repeating this logic in every repository, create a **Base Repository*
 
 <br>
 
-# 8. Create `BaseRepository<T>`
+## 8. Create `BaseRepository<T>`
 
 Create:
 
