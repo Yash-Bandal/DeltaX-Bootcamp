@@ -439,6 +439,18 @@ Low-level row reader
     → ExecuteReader
 ```
 
+| Dapper method | SQL operation | Use when |
+|---|---|---|
+| `Query<T>()` | `SELECT` | Multiple rows |
+| `QueryAsync<T>()` | `SELECT` | Multiple rows, async |
+| `QueryFirst<T>()` | `SELECT ...` | First row; throws if none |
+| `QueryFirstOrDefault<T>()` | `SELECT ...` | First row; `null` if none |
+| `QuerySingle<T>()` | `SELECT ...` | Exactly one row; throws if 0 or >1 |
+| `QuerySingleOrDefault<T>()` | `SELECT ...` | 0 or 1 row; throws if >1 |
+| `Execute()` | `INSERT`, `UPDATE`, `DELETE` | Doesn't return rows; returns affected row count |
+| `ExecuteAsync()` | `INSERT`, `UPDATE`, `DELETE` | Async version |
+| `ExecuteScalar<T>()` | `SELECT COUNT(*)`, `SELECT SCOPE_IDENTITY()` etc. | One single value |
+| `ExecuteScalarAsync<T>()` | Same | Async version |
 
 <br>
 
