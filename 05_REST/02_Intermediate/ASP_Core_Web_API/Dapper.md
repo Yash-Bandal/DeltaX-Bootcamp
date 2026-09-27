@@ -273,6 +273,41 @@ Search:
 
 ##  Connection String
 
+**Connection lifetime**\
+You might wonder:
+> "Should I keep one connection open for the whole application?"
+
+**No.**
+
+Generally:
+```
+Request comes
+     ↓
+Create/open connection
+     ↓
+Execute query
+     ↓
+Finish
+     ↓
+Dispose connection
+```
+You don't normally keep a SqlConnection as a **long-lived field**.
+
+**Note that:**
+
+Database connections are stateful resources.
+
+When you do:
+```csharp
+using var connection = new SqlConnection(_connectionString);
+connection.Open();
+```
+you create a short-lived SqlConnection object.
+
+ADO.NET uses a `connection pool` underneath:\
+When finished\
+the physical connection is generally returned to the pool, rather than destroyed.
+
 Know More - Which string to select 
 
 [https://www.connectionstrings.com/sql-server/](https://www.connectionstrings.com/sql-server/)
@@ -372,6 +407,22 @@ Low-level row reader
 | `ExecuteAsync()` | `INSERT`, `UPDATE`, `DELETE` | Async version |
 | `ExecuteScalar<T>()` | `SELECT COUNT(*)`, `SELECT SCOPE_IDENTITY()` etc. | One single value |
 | `ExecuteScalarAsync<T>()` | Same | Async version |
+
+
+<br>
+
+| Method | 0 rows | 1 row | Multiple |
+|---|---|---|---|
+| `Query<T>` | empty collection `[]` | collection `[{}]`| collection  `[{}, {}, {}..]`|
+| `QueryFirstOrDefault<T>` | `null` | object | first object |
+| `QuerySingle<T>` | exception | object | exception |
+| `QuerySingleOrDefault<T>` | `null` | object | exception |
+
+
+Execute generally gets `int` , that is number of rows affected value
+
+<br>
+
 
 <br>
 
