@@ -368,7 +368,7 @@ Low-level row reader
 | `QueryFirstOrDefault<T>()` | `SELECT ...` | First row; `null` if none |
 | `QuerySingle<T>()` | `SELECT ...` | Exactly one row; throws if 0 or >1 |
 | `QuerySingleOrDefault<T>()` | `SELECT ...` | 0 or 1 row; throws if >1 |
-| `Execute()` | `INSERT`, `UPDATE`, `DELETE` | Doesn't return rows; returns affected row count |
+| `Execute()` | `INSERT`, `UPDATE`, `DELETE` | Doesn't return rows; returns affected row count 🏷️|
 | `ExecuteAsync()` | `INSERT`, `UPDATE`, `DELETE` | Async version |
 | `ExecuteScalar<T>()` | `SELECT COUNT(*)`, `SELECT SCOPE_IDENTITY()` etc. | One single value |
 | `ExecuteScalarAsync<T>()` | Same | Async version |
