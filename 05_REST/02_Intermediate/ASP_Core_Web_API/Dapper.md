@@ -1,5 +1,7 @@
 # Dapper — Complete Notes
 
+[Setup and Refactoring](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/05_REST/02_Intermediate/ASP_Core_Web_API/Dapper_Configuration_%26_Setup.md)
+
 ## Index
 
 - [1. What is Dapper?](#1-what-is-dapper)
@@ -282,6 +284,24 @@ Connection string
 <br>
 
 ## 2.2 Connection String
+
+Know More - Which string to select 
+
+[https://www.connectionstrings.com/sql-server/](https://www.connectionstrings.com/sql-server/)
+
+<img width="650" alt="image" src="https://github.com/user-attachments/assets/45dd2546-404f-4f2d-ad7a-64711bebf7f6" />
+
+<br>
+
+In video  
+```
+"IMDB_API": "Data Source=localhost;Initial Catalog=IMDB;Integrated Security=True;"
+```
+others
+```
+"IMDB_API": "Server=myServerAddress;Database=myDataBase;Trusted_Connection=True;"
+"IMDB_API": "Server=.;Database=BookStoreDB;Trusted_Connection=True;"
+```
 
 Example `appsettings.json`:
 
