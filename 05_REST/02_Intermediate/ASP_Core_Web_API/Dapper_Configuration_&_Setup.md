@@ -11,7 +11,7 @@
 First, install the required NuGet packages through **Manage NuGet Packages**.
 
 | Package | Version from Video |
-|<br>|<br>:|
+|--|--|
 | **Dapper** | **2.0.90** |
 | **Microsoft.Data.SqlClient** | **5.1.0** |
 
