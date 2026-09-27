@@ -7,7 +7,7 @@
 
 <br>
 
-# Index
+### Index
 
 1. [Install Required NuGet Packages](#1-install-required-nuget-packages)
 2. [Create `ConnectionString.cs`](#2-create-connectionstringcs)
