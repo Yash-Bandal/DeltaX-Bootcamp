@@ -313,7 +313,14 @@ For SQL authentication, a connection string may look like:
 
 Never hardcode production credentials in source code.
 
-
+> [!Note]
+> **Server Name** is the Name of the value you enter in the Connect to Server → Server name field.
+> Eg-`DELTAX`
+>
+> or
+>
+> `localhost`
+> <img width="450" alt="image" src="https://github.com/user-attachments/assets/4b57559f-ba25-4ffe-a500-83a53a455447" />
 
 
 
