@@ -220,6 +220,20 @@ and we need to manage those Status records:
 
 ### Using `_async()`
 
+#### Think of a waiter 🍽️
+**Without async:**
+> Waiter takes your order → stands beside the kitchen for 10 minutes → does nothing → brings food.
+
+**With async:**
+> Waiter takes your order → sends it to kitchen → serves another table → kitchen signals when food is ready → waiter comes back.
+
+The food still takes 10 minutes.
+
+`async` just means the waiter isn't standing uselessly beside the kitchen.
+
+That's what "the thread is free" means.
+
+#### Usage
 - You don't use async on every method in an ASP.NET Core application.
 
 - You generally use async when the method is performing an asynchronous operation, especially I/O such as `database calls`, `HTTP calls`, or `file operations`.
