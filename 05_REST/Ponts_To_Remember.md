@@ -266,3 +266,32 @@ That's what "the thread is free" means.
 > No. This is the key misconception to clear up:
 >
 > `await` does not make the thread wait. It makes the method's logical execution wait for the result, while the thread is released.
+
+
+<br>
+
+---
+
+<br>
+
+## Task in async programming
+
+| Method | Meaning |
+|---|---|
+| `Task` | async operation returns no value |
+| `Task<T>` | async operation eventually returns a `T` |
+| `void` | synchronous method returns nothing |
+| `T` | synchronous method returns a `T` |
+
+
+```
+Synchronous              Asynchronous
+
+void                      Task
+int                       Task<int>
+Actor                     Task<Actor>
+IEnumerable<Actor>        Task<IEnumerable<Actor>>
+```
+
+> [!Note]
+> `async void` does exist, but it is generally avoided for normal methods. It's mainly appropriate for event handlers.
