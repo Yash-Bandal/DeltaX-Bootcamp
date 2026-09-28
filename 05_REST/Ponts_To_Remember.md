@@ -260,3 +260,9 @@ That's what "the thread is free" means.
 > CPU-only/simple calculation → synchronous is often fine.
 
 > Waiting for DB/API/file/network → async is usually preferred.
+
+
+**Q. But isnt await introducing synchronousness, and here we are using combination of async and await, so at the end the thread waits, so isn't it synchronous like fully**
+> No. This is the key misconception to clear up:
+>
+> `await` does not make the thread wait. It makes the method's logical execution wait for the result, while the thread is released.
