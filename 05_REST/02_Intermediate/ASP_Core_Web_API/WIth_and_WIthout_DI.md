@@ -1,5 +1,88 @@
 # WIth and Without DI
 
+# Assignment 4
+First remove registrations / comment them in startup
+
+ then create dep graph 
+```
+ActorsController
+      │
+      ↓
+ActorService
+   │       │
+   ↓       ↓
+Repo    IMapper
+  │
+  ↓
+IOptions<ConnectionString>
+```
+
+### Controller
+
+```csharp
+public ActorsController(
+    IOptions<ConnectionString> connectionString,
+    IMapper mapper)
+{
+    _actorService = new ActorService(connectionString, mapper);
+}
+```
+
+### Service
+
+```csharp
+public ActorService(
+    IOptions<ConnectionString> connectionString,
+    IMapper mapper)
+{
+    _actorRepository = new ActorRepository(connectionString);
+    _mapper = mapper;
+}
+```
+
+### Repository
+
+No change:
+
+```csharp
+public ActorRepository(
+    IOptions<ConnectionString> connectionString)
+    : base(connectionString.Value.IMDBConnection)
+{
+}
+```
+
+So the construction becomes:
+
+```text
+ActorsController
+      │
+      │ new ActorService(...)
+      ↓
+ActorService
+      │
+      │ new ActorRepository(...)
+      ↓
+ActorRepository
+      │
+      ↓
+   SQL Server
+```
+
+That's **fully manual construction for your application layers**.
+
+The only things still coming from ASP.NET DI are:
+
+```text
+IOptions<ConnectionString>
+IMapper
+```
+
+because those are framework/configuration services you're still asking ASP.NET to provide.
+
+If you wanted **literally zero DI even for those**, you'd also have to manually construct `IMapper` and configuration/options — but that's unnecessary for demonstrating **DI vs tight coupling between your Controller → Service → Repository layers**.
+
+# Assignment 3
 ## Implementation  (Lets try for implementing Tight coupling for `Actor`)
 ```text
 Controller → IActorService
