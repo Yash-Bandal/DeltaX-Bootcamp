@@ -696,11 +696,133 @@ Run the tests in this order:
 14. Test Delete
 ```
 
-This gives you both **positive tests** and **negative/validation tests** while exercising the relationships:
+### Add these sections to your Postman reference
+
+## 10. Review Tests
+
+```http
+POST /api/movies/1/reviews
+```
+
+```json
+{
+  "message": "A brilliant and complex movie."
+}
+```
+
+Expected: `201 Created`
+
+```http
+POST /api/movies/1/reviews
+```
+
+```json
+{
+  "message": "Excellent storytelling."
+}
+```
+
+Expected: `201 Created`
+
+```http
+GET /api/movies/1/reviews
+```
+
+Expected: `200 OK` → 2 reviews
+
+```http
+GET /api/movies/1/reviews/1
+```
+
+Expected: `200 OK`
+
+```http
+PUT /api/movies/1/reviews/1
+```
+
+```json
+{
+  "message": "Updated review."
+}
+```
+
+Expected: `200 OK`
+
+```http
+DELETE /api/movies/1/reviews/2
+```
+
+Expected: `204 No Content`
+
+---
+
+## 11. Poster Tests
+
+```http
+PUT /api/movies/1/poster
+```
+
+Body → `form-data`
 
 ```text
-Movie
- ├── Producer → ProducerService
- ├── Actors   → ActorService
- └── Genres   → GenreService
+file → Inception.jpg
 ```
+
+Expected: `200 OK` + Supabase URL.
+
+Then:
+
+```http
+GET /api/movies/1
+```
+
+Verify `CoverImage` contains the Supabase URL and opens correctly.
+
+Upload another image to the same endpoint and verify the URL changes.
+
+---
+
+## 12. Final Negative Tests
+
+### Authentication
+
+```text
+GET /api/movies              → 401 without JWT
+PUT /api/movies/1/poster     → 401 without JWT
+```
+
+### Invalid IDs
+
+```text
+GET /api/movies/999          → 404
+PUT /api/movies/999          → 404
+DELETE /api/movies/999       → 404
+GET /api/movies/1/reviews/999 → 404
+PUT /api/movies/999/poster   → 404
+```
+
+### Invalid relationships
+
+```text
+ProducerId = 999 → validation/not found
+ActorIds = [999] → validation/not found
+GenreIds = [999] → validation/not found
+```
+
+### Validation
+
+```text
+Empty movie name → 400
+Year = 0         → 400
+No poster file   → 400
+```
+
+### Review ownership
+
+```text
+GET /api/movies/3/reviews/1
+```
+
+if Review 1 belongs to Movie 1 → `404`.
+
+That is enough for the remaining **Assignment 4 positive + negative testing**.
