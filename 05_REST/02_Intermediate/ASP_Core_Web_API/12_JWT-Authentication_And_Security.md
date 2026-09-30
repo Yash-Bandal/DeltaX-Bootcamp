@@ -159,6 +159,86 @@
 <br>
 
 
+```csharp
+
+
+//         Tells Application uses Auth service
+//                                The service mechanism is JWT
+services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            1. Is the signature valid?
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(
+                    Configuration["Jwt:Key"])),
+
+            2. Was it issued by the correct issuer?
+            ValidateIssuer = true,
+            ValidIssuer = Configuration["Jwt:Issuer"],
+
+            3. Is it intended for the correct audience?
+            ValidateAudience = true,
+            ValidAudience = Configuration["Jwt:Audience"],
+
+            4. Has it expired?
+            ValidateLifetime = true
+        };
+    });
+```
+```csharp
+namespace IMDB_API.Services
+{
+    public class JwtService : IJwtService
+    {
+        private readonly IConfiguration _configuration;
+
+        // Get the Confuguration service through IConfig obj via DI
+        public JwtService(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
+        public string GenerateToken(User user)
+        {
+            // Fetch the value from appsettings
+            var key = _configuration["Jwt:Key"];
+            var issuer = _configuration["Jwt:Issuer"];
+            var audience = _configuration["Jwt:Audience"];
+
+            var expiryMinutes = int.Parse(_configuration["Jwt:ExpiryMinutes"]);
+
+            // Create a cryptographic symetic key out of encoded bytes of key
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
+
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            // Array of claim objects
+            var claims = new[]
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Email, user.Email)
+            };
+
+            // JWT Token
+            var token = new JwtSecurityToken(
+                issuer: issuer,
+                audience: audience,
+                claims: claims,
+                expires: DateTime.UtcNow.AddMinutes(expiryMinutes),
+                signingCredentials: credentials
+            );
+
+            // Create the Header.Payload.Signature JWT string
+            return new JwtSecurityTokenHandler()
+                .WriteToken(token);
+        }
+    }
+}
+```
+
 # 1. Authentication & Authorization
 
 
