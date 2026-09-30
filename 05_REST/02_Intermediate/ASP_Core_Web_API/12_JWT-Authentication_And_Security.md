@@ -42,6 +42,12 @@
 <br>
 
 ```
+Phase 1                   Phase 2
+Create token              Validate token
+
+SECRET 🔐                 SECRET 🔐
+   ↓                         ↓
+Sign JWT                  Check JWT
                                                         ┌─────────────────────┐
                                                         │       CLIENT        │
                                                         │       Yash          │
@@ -116,7 +122,7 @@
                                                        Later requests
                                                                  │
                                                                  ▼
-                                                        Authorization:
+                                                        Authorization: (Startup.cs <- Validation starts)
                                                         Bearer <JWT>
                                                                  │
                                                                  ▼
