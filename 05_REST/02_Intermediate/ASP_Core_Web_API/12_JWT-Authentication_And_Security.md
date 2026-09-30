@@ -158,9 +158,9 @@
 
 <br>
 
-
+`Startup.cs`
 ```csharp
-
+// In startup , we have registered a RULE BOOK
 
 //         Tells Application uses Auth service
 //                                The service mechanism is JWT
@@ -169,25 +169,34 @@ services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     {
         options.TokenValidationParameters = new TokenValidationParameters
         {
-            1. Is the signature valid?
+            // Rule 1. Is the signature valid?
             ValidateIssuerSigningKey = true,
             IssuerSigningKey = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes(
                     Configuration["Jwt:Key"])),
 
-            2. Was it issued by the correct issuer?
+            // Rule 2. Was it issued by the correct issuer?
             ValidateIssuer = true,
             ValidIssuer = Configuration["Jwt:Issuer"],
 
-            3. Is it intended for the correct audience?
+            // Rule 3. Is it intended for the correct audience?
             ValidateAudience = true,
             ValidAudience = Configuration["Jwt:Audience"],
 
-            4. Has it expired?
+            // Rule 4. Has it expired?
             ValidateLifetime = true
         };
     });
 ```
+Note that, `app.UseAuthentication()` middleware does the final verification, not the `service.AddAuthentication()`
+
+`service.AddAuthentication()` defines a rulebook on how to verify the JWT token, its claims, signature
+
+`TokenValidationParameters` does not hold the Configurations, but the `true/false` rules, but this is used by `useauthN()` for verification, 
+
+that is, When a request reaches `app.UseAuthentication()`, the JWT Bearer authentication handler uses those `TokenValidationParameters` to actually validate the incoming JWT.
+
+`/services/JWTservice.cs`
 ```csharp
 namespace IMDB_API.Services
 {
