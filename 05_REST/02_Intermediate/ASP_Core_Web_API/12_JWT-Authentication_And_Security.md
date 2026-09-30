@@ -42,42 +42,95 @@
 <br>
 
 ```
-                                                              LOGIN
-                                                                │
-                                                                ▼
-                                                       Email + Password
-                                                                │
-                                                                ▼
-                                                        Check User in DB
-                                                                │
-                                                          Credentials OK
-                                                                │
-                                                                ▼
-                                                        Create JWT Token
-                                                                │
-                                                    ┌───────────┴───────────┐
-                                                    │                       │
-                                                 Claims                 Configuration
-                                                    │                       │
-                                               UserId = 1               Secret Key
-                                               Email = ...              Issuer
-                                                                        Audience
-                                                                        Expiry
-                                                    │                       │
-                                                    └───────────┬───────────┘
-                                                                ▼
-                                                           SIGN JWT
-                                                                │
-                                                                ▼
-                                                        Return AccessToken
-                                                                │
-                                                                ▼
-                                                           CLIENT
-                                                                │
-                                                                │ Authorization:
-                                                                │ Bearer <token>
-                                                                ▼
+                                                        ┌─────────────────────┐
+                                                        │       CLIENT        │
+                                                        │       Yash          │
+                                                        └──────────┬──────────┘
+                                                                   │
+                                                           1. SIGNUP
+                                                           email/password
+                                                                   │
+                                                                   ▼
+                                                        ┌─────────────────────┐
+                                                        │    AUTH SERVICE     │
+                                                        │                     │
+                                                        │ Signup / Login      │
+                                                        └──────────┬──────────┘
+                                                                   │
+                                                             Save / Fetch
+                                                                   │
+                                                                   ▼
+                                                        ┌─────────────────────┐
+                                                        │    SQL DATABASE     │
+                                                        │                     │
+                                                        │ Users               │
+                                                        │ Id = 25             │
+                                                        │ Email = yash@...    │
+                                                        └──────────┬──────────┘
+                                                                   │
+                                                             User object
+                                                                   │
+                                                                   ▼
+                                                        ┌─────────────────────┐
+                                                        │     JWT SERVICE     │
+                                                        │ GenerateToken(user) │
+                                                        └──────────┬──────────┘
+                                                                   │
+                                                  ┌────────────────┼─────────────────┐
+                                                  │                │                 │
+                                                  ▼                ▼                 ▼
+                                              Configuration      Claims          Signing
+                                                  │                │                 │
+                                           ┌──────┼──────┐    ┌───────┐       ┌──────┴──────┐
+                                           │      │      │    │ ID=25 │       │ Secret Key  │
+                                          Key   Issuer Aud    │ Email │       │ HMAC-SHA256 │
+                                                               └───────┘       └─────────────┘
+                                                  │                │                 │
+                                                  └────────────────┼─────────────────┘
+                                                                   ▼
+                                                      ┌────────────────────────┐
+                                                      │ JwtSecurityToken       │
+                                                      │                        │
+                                                      │ issuer                │
+                                                      │ audience              │
+                                                      │ claims                │
+                                                      │ expiry                │
+                                                      │ signingCredentials    │
+                                                      └───────────┬────────────┘
+                                                                  │
+                                                             WriteToken()
+                                                                  │
+                                                                  ▼
+                                                 ┌────────────────────────────────┐
+                                                 │        JWT STRING              │
+                                                 │                                │
+                                                 │ HEADER.PAYLOAD.SIGNATURE       │
+                                                 └───────────────┬────────────────┘
+                                                                 │
+                                                                 ▼
+                                                        ┌─────────────────┐
+                                                        │     CLIENT      │
+                                                        │ stores JWT      │
+                                                        └────────┬────────┘
+                                                                 │
+                                                       Later requests
+                                                                 │
+                                                                 ▼
+                                                        Authorization:
+                                                        Bearer <JWT>
+                                                                 │
+                                                                 ▼
                                                           ASP.NET API
+                                                        ┌─────────────────┐
+                                                        │      API        │
+                                                        │                 │
+                                                        │ Validate JWT    │
+                                                        │ ✓ Signature     │
+                                                        │ ✓ Issuer        │
+                                                        │ ✓ Audience      │
+                                                        │ ✓ Expiry        │
+                                                        └─────────────────┘
+
                                                                 │
                                                                 ▼
                                                         JWT Middleware
