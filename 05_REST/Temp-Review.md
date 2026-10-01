@@ -1,4 +1,4 @@
-# Optimizing Movie Response
+## Optimizing Movie Response
 
 ### 1. MovieDto.cs
 ```csharp
@@ -186,4 +186,35 @@ private MovieResponse MapMovieDtoResponse(IGrouping<int, MovieDto> group)
     };
 }
 
+```
+
+
+<br>
+
+---
+
+<br>
+
+## Old - GetFiltered
+```csharp
+public async Task<IEnumerable<Movie>> Get(MovieFilter filter)
+{
+    const string query = @"
+        SELECT
+            Id,
+            Name,
+            YearOfRelease,
+            Plot,
+            CoverImage,
+            ProducerId
+        FROM Foundation.Movies
+        WHERE (@Year IS NULL OR YearOfRelease = @Year)";
+
+    return await QueryAsync(
+        query,
+        new
+        {
+            Year = filter.Year
+        });
+}
 ```
