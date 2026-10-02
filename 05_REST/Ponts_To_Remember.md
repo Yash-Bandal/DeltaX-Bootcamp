@@ -521,6 +521,12 @@ The general `Exception` catch should be **last** because it can catch almost eve
 
 ## IEnumerable vs List
 
+<br>
+<div align  = "center">
+ <img width="500" alt="image" src="https://github.com/user-attachments/assets/066af8db-859a-4621-b2cd-24b7102a1081" />
+</div>
+<br>
+
 ### 1. List implements multiple interfaces
 
 ```text
