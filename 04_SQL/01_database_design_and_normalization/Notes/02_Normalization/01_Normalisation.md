@@ -3,7 +3,7 @@
 ## What is Database Normalization?
 Database Normalization is the process of organizing data in a database to:
 
-### &nbsp; &nbsp; C &nbsp; &nbsp; R &nbsp; &nbsp; A &nbsp; &nbsp; M
+### &nbsp; &nbsp; C &uarr; &nbsp; &nbsp; R &darr; &nbsp; &nbsp; A &darr; &nbsp; &nbsp; M &uarr;
 - Improve **data consistency**
 - Minimize **data redundancy** (duplicate data)
 - Reduce **data anomalies**
