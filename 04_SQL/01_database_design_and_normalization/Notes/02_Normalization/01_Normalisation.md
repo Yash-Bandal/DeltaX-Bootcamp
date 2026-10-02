@@ -32,7 +32,7 @@ There are **six normal forms (1NF–6NF)**, but in real-world applications, most
 > ```
 >
 > 
-> In 3Nf, MovieId is only single Primary key,\
+> In `3Nf`, MovieId is only single Primary key,\
 > ProducerId is a FK only if it references another table.\
 >  (not in unnormalized bad table, there its just a nonkey attribute
 > ```
