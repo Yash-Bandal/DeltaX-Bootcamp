@@ -378,3 +378,140 @@ This is safe from a lifetime perspective because the `UserService` disappears at
 ```
 
 
+<br>
+
+---
+
+<br>
+
+
+## Exception Catch Block Order 
+
+### 1. Inheritance structure
+
+A custom exception is itself an `Exception` because it inherits from the base `Exception` class:
+
+```csharp
+class CustomException : Exception
+{
+}
+```
+
+So:
+
+```text
+Exception              ← Base / Parent
+    ↑
+CustomException        ← Derived / Child
+```
+
+Therefore:
+
+> **A `CustomException` IS an `Exception`.**
+
+<br>
+
+### 2. Why order matters
+
+C# checks `catch` blocks **from top to bottom** and stops at the first matching catch.
+
+### ✅ Correct
+
+```csharp
+try
+{
+    // code
+}
+catch (CustomException ex)
+{
+    // specifically handle custom exception
+}
+catch (Exception ex)
+{
+    // handle all other exceptions
+}
+```
+
+### ❌ Wrong
+
+```csharp
+try
+{
+    // code
+}
+catch (Exception ex)
+{
+    // catches CustomException too
+}
+catch (CustomException ex)
+{
+    // Never reached
+}
+```
+
+If:
+
+```csharp
+throw new CustomException();
+```
+
+then:
+
+```text
+CustomException thrown
+       ↓
+catch (Exception)
+       ↓
+MATCH ✅  <- program reads custom exception as a exception
+       ↓
+Handled
+       ↓
+CustomException catch is never reached
+```
+
+Because:
+
+```text
+CustomException IS-A Exception
+```
+
+<br>
+
+### 3. Catch priority
+
+> **Put the most specific/derived exception first, and the most general/base exception last.**
+
+```text
+Most specific
+     ↓
+CustomException
+     ↓
+More general exceptions
+     ↓
+Exception
+     ↓
+Most general
+```
+
+Example:
+
+```csharp
+catch (EntityNotFoundException)
+{
+}
+catch (ValidationException)
+{
+}
+catch (Exception)
+{
+}
+```
+
+The general `Exception` catch should be **last** because it can catch almost every exception derived from `Exception`.
+
+
+<br>
+
+---
+
+<br>
