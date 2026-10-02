@@ -527,8 +527,8 @@ Departments
 
 <br>
 
-> [!NOTE]
-> ### 3NF — Transitive Dependency
+> [!tip]
+> ### Why we need 3NF? Why Transitive Dependency can be a problem?
 >
 > Suppose we have:
 >
