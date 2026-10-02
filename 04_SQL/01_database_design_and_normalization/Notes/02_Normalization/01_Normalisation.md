@@ -309,8 +309,8 @@ Department information is stored only once.
 <br>
 
 
-> [!NOTE]
-> ### Why Need to Partial Dependency to establish 2NF?, Why 2NF?
+> [!Tip]
+> ### Why Need to  remove Partial Dependency to establish 2NF?, Why 2NF?
 >
 > Suppose:
 >
