@@ -295,3 +295,85 @@ IEnumerable<Actor>        Task<IEnumerable<Actor>>
 
 > [!Note]
 > `async void` does exist, but it is generally avoided for normal methods. It's mainly appropriate for event handlers.
+
+<br>
+
+---
+
+<br>
+
+
+## DI Lifetime Mismatch - Captive Dependency
+
+### Core Rule
+
+> **A longer-lived object should not hold a shorter-lived dependency.**
+
+Why? Because the longer-lived object can outlive the dependency it is holding.
+
+### Example 1 — ❌ Fails
+
+```csharp
+services.AddScoped<IUserRepository, UserRepository>();
+services.AddSingleton<IUserService, UserService>();
+```
+
+Dependency:
+
+```text
+UserService     →     UserRepository
+Singleton             Scoped
+```
+
+```text
+Application lifetime
+└── UserService (Singleton)
+        ↓
+    UserRepository (Scoped)
+        ↑
+   Request lifetime
+```
+
+`UserService` can live from application start to application shutdown, while `UserRepository` is supposed to live only for one request.
+
+So a **Singleton cannot depend directly on a Scoped service**.
+
+The application can build successfully because the C# code itself is valid, but DI validation can fail when the application starts or when the dependency is resolved.
+
+<br>
+
+### Example 2 — ✅ Successful
+
+```csharp
+services.AddSingleton<IUserRepository, UserRepository>();
+services.AddScoped<IUserService, UserService>();
+```
+
+Dependency:
+
+```text
+UserService     →     UserRepository
+Scoped                Singleton
+```
+
+```text
+Request lifetime
+└── UserService (Scoped)
+        ↓
+Application lifetime
+└── UserRepository (Singleton)
+```
+
+This is safe from a lifetime perspective because the `UserService` disappears at the end of the request, while the `UserRepository` continues to exist.
+
+### Easy way to remember
+
+```text
+❌ Singleton → Scoped
+   LONGER       SHORTER
+
+✅ Scoped → Singleton
+   SHORTER      LONGER
+```
+
+
