@@ -516,3 +516,101 @@ The general `Exception` catch should be **last** because it can catch almost eve
 ---
 
 <br>
+
+
+## IEnumerable vs List
+
+### 1. List implements multiple interfaces
+
+```text
+List<T>
+ ├── IEnumerable<T>
+ ├── IEnumerable
+ ├── ICollection<T>
+ ├── IList<T>
+ └── ...
+```
+
+So:
+
+> **`List<T>` is an `IEnumerable<T>`**, but `IEnumerable<T>` is not necessarily a `List<T>`.
+
+<br>
+
+### 2. List → IEnumerable ✅
+
+```csharp
+List<int> list = new List<int>();
+
+IEnumerable<int> items = list;
+```
+
+This works because `List<T>` implements `IEnumerable<T>`.
+
+```text
+List
+ ↓
+IEnumerable
+```
+
+A `List` can therefore be treated as the more general `IEnumerable`.
+
+<br>
+
+### 3. IEnumerable → List ❌ Direct assignment
+
+```csharp
+IEnumerable<int> items = ...;
+
+List<int> list = items; // ❌
+```
+
+Why?
+
+Because the actual object behind `IEnumerable` could be:
+
+```text
+IEnumerable
+ ├── List
+ ├── Array
+ ├── HashSet
+ └── Other collection
+```
+
+So C# cannot assume that it is a `List`.
+
+<br>
+
+### 4. IEnumerable → List using `.ToList()` ✅
+
+```csharp
+List<int> list = items.ToList();
+```
+
+`.ToList()` creates a **new `List<T>`** from the enumerable.
+
+```text
+IEnumerable
+     ↓
+  .ToList()
+     ↓
+ New List
+```
+
+### Core rule
+
+> **Specific → General: direct assignment works.**
+
+```text
+List → IEnumerable ✅
+```
+
+> **General → Specific: direct assignment does not work; conversion is needed.**
+
+```text
+IEnumerable → List ❌
+IEnumerable → ToList() → List ✅
+
+IEnumerable<int>  IEnum = new List<int>(); ✅
+List<int>  List = new IEnumerable<int>(); ❌
+```
