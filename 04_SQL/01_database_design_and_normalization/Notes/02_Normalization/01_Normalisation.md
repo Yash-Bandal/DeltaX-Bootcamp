@@ -304,6 +304,52 @@ Department information is stored only once.
 - Smaller tables
 - Better consistency
 
+
+> [!NOTE]
+> ### 2NF — Partial Dependency
+>
+> Suppose:
+>
+> ```text
+> MovieId | ProducerId | MovieName | ProducerName
+> ```
+>
+> Composite key: `(MovieId, ProducerId)`
+>
+> If one producer has multiple movies:
+>
+> ```text
+> 1 | P1 | Movie A | Producer X
+> 2 | P1 | Movie B | Producer X
+> 3 | P1 | Movie C | Producer X
+> ```
+>
+> `ProducerName` depends only on `ProducerId`, not on the **whole composite key** → **partial dependency**.
+>
+> This causes anomalies:
+> - **Update:** Change Producer X's name → update multiple rows.
+> - **Insert:** Can't store a producer easily without a movie.
+> - **Delete:** Deleting the producer's last movie may also delete producer information.
+>
+> ### Better design
+>
+> ```text
+> Movie
+> -------------------------
+> MovieId | MovieName | ProducerId
+>
+> Producer
+> -----------------
+> ProducerId | ProducerName
+> ```
+>
+> Now `ProducerName` depends only on `ProducerId`, where it belongs.
+> `Movie` stores only the `ProducerId` as the foreign key.
+>
+> **2NF = Remove partial dependency → every non-key attribute must depend on the whole key.**
+
+<br>
+
 ---
 
 <br>
