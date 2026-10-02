@@ -218,6 +218,8 @@ EmployeeID
 
 Split data into multiple tables and connect them using a **Foreign Key**.
 
+<br>
+
 ---
 
 <br>
@@ -304,9 +306,11 @@ Department information is stored only once.
 - Smaller tables
 - Better consistency
 
+<br>
+
 
 > [!NOTE]
-> ### 2NF — Partial Dependency
+> ### Why Need to Partial Dependency to establish 2NF?, Why 2NF?
 >
 > Suppose:
 >
