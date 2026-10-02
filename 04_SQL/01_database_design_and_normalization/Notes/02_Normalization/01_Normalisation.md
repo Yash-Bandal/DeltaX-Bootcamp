@@ -20,8 +20,8 @@ There are **six normal forms (1NF–6NF)**, but in real-world applications, most
 >  - In 2NF, the Primary key is a **Composite Primary Key**
 >  - In 3NF, the Primary key is perfectly fine, **Normal primary key**
 >
-> eg
-> In 2Nf -> Conposite key (MovieId, ProducerId) -
+> eg\
+> In `2Nf` -> Conposite key (MovieId, ProducerId) -
 >
 > Note we have only 1 pkey in table,\
 > so we cant consider only 1 of both is pkey,\
@@ -31,9 +31,13 @@ There are **six normal forms (1NF–6NF)**, but in real-world applications, most
 > MovieId | ProducerId | MovieName | ProducerName
 > ```
 >
+> 
 > In 3Nf, MovieId is only single Primary key,\
 > ProducerId is a FK only if it references another table.\
 >  (not in unnormalized bad table, there its just a nonkey attribute
+> ```
+> MovieId | ProducerId | MovieName | ProducerName
+> ```
 > #### This is not something random! 🏷️
 > 
 
