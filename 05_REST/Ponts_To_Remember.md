@@ -12,6 +12,7 @@
 6. [`Task` in async](#task-in-async-programming)
 7. [Captive Dependency](#di-lifetime-mismatch---captive-dependency)
 8. [Order of exceotion Catch block](#exception-catch-block-order)
+9. [IEnumerable vs List](#ienumerable-vs-list)
 
 <br>
 
