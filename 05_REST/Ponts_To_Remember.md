@@ -11,6 +11,7 @@
 5. [Using `_async`](#using-_async)
 6. [`Task` in async](#task-in-async-programming)
 7. [Captive Dependency](#di-lifetime-mismatch---captive-dependency)
+8. [Order of exceotion Catch block](#exception-catch-block-order)
 
 <br>
 
