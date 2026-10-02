@@ -525,6 +525,60 @@ Departments
 +--------------+----------------+
 ```
 
+<br>
+
+> [!NOTE]
+> ### 3NF — Transitive Dependency
+>
+> Suppose we have:
+>
+> ```text
+> MovieId | MovieName | GenreId | GenreName | GenreType
+> ```
+>
+> **PK:** `MovieId`  
+> `GenreId` is **not a PK** here; it's a **FK**.
+>
+> Example:
+>
+> ```text
+> 1 | Inception | 10 | Sci-Fi | Fictional
+> 2 | Interstellar | 10 | Sci-Fi | Fictional
+> 3 | Titanic | 20 | Romance | Love Story
+> ```
+>
+> Dependency:
+>
+> ```text
+> MovieId → GenreId → GenreName, GenreType
+> ```
+>
+> `GenreName` and `GenreType` depend on `GenreId`, which is a **non-key attribute** → **transitive dependency**.
+>
+> This causes anomalies:
+> - **Update:** Change `Sci-Fi` → update multiple movie rows.
+> - **Insert:** Can't properly store a new genre without a movie.
+> - **Delete:** Deleting the last movie of a genre can delete the genre information.
+>
+> ### Better design
+>
+> ```text
+> Movie
+> --------------------------------
+> MovieId (PK) | MovieName | GenreId (FK)
+>
+> Genre
+> -------------------------------
+> GenreId (PK) | GenreName | GenreType
+> ```
+>
+> Now genre information belongs to `Genre`, not `Movie`.
+>
+> **3NF = Remove transitive dependency → non-key attributes should not depend on other non-key attributes.**
+>
+
+<br>
+
 ---
 
 <br>
