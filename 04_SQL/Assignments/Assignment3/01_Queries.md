@@ -134,6 +134,8 @@ INNER JOIN Foundation.Actors A2
     ON AM2.ActorId = A2.Id
 
 GROUP BY
+    A1.Id,
+    A2.Id,
     A1.Name,
     A2.Name
 
@@ -162,6 +164,8 @@ HAVING COUNT(*) >= 2
 
 ### Why `ActorId < ActorId`?
 
+To remove joining with same entries pairs
+
 Without it:
 
 ```text
@@ -176,10 +180,45 @@ With it:
 ```text
 A + B
 ```
+Duplicates not considered
+
+<br>
+
+### Why here Group by `Id`
+❌ Before — Grouping only by Name
+
+| Id | Name |
+|---:|---|
+| 1 | Raj |
+| 2 | Raj |
+| 3 | Amit |
+
+```sql
+GROUP BY
+    A1.Name,
+    A2.Name
+```
+
+| Actor1 | Actor2 | MoviesTogether |
+|---|---|---:|
+| Raj | Amit | **5** |
 
 
-Only one direction remains, and an actor cannot pair with themselves.
+✅ After — Grouping by ID + Name
+```sql
+GROUP BY
+    A1.Id,
+    A1.Name,
+    A2.Id,
+    A2.Name
+```
+| Actor1 ID | Actor1 | Actor2 ID | Actor2 | MoviesTogether |
+|---:|---|---:|---|---:|
+| 1 | Raj | 3 | Amit | **3** |
+| 2 | Raj | 3 | Amit | **2** |
 
+
+<br>
 
 ### Important GROUP BY + COUNT concept
 
