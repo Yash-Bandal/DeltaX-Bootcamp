@@ -1,4 +1,4 @@
-# SQL Server – IDENTITY (Quick Notes)
+# SQL Server – IDENTITY 
 
 ## What is IDENTITY?
 
