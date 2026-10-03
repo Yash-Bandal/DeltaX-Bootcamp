@@ -74,7 +74,7 @@ that automatically updates or deletes dependent child table rows when a parent t
 4. Like what you need in `SELECT` must be in `GROUP BY`, similarly, dont forget,\
    **What you need in `HAVING` (Non aggregate - Like here M.Profit) should also be in `GROUP BY`**
    ```sql
-      SELECT
+   SELECT
        M.Name AS MovieName,
        M.Profit,
        COUNT(AM.ActorId) AS ActorCount
@@ -91,7 +91,7 @@ that automatically updates or deletes dependent child table rows when a parent t
               SELECT AVG(Profit)
               FROM Foundation.Movies
           );
-       ```
+    ```
 5. WHen I need to compare a row to another row from the same table → consider a self join
    ```
    Producers who produced movies released in consecutive years 
