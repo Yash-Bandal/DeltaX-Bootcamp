@@ -308,7 +308,7 @@ duplicate Bob not removed
 
 | Feature | UNION | JOIN |
 |---------|-------|------|
-|Direction | Horizontal (makes table wider) | Vertical (makes table taller)|
+|Direction | Vertical (makes table taller)| Horizontal (makes table wider) |
 | Purpose | Combines rows from two or more `SELECT` queries | Combines columns from two or more tables |
 | Combines 🏷️ | Rows | Columns |
 | Number of Columns | Must be the same in both queries | Can be different |
