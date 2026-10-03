@@ -1,6 +1,6 @@
 # Database Normalization
 
-## Index
+<br>
 
 ## Index
 
@@ -13,6 +13,8 @@
 7. [Difference Between 3NF and BCNF](#difference-between-3nf-and-bcnf)
 8. [Overview](#summary)
 
+
+<br>
 
 ## What is Database Normalization?
 Database Normalization is the process of organizing data in a database to:
