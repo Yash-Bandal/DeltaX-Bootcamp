@@ -21,7 +21,7 @@ There are **six normal forms (1NF–6NF)**, but in real-world applications, most
 >  - In 3NF, the Primary key is perfectly fine, **Normal primary key**
 >
 > **Example:** (Cols may be same, just different constraints)\
-> In `2Nf` -> Conposite key (MovieId, ProducerId) -
+> In `2Nf` -> Conposite primary key (MovieId, ProducerId) -
 >
 > Note we have only 1 pkey in table,\
 > so we cant consider only 1 of both is pkey,\
