@@ -361,6 +361,20 @@ GROUP BY
 
 HAVING COUNT(AM2.MovieId) = 0;
 ```
+
+### Logic
+```
+Join actors to get all pairs
+
+then get all movies of actor1
+
+then get movies of actor2 such that,
+actor1 movie = actor1 movie
+
+then gruup them such that actor2.movieid has null
+(having count(am2.mid) = 0
+```
+
 | A1.Name | AM1.MovieId | A2.Name | AM2.MovieId |
 | ------- | ----------: | ------- | ----------: |
 | A       |           1 | B       |           1 |
