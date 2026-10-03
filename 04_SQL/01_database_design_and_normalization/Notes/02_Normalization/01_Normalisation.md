@@ -1,5 +1,19 @@
 # Database Normalization
 
+## Index
+
+## Index
+
+1. [What is Database Normalization?](#what-is-database-normalization)
+2. [Why Do We Need Normalization?](#why-do-we-need-normalization)
+3. [First Normal Form (1NF)](#first-normal-form-1nf)
+4. [Second Normal Form (2NF)](#second-normal-form-2nf)
+5. [Third Normal Form (3NF)](#third-normal-form-3nf)
+6. [Boyce-Codd Normal Form (BCNF)](#boyce-codd-normal-form-bcnf)
+7. [Difference Between 3NF and BCNF](#difference-between-3nf-and-bcnf)
+8. [Overview](#summary)
+
+
 ## What is Database Normalization?
 Database Normalization is the process of organizing data in a database to:
 
