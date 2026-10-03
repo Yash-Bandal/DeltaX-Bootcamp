@@ -12,7 +12,7 @@
 6. [ORDER BY](#order-by)
 7. [TOP](#top)
 8. [TOP PERCENT](#top-percent)
-9. [SELECT Execution Order 🏷️](#select-execution-order-)
+9. [SELECT Execution Order 🏷️](#select-execution-order-%EF%B8%8F)
 10. [Best Practices](#best-practices)
 11. [Quick Revision](#quick-revision)
 
