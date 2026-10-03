@@ -606,7 +606,7 @@ If:
 X → Y
 ```
 
-Then **X** must be a **Candidate Key**.
+Then **X** must be a **Super Key**.
 
 <br>
 <div align = "center">
@@ -691,7 +691,6 @@ Now every determinant is a Candidate Key.
 
 <br>
 
-Yes. And one correction: **Candidate Key is a type of Superkey**, not the other way around.
 
 > [!TIP]
 > ### Why we need BCNF? Why 3NF mmay not be Complete fully?
@@ -787,12 +786,4 @@ Yes. And one correction: **Candidate Key is a type of Superkey**, not the other 
 
 <br>
 
-# Advantages of Normalization
-
-- Reduces data redundancy
-- Eliminates update anomalies
-- Improves data consistency
-- Saves storage space
-- Makes maintenance easier
-- Improves INSERT, UPDATE, and DELETE performance
-- Produces a clean and scalable database design
+**[YB Studios](https://github.com/Yash-Bandal)**
