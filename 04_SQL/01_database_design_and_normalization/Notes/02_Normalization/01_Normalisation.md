@@ -181,7 +181,8 @@ Each cell should contain only one value.
 The Subjects column stores multiple values.
 
 > [!caution]
-> Now, if non-atomic, its not possible to apply SEELECT, DELETE, INSERT on just one subject
+> ### Why we need to ensure 1NF? Why Multiple subjects in 1 cell a problem?
+> Now, if non-atomic, its not possible to apply **SELECT**, **DELETE**, **INSERT** on just one subject
 
 <br>
 
@@ -693,7 +694,7 @@ Now every determinant is a Candidate Key.
 
 
 > [!TIP]
-> ### Why we need BCNF? Why 3NF mmay not be Complete fully?
+> ### Why we need BCNF? Why 3NF may not be Complete fully?
 >
 > Suppose:
 >
