@@ -34,6 +34,8 @@
 
 A **Stored Procedure (SP)** is a precompiled collection of one or more SQL statements stored in the database and executed as a single unit.
 
+Stored procedures are used to group SQL statements and business logic into a single reusable unit that runs inside the database
+
 ### Advantages
 
 * Reusable code
