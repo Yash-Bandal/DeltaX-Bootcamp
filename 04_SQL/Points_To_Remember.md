@@ -142,7 +142,27 @@ that automatically updates or deletes dependent child table rows when a parent t
       FROM Employees E;
       ```
 
-7. Avoid Over Normalization, Creating Too many tables, Create tables / Normalize only to reduce redundancy and anomalies 
+7. Avoid Over Normalization, Creating Too many tables, Create tables / Normalize only to reduce redundancy and anomalies
+8. Trap question, note select is executed last in sql order,
+```sql
+SELECT
+    Department,
+    SUM(Salary) AS TotalSalary,
+    AVG(Salary) AS AvgSalary,
+    TotalSalary - AvgSalary AS Difference  -- ❌
+FROM Employee
+GROUP BY Department;
+```
+correct
+```sql
+SELECT
+    Department,
+    SUM(Salary) AS TotalSalary,
+    AVG(Salary) AS AvgSalary,
+    SUM(Salary) - AVG(Salary) AS Difference  
+FROM Employee
+GROUP BY Department;
+```
 
 <br>
 
