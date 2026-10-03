@@ -596,7 +596,7 @@ Departments
 A table is in **BCNF** if:
 
 - It is already in **3NF**
-- **Every determinant must be a [Candidate Key](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/01_database_design_and_normalization/Notes/01_Designing/KEYS_&_Fundamentals_Of_Design.md#candidate-and-super-key)**
+- **Every determinant must be a [Candidate Key](https://github.com/dev-yash-25/DeltaX-Bootcamp/blob/main/04_SQL/01_database_design_and_normalization/Notes/01_Designing/KEYS_&_Fundamentals_Of_Design.md#candidate-and-super-key)** (More precisely a Super key)
 
 > **Determinant:** An attribute (or set of attributes) that determines another attribute.
 
@@ -690,6 +690,73 @@ Now every determinant is a Candidate Key.
 
 
 <br>
+
+Yes. And one correction: **Candidate Key is a type of Superkey**, not the other way around.
+
+> [!TIP]
+> ### Why we need BCNF? Why 3NF mmay not be Complete fully?
+>
+> Suppose:
+>
+> ```text
+> MovieId | MovieName | GenreId | GenreName | GenreType | Language
+> ```
+>
+> **PK:** `MovieId`
+>
+> Suppose:
+>
+> ```text
+> GenreId → GenreName, GenreType
+> ```
+>
+> `GenreId` is **not a Superkey** because multiple movies can have the same `GenreId`.
+>
+> ```text
+> GenreId → GenreName
+>     ↓
+> GenreId is NOT a Superkey
+>     ↓
+> ❌ BCNF violation
+> ```
+>
+> ### Solution
+>
+> Separate the dependency:
+>
+> ```text
+> Movie
+> --------------------------------
+> MovieId (PK) | MovieName | GenreId (FK) | Language
+> ```
+>
+> ```text
+> Genre
+> -------------------------------
+> GenreId (PK) | GenreName | GenreType
+> ```
+>
+> Now:
+>
+> ```text
+> GenreId → GenreName, GenreType
+> ```
+>
+> `GenreId` **is the PK** of `Genre`, therefore it is a **Superkey**.
+>
+> ```text
+> GenreId → GenreName
+>     ↓
+> GenreId is Superkey
+>     ↓
+> ✅ BCNF
+> ```
+>
+>  >  Every determinant must be a `candidate key` (more precisely, a `superkey`).
+>
+
+<br>
+
 
 
 
