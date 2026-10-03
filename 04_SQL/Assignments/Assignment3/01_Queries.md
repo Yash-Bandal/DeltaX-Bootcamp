@@ -390,9 +390,9 @@ HAVING COUNT(AM2.MovieId) = 0;
         ↓
 
 3. LEFT JOIN Actor_Movies as AM2
-   Get movies of Actor2
+   Now Get movies of Actor2, such that Actor1 and Actor2 have same movie 
 
-   AND require:
+   that is:
    AM1.MovieId = AM2.MovieId
 
         ↓
