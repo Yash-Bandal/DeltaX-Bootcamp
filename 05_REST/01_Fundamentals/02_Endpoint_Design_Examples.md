@@ -1700,9 +1700,9 @@ Here User 10 is the **subject of the query**, so `{userId}` is appropriate.
 
 <br>
 
-# 9. Order Management — Controller Questions
+# 9. Order Management — Controller Questions 
 
-These are the controller decisions we resolved.
+These are the controller decisions we resolved. 🏷️
 
 | Endpoint | Controller | Core reasoning |
 |---|---|---|
@@ -1718,7 +1718,7 @@ These are the controller decisions we resolved.
 | `POST /v1/auth/login` | `AuthController` | Authentication logic |
 | `PATCH /v1/orders/{orderId}/status` | `OrdersController` | Order's status is being changed |
 | `PUT /v1/users/{userId}` | `UsersController` | User is being updated |
-| `GET /v1/products/{productId}/discounts` | `ProductsController` | Product provides context; endpoint retrieves its discounts |
+| `GET /v1/products/{productId}/discounts` | `ProductsController` 🏷️ | Product provides context; endpoint retrieves its discounts |
 | `GET /v1/products/{productId}/availability` | `ProductsController` | Product is the primary resource |
 | `GET /v1/users/{userId}/orders` | `OrdersController` | Orders are the resource being retrieved |
 
