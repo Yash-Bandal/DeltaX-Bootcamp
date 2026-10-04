@@ -793,7 +793,7 @@ Response:
 200 OK
 ```
 
-### Why SubtasksController?
+### Why SubtasksController? 🔖🏷️
 
 Because the resource being operated on is:
 
@@ -807,6 +807,23 @@ while:
 taskId
 ```
 
+Task
+```json
+{
+  "id": 101,
+  "title": "Build Movie API",
+  "status": "In Progress"
+}
+```
+Subtask
+```json
+{
+  "id": 201,
+  "title": "Implement JWT",
+  "status": "Completed",
+  "taskId": 101
+}
+```
 provides the parent Task context.
 
 ## 6.3 Tasks → Comments
