@@ -46,6 +46,32 @@
    services.AddScoped<IMovieService, MovieService>();
    services.AddSingleton<IActorRepository, ActorRepository>(); 
    ```
+   but, this is not a problem
+   ```csharp
+   services.AddSingleton<IMovieService, MovieService>();
+   services.AddTransient<IActorRepository, ActorRepository>();
+   ```
+The transient dependency effectively lives as long as the Singleton in this situation.
+
+Transient has no fixed lifetime; a new instance is created each time the DI container is asked for that service.
+So:
+- **Scoped** → normally one instance per request
+- **Transient** → new instance each time the container is requested to provide it
+- **Singleton** → one instance for the application's lifetime
+
+```
+Singleton → Scoped       ❌
+Singleton → Transient    ✅
+Singleton → Singleton    ✅
+
+Scoped    → Singleton    ✅
+Scoped    → Scoped       ✅
+Scoped    → Transient    ✅
+
+Transient → Singleton    ✅
+Transient → Scoped       ✅
+Transient → Transient    ✅
+```
 
 <br>
 
