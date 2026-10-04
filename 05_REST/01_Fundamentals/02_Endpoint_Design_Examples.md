@@ -2,15 +2,16 @@
 
 <br>
 
-> [!Note]
-> ### When its Actual entity, that can exists seperately, its `ChildController`
+> [!Important]
+> #### When its Actual entity, that can exists seperately, its `ChildController`
 > ```
 > GET /cart/{cartId}/items/{itemId}
 > ```
 > Its **ItemsController**
 >
-> 
-> ### When its Property/Attribute, its `ParentController`
+> <br>
+
+> #### When its Property/Attribute, its `ParentController`
 > ```
 > GET /products/{productId}/discounts
 > ```
