@@ -18,39 +18,39 @@
 
 ## Insights
 1. Why we use `Scoped` instead of `Singleton` for db backed requests? Like we used singleton for repos where List was used
-   
-   ```
-   Since we want our application to be stateless, we don't want the server/repository to keep information 
-   from one HTTP request and use it in another request. Therefore, for a database-backed repository, we prefer Scoped.
-   
-   Singleton can also give the same result when using SQL Server, but it keeps the same repository object
-    alive for the entire application. We don't need that because the database already stores our data.
-   
-   If we add something like List<Actor> _cache, then we intentionally want to keep some data between requests.
-   In that case, the cache can be a Singleton because the cache itself needs to share data. But we don't necessarily
-    need to make the whole repository Singleton.
-   
-   Stateless REST does not mean "the server cannot store any data."
-   It means the server should not depend on previous HTTP request state to understand the current request.
-   ```
+
+```
+Since we want our application to be stateless, we don't want the server/repository to keep information 
+from one HTTP request and use it in another request. Therefore, for a database-backed repository, we prefer Scoped.
+
+Singleton can also give the same result when using SQL Server, but it keeps the same repository object
+ alive for the entire application. We don't need that because the database already stores our data.
+
+If we add something like List<Actor> _cache, then we intentionally want to keep some data between requests.
+In that case, the cache can be a Singleton because the cache itself needs to share data. But we don't necessarily
+ need to make the whole repository Singleton.
+
+Stateless REST does not mean "the server cannot store any data."
+It means the server should not depend on previous HTTP request state to understand the current request.
+```
 
 2. **A long-lived service should not hold a reference to a short-lived service.**
    
-   Eg:-  ❌ Problem
-   ```csharp
-   services.AddSingleton<IMovieService, MovieService>();
-   services.AddScoped<IActorRepository, ActorRepository>(); 
-   ```
-   ✅ Works
-   ```csharp
-   services.AddScoped<IMovieService, MovieService>();
-   services.AddSingleton<IActorRepository, ActorRepository>(); 
-   ```
-   but, this is not a problem
-   ```csharp
-   services.AddSingleton<IMovieService, MovieService>();
-   services.AddTransient<IActorRepository, ActorRepository>();
-   ```
+Eg:-  ❌ Problem
+```js
+services.AddSingleton<IMovieService, MovieService>();
+services.AddScoped<IActorRepository, ActorRepository>(); 
+```
+✅ Works
+```js
+services.AddScoped<IMovieService, MovieService>();
+services.AddSingleton<IActorRepository, ActorRepository>(); 
+```
+but, this is not a problem
+```js
+services.AddSingleton<IMovieService, MovieService>();
+services.AddTransient<IActorRepository, ActorRepository>();
+```
 The transient dependency effectively lives as long as the Singleton in this situation.
 
 Transient has no fixed lifetime; a new instance is created each time the DI container is asked for that service.
