@@ -292,7 +292,7 @@ Reason:
 
 > This endpoint handles authentication and login functionality. Since it is associated with authentication logic, it should be placed in AuthController.
 
-## 4.4 Logout
+## 4.4 Logout 🏷️
 
 ```http
 POST /api/auth/logout
@@ -305,6 +305,8 @@ Response:
 ```text
 204 No Content
 ```
+> [!Tip]
+> **Question** - Give me a case, where we perform **POST**, not **DELETE**, and still return ***204 No Content***
 
 <br>
 
