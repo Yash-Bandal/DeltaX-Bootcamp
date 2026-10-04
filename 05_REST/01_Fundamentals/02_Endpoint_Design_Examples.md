@@ -2,6 +2,50 @@
 
 <br>
 
+## Index
+
+1. [How to Think About an Endpoint](#1-how-to-think-about-an-endpoint)
+2. [HTTP Method Cheat Sheet](#2-http-method-cheat-sheet)
+3. [Controller Selection — Main Rule](#3-controller-selection--main-rule)
+4. [Basic CRUD Endpoints](#4-basic-crud-endpoints)
+5. [Create User](#5-create-user)
+6. [User Profile](#6-user-profile)
+7. [Authentication](#7-authentication)
+8. [Task CRUD](#8-task-crud)
+9. [Filtering](#9-filtering)
+10. [Pagination + Sorting + Filtering](#10-pagination--sorting--filtering)
+11. [Projects → Tasks](#11-projects--tasks)
+12. [Tasks → Subtasks](#12-tasks--subtasks)
+13. [Tasks → Comments](#13-tasks--comments)
+14. [User → Tasks](#14-user--tasks)
+15. [Task Status](#15-task-status)
+16. [E-Commerce Platform](#16-e-commerce-platform)
+17. [Retrieve Products](#17-retrieve-products)
+18. [Retrieve Product Details](#18-retrieve-product-details)
+19. [Cart → Items](#19-cart--items)
+20. [Placing an Order — JWT User](#20-placing-an-order--jwt-user)
+21. [Cancel Order](#21-cancel-order)
+22. [Get Previous Orders](#22-get-previous-orders)
+23. [Social Media Platform](#23-social-media-platform)
+24. [Create Post](#24-create-post)
+25. [Delete Post](#25-delete-post)
+26. [Comment on Post](#26-comment-on-post)
+27. [Like / Unlike a Post](#27-like--unlike-a-post)
+28. [Get Posts of the Logged-in User](#28-get-posts-of-the-logged-in-user)
+29. [Follow / Unfollow User](#29-follow--unfollow-user)
+30. [Get Followers of a User](#30-get-followers-of-a-user)
+31. [Get Following of a User](#31-get-following-of-a-user)
+32. [Order Management — Controller Questions](#32-order-management--controller-questions)
+33. [Important Controller Corrections We Resolved](#33-important-controller-corrections-we-resolved)
+34. [The JWT Rule — Very Important](#34-the-jwt-rule--very-important)
+35. [Route Parameter vs Query Parameter](#35-route-parameter-vs-query-parameter)
+36. [Nested Resource Mental Model](#36-nested-resource-mental-model)
+37. [Complete Mental Model](#37-complete-mental-model)
+38. [Final Rules to Memorize](#38-final-rules-to-memorize)
+
+
+<br>
+
 # 1. How to Think About an Endpoint
 
 When designing an endpoint, ask these questions in order:
@@ -2200,7 +2244,7 @@ because we are explicitly asking about **that particular user**.
 
 <br>
 
-# 37. One Question to Ask Yourself in an Interview
+# . One Question to Ask Yourself in an Interview
 
 If you get stuck, ask:
 
