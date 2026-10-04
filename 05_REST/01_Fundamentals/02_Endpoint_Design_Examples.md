@@ -1,4 +1,4 @@
-# REST API Endpoint Examples — Corrected & Organized
+# REST API Endpoint Examples
 
 <br>
 
