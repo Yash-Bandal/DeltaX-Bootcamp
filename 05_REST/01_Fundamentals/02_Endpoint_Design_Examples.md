@@ -48,6 +48,9 @@ GET /tasks?page=2&size=10&sortBy=priority
 
 ### 5. Is there a parent-child relationship?
 
+> [!Tip]
+> Look around the concept of [Ownership](https://github.com/Yash-Bandal/DeltaX-Bootcamp/blob/main/05_REST/02_Intermediate/ASP_Core_Web_API/Ownership_%26_Lifecycle.md)
+
 If yes, a nested route may be appropriate:
 
 ```http
