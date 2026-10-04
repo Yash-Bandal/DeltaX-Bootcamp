@@ -10,6 +10,7 @@
 3. [Controller Selection — Main Rule](#3-controller-selection--main-rule)
 
 **Examples:**
+
 4. [Users & Authentication](#4-users--authentication)
 5. [Tasks](#5-tasks)
 6. [Nested Resources](#6-nested-resources)
@@ -19,6 +20,7 @@
 10. [Important Controller Corrections We Resolved](#10-important-controller-corrections-we-resolved)
 
 **Concepts and Observations:**
+
 11. [The JWT Rule — Very Important](#11-the-jwt-rule--very-important)
 12. [Route Parameter vs Query Parameter](#12-route-parameter-vs-query-parameter)
 13. [Nested Resource Mental Model](#13-nested-resource-mental-model)
