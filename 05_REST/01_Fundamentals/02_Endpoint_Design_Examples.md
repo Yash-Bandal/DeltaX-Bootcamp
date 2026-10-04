@@ -7,42 +7,19 @@
 1. [How to Think About an Endpoint](#1-how-to-think-about-an-endpoint)
 2. [HTTP Method Cheat Sheet](#2-http-method-cheat-sheet)
 3. [Controller Selection — Main Rule](#3-controller-selection--main-rule)
-4. [Basic CRUD Endpoints](#4-basic-crud-endpoints)
-5. [Create User](#5-create-user)
-6. [User Profile](#6-user-profile)
-7. [Authentication](#7-authentication)
-8. [Task CRUD](#8-task-crud)
-9. [Filtering](#9-filtering)
-10. [Pagination + Sorting + Filtering](#10-pagination--sorting--filtering)
-11. [Projects → Tasks](#11-projects--tasks)
-12. [Tasks → Subtasks](#12-tasks--subtasks)
-13. [Tasks → Comments](#13-tasks--comments)
-14. [User → Tasks](#14-user--tasks)
-15. [Task Status](#15-task-status)
-16. [E-Commerce Platform](#16-e-commerce-platform)
-17. [Retrieve Products](#17-retrieve-products)
-18. [Retrieve Product Details](#18-retrieve-product-details)
-19. [Cart → Items](#19-cart--items)
-20. [Placing an Order — JWT User](#20-placing-an-order--jwt-user)
-21. [Cancel Order](#21-cancel-order)
-22. [Get Previous Orders](#22-get-previous-orders)
-23. [Social Media Platform](#23-social-media-platform)
-24. [Create Post](#24-create-post)
-25. [Delete Post](#25-delete-post)
-26. [Comment on Post](#26-comment-on-post)
-27. [Like / Unlike a Post](#27-like--unlike-a-post)
-28. [Get Posts of the Logged-in User](#28-get-posts-of-the-logged-in-user)
-29. [Follow / Unfollow User](#29-follow--unfollow-user)
-30. [Get Followers of a User](#30-get-followers-of-a-user)
-31. [Get Following of a User](#31-get-following-of-a-user)
-32. [Order Management — Controller Questions](#32-order-management--controller-questions)
-33. [Important Controller Corrections We Resolved](#33-important-controller-corrections-we-resolved)
-34. [The JWT Rule — Very Important](#34-the-jwt-rule--very-important)
-35. [Route Parameter vs Query Parameter](#35-route-parameter-vs-query-parameter)
-36. [Nested Resource Mental Model](#36-nested-resource-mental-model)
-37. [Complete Mental Model](#37-complete-mental-model)
-38. [Final Rules to Memorize](#38-final-rules-to-memorize)
-
+4. [Users & Authentication](#4-users--authentication)
+5. [Tasks](#5-tasks)
+6. [Nested Resources](#6-nested-resources)
+7. [E-Commerce Platform](#7-e-commerce-platform)
+8. [Social Media Platform](#8-social-media-platform)
+9. [Order Management — Controller Questions](#9-order-management--controller-questions)
+10. [Important Controller Corrections We Resolved](#10-important-controller-corrections-we-resolved)
+11. [The JWT Rule — Very Important](#11-the-jwt-rule--very-important)
+12. [Route Parameter vs Query Parameter](#12-route-parameter-vs-query-parameter)
+13. [Nested Resource Mental Model](#13-nested-resource-mental-model)
+14. [Complete Mental Model](#14-complete-mental-model)
+15. [Final Rules to Memorize](#15-final-rules-to-memorize)
+16. [One Question to Ask Yourself in an Interview](#16-one-question-to-ask-yourself-in-an-interview)
 
 <br>
 
@@ -50,7 +27,7 @@
 
 When designing an endpoint, ask these questions in order:
 
-### 1. What resource am I operating on?
+## 1.1 What resource am I operating on?
 
 Examples:
 
@@ -64,7 +41,7 @@ Examples:
 
 This usually helps determine the **controller**.
 
-### 2. What operation am I performing?
+## 1.2 What operation am I performing?
 
 ```text
 POST    → Create
@@ -74,7 +51,7 @@ PATCH   → Update part of a resource
 DELETE  → Delete/remove
 ```
 
-### 3. Am I identifying a specific resource?
+## 1.3 Am I identifying a specific resource?
 
 If yes, use a **route parameter**:
 
@@ -82,7 +59,7 @@ If yes, use a **route parameter**:
 GET /products/{productId}
 ```
 
-### 4. Am I filtering, sorting, paginating?
+## 1.4 Am I filtering, sorting, paginating?
 
 If yes, use **query parameters**:
 
@@ -90,7 +67,7 @@ If yes, use **query parameters**:
 GET /tasks?page=2&size=10&sortBy=priority
 ```
 
-### 5. Is there a parent-child relationship?
+## 1.5 Is there a parent-child relationship?
 
 > [!Tip]
 > Look around the concept of [Ownership](https://github.com/Yash-Bandal/DeltaX-Bootcamp/blob/main/05_REST/02_Intermediate/ASP_Core_Web_API/Ownership_%26_Lifecycle.md)
@@ -103,7 +80,7 @@ GET /tasks/{taskId}/comments
 GET /products/{productId}/reviews
 ```
 
-### 6. Is the logged-in user already known from JWT?
+## 1.6 Is the logged-in user already known from JWT?
 
 If the backend gets the user ID from the access token, **do not unnecessarily put `{userId}` in the route**.
 
@@ -133,7 +110,7 @@ because the backend can get the user ID from the JWT.
 | `PATCH` | Update specific fields/part of resource |
 | `DELETE` | Delete/remove |
 
-### PUT vs PATCH
+## 2.1 PUT vs PATCH
 
 Your mental model:
 
@@ -189,7 +166,7 @@ ProjectsController
 
 <br>
 
-# 4. Basic CRUD Endpoints
+# 4. Users & Authentication
 
 ## 4.1 Create User
 
@@ -247,11 +224,7 @@ Admin/user management
 UsersController
 ```
 
-<br>
-
-# 5. User Profile
-
-## Update Profile
+## 4.2 Update Profile
 
 ```http
 PATCH /api/users/{userId}
@@ -278,13 +251,9 @@ Response:
 
 > PUT will be appropriate when the complete resource is being replaced/updated.
 
-<br>
-
-# 6. Authentication
+## 4.3 Login
 
 Authentication has its own controller because it deals with authentication logic.
-
-## Login
 
 ```http
 POST /api/auth/login
@@ -323,9 +292,7 @@ Reason:
 
 > This endpoint handles authentication and login functionality. Since it is associated with authentication logic, it should be placed in AuthController.
 
-<br>
-
-## Logout
+## 4.4 Logout
 
 ```http
 POST /api/auth/logout
@@ -341,7 +308,7 @@ Response:
 
 <br>
 
-# 7. Task CRUD
+# 5. Tasks
 
 Controller:
 
@@ -349,7 +316,9 @@ Controller:
 TasksController
 ```
 
-## Create Task
+## 5.1 Task CRUD
+
+### Create Task
 
 ```http
 POST /api/tasks
@@ -373,9 +342,7 @@ Response:
 201 Created
 ```
 
-<br>
-
-## Retrieve Tasks
+### Retrieve Tasks
 
 Get all:
 
@@ -397,9 +364,7 @@ Response:
 200 OK
 ```
 
-<br>
-
-## Update Task
+### Update Task
 
 ```http
 PATCH /api/tasks/{taskId}
@@ -420,7 +385,7 @@ Response:
 200 OK
 ```
 
-### Why PATCH?
+#### Why PATCH?
 
 Only selected fields are being changed.
 
@@ -435,9 +400,7 @@ Task
 
 We are not replacing the complete Task.
 
-<br>
-
-## Delete Task
+### Delete Task
 
 ```http
 DELETE /api/tasks/{taskId}
@@ -451,9 +414,7 @@ Response:
 204 No Content
 ```
 
-<br>
-
-# 8. Filtering
+## 5.2 Filtering
 
 Controller:
 
@@ -485,9 +446,7 @@ Because we are still retrieving:
 
 We are only specifying **which tasks we want**.
 
-<br>
-
-# 9. Pagination + Sorting + Filtering
+## 5.3 Pagination + Sorting + Filtering
 
 All of these are retrieval options, so they go into query parameters.
 
@@ -538,11 +497,70 @@ Which tasks?
 &priority=high
 ```
 
+## 5.4 Task Status
+
+Controller:
+
+```text
+TasksController
+```
+
+```http
+PATCH /api/tasks/{taskId}/status
+```
+
+Request:
+
+```json
+{
+  "status": "completed"
+}
+```
+
+Status type:
+
+```csharp
+enum TaskStatus
+{
+    completed,
+    InProgress,
+    pending
+}
+```
+
+Response:
+
+```text
+200 OK
+```
+
+### Why `/status`?
+
+We are specifically modifying the **status property of a Task**.
+
+We are not treating Status as a separate entity.
+
+Therefore:
+
+```text
+TasksController
+```
+
+not:
+
+```text
+StatusController
+```
+
+We would use something like a `StatusController` only if **Status itself were an independent entity/table/resource** that we were managing separately.
+
 <br>
 
-# 10. Projects → Tasks
+# 6. Nested Resources
 
-## Create Project
+## 6.1 Projects → Tasks
+
+### Create Project
 
 Controller:
 
@@ -569,9 +587,7 @@ Response:
 201 Created
 ```
 
-<br>
-
-## Get Tasks of a Project
+### Get Tasks of a Project
 
 Controller:
 
@@ -591,7 +607,7 @@ Response:
 200 OK
 ```
 
-### Why TasksController?
+#### Why TasksController?
 
 > Tasks are the resources that are being retrieved under a specific project, projectId gives the context of the Parent resource - Project.
 
@@ -612,9 +628,7 @@ Therefore:
 TasksController
 ```
 
-<br>
-
-# 11. Tasks → Subtasks
+## 6.2 Tasks → Subtasks
 
 Controller:
 
@@ -622,7 +636,7 @@ Controller:
 SubtasksController
 ```
 
-## Create Subtask
+### Create Subtask
 
 ```http
 POST /api/tasks/{taskId}/subtasks
@@ -643,9 +657,7 @@ Response:
 201 Created
 ```
 
-<br>
-
-## Get Specific Subtask
+### Get Specific Subtask
 
 ```http
 GET /api/tasks/{taskId}/subtasks/{subtaskId}
@@ -675,9 +687,7 @@ taskId
 
 provides the parent Task context.
 
-<br>
-
-# 12. Tasks → Comments
+## 6.3 Tasks → Comments
 
 Controller:
 
@@ -685,7 +695,7 @@ Controller:
 CommentsController
 ```
 
-## Create Comment
+### Create Comment
 
 ```http
 POST /api/tasks/{taskId}/comments
@@ -754,9 +764,7 @@ Comment just an attribute of Task
 TasksController
 ```
 
-<br>
-
-# 13. User → Tasks
+## 6.4 User → Tasks
 
 Retrieve tasks assigned to a specific user:
 
@@ -784,70 +792,9 @@ Again:
 
 <br>
 
-# 14. Task Status
+# 7. E-Commerce Platform
 
-Controller:
-
-```text
-TasksController
-```
-
-```http
-PATCH /api/tasks/{taskId}/status
-```
-
-Request:
-
-```json
-{
-  "status": "completed"
-}
-```
-
-Status type:
-
-```csharp
-enum TaskStatus
-{
-    completed,
-    InProgress,
-    pending
-}
-```
-
-Response:
-
-```text
-200 OK
-```
-
-### Why `/status`?
-
-We are specifically modifying the **status property of a Task**.
-
-We are not treating Status as a separate entity.
-
-Therefore:
-
-```text
-TasksController
-```
-
-not:
-
-```text
-StatusController
-```
-
-We would use something like a `StatusController` only if **Status itself were an independent entity/table/resource** that we were managing separately.
-
-<br>
-
-# 15. E-Commerce Platform
-
-<br>
-
-## 15.1 Retrieve Products
+## 7.1 Retrieve Products
 
 ```http
 GET /products
@@ -881,9 +828,7 @@ Controller:
 ProductsController
 ```
 
-<br>
-
-# 16. Retrieve Product Details
+## 7.2 Retrieve Product Details
 
 ```http
 GET /products/{productId}
@@ -922,11 +867,9 @@ Reason:
 
 > The main resource is Product and the endpoint is associated with retrieving a specific product.
 
-<br>
+## 7.3 Cart → Items
 
-# 17. Cart → Items
-
-## Add Item to Cart
+### Add Item to Cart
 
 ```http
 POST /carts/{cartId}/items
@@ -961,7 +904,7 @@ Controller:
 ItemsController
 ```
 
-### Important correction
+#### Important correction
 
 We use:
 
@@ -1003,9 +946,7 @@ inside:
 ItemController
 ```
 
-<br>
-
-## Retrieve Cart Items
+### Retrieve Cart Items
 
 ```http
 GET /carts/{cartId}/items
@@ -1042,9 +983,7 @@ Controller:
 ItemsController
 ```
 
-<br>
-
-## Delete Cart Item
+### Delete Cart Item
 
 ```http
 DELETE /carts/{cartId}/items/{itemId}
@@ -1070,11 +1009,9 @@ Controller:
 ItemsController
 ```
 
-<br>
+## 7.4 Placing an Order — JWT User
 
-# 18. Placing an Order — JWT User
-
-## Correct
+### Correct
 
 ```http
 POST /orders
@@ -1144,9 +1081,7 @@ Controller:
 OrdersController
 ```
 
-<br>
-
-# 19. Cancel Order
+## 7.5 Cancel Order
 
 ```http
 PATCH /orders/{orderId}
@@ -1190,11 +1125,9 @@ status
 
 of the Order.
 
-<br>
+## 7.6 Get Previous Orders
 
-# 20. Get Previous Orders
-
-## Correct
+### Correct
 
 ```http
 GET /orders?startDate=YYYY-MM-DD&endDate=YYYY-MM-DD
@@ -1258,11 +1191,9 @@ OrdersController
 
 <br>
 
-# 21. Social Media Platform
+# 8. Social Media Platform
 
-<br>
-
-# 22. Create Post
+## 8.1 Create Post
 
 ```http
 POST /posts
@@ -1298,9 +1229,7 @@ Controller:
 PostsController
 ```
 
-<br>
-
-# 23. Delete Post
+## 8.2 Delete Post
 
 ```http
 DELETE /posts/{postId}
@@ -1326,9 +1255,7 @@ Controller:
 PostsController
 ```
 
-<br>
-
-# 24. Comment on Post
+## 8.3 Comment on Post
 
 ```http
 POST /posts/{postId}/comments
@@ -1367,17 +1294,15 @@ Reason:
 
 > Comment is a child resource of Post, and the Comment itself is the resource being created.
 
-<br>
+## 8.4 Like / Unlike a Post
 
-# 25. Like / Unlike a Post
-
-## Like
+### Like
 
 ```http
 POST /posts/{postId}/likes
 ```
 
-## Unlike
+### Unlike
 
 ```http
 DELETE /posts/{postId}/likes
@@ -1411,9 +1336,7 @@ Remove like relationship
 
 The like itself is a relationship rather than an independent business resource.
 
-<br>
-
-# 26. Get Posts of the Logged-in User
+## 8.5 Get Posts of the Logged-in User
 
 ### Correct
 
@@ -1484,28 +1407,26 @@ We don't need:
 
 because the user ID is already available from the JWT.
 
-<br>
-
-# 27. Follow / Unfollow User
+## 8.6 Follow / Unfollow User
 
 Here we corrected the original endpoint.
 
-## Wrong
+### Wrong
 
 ```http
 POST /users/{userId}/following/{targetUserId}
 DELETE /users/{userId}/following/{targetUserId}
 ```
 
-## Correct
+### Correct
 
-### Follow
+#### Follow
 
 ```http
 POST /users/{targetUserId}/following
 ```
 
-### Unfollow
+#### Unfollow
 
 ```http
 DELETE /users/{targetUserId}/following
@@ -1554,9 +1475,7 @@ Response:
 200 OK
 ```
 
-<br>
-
-# 28. Get Followers of a User
+## 8.7 Get Followers of a User
 
 ```http
 GET /users/{userId}/followers
@@ -1601,9 +1520,7 @@ Here we are explicitly asking for the followers **of a particular user**.
 
 So `{userId}` is necessary.
 
-<br>
-
-# 29. Get Following of a User
+## 8.8 Get Following of a User
 
 ```http
 GET /users/{userId}/following
@@ -1644,7 +1561,7 @@ Here User 10 is the **subject of the query**, so `{userId}` is appropriate.
 
 <br>
 
-# 30. Order Management — Controller Questions
+# 9. Order Management — Controller Questions
 
 These are the controller decisions we resolved.
 
@@ -1668,9 +1585,9 @@ These are the controller decisions we resolved.
 
 <br>
 
-# 31. Important Controller Corrections We Resolved
+# 10. Important Controller Corrections We Resolved
 
-## Cart Items
+## 10.1 Cart Items
 
 Earlier:
 
@@ -1688,9 +1605,7 @@ Because:
 
 > `CartItem` is a junction/relationship table that connects a Cart with an Item; it is not treated as an independent resource in our API. The `cartId` provides the context of the parent Cart, while `items` represents the resource being managed within that Cart.
 
-<br>
-
-## Product Reviews
+## 10.2 Product Reviews
 
 Earlier:
 
@@ -1708,9 +1623,7 @@ Because:
 
 > Reviews is a nested child resource of Products, and the endpoint is associated with creating a new review on a specific product. Thus the operation belongs to `ReviewsController`.
 
-<br>
-
-## User Addresses
+## 10.3 User Addresses
 
 Earlier:
 
@@ -1760,9 +1673,7 @@ we use:
 AddressesController
 ```
 
-<br>
-
-## Project → Tasks
+## 10.4 Project → Tasks
 
 ```http
 GET /api/projects/{projectId}/tasks
@@ -1778,9 +1689,7 @@ because:
 
 > Tasks are the resources that are being retrieved under a specific project, projectId gives the context of the Parent resource - Project.
 
-<br>
-
-## Task → Comments
+## 10.5 Task → Comments
 
 ```http
 POST /api/tasks/{taskId}/comments
@@ -1802,9 +1711,7 @@ TasksController
 
 would make sense.
 
-<br>
-
-## Order → Status
+## 10.6 Order → Status
 
 ```http
 PATCH /v1/orders/{orderId}/status
@@ -1836,7 +1743,7 @@ on a separate Status entity/table.
 
 <br>
 
-# 32. The JWT Rule — Very Important
+# 11. The JWT Rule — Very Important
 
 This correction appeared in multiple endpoint questions.
 
@@ -1856,7 +1763,7 @@ Therefore, don't unnecessarily write:
 
 for operations concerning the **current logged-in user**.
 
-### Example
+## 11.1 Example
 
 Wrong:
 
@@ -1880,9 +1787,7 @@ Current user ID
 Create order for that user
 ```
 
-<br>
-
-### Another example
+## 11.2 Another example
 
 Wrong:
 
@@ -1904,9 +1809,7 @@ with:
 Authorization: Bearer <token>
 ```
 
-<br>
-
-### But this does NOT mean `{userId}` is always wrong.
+## 11.3 But this does NOT mean `{userId}` is always wrong
 
 If we are asking about a **specific user as the subject**, then it is correct.
 
@@ -1947,9 +1850,9 @@ Need userId
 
 <br>
 
-# 33. Route Parameter vs Query Parameter
+# 12. Route Parameter vs Query Parameter
 
-## Route Parameter
+## 12.1 Route Parameter
 
 Used to identify a resource or subject.
 
@@ -1967,9 +1870,7 @@ Means:
 
 > Give me Product 10.
 
-<br>
-
-## Query Parameter
+## 12.2 Query Parameter
 
 Used for filtering, sorting, pagination, date ranges, etc.
 
@@ -2009,7 +1910,7 @@ Mental model:
 
 <br>
 
-# 34. Nested Resource Mental Model
+# 13. Nested Resource Mental Model
 
 Think:
 
@@ -2094,7 +1995,7 @@ ProductsController
 
 <br>
 
-# 35. Complete Mental Model
+# 14. Complete Mental Model
 
 ```text
                     ENDPOINT
@@ -2142,9 +2043,9 @@ Read    Create   Complete    Partial
 
 <br>
 
-# 36. Final Rules to Memorize
+# 15. Final Rules to Memorize
 
-### CRUD
+## 15.1 CRUD
 
 ```text
 POST   /resources
@@ -2166,37 +2067,37 @@ DELETE /resources/{id}
        → Delete
 ```
 
-### Filtering
+## 15.2 Filtering
 
 ```text
 GET /resources?filter=value
 ```
 
-### Pagination
+## 15.3 Pagination
 
 ```text
 GET /resources?page=2&size=10
 ```
 
-### Sorting
+## 15.4 Sorting
 
 ```text
 GET /resources?sortBy=price&sortOrder=asc
 ```
 
-### Date range
+## 15.5 Date range
 
 ```text
 GET /orders?startDate=...&endDate=...
 ```
 
-### Nested resource
+## 15.6 Nested resource
 
 ```text
 GET /parent/{parentId}/children
 ```
 
-### Separate child controller
+## 15.7 Separate child controller
 
 ```text
 /products/{productId}/reviews
@@ -2204,7 +2105,7 @@ GET /parent/{parentId}/children
        ReviewsController
 ```
 
-### Parent context + child resource
+## 15.8 Parent context + child resource
 
 ```text
 /projects/{projectId}/tasks
@@ -2212,7 +2113,7 @@ GET /parent/{parentId}/children
         TasksController
 ```
 
-### JWT current-user rule
+## 15.9 JWT current-user rule
 
 ```text
 JWT
@@ -2229,7 +2130,7 @@ POST /orders
 GET  /posts
 ```
 
-### Specific user as subject
+## 15.10 Specific user as subject
 
 ```text
 GET /users/{userId}/followers
@@ -2238,13 +2139,13 @@ GET /users/{userId}/following
 
 because we are explicitly asking about **that particular user**.
 
-### Controller rule
+## 15.11 Controller rule
 
 > **The URL tells you the structure, but the actual resource being operated on helps determine the controller.**
 
 <br>
 
-# . One Question to Ask Yourself in an Interview
+# 16. One Question to Ask Yourself in an Interview
 
 If you get stuck, ask:
 
