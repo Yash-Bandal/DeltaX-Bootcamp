@@ -53,11 +53,15 @@ services.AddTransient<IActorRepository, ActorRepository>();
 ```
 The transient dependency effectively lives as long as the Singleton in this situation.
 
-Transient has no fixed lifetime; a new instance is created each time the DI container is asked for that service.
-So:
-- **Scoped** → normally one instance per request
-- **Transient** → new instance each time the container is requested to provide it
-- **Singleton** → one instance for the application's lifetime
+> [!Important]
+> Transient has **no fixed** lifetime; a new instance is created each time the DI container is asked for that service.
+>
+> it lives **as long as** the object using it.
+> 
+> So:
+> - **Scoped** → normally one instance per request
+> - **Transient** → new instance each time the container is requested to provide it
+> - **Singleton** → one instance for the application's lifetime
 
 ```
 Singleton → Scoped       ❌
