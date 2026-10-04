@@ -33,6 +33,18 @@ Stateless REST does not mean "the server cannot store any data."
 It means the server should not depend on previous HTTP request state to understand the current request.
 ```
 
+2. **A long-lived service should not hold a reference to a short-lived service.**
+   Eg:-  ❌ Problem
+   ```csharp
+   services.AddSingleton<IMovieService, MovieService>();
+   services.AddScoped<IActorRepository, ActorRepository>(); 
+   ```
+   ✅ Works
+   ```csharp
+   services.AddScoped<IMovieService, MovieService>();
+   services.AddSingleton<IActorRepository, ActorRepository>(); 
+   ```
+
 <br>
 
 ## 1. How to Choose which controller?
