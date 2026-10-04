@@ -365,6 +365,28 @@ Get one:
 GET /api/tasks/{taskId}
 ```
 
+### Think 🏷️
+> [!Important]
+> ```
+> GET /api/projects/{projectId}/tasks
+> ```
+> or we shall have
+> ```
+> GET /tasks?projectId=x
+> ```
+>
+> Both syntaxes valid, but ✅
+> ```
+> GET /api/projects/{projectId}/tasks
+> ```
+> See, here we are not filtering a task, we are retriving a specific task
+>
+> Also here, task is dependent on project,  There is a strong `parent-child relationship`
+> 
+> Like: a project has a collection of tasks, and you're asking specifically for that project's tasks.
+> 
+> When independent Task as a resource, then second can be done, but thats rare 
+
 No request body.
 
 Response:
