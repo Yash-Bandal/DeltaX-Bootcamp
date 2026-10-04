@@ -2,6 +2,33 @@
 
 <br>
 
+> [!Note]
+> ### When its Actual entity, that can exists seperately, its `ChildController`
+> ```
+> GET /cart/{cartId}/items/{itemId}
+> ```
+> Its **ItemsController**
+>
+> 
+> ### When its Property/Attribute, its `ParentController`
+> ```
+> GET /products/{productId}/discounts
+> ```
+> Its **ProductsController** not **DiscountsController**
+> ```
+> PATCH /task/{taskId}/status
+> ```
+> Its **TasksController** not **StatusController**
+> ```
+> PATCH /orders/{orderId}/status
+> ```
+> Its **OrdersController** not **StatusController**
+>
+> As status, discounts are property, status can exist as seperate entity, then we use enum in Resource jsons
+
+
+<br>
+
 ## Index
 
 **Prerequisites:**
