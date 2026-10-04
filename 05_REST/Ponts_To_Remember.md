@@ -34,6 +34,7 @@ It means the server should not depend on previous HTTP request state to understa
 ```
 
 2. **A long-lived service should not hold a reference to a short-lived service.**
+   
    Eg:-  ❌ Problem
    ```csharp
    services.AddSingleton<IMovieService, MovieService>();
