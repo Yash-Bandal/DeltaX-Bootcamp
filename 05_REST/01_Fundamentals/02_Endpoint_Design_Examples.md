@@ -10,7 +10,7 @@
 > Its **ItemsController**
 >
 > <br>
-
+>
 > #### When its Property/Attribute, its `ParentController`
 > ```
 > GET /products/{productId}/discounts
