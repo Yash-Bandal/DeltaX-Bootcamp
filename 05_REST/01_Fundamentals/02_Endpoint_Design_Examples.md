@@ -397,10 +397,11 @@ Response:
 200 OK
 ```
 
+<br>
 
-
+---
 ### Note
-Q. Why do we need project Id in Tasks, if api tells us directly `/project/{id}/tasks/`?
+#### **Q. Why do we need project Id in Tasks, if api tells us directly `/project/{id}/tasks/`?**
 
 **Project JSON**
 ```json
@@ -410,8 +411,9 @@ Q. Why do we need project Id in Tasks, if api tells us directly `/project/{id}/t
   "description": "Build the movie API"
 }
 ```
+
 **Task JSON**
-```jaon
+```json
 {
   "id": 101,
   "title": "Implement JWT Authentication",
@@ -480,6 +482,9 @@ Project.Id
 Task.ProjectId
 ```
 
+---
+
+<br>
 
 ### Update Task
 
