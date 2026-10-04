@@ -387,6 +387,8 @@ GET /api/tasks/{taskId}
 > 
 > When independent Task as a resource, then second can be done, but thats rare 
 
+
+Here,\
 No request body.
 
 Response:
@@ -394,6 +396,90 @@ Response:
 ```text
 200 OK
 ```
+
+
+
+### Note
+Q. Why do we need project Id in Tasks, if api tells us directly `/project/{id}/tasks/`?
+
+**Project JSON**
+```json
+{
+  "id": 10,
+  "name": "IMDB API",
+  "description": "Build the movie API"
+}
+```
+**Task JSON**
+```jaon
+{
+  "id": 101,
+  "title": "Implement JWT Authentication",
+  "projectId": 10,
+  "status": "Completed"
+}
+```
+**Answer:**
+
+Because `ProjectId` in `Task` is the **foreign key that tells us which Project the Task belongs to**.
+
+Don't just think in API perspective, we need to think in DB and overall perspective
+
+
+```text
+Project
+Id = 10
+   ↑
+   │ ProjectId = 10
+Task
+Id = 101
+```
+
+Without `ProjectId`:
+
+```json
+{
+  "id": 101,
+  "title": "Implement JWT"
+}
+```
+
+we know the Task exists, but **we don't know which Project it belongs to**.
+
+With it:
+
+```json
+{
+  "id": 101,
+  "title": "Implement JWT",
+  "projectId": 10
+}
+```
+
+we know:
+
+> Task 101 belongs to Project 10.
+
+That's exactly what allows:
+
+```http
+GET /api/projects/10/tasks
+```
+
+to find the Tasks where:
+
+```sql
+WHERE ProjectId = 10
+```
+
+
+```text
+Project.Id
+     ↑
+     │ FK relationship
+Task.ProjectId
+```
+
 
 ### Update Task
 
