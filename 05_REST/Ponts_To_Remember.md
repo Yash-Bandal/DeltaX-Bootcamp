@@ -79,6 +79,8 @@ Transient → Scoped       ✅
 Transient → Transient    ✅
 ```
 
+3. **Normal C# objects don't stay until app ends — they remain as long as they're referenced; once no references remain, they're eligible for Garbage Collection.**
+
 <br>
 
 ## 1. How to Choose which controller?
