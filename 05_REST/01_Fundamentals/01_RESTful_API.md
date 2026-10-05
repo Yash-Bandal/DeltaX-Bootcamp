@@ -213,6 +213,15 @@ Returns JSON
 </div>
 <br>
 
+1. **REST uses a Client–Server architecture**, where the client is responsible for the UI/user interaction and the server is responsible for storing and processing data.
+2. **REST service/server is Stateless**, meaning it does not store client-specific session state between requests; each request contains all the information needed to process it.
+3. **REST uses a Uniform Interface**, meaning clients interact with resources through a consistent and standardized way, such as HTTP methods and resource URLs.
+4. **REST resources are identified by URLs**, meaning each resource has a unique URI through which the client can access or manipulate it.
+5. **REST uses a Layered System**, meaning the client does not need to know whether it is communicating directly with the actual server or through intermediate layers such as a proxy, gateway, or load balancer.
+6. **REST supports Cacheability**, meaning responses should indicate whether they can be cached so that clients or intermediaries can reuse them instead of making the same request again.
+
+<br>
+
 | | Principle                       | Meaning                                                                                                                                                | Example                                      |
 | - | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------- |
 | 1 | **Client–Server**               | Client and server have separate responsibilities. The client handles the UI, while the server handles data and business logic.                         | App → API → Database                         |
