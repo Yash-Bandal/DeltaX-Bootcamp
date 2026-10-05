@@ -105,3 +105,92 @@ Example:
 ```
 User = parent/context
 Orders = child/resource being accessed
+
+<br>
+
+---
+
+<br>
+
+Your core ideas are right. I would just **tighten the wording and correct one important point**: REST does not require your specific Controller → Service → Repository layering, and DI is not itself the same thing as IoC/DIP.
+
+### 1. Why separate layers? Why not one file?
+
+Your answer:
+
+> We separate layers mainly for **Separation of Concerns**. Each layer has its own responsibility and hides its implementation details from the layer using it.
+
+For example:
+
+```text
+Controller → handles HTTP
+Service    → handles business logic
+Repository → handles database access
+```
+
+This also follows **SRP (Single Responsibility Principle)** because each layer has a focused responsibility.
+
+❌ Don't say:
+
+> REST requires us to have Controller, Service and Repository layers.
+
+REST's **layered system** principle is a different concept. It doesn't specifically mandate this application structure.
+
+**Best interview answer:**
+
+> **“We separate the application into layers to achieve Separation of Concerns and SRP. Each layer focuses on one responsibility and abstracts its implementation from the layer using it, which makes the application easier to maintain, test and modify.”**
+
+
+<br>
+
+### 2. Why DI? Why not just use `new`?
+
+Your answer is also basically right.
+
+Without DI:
+
+```csharp
+public class StorageService
+{
+    private IStorageService _storage = new SupabaseStorageService();
+}
+```
+
+Now `StorageService` is **tightly coupled** to Supabase.
+
+With DI:
+
+```csharp
+public StorageService(IStorageService storage)
+{
+    _storage = storage;
+}
+```
+
+Now:
+
+```text
+             IStorageService
+              /          \
+     Supabase           Amazon S3
+```
+
+We can change the implementation without changing the consumer.
+
+It also makes **unit testing/mocking easier** because we can provide a fake/mock `IStorageService`.
+
+### One correction
+
+Don't say:
+
+> "SOLID tells us to use DI."
+
+More precisely:
+
+> **DIP (Dependency Inversion Principle) says high-level code should depend on abstractions rather than concrete implementations. DI is a technique commonly used to implement that principle.**
+
+And **IoC** is the broader idea that the control of creating/providing dependencies is moved outside the class.
+
+### In a go:
+
+> **“We use DI to reduce tight coupling. Instead of a class creating its dependencies with `new`, the dependency is provided from outside through an abstraction. This makes it easier to replace implementations and mock dependencies during testing.”**
