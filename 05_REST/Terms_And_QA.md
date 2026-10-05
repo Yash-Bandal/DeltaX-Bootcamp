@@ -112,7 +112,7 @@ Orders = child/resource being accessed
 
 <br>
 
-Your core ideas are right. I would just **tighten the wording and correct one important point**: REST does not require your specific Controller → Service → Repository layering, and DI is not itself the same thing as IoC/DIP.
+## Q/A
 
 ### 1. Why separate layers? Why not one file?
 
