@@ -114,83 +114,99 @@ Orders = child/resource being accessed
 
 ## Q/A
 
-### 1. Why separate layers? Why not one file?
+### 1. Why separate Controller, Service, Repository layers? Why not one file?
 
-Your answer:
+Your idea is correct. The key reason is **Separation of Concerns + Single Responsibility**.
 
-> We separate layers mainly for **Separation of Concerns**. Each layer has its own responsibility and hides its implementation details from the layer using it.
+A better answer:
 
-For example:
+> We separate the application into layers so each layer has a clear responsibility and doesn't need to know the internal implementation of the other layers.
+>
+> **Controller** handles HTTP/API concerns, **Service** handles business logic, and **Repository** handles data access.
+>
+> This follows **Separation of Concerns and SRP**, making the code easier to maintain, test, and change.
+
+Example:
 
 ```text
-Controller → handles HTTP
-Service    → handles business logic
-Repository → handles database access
+Controller
+   ↓
+"Get movie"
+   ↓
+Service
+   ↓
+"Apply business rules"
+   ↓
+Repository
+   ↓
+"Get it from database"
 ```
 
-This also follows **SRP (Single Responsibility Principle)** because each layer has a focused responsibility.
+If everything were in one file:
 
-❌ Don't say:
+```text
+Controller
+ ├── HTTP handling
+ ├── validation
+ ├── business logic
+ ├── SQL queries
+ ├── database handling
+ └── mapping
+```
 
-> REST requires us to have Controller, Service and Repository layers.
+Changing the database could then require changing the controller too.
 
-REST's **layered system** principle is a different concept. It doesn't specifically mandate this application structure.
-
-**Best interview answer:**
-
-> **“We separate the application into layers to achieve Separation of Concerns and SRP. Each layer focuses on one responsibility and abstracts its implementation from the layer using it, which makes the application easier to maintain, test and modify.”**
-
+**Small correction:** Don't say *"REST and SOLID principles define that we must have these layers."* REST doesn't require Controller/Service/Repository layers. These are architectural/design choices that help us achieve separation and maintainability.
 
 <br>
 
 ### 2. Why DI? Why not just use `new`?
 
-Your answer is also basically right.
+Your answer is also correct. The strongest points are **loose coupling and testability**.
 
-Without DI:
+I'd say:
 
-```csharp
-public class StorageService
-{
-    private IStorageService _storage = new SupabaseStorageService();
-}
-```
+> DI allows a class to receive its dependencies instead of creating them itself with `new`. This reduces tight coupling and makes the implementation easier to replace and mock during testing.
 
-Now `StorageService` is **tightly coupled** to Supabase.
-
-With DI:
+Your example is good:
 
 ```csharp
-public StorageService(IStorageService storage)
-{
-    _storage = storage;
-}
+IStorageService _storageService;
 ```
 
-Now:
+The service can depend on the **abstraction**:
 
 ```text
-             IStorageService
-              /          \
-     Supabase           Amazon S3
+IStorageService
+      ↑
+ ┌────┴─────┐
+Supabase   Amazon S3
 ```
 
-We can change the implementation without changing the consumer.
+So you can change:
 
-It also makes **unit testing/mocking easier** because we can provide a fake/mock `IStorageService`.
+```text
+SupabaseStorageService
+        ↓
+AmazonS3StorageService
+```
 
-### One correction
+without changing the class that uses `IStorageService`.
 
-Don't say:
+With `new`:
 
-> "SOLID tells us to use DI."
+```csharp
+_storageService = new SupabaseStorageService();
+```
 
-More precisely:
+the class is directly coupled to Supabase.
 
-> **DIP (Dependency Inversion Principle) says high-level code should depend on abstractions rather than concrete implementations. DI is a technique commonly used to implement that principle.**
+### Interview-ready answer
 
-And **IoC** is the broader idea that the control of creating/providing dependencies is moved outside the class.
+> We use DI to achieve loose coupling and dependency inversion. Instead of a class creating its dependencies with `new`, the dependency is provided to it. This makes implementations easier to replace and makes unit testing and mocking easier.
 
-### In a go:
+**One important distinction:**  
+**DIP** is the SOLID principle; **DI** is a technique commonly used to implement that principle. **IoC** is the broader concept of giving control of dependency creation/wiring to the framework/container.
 
-> **“We use DI to reduce tight coupling. Instead of a class creating its dependencies with `new`, the dependency is provided from outside through an abstraction. This makes it easier to replace implementations and mock dependencies during testing.”**
+
+<br>
