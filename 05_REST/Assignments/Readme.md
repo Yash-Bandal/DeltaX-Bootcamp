@@ -1,4 +1,4 @@
-## Points to Remember
+## Thinking Before Develop
 
 ### 1 .Do we Update `Id`?
 We do not have Id in a Request, Id is added at backend. 
