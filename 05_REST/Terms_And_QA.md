@@ -106,6 +106,14 @@ Example:
 User = parent/context
 Orders = child/resource being accessed
 
+
+<br>
+
+## Pagination
+- Pagination in ASP.NET Core REST APIs is a technique used to divide a large dataset into **smaller, manageable chunks** (pages) before sending it to the client.
+- Instead of returning thousands or millions of database rows in a single HTTP request—which can degrade network performance and crash applications—the API returns only a small subset at a time
+
+
 <br>
 
 ---
