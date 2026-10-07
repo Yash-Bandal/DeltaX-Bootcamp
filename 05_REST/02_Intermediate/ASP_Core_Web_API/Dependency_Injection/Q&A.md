@@ -12,7 +12,7 @@ So, if you ask me what Dependency Injection is, I would say:
 
 Now, you might ask, why do we actually need DI?
 
-The main reason is that it helps us achieve **loose coupling**, and it also makes our code more testable.
+The main reason  is that DI helps us achieve **`loose coupling`**, and also makes our code more **`testable`**.
 
 <br>
 
