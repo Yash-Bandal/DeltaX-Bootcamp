@@ -14,9 +14,11 @@ Now, you might ask, why do we actually need DI?
 
 The main reason  is that DI helps us **achieve** **`loose coupling`**, and also **makes** our code more **`testable`**.
 
+If our app doesnt implement DI, then we would have tightly coupled classes insteead  
+
 <br>
 
-## Part 3 — What is Tight Coupling?
+## Part 3 — What is Tight Coupling? Why is it a problem?
 
 So then, what exactly is tight coupling?
 
