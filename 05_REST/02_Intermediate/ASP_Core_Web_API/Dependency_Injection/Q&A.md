@@ -18,13 +18,16 @@ If our app doesnt implement DI, then we would have tightly coupled classes inste
 
 <br>
 
-## Part 3 — What is Tight Coupling? Why is it a problem?
+## Part 3 — What is Tight Coupling?
 
 So then, what exactly is tight coupling?
 
 In simple terms, tight coupling is when a class directly depends on a **concrete implementation** of the dependency.
 
 Whereas in loose coupling, the class depends on an **abstraction, usually an interface**, instead of directly depending on a particular implementation.
+
+###  Why is it a problem?
+Tight coupling is a problem because a class becomes dependent on a specific implementation, making it harder to change, replace, and test that dependency.
 
 <br>
 
