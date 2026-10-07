@@ -3,10 +3,12 @@
 
 ### Benefits
 1. The bigger benefit is that it turns loosely typed configuration into a structured, typed object that can be validated, 
- - Like by default, loosely typed mean that all values are string by default,
- - But with class, they can be strong typed to int, Eg:- ExpiryMinutes is an int, not a string.
+   - Like by default, loosely typed mean that all values are string by default,
+   - But with class, they can be strong typed to int, Eg:- ExpiryMinutes is an int, not a string.
 2. it allows validation
 3. It groups related settings
+
+<br>
 
 ### Without Options Pattern
 
