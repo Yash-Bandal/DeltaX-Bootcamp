@@ -1,92 +1,26 @@
-```
-Hey, lets frame a final answer about Tight coupling, di and loose coupling
+So, if you ask me what Dependency Injection is, I would say:
 
+**Dependency Injection is a mechanism that allows a class to get the objects it needs from outside, instead of creating those objects by itself.**
 
+Now, you might ask, why do we actually need DI?
 
-\-
+The main reason is that it helps us achieve **loose coupling**, and it also makes our code more testable.
 
-So when i will be asked,
+So then, what exactly is tight coupling?
 
-What is DI?
+In simple terms, tight coupling is when a class directly depends on a **concrete implementation** of the dependency.
 
-- DI or Dependency injection is the functionality that allows the Class object to get the objects that it needs from outside, instead of creating it by itself
+Whereas in loose coupling, the class depends on an **abstraction, usually an interface**, instead of directly depending on a particular implementation.
 
+For example, in our application, let's take `ActorService`.
 
+`ActorService` needs a Repository because after doing its business logic and validation, it needs to store or retrieve Actor data.
 
-Now cross question
+The main responsibility of `ActorService` is to perform the required business logic and use the operations it needs from the Repository, like Get, Add, Update and Delete.
 
-But why do we need DI?&#x20;
+It is not really the responsibility of `ActorService` to decide which Repository implementation to use or to create that Repository itself.
 
-- DI implements Loose coupling, and increases testability
-
-
-
-Again cross question
-
-Whats Tight coupling
-
-Now we will explain in brief&#x20;
-
-- So, tight coupling is when the class depends on the concrete implementation of a requred dependency, where as loose coupling is when the class depends on the interface implemntation
-
-
-
-For example, in our case,&#x20;
-
-If we consider this example of ActorService,&#x20;
-
-Here the main responsibility of Actorservice is to first perform the required business logic and **implement the methods &#x20;**&#x74;hat it requires, that is all get add update delete
-
-
-
-it is not responsible to create the ActorRepo instance, choose the implementation method,&#x20;
-
-
-
-but when our app has tight coupling , now the service has to choose what repo to create, how to create , when to create
-
-and then implement the requrired methods
-
-
-
-So, the complete responsibility shifts, and the service has a tight coupling then
-
-
-
-also ,&#x20;
-
-now in future when the app grows, and we want to change the storage from sql to mongo, then we would have to visit evey class and change the hard coding
-
-but if it was loose coupled, we would just have to make changes from the startup configuration
-
-
-
-and also during testing
-
-if tight coupled, we would have to replace all hardcoding objects
-
-like actorrepo = actorrepo test
-
-and all classes
-
-but with loose coupling, we would just make change in testclass
-
-Mock\<IActorRepo> test
-```
-
-<br>
-
-# Tight Coupling, Loose Coupling and Dependency Injection
-
-### If I am asked: "What is Dependency Injection?"
-
-I would explain it like this:
-
-> **Dependency Injection, or DI, is a mechanism that allows a class to get the objects it needs from outside, instead of creating those objects by itself.**
-
-For example, in our case, `ActorService` needs an `IActorRepository`.
-
-Instead of doing:
+But suppose we make it tightly coupled like this:
 
 ```csharp
 public ActorService()
@@ -95,7 +29,21 @@ public ActorService()
 }
 ```
 
-we do:
+Now the Service itself has to decide what Repository it wants.
+
+For example, should it be `ActorRepositorySql`? Should it be `ActorRepositoryMongo`?
+
+Then, after deciding that, it also has to create that Repository instance using `new`.
+
+And finally, it uses the Repository methods it actually needs.
+
+So now the Service has taken on extra responsibility.
+
+It is not only doing its own business logic anymore. It is also deciding **which dependency to use and creating that dependency**.
+
+That's what creates the tight coupling.
+
+Now with loose coupling, we do this:
 
 ```csharp
 public ActorService(IActorRepository actorRepository)
@@ -104,166 +52,33 @@ public ActorService(IActorRepository actorRepository)
 }
 ```
 
-So the Repository is **injected into the Service from outside**.
+Here, the Service is basically saying:
 
----
+**"I need an `IActorRepository`. I don't care which concrete Repository implementation you give me, as long as it provides the operations that I need."**
 
-### Cross-question: "But why do we need DI?"
+So the Service doesn't have to decide whether it is SQL, MongoDB, or some other implementation.
 
-I would say:
+It also doesn't have to create the Repository itself.
 
-> **The main reason is that DI helps us achieve loose coupling, and it also improves testability.**
+It just receives it and uses the operations that the interface guarantees, like Get, Add, Update and Delete.
 
-Instead of the Service creating and directly depending on a particular Repository implementation, the Service can depend on an abstraction and receive the required implementation from outside.
+Now, this becomes more useful when the application grows.
 
-This makes the code easier to change and test.
+Initially, you might think, "Okay, if I have tight coupling and tomorrow I want to change SQL to MongoDB, I'll just change this one line."
 
----
+But imagine the application has hundreds of classes, and many of those classes are directly creating their dependencies.
 
-# What is Tight Coupling?
-
-If asked about tight coupling, I would first explain it briefly:
-
-> **Tight coupling is when a class directly depends on a concrete implementation of a required dependency. Loose coupling is when the class depends on an abstraction, such as an interface, rather than a specific implementation.**
-
-Then I would connect it to our application.
-
----
-
-# Our ActorService Example
-
-In our case, `ActorService` needs a Repository.
-
-The main responsibility of `ActorService` is to:
-
-- perform the required business logic
-- validate and prepare the data
-- use the Repository operations it requires, such as Get, Add, Update and Delete
-
-It is **not** the responsibility of `ActorService` to:
-
-- decide which Repository implementation to use
-- create the Repository instance
-- know how that Repository connects to the database
-
-For example, with loose coupling, we have:
-
-```csharp
-public ActorService(IActorRepository actorRepository)
-{
-    _actorRepository = actorRepository;
-}
-```
-
-Here, the Service basically says:
-
-> "I need something that provides the operations of an `IActorRepository`. You provide it to me."
-
-The Service can then simply use:
+Now if we decide to change:
 
 ```text
-Get
-Add
-Update
-Delete
+ActorRepositorySql → ActorRepositoryMongo
+ProducerRepositorySql → ProducerRepositoryMongo
+GenreRepositorySql → GenreRepositoryMongo
 ```
 
----
+we would have to go through all those classes and change those hardcoded constructions.
 
-# What happens with Tight Coupling?
-
-Now suppose we write:
-
-```csharp
-public ActorService()
-{
-    _actorRepository = new ActorRepository();
-}
-```
-
-Now the responsibility of `ActorService` becomes larger.
-
-It has to:
-
-1. **Choose which Repository implementation to use**
-
-   For example:
-
-   ```text
-   ActorRepositorySql
-   ActorRepositoryMongo
-   ```
-
-2. **Create the Repository instance**
-
-   ```csharp
-   new ActorRepositorySql();
-   ```
-
-3. **Use the Repository operations**
-
-   ```text
-   Get
-   Add
-   Update
-   Delete
-   ```
-
-So now the Service is not only concerned with its own business logic.
-
-It also has control over the **dependency, its choice, and its creation**.
-
-That is where the tight coupling comes from.
-
----
-
-# Why does this matter when the application grows?
-
-Initially, we might think:
-
-> "What's the big deal? If I want to change SQL to MongoDB, I'll just change this one line."
-
-For a small application, that may not look like a problem.
-
-But imagine the application grows and we have hundreds of classes directly creating their dependencies.
-
-Now suppose we decide:
-
-> "We want to change our storage implementation from SQL Server to MongoDB."
-
-With tight coupling, we would have to go through the classes where those concrete objects are being created and change the hardcoded implementations.
-
-For example:
-
-```text
-new ActorRepositorySql()
-        ↓
-new ActorRepositoryMongo()
-
-new ProducerRepositorySql()
-        ↓
-new ProducerRepositoryMongo()
-
-new GenreRepositorySql()
-        ↓
-new GenreRepositoryMongo()
-
-...
-```
-
-So the implementation decision is spread across many classes.
-
----
-
-# What happens with Loose Coupling + DI?
-
-With loose coupling, our classes depend on interfaces:
-
-```csharp
-IActorRepository
-```
-
-and the actual implementation is configured centrally.
+But with loose coupling and DI, the classes depend on the interfaces, and the actual implementation is configured centrally.
 
 For example:
 
@@ -271,92 +86,42 @@ For example:
 services.AddScoped<IActorRepository, ActorRepositorySql>();
 ```
 
-If we later want MongoDB, we can change the registration:
+If tomorrow we want MongoDB, we can change it to:
 
 ```csharp
 services.AddScoped<IActorRepository, ActorRepositoryMongo>();
 ```
 
-The `ActorService` itself doesn't need to change.
+The `ActorService` doesn't need to change at all.
 
-It still says:
+The same thing applies to testing.
 
-```csharp
-public ActorService(IActorRepository actorRepository)
-{
-    _actorRepository = actorRepository;
-}
-```
-
-So instead of changing the implementation throughout many classes, we can change the implementation at the configuration level.
-
----
-
-# What about Testing?
-
-The same problem appears during testing.
-
-With tight coupling, suppose the Service contains:
-
-```csharp
-new ActorRepositorySql();
-```
-
-During testing, we may want:
+If the Repository is hardcoded inside the Service, then during testing we'd have to go and replace things like:
 
 ```text
-ActorRepositoryTest
+new ActorRepositorySql()
 ```
 
-Now we have to go into the classes that directly create the Repository and replace the hardcoded implementation.
+with some test Repository in all the places where they are hardcoded.
 
-With loose coupling, the Service only expects:
+But with loose coupling, the Service only asks for:
 
-```csharp
+```text
 IActorRepository
 ```
 
-So during testing, we can provide a mock implementation:
+So in the test, I can provide a mock implementation of that interface:
 
-```csharp
+```text
 Mock<IActorRepository>
 ```
 
-The Service itself does not need to change.
+The Service itself doesn't have to change.
 
-So the idea is:
+So basically, the whole idea is:
 
-```text
-Production
+**With tight coupling, the class decides what dependency to use and creates it itself.**
 
-IActorRepository
-        ↑
-ActorRepositorySql
+**With loose coupling, the class only defines what kind of dependency it needs through an interface, and the actual implementation is provided from outside.**
 
-
-Testing
-
-IActorRepository
-        ↑
-Mock<IActorRepository>
-```
-
-The Service doesn't care which implementation it receives.
-
----
-
-# Final Way I Would Explain It
-
-So, putting everything together:
-
-> **DI is the mechanism that allows a class to receive the objects it needs from outside instead of creating them itself.**
-
-> **We use DI because it helps us achieve loose coupling and makes our code more testable.**
-
-> **Tight coupling happens when the class directly depends on and creates a specific concrete implementation. Loose coupling happens when the class depends on an abstraction, such as an interface, and the implementation can be supplied from outside.**
-
-> In our `ActorService`, the Service should focus on its business logic and use the Repository operations it needs. It should not have the additional responsibility of deciding which Repository implementation to use and creating that Repository itself.
-
-> With tight coupling, if our application grows and we want to change something like SQL to MongoDB, or replace the real Repository with a test Repository, we may have to change many classes because the concrete implementations are hardcoded inside them.
-
-> With loose coupling and DI, the Service depends on `IActorRepository`, and the actual implementation can be configured externally. So we can change the implementation centrally, or provide a mock during testing, without changing the `ActorService` itself.
+And **Dependency Injection is the mechanism that actually provides that dependency from outside.**
