@@ -12,6 +12,9 @@ public ActorService(IActorRepository repo)
 - Dependency comes from outside → **DI**
 - Depends on interface → **loose coupling**
 
+**Responsibility:**
+- Here Service has 1 Responsibility to Just Execute methods from repository
+
 **This is our preferred design.**
 
 ---
@@ -27,6 +30,9 @@ public ActorService(ActorRepository repo)
 
 - Dependency comes from outside → **DI**
 - Depends on concrete `ActorRepository` → **tight coupling**
+
+**Responsibility:**
+
 
 So:
 
