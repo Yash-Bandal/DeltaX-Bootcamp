@@ -2,6 +2,7 @@
 Can i say in both case first `Demo demo` is just a reference type var pointing to actual demo object, now demo can be treated as a normal field of Demo type datatype\
 second `IDemo demo` is a reference type var like above but here + addition that this reference type var also has a defined boundry / contract top on?
 
+**Yes**
 ### 1. `Demo demo`
 
 ```csharp
