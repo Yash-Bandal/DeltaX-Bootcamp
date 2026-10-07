@@ -32,7 +32,8 @@ public ActorService(ActorRepository repo)
 - Depends on concrete `ActorRepository` → **tight coupling**
 
 **Responsibility:**
-
+- Here Service has 1 Responsibility to  Execute methods from repository
+- But has concrete dependency
 
 So:
 
@@ -51,6 +52,11 @@ public ActorService()
 
 - Class creates dependency itself → **no DI**
 - Depends on concrete class → **tight coupling**
+
+**Responsibility**
+- First responsibility is to Choose which Dependency `ActorRepoSql`, `ActorRepoMongo`..
+- Second is to create with `new`
+- Third Responsibility to Just Execute methods from repository
 
 This is the classic tight-coupling example.
 
