@@ -36,7 +36,9 @@ For example, in our application, let's take `ActorService`.
 
 The main responsibility of `ActorService` is to perform the required business logic and use the operations it needs from the Repository, like Get, Add, Update and Delete.
 
-It is not really the responsibility of `ActorService` to decide which Repository implementation to use or to create that Repository itself.
+It is not really the responsibility of `ActorService` to
+- Decide which Repository implementation to use or
+- Create that Repository itself.
 
 <br>
 
