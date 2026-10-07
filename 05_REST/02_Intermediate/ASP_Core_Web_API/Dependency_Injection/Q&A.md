@@ -27,7 +27,9 @@ In simple terms, tight coupling is when a class directly depends on a **concrete
 Whereas in loose coupling, the class depends on an **abstraction, usually an interface**, instead of directly depending on a particular implementation.
 
 ###  Why is it a problem?
-Tight coupling is a problem because a class becomes dependent on a specific implementation, making it harder to change, replace, and test that dependency.
+Tight coupling **increases the responsibility** of the class to decide which dependency to use and create that dependency itself.
+
+This makes the class harder to change, replace, and test.
 
 <br>
 
