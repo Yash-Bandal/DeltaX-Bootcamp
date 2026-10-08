@@ -1,5 +1,37 @@
 # 2. Variables and Data Handling
 
+<br>
+
+## Index
+
+1. [What is a Variable](#-what-is-a-variable)
+2. [Variable Declaration](#-variable-declaration)
+3. [Common Data Types](#-common-data-types)
+4. [Auto Detecting Variables - `var`](#-auto-detecting-variables---keyword-var)
+5. [Variable Naming Rules](#-variable-naming-rules)
+6. [Updating Variables](#-updating-variables)
+7. [Constants](#-constants)
+8. [When to Use Constants](#-when-to-use-constants)
+9. [Overflowing](#-overflowing)
+10. [Checked Keyword](#-checked-keyword)
+11. [Unchecked Keyword](#-unchecked-keyword)
+12. [Why Developers Care](#-why-developers-care)
+13. [Scope](#-scope)
+14. [Local Scope](#-local-scope)
+15. [Block Scope](#-block-scope)
+16. [Why Scope Matters](#-why-scope-matters)
+17. [Using `{}`](#-using-)
+18. [Type Conversion](#-type-conversion)
+19. [Implicit Conversion](#-implicit-conversion)
+20. [Explicit Conversion (Casting)](#-explicit-conversion-casting)
+21. [Convert Class](#-convert-class-for-non-convertible-types)
+22. [Parse Method](#-parse-method)
+23. [TryParse](#-tryparse-recommended)
+24. [Common Type Conversions](#-common-type-conversions) Pasted text
+
+<br>
+
+
 ## 2.1 Variables
 
 ### What is a Variable?
