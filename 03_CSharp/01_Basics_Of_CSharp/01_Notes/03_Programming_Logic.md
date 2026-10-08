@@ -10,7 +10,6 @@
    - [Logical Operators](#logical-operators)
    - [Assignment Operators](#assignment-operators)
    - [Increment and Decrement](#increment-and-decrement)
-
 2. [Comments](#32-comments)
    - [Single-Line Comment](#single-line-comment)
    - [Multi-Line Comment](#multi-line-comment)
