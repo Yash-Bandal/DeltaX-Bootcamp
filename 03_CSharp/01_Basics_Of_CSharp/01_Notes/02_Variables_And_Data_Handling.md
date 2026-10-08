@@ -13,25 +13,20 @@
    - [Auto Detecting Variables - `var`](#auto-detecting-variables---keyword-var)
    - [Variable Naming Rules](#variable-naming-rules)
    - [Updating Variables](#updating-variables)
-
 2. [Constants](#22-constants)
    - [When to Use Constants](#when-to-use-constants)
-
 3. [Overflowing](#23-overflowing)
    - [What is Overflow](#what-is-overflow)
    - [Checked Keyword](#checked-keyword)
    - [Unchecked Keyword](#unchecked-keyword)
    - [Why Developers Care](#why-developers-care)
-
 4. [Scope](#24-scope)
    - [What is Scope](#what-is-scope)
    - [Local Scope](#local-scope)
    - [Invalid Access](#invalid-access)
    - [Block Scope](#block-scope)
    - [Why Scope Matters](#why-scope-matters)
-
 5. [Using `{}`](#using-)
-
 6. [Type Conversion](#25-type-conversion)
    - [Implicit Conversion](#implicit-conversion)
    - [Explicit Conversion (Casting)](#explicit-conversion-casting)
