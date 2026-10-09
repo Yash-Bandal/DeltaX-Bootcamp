@@ -1,3 +1,37 @@
+## Test 
+
+Login - `POST`
+```
+https://localhost:5001/api/auth/login
+```
+
+```
+{
+  "email": "task4_tester_20261009@example.com",
+  "password": "PetPalTest1!"
+}
+```
+
+Best-adopter - `GET`
+```
+https://localhost:5001/api/pets/1/best-adopter
+```
+
+**Other**
+
+public endpoint
+```
+https://localhost:5001/api/pets?isAvailable=true
+```
+authenticated endpoint
+```
+https://localhost:5001/api/users/{userId}/pets
+```
+create request
+```
+https://localhost:5001/api/pets/{petId}/adoption-requests
+```
+
 # Bootcamp
 
  1. [Milestones](https://docs.google.com/document/d/1yU_rrGGC5g1NQLerOf_aPTINDqImrSSLZLwQJc3OWDA/edit?pli=1&tab=t.0#heading=h.z3nw5v47uyie)
