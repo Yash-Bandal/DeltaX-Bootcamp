@@ -17,6 +17,8 @@ Best-adopter - `GET`
 https://localhost:5001/api/pets/1/best-adopter
 ```
 
+<br>
+
 **Other**
 
 public endpoint
@@ -31,6 +33,10 @@ create request
 ```
 https://localhost:5001/api/pets/{petId}/adoption-requests
 ```
+
+
+<br>
+
 
 # Bootcamp
 
