@@ -23,6 +23,7 @@
 | Include records even without a match | `LEFT JOIN`                             |
 
 Quick rule: `WHERE` filters rows; `HAVING` filters groups after aggregation.
+
 <br>
 
 ### Pattern: Find pairs sharing at least N common items
