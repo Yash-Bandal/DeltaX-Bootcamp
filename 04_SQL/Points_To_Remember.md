@@ -877,7 +877,7 @@ GROUP BY
 
 The SQL query execution order is different from the order in which we write the query.
 
-## 1. Logical execution order
+### 1. Logical execution order
 
 Remember this sequence:
 
@@ -898,7 +898,7 @@ Remember this sequence:
 
 Note: `ON` and `JOIN` are closely related; the join condition is evaluated as part of forming the joined result. This is a simplified logical order, not necessarily the physical order used by the query optimizer.
 
-## 2. Example to remember
+### 2. Example to remember
 
 ```
 SELECT TOP 5
@@ -921,7 +921,7 @@ Think of it step by step:
 6. ORDER BY — Sort departments by employee count, highest first.
 7. TOP 5 — Return the first five departments.
 
-## 3. Query writing order vs execution order
+### 3. Query writing order vs execution order
 
 | Writing order               | Execution order                                             |
 | --------------------------- | ----------------------------------------------------------- |
