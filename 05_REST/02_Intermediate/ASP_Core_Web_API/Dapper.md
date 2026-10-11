@@ -405,7 +405,7 @@ Low-level row reader
 | `QuerySingleOrDefault<T>()` | `SELECT ...` | 0 or 1 row; throws if >1 |
 | `Execute()` | `INSERT`, `UPDATE`, `DELETE` | Doesn't return rows; returns affected row count 🏷️|
 | `ExecuteAsync()` | `INSERT`, `UPDATE`, `DELETE` | Async version |
-| `ExecuteScalar<T>()` | `SELECT COUNT(*)`, `SELECT SCOPE_IDENTITY()` etc. | One single value |
+| `ExecuteScalar<T>()` | `SELECT COUNT(*)`, `SELECT SCOPE_IDENTITY()` etc. | One single value - Number, String, Date, Null etc |
 | `ExecuteScalarAsync<T>()` | Same | Async version |
 
 
