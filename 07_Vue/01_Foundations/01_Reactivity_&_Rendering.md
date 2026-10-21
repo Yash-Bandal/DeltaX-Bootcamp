@@ -34,7 +34,7 @@ Example: Suppose an application stores a first name and a last name.
 ```js
 data: {
     firstName: "Yash",
-    lastName: "Sharma"
+    lastName: "Bandal"
 }
 ```
 
@@ -57,7 +57,7 @@ Use the computed property in the template:
 Output:
 
 ```text
-Yash Sharma
+Yash Bandal
 ```
 
 ### 1.1.2 Why Use Computed Properties?
