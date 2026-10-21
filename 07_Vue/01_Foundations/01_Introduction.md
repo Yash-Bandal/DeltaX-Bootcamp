@@ -15,7 +15,10 @@
 7. [Keyboard Events](#7-keyboard-events)
 8. [Two-Way Data Binding](#8-two-way-data-binding)
 
+<br>
+
 ---
+
 
 # 1. Introduction
 
@@ -137,7 +140,9 @@ In modern Vue projects, the application is commonly created in `main.js` and mou
 - Vue 2 uses `new Vue()`; Vue 3 uses `createApp()`.
 
 <br>
+
 --- 
+
 <br>
 
 # 2. The Vue Instance
@@ -257,7 +262,9 @@ In Vue 3, the application object created by `createApp()` and the component inst
 - Vue 3 applications use `createApp()` and `.mount()`.
 
 <br>
+
 ---
+
 <br>
 
 # 3. Data and Methods
@@ -430,7 +437,9 @@ The displayed count updates
 - Methods can update reactive data, which updates the UI.
 
 <br>
+
 ---
+
 <br>
 
 # 4. Data Binding
@@ -555,7 +564,9 @@ They tell Vue to perform specific rendering or binding behavior.
 - Interpolation escapes HTML; `v-html` renders HTML and requires trusted content.
 
 <br>
+
 ---
+
 <br>
 
 # 5. Events
@@ -690,7 +701,9 @@ For ordinary actions, a simple method call is often enough.
 - `$event` provides access to the event object.
 
 <br>
+
 ---
+
 <br>
 
 # 6. Event Modifiers
@@ -836,7 +849,9 @@ Modifiers can be chained when multiple behaviors are required.
 - `.self` restricts handling to events originating on the element itself.
 
 <br>
+
 ---
+
 <br>
 
 # 7. Keyboard Events
@@ -965,7 +980,9 @@ The current searchText is processed
 - Keyboard modifiers are useful for shortcuts and form interactions.
 
 <br>
+
 ---
+
 <br>
 
 # 8. Two-Way Data Binding
@@ -1175,7 +1192,9 @@ The model synchronizes the value in both directions.
 - `.lazy`, `.number`, and `.trim` modify input synchronization or processing behavior.
 
 <br>
+
 ---
+
 <br>
 
 # 9. Part 1 — Quick Revision
@@ -1258,7 +1277,9 @@ Build a small interactive profile page with:
 **Completion criterion:** You should be able to explain how each binding or event handler works, not just reproduce the syntax.
 
 <br>
+
 ---
+
 <br>
 
 # 10. Vue 2 to Vue 3 — Essential Mapping
@@ -1328,7 +1349,9 @@ function increase() {
 - Learn the original Vue 2 syntax to understand the course, while practicing modern Vue 3 syntax for new projects.
 
 <br>
+
 ---
+
 <br>
 
 
