@@ -23,6 +23,17 @@
 
 ## 1.1 What Are Computed Properties?
 
+<br>
+
+> [!tip]
+> If you know react, its similar to `useMemo` hook which serves the  same primary purpose: memoization and caching.
+> 
+> Just that
+>  - Vue `computed` (**Automatic**): Vue is smart
+>  - React `useMemo` (**Manual**): React doesn't track dependencies automatically
+
+<br>
+
 ### 1.1.1 Definition
 
 A **computed property** is a value that Vue calculates from other reactive data.
