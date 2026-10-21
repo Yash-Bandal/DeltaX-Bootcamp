@@ -533,12 +533,12 @@ They tell Vue to perform specific rendering or binding behavior.
 
 | Directive | Purpose | Shorthand / Alternative |
 | :--- | :--- | :--- |
-| `v-bind` | Binds an HTML attribute or DOM property dynamically (e.g., `href`, `src`, `class`, `disabled`). | `:`\ (e.g., `:href="url"`) |
-| `v-on` | Listens to DOM events (e.g., `click`, `keyup`, `submit`). | `@` (e.g., `@click="handleClick"`) |
-| `v-model` | Creates two-way data binding on form inputs (`<input>`, `<textarea>`, `<select>`). | Combines `:value` and `@input` |
-| `v-if` | Conditionally renders an element in the DOM (adds/removes the element completely). | `v-else-if` / `v-else` / `v-show` |
-| `v-for` | Renders a list of items by iterating over an array or object. | Requires `:key` attribute\ (e.g., `v-for="item in items" :key="item.id"`) |
-| `v-html` | Dynamically updates an element's `innerHTML` with raw HTML content. | `{{ }}`\ (text-only interpolation safe from XSS) |
+| `v-bind` | Binds an HTML attribute or DOM property dynamically <br> (e.g., `href`, `src`, `class`, `disabled`). | `:`<br>*Example:* `:href="url"` |
+| `v-on` | Listens to DOM events <br> (e.g., `click`, `keyup`, `submit`). | `@`<br>*Example:* `@click="handleClick"` |
+| `v-model` | Creates two-way data binding on form inputs <br> (`<input>`, `<textarea>`, `<select>`). | Combines `:value` and `@input`<br>*Example:* `v-model="name"` |
+| `v-if` | Conditionally renders an element in the DOM (adds/removes the element completely). | `v-else-if` / `v-else` / `v-show`<br>*Example:* `v-if="isLoggedIn"` |
+| `v-for` | Renders a list of items by iterating over an array or object. | Requires `:key` attribute<br>*Example:* `v-for="item in items" :key="item.id"` |
+| `v-html` | Dynamically updates an element's `innerHTML` with raw HTML content. | `{{ }}` (text-only interpolation)<br>*Example:* `v-html="rawHtml"` |
 
 ### 4.3.3 Example
 
