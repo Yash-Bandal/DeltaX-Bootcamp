@@ -531,13 +531,14 @@ They tell Vue to perform specific rendering or binding behavior.
 
 ### 4.3.2 Common Directives
 
-| Directive | Purpose |
-|---|---|
-| `v-bind` | Bind an attribute or property |
-| `v-on` | Listen for events |
-| `v-model` | Create two-way form input binding |
-| `v-if` | Conditionally render an element |
-| `v-for` | Render a list |
+| Directive | Purpose | Shorthand / Alternative |
+| :--- | :--- | :--- |
+| `v-bind` | Binds an HTML attribute or DOM property dynamically (e.g., `href`, `src`, `class`, `disabled`). | `:`\ (e.g., `:href="url"`) |
+| `v-on` | Listens to DOM events (e.g., `click`, `keyup`, `submit`). | `@` (e.g., `@click="handleClick"`) |
+| `v-model` | Creates two-way data binding on form inputs (`<input>`, `<textarea>`, `<select>`). | Combines `:value` and `@input` |
+| `v-if` | Conditionally renders an element in the DOM (adds/removes the element completely). | `v-else-if` / `v-else` / `v-show` |
+| `v-for` | Renders a list of items by iterating over an array or object. | Requires `:key` attribute\ (e.g., `v-for="item in items" :key="item.id"`) |
+| `v-html` | Dynamically updates an element's `innerHTML` with raw HTML content. | `{{ }}`\ (text-only interpolation safe from XSS) |
 
 ### 4.3.3 Example
 
