@@ -34,11 +34,20 @@
 
 <br>
 
+
 ### 1.1.1 Definition
 
 A **computed property** is a value that Vue calculates from other reactive data.
 
 Computed properties are useful when a value depends on existing data and should update automatically when its dependencies change.
+
+ - **With a Method** :
+     -  Executes on any component state change.
+     -  Whenever any state on the page changes (even an unrelated click or counter), the method re-runs. If that method contains code, logs, or internal tracking (like our methodRuns++ counter), that code executes and changes state on every single re-render.
+ - **With a Computed Property**:
+     -  Executes only on specific dependency change.
+     -  If an unrelated state changes, the computed property does not re-run. It stays frozen in its cached memory, so its internal code doesn't execute and nothing inside it changes—it only updates when its actual dependency changes.
+
 
 Example: Suppose an application stores a first name and a last name.
 
