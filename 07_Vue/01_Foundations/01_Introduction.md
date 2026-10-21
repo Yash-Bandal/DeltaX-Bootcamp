@@ -1007,15 +1007,14 @@ The current searchText is processed
 ## 8.1 What is Two-Way Data Binding?
 
 ### 8.1.1 Definition
+`v-model` is Vue's built-in directive for two-way data binding.
 
-Two-way data binding synchronizes a form control's value with a data property.
+It automatically keeps the data in your JavaScript state (data) and the form input element on your HTML page in sync:
+- **Script to HTML:** When the data variable updates, the input field's value updates on the screen.
 
-It allows:
+- **HTML to Script:** When the user types into the input field, the data variable updates instantly in JavaScript.
 
-1. The data value to determine the displayed input value.
-2. User input to update the data value.
-
-Vue provides the `v-model` directive for this purpose.
+Under the hood, v-model is shorthand for binding a value (`:value`) and listening to an input event (`@input`).
 
 ### 8.1.2 Basic Syntax
 
@@ -1029,20 +1028,64 @@ When the user types into the input, `name` updates and the paragraph displays th
 ### 8.1.3 Vue 2 Example
 
 ```html
-<div id="app">
-    <input v-model="name">
-    <p>Hello {{ name }}</p>
+<div id="vue-app">
+    
+       <!-- Text Input -->
+       <label for="name">Type your name:</label>
+       <input type="text" id="name" v-model="name" placeholder="Enter name here..." /> 
+     
+       <!-- Live Output -->
+       <p>Hello, <strong>{{ name }}</strong>!</p>
+     
+       <button @click="resetName">Reset Name</button>
 </div>
 
 <script>
-    new Vue({
-        el: "#app",
-        data: {
-            name: ""
+new Vue({
+    el: '#vue-app',
+    data: {
+        name: 'Shaun'
+    },
+    methods: {
+        resetName() {
+            this.name = '';
         }
-    });
+    }
+});
 </script>
 ```
+Js -> HTML
+<img width="275" alt="image" src="https://github.com/user-attachments/assets/30026597-21b7-449b-90b0-711ab8c091d6" />
+HTML -> Js
+<img width="275" alt="image" src="https://github.com/user-attachments/assets/e8eca351-84fa-49cf-8127-67814eaf4276" />
+
+<br>
+
+Here two-way means, 
+ - By default you see data value in the input field (Shaun) : JS -> HTML (bind 1)
+ - Then when user types, the value changes
+
+but if you had used one-way binding (generally html-js onl, not js to html) with `v-on:input` or `v-on:keyup`, the js -> html dont happen, and you dont see input field
+```html
+<div id="vue-app" style="padding: 20px;">
+  <!-- Text Input -->
+  <label for="name">Type your name:</label>
+  <input type="text" id="name" v-on:input="name = $event.target.value" placeholder="Enter name here..." />
+   OR
+  <!-- <input type="text" id="name" v-on:keyup="name = $event.target.value" placeholder="Enter name here..." /> -->
+
+  <!-- Live Output -->
+  <p>Hello, <strong>{{ name }}</strong>!</p>
+
+  <button @click="resetName">Reset Name</button>
+</div>
+```
+Js -> HTML
+<img width="275" alt="image" src="https://github.com/user-attachments/assets/9eef141e-921b-4d6d-89e7-6df826bbac94" />
+HTML -> Js
+<img width="266" height="107" alt="image" src="https://github.com/user-attachments/assets/4e300860-9531-4999-a97d-7b4c53ed1fa4" />
+
+<br>
 
 As the user types, the displayed greeting changes.
 
