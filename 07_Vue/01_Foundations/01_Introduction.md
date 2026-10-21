@@ -31,6 +31,7 @@ Vue.js is a JavaScript framework used to build interactive user interfaces (UIs)
 - **Vue.js** helps connect application data with the UI and keep them synchronized.
 
 ### 1.1.2 Why use Vue.js?
+Its very Lean comparitively (16kb), loads page, without everytime refreshing server
 
 Without Vue, we often select DOM elements and update them manually.
 
