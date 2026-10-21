@@ -746,29 +746,41 @@ The `.stop` modifier stops the event from propagating to ancestor elements.
 <img width="550" alt="image" src="https://cdn.hashnode.com/res/hashnode/image/upload/v1613329740519/NHfbtuyVD.gif" />
 <br>
 
-When an event occurs on a nested element, it can propagate to its ancestors. This is called event bubbling.
+When an event occurs on a nested element, it can propagate to its ancestors. This is called **event bubbling**.
 
 ```html
-<div @click="parentClick">
-    <button @click="childClick">
-        Click me
-    </button>
+<div @click="grandparentClick">
+    grandparent
+    <div @click="parentClick">
+        parent
+        <div @click="childClick">
+            child
+        </div>
+    </div>
 </div>
+
 ```
 
-Clicking the button can invoke both handlers because the click bubbles to the parent.
+Clicking the child can invoke all handlers because the click bubbles to the parent and grandparent.
 
 ### 6.2.2 Preventing Propagation
 
 ```html
-<div @click="parentClick">
-    <button @click.stop="childClick">
-        Click me
-    </button>
+<div @click="grandparentClick">
+    grandparent
+    <div @click="parentClick">
+        parent
+        <div @click.stop="childClick">
+            child
+        </div>
+    </div>
 </div>
+
 ```
 
-The `.stop` modifier prevents the click event from propagating beyond the button.
+
+The `.stop` modifier prevents the click event from propagating beyond the button to the parent and grandparent.
+
 
 ### 6.2.3 Important Distinction
 
