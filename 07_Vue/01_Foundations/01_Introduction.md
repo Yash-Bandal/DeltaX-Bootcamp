@@ -1011,7 +1011,6 @@ The current searchText is processed
 
 It automatically keeps the data in your JavaScript state (data) and the form input element on your HTML page in sync:
 - **Script to HTML:** When the data variable updates, the input field's value updates on the screen.
-
 - **HTML to Script:** When the user types into the input field, the data variable updates instantly in JavaScript.
 
 Under the hood, v-model is shorthand for binding a value (`:value`) and listening to an input event (`@input`).
@@ -1055,8 +1054,12 @@ new Vue({
 </script>
 ```
 Js -> HTML
+
 <img width="275" alt="image" src="https://github.com/user-attachments/assets/30026597-21b7-449b-90b0-711ab8c091d6" />
+
+
 HTML -> Js
+
 <img width="275" alt="image" src="https://github.com/user-attachments/assets/e8eca351-84fa-49cf-8127-67814eaf4276" />
 
 <br>
@@ -1081,8 +1084,11 @@ but if you had used one-way binding (generally html-js onl, not js to html) with
 </div>
 ```
 Js -> HTML
+
 <img width="275" alt="image" src="https://github.com/user-attachments/assets/9eef141e-921b-4d6d-89e7-6df826bbac94" />
+
 HTML -> Js
+
 <img width="266" height="107" alt="image" src="https://github.com/user-attachments/assets/4e300860-9531-4999-a97d-7b4c53ed1fa4" />
 
 <br>
