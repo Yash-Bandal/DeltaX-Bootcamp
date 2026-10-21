@@ -768,7 +768,7 @@ Clicking the child can invoke all handlers because the click bubbles to the pare
 ```html
 <div @click="grandparentClick">
     grandparent
-    <div @click="parentClick">
+    <div @click.stop="parentClick">
         parent
         <div @click.stop="childClick">
             child
