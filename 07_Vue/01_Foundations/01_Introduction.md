@@ -742,6 +742,10 @@ The `.stop` modifier stops the event from propagating to ancestor elements.
 
 ### 6.2.1 Event Bubbling
 
+<br>
+<img width="550" alt="image" src="https://cdn.hashnode.com/res/hashnode/image/upload/v1613329740519/NHfbtuyVD.gif" />
+<br>
+
 When an event occurs on a nested element, it can propagate to its ancestors. This is called event bubbling.
 
 ```html
