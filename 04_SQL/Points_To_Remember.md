@@ -27,6 +27,7 @@
 15. [`COUNT(column)` and `NULL`](#15-countcolumn-and-null)
 16. [GROUP BY and SELECT](#16-group-by-and-select)
 17. [DISTINCT vs GROUP BY - Think of 2 methods of Finding Unique](#17-distinct-vs-group-by)
+18. [Order of Execution/Queries](#18-order)
 
 <br>
 
@@ -872,4 +873,66 @@ GROUP BY
 
 <br>
 
+## 18 Order
+
+The SQL query execution order is different from the order in which we write the query.
+
+### 1. Logical execution order
+
+Remember this sequence:
+
+`FROM → JOIN → ON → WHERE → GROUP BY → HAVING → SELECT → DISTINCT → ORDER BY → TOP`
+
+| Order | Clause     | What happens?                                          |
+| ----- | ---------- | ------------------------------------------------------ |
+| 1     | `FROM`     | Identify the source table(s).                          |
+| 2     | `ON`       | Apply the join condition.                              |
+| 3     | `JOIN`     | Combine matching rows from tables.                     |
+| 4     | `WHERE`    | Filter individual rows.                                |
+| 5     | `GROUP BY` | Group rows based on columns.                           |
+| 6     | `HAVING`   | Filter groups after aggregation.                       |
+| 7     | `SELECT`   | Select the required columns and calculate expressions. |
+| 8     | `DISTINCT` | Remove duplicate result rows.                          |
+| 9     | `ORDER BY` | Sort the results.                                      |
+| 10    | `TOP`      | Limit the number of returned rows in SQL Server.       |
+
+Note: `ON` and `JOIN` are closely related; the join condition is evaluated as part of forming the joined result. This is a simplified logical order, not necessarily the physical order used by the query optimizer.
+
+### 2. Example to remember
+
+```
+SELECT TOP 5
+    DepartmentId,
+    COUNT(*) AS EmployeeCount
+FROM Employees
+WHERE Salary > 30000
+GROUP BY DepartmentId
+HAVING COUNT(*) > 2
+ORDER BY EmployeeCount DESC;
+```
+
+Think of it step by step:
+
+1. FROM — Get employees.
+2. WHERE — Keep employees earning more than ₹30,000.
+3. GROUP BY — Group the remaining employees by department.
+4. HAVING — Keep departments with more than two qualifying employees.
+5. SELECT — Return the department ID and employee count.
+6. ORDER BY — Sort departments by employee count, highest first.
+7. TOP 5 — Return the first five departments.
+
+### 3. Query writing order vs execution order
+
+| Writing order               | Execution order                                             |
+| --------------------------- | ----------------------------------------------------------- |
+| `SELECT`                    | `FROM`                                                      |
+| `FROM`                      | `JOIN` / `ON`                                               |
+| `JOIN`                      | `WHERE`                                                     |
+| `WHERE`                     | `GROUP BY`                                                  |
+| `GROUP BY`                  | `HAVING`                                                    |
+| `HAVING`                    | `SELECT`                                                    |
+| `ORDER BY`                  | `ORDER BY`                                                  |
+| `TOP` appears with `SELECT` | Applied to the ordered result when combined with `ORDER BY` |
+
+ **tip**: Remember that `WHERE` filters rows before grouping, whereas `HAVING` filters groups after grouping. Also, in SQL Server, `TOP` is written near `SELECT`, but logically limits the final ordered result.
 

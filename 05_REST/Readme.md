@@ -1,3 +1,176 @@
+### Temp Visual of best adopter method
+```csharp
+// 1. Pet object
+var pet = await _petService.Get(petId);
+// pet: Pet
+// { Id = 500, Name = "Bruno", BreedId = 10 }
+
+
+// 2. Pending requests
+var pendingRequests = (await _adoptionRequestRepository.GetByPetId(petId))
+    .Where(r => r.Status == "Pending")
+    .ToList();
+// Before ToList(): IEnumerable<AdoptionRequest>
+// After ToList():  List<AdoptionRequest>
+// [Request 1 (Pending), Request 3 (Pending), Request 4 (Pending)]
+
+
+// 3. Distinct applicant IDs
+var userIds = pendingRequests
+    .Select(r => r.ApplicantId)
+    .Distinct()
+    .ToArray();
+// Select():   IEnumerable<int>        [101, 103, 104]
+// Distinct(): IEnumerable<int>        [101, 103, 104]
+// ToArray():  int[]                   [101, 103, 104]
+
+
+// 4. Users dictionary
+var users = (await _userService.GetByIds(userIds))
+    .ToDictionary(u => u.Id);
+// Before ToDictionary(): IEnumerable<User>
+// After: Dictionary<int, User>
+// {
+//     101 -> User { Name = "Asha" },
+//     103 -> User { Name = "Rohan" },
+//     104 -> User { Name = "Neha" }
+// }
+
+
+// 5. Owned pets
+var ownedPets = (await _petService.GetByOwnerIds(userIds))
+    .ToList();
+// List<Pet>
+// [Pet { OwnerId = 101, Name = "Milo" },
+//  Pet { OwnerId = 103, Name = "Coco" },
+//  Pet { OwnerId = 103, Name = "Max" }]
+
+
+// Group pets by owner
+var petsByOwner = ownedPets
+    .GroupBy(p => p.OwnerId)
+    .ToDictionary(g => g.Key, g => g.ToList());
+// GroupBy(): IEnumerable<IGrouping<int, Pet>>
+// After ToDictionary(): Dictionary<int, List<Pet>>
+// {
+//     101 -> [Milo],
+//     103 -> [Coco, Max],
+//     104 -> [ ]             // No key if owner has no pets
+// }
+
+
+// 6. Rejected-request counts
+var rejectedCounts =
+    await _adoptionRequestRepository.GetRejectedCounts(userIds);
+// Dictionary<int, int>
+// {
+//     101 -> 3,
+//     103 -> 1,
+//     104 -> 0
+// }
+
+
+// 7. Applicants with another pending request for the same breed
+var usersWithPendingBreedRequest =
+    (await _adoptionRequestRepository.GetUsersWithPendingBreedRequest(
+        userIds, pet.BreedId, pet.Id))
+    .ToHashSet();
+// Before ToHashSet(): IEnumerable<int>
+// After: HashSet<int>
+// { 103 }
+
+
+// 8. Applicants who previously adopted the same breed
+var usersWhoAdoptedSameBreed =
+    (await _adoptionRequestRepository.GetUsersWhoAdoptedBreed(
+        userIds, pet.BreedId))
+    .ToHashSet();
+// HashSet<int>
+// { 104 }
+
+
+// 9. Create candidate list
+var candidates = new List<BestAdopterCandidate>();
+// List<BestAdopterCandidate>
+// []  <-- initially empty
+
+
+foreach (var request in pendingRequests)
+{
+    // request: AdoptionRequest object
+
+    if (!users.TryGetValue(request.ApplicantId, out var user))
+        continue;
+    // user: User object
+
+    var userPets = petsByOwner.TryGetValue(user.Id, out var pets)
+        ? pets
+        : new List<Pet>();
+    // userPets: List<Pet>
+    // Example: [Milo] or [Coco, Max] or []
+
+    int ownedPetsCount = userPets.Count;
+    // ownedPetsCount: int
+    // Example: 2
+
+    if (ownedPetsCount > 3)
+        continue;
+
+    if (usersWithPendingBreedRequest.Contains(user.Id))
+        continue;
+    // Contains(): bool
+    // true  -> exclude applicant
+    // false -> continue checking
+
+    rejectedCounts.TryGetValue(user.Id, out int rejectedCount);
+    // rejectedCount: int
+    // Example: 3
+
+    candidates.Add(new BestAdopterCandidate
+    {
+        User = user,             // User object
+        Request = request,       // AdoptionRequest object
+        OwnedPetsCount = ownedPetsCount, // int
+        RejectedCount = rejectedCount,   // int
+        HasAdoptedSameBreed =
+            usersWhoAdoptedSameBreed.Contains(user.Id) // bool
+    });
+}
+// candidates: List<BestAdopterCandidate>
+// [
+//   Candidate { User = Asha, OwnedPetsCount = 1, RejectedCount = 3 },
+//   Candidate { User = Neha, OwnedPetsCount = 0, RejectedCount = 0,
+//               HasAdoptedSameBreed = true }
+// ]
+
+
+// 10. Select the best candidate
+var bestCandidate = candidates
+    .OrderBy(c => c.RejectedCount > 2 ? 1 : 0)
+    .ThenByDescending(c => c.HasAdoptedSameBreed)
+    .ThenByDescending(c => c.OwnedPetsCount > 0)
+    .ThenBy(c => c.User.CreatedAt)
+    .ThenBy(c => c.OwnedPetsCount)
+    .ThenBy(c => c.Request.RequestedAt)
+    .FirstOrDefault();
+// OrderBy/ThenBy: IOrderedEnumerable<BestAdopterCandidate>
+// FirstOrDefault(): BestAdopterCandidate or null
+// bestCandidate: one complete candidate object
+
+
+// 11. Return response
+return new BestAdopterResponse
+{
+    UserId = bestCandidate.User.Id,       // int
+    FullName = bestCandidate.User.Name,   // string
+    Email = bestCandidate.User.Email      // string
+};
+// Returned object: BestAdopterResponse
+// { UserId = 104, FullName = "Neha", Email = "neha@example.com" }
+```
+
+<br>
+
 ## Thinking Before Develop
 
 ### 1 .Do we Update `Id`?
