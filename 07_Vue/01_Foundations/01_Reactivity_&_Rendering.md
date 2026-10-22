@@ -196,38 +196,9 @@ new Vue({
 </script>
 ```
 
-### 1.3.2 Execution Flow
 
-```text
-Initial data:
-quantity = 2
-price = 100
-        |
-        v
-Computed property calculates:
-totalPrice = 2 × 100 = 200
-        |
-        v
-Template displays ₹200
-        |
-        v
-User clicks "Add One Item"
-        |
-        v
-quantity becomes 3
-        |
-        v
-Vue invalidates the cached result
-        |
-        v
-Computed property recalculates:
-totalPrice = 3 × 100 = 300
-        |
-        v
-Template displays ₹300
-```
 
-### 1.3.3 Important Rule
+### 1.3.2 Important Rule
 
 A computed getter should generally derive and return a value rather than modify the state it depends on.
 
@@ -355,75 +326,64 @@ The element receives both classes.
 
 <br>
 
-## 2.3 Complete Example: Toggle an Active Class
+### 2.2.4 Example, Steps to use Dynamic CSS class
 
-### 2.3.1 Template and Logic
+#### **Step 1: Define the CSS class**
 
-```html
-<div id="app">
-    <p :class="{ active: isActive }">
-        This text changes style.
-    </p>
-
-    <button @click="isActive = !isActive">
-        Toggle Active
-    </button>
-</div>
-
-<script>
-new Vue({
-    el: "#app",
-
-    data: {
-        isActive: false
-    }
-});
-</script>
-```
-
-### 2.3.2 CSS
+* **Statement:** Create a standard CSS class in your stylesheet or style tag for the color you want to apply.
 
 ```css
-.active {
-    color: green;
+.red-text {
+    color: red;
     font-weight: bold;
 }
 ```
 
-### 2.3.3 Execution Flow
+#### **Step 2: Set up the reactive data property**
 
-```text
-isActive = false
-        |
-        v
-No active class
-        |
-        v
-User clicks button
-        |
-        v
-isActive = !isActive
-        |
-        v
-isActive = true
-        |
-        v
-Vue applies the active class
-        |
-        v
-Text becomes green and bold
+* **Statement:** Define a boolean property inside your Vue instance's `data` to track whether the text should be red.
+
+```javascript
+new Vue({
+    el: '#vue-app',
+    data: {
+        isRed: false // Controls whether the class is active
+    }
+});
 ```
 
-<br>
 
-## 2.4 Key Takeaways
 
-### 2.4.1 Remember
+#### **Step 3: Bind the dynamic class in the template**
 
-- Use `:class` to bind classes dynamically.
-- Object syntax conditionally applies individual classes.
-- Array syntax combines multiple classes.
-- Use CSS classes to represent UI states rather than manually editing DOM classes.
+* **Statement:** Use the `:class` directive with object syntax (`{ 'class-name': booleanExpression }`) on your HTML element.
+
+```html
+<div id="vue-app">
+    <!-- The class 'red-text' is applied only when 'isRed' is true -->
+    <p :class="{ 'red-text': isRed }">
+        This text changes color dynamically!
+    </p>
+</div>
+
+```
+
+
+
+#### **Step 4: Add a trigger to toggle the state**
+
+* **Statement:** Add a button with a click handler to flip the boolean value back and forth, updating the text color instantly.
+
+```html
+<div id="vue-app">
+    <p :class="{ 'red-text': isRed }">
+        This text changes color dynamically!
+    </p>
+
+    <!-- Flips isRed between true and false on each click -->
+    <button @click="isRed = !isRed">Toggle Text Color</button>
+</div>
+```
 
 <br>
 
