@@ -134,43 +134,45 @@ The greeting appears in the browser
 
 ## 1.3 Component Data
 
-### 1.3.1 Why Must Component Data Be a Function?
-
-In Vue 2, a reusable component's `data` option must return an object through a function.
-
+###  Normal (Plain Object) — ❌ WRONG for Components
 ```js
-Vue.component("counter", {
+Vue.component('my-component', {
+    // Plain object: BAD!
+    data: {
+        count: 0
+    },
+    template: '<button @click="count++">Clicked {{ count }} times</button>'
+});
+```
+#### What problem occurs?
+- The Shared State Bug: If you render `<my-component> twice on the same page, both components share the exact same `count` variable in memory.
+- Clicking button A will magically increment the counter on button B as well, because both instances point to the exact same object reference in JavaScript memory.
+
+### With Return (Function) — ✅ CORRECT
+```js
+Vue.component('my-component', {
+    // Function returning a fresh object: GOOD!
     data: function() {
         return {
             count: 0
         };
     },
-
-    template: `
-        <div>
-            <p>{{ count }}</p>
-            <button @click="count++">Increase</button>
-        </div>
-    `
+    template: '<button @click="count++">Clicked {{ count }} times</button>'
 });
 ```
 
-The function creates a separate data object for each component instance.
+#### Why this fixes it:
+- Every time a component is placed on the page, Vue runs the `data` function.
+- This creates a brand new, **isolated copy** of the data object exclusively for that single component instance. Button A and Button B now operate completely independently!
 
-### 1.3.2 What Problem Does This Solve?
 
-Consider this incorrect pattern for a reusable Vue 2 component:
 
-```js
-data: {
-    count: 0
-}
-```
-
+Thus,\
 If multiple component instances shared the same data object, changing one counter could affect the others.
 
 A data factory avoids that shared mutable state.
 
+Now, different Component instances, for multiple times calling a component, instead of sharing 1
 ```text
 Counter Instance A       Counter Instance B
        |                         |
