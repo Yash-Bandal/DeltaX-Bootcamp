@@ -332,25 +332,25 @@ The element receives both classes.
 
 *  Create a standard CSS class in your stylesheet or style tag for the color you want to apply.
 
-```css
-.red-text {
-    color: red;
-    font-weight: bold;
-}
-```
+   ```css
+   .red-text {
+       color: red;
+       font-weight: bold;
+   }
+   ```
 
 #### **Step 2: Set up the reactive data property**
 
 *  Define a boolean property inside your Vue instance's `data` to track whether the text should be red.
 
-```javascript
-new Vue({
-    el: '#vue-app',
-    data: {
-        isRed: false // Controls whether the class is active
-    }
-});
-```
+   ```javascript
+   new Vue({
+       el: '#vue-app',
+       data: {
+           isRed: false // Controls whether the class is active
+       }
+   });
+   ```
 
 
 
@@ -358,15 +358,15 @@ new Vue({
 
 *  Use the `:class` directive with object syntax (`{ 'class-name': booleanExpression }`) on your HTML element.
 
-```html
-<div id="vue-app">
-    <!-- The class 'red-text' is applied only when 'isRed' is true -->
-    <p :class="{ 'red-text': isRed }">
-        This text changes color dynamically!
-    </p>
-</div>
-
-```
+   ```html
+   <div id="vue-app">
+       <!-- The class 'red-text' is applied only when 'isRed' is true -->
+       <p :class="{ 'red-text': isRed }">
+           This text changes color dynamically!
+       </p>
+   </div>
+   
+   ```
 
 
 
@@ -374,16 +374,16 @@ new Vue({
 
 *  Add a button with a click handler to flip the boolean value back and forth, updating the text color instantly.
 
-```html
-<div id="vue-app">
-    <p :class="{ 'red-text': isRed }">
-        This text changes color dynamically!
-    </p>
-
-    <!-- Flips isRed between true and false on each click -->
-    <button @click="isRed = !isRed">Toggle Text Color</button>
-</div>
-```
+   ```html
+   <div id="vue-app">
+       <p :class="{ 'red-text': isRed }">
+           This text changes color dynamically!
+       </p>
+   
+       <!-- Flips isRed between true and false on each click -->
+       <button @click="isRed = !isRed">Toggle Text Color</button>
+   </div>
+   ```
 
 <br>
 
@@ -477,6 +477,37 @@ Unlike `v-if`, `v-show` keeps the element in the DOM and toggles its CSS `displa
 | Initial rendering | Conditional | Element is rendered and its display is toggled |
 | Toggle behavior | Creates/destroys rendered content | Changes CSS display |
 | Best suited for | Conditions that change less frequently or content that should not be rendered while false | Frequent visibility toggles |
+
+
+<br>
+
+--- 
+
+####  `v-show`
+Toggle show
+```html
+<p style="">Error Occured</p>
+```
+
+Toggle Hide (Element present in DOM, just hidden with CSS Display)
+```html
+<p style="display: none;">Error Occured</p>
+```
+
+<br>
+
+#### `v-if`
+Toggle show
+```html
+<p>Success</p>
+```
+
+Toggle Hide (element actually removed from DOM)
+```html
+<!-- <p>Success</p> -->
+```
+
+---
 
 <br>
 
