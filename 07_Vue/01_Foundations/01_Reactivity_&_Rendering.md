@@ -498,54 +498,55 @@ The `<template>` wrapper itself does not create a DOM element.
 
 ### 3.3.2 Example: Show or Hide a Message
 
-```html
-<div id="app">
-    <p v-if="isVisible">
-        This message is visible.
-    </p>
+#### **Step 1: Set up the reactive data property**
 
-    <button @click="isVisible = !isVisible">
-        Toggle Message
-    </button>
-</div>
+*  Define a boolean property inside your Vue instance's `data` to track which element should be shown.
 
-<script>
-new Vue({
-    el: "#app",
+    ```javascript
+    new Vue({
+        el: '#vue-app',
+        data: {
+            isLoggedIn: false // Controls which conditional block appears
+        }
+    });
+    ```
 
-    data: {
-        isVisible: true
-    }
-});
-</script>
-```
 
-### 3.3.3 Execution Flow
 
-```text
-isVisible = true
-        |
-        v
-Message is rendered
-        |
-        v
-User clicks Toggle Message
-        |
-        v
-isVisible becomes false
-        |
-        v
-Vue removes the paragraph
-        |
-        v
-User clicks again
-        |
-        v
-isVisible becomes true
-        |
-        v
-Vue renders the paragraph again
-```
+#### **Step 2: Apply `v-if` and `v-else` in the template**
+
+*  Use the `v-if` directive to render an element conditionally, and `v-else` as an alternative fallback block right below it.
+
+   ```html
+   <div id="vue-app">
+       <!-- Renders only when isLoggedIn is true -->
+       <p v-if="isLoggedIn" style="color: green;">
+           Welcome back, user!
+       </p>
+   
+       <!-- Renders only when isLoggedIn is false -->
+       <p v-else style="color: red;">
+           Please log in to continue.
+       </p>
+   </div>
+   ```
+
+
+#### **Step 3: Add a trigger to change the conditional state**
+
+*  Add a button with a click handler to flip the boolean value, causing Vue to add or remove elements from the DOM dynamically.
+
+   ```html
+   <div id="vue-app">
+       <p v-if="isLoggedIn" style="color: green;">Welcome back, user!</p>
+       <p v-else style="color: red;">Please log in to continue.</p>
+   
+       <!-- Flips isLoggedIn between true and false on each click -->
+       <button @click="isLoggedIn = !isLoggedIn">
+           Toggle Login State
+       </button>
+   </div>
+   ```
 
 <br>
 
