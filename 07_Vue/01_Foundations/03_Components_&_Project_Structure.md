@@ -134,7 +134,7 @@ The greeting appears in the browser
 
 ## 1.3 Component Data
 
-###  Normal (Plain Object) — ❌ WRONG for Components
+####  Normal (Plain Object) — ❌ WRONG for Components
 ```js
 Vue.component('my-component', {
     // Plain object: BAD!
@@ -144,11 +144,14 @@ Vue.component('my-component', {
     template: '<button @click="count++">Clicked {{ count }} times</button>'
 });
 ```
-#### What problem occurs?
+
+##### What problem occurs?
 - The Shared State Bug: If you render `<my-component> twice on the same page, both components share the exact same `count` variable in memory.
 - Clicking button A will magically increment the counter on button B as well, because both instances point to the exact same object reference in JavaScript memory.
 
-### With Return (Function) — ✅ CORRECT
+<br>
+ 
+#### With Return (Function) — ✅ CORRECT
 ```js
 Vue.component('my-component', {
     // Function returning a fresh object: GOOD!
@@ -161,11 +164,12 @@ Vue.component('my-component', {
 });
 ```
 
-#### Why this fixes it:
+##### Why this fixes it:
 - Every time a component is placed on the page, Vue runs the `data` function.
 - This creates a brand new, **isolated copy** of the data object exclusively for that single component instance. Button A and Button B now operate completely independently!
 
 
+<br>
 
 Thus,\
 If multiple component instances shared the same data object, changing one counter could affect the others.
@@ -185,6 +189,9 @@ Counter Instance A       Counter Instance B
        v                         v
    count = 1                 count = 0
 ```
+
+<br>
+
 
 ### 1.3.3 Vue 3 Equivalent
 
