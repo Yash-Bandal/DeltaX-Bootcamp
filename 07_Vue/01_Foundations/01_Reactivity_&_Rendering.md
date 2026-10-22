@@ -330,7 +330,7 @@ The element receives both classes.
 
 #### **Step 1: Define the CSS class**
 
-* **Statement:** Create a standard CSS class in your stylesheet or style tag for the color you want to apply.
+*  Create a standard CSS class in your stylesheet or style tag for the color you want to apply.
 
 ```css
 .red-text {
@@ -341,7 +341,7 @@ The element receives both classes.
 
 #### **Step 2: Set up the reactive data property**
 
-* **Statement:** Define a boolean property inside your Vue instance's `data` to track whether the text should be red.
+*  Define a boolean property inside your Vue instance's `data` to track whether the text should be red.
 
 ```javascript
 new Vue({
@@ -356,7 +356,7 @@ new Vue({
 
 #### **Step 3: Bind the dynamic class in the template**
 
-* **Statement:** Use the `:class` directive with object syntax (`{ 'class-name': booleanExpression }`) on your HTML element.
+*  Use the `:class` directive with object syntax (`{ 'class-name': booleanExpression }`) on your HTML element.
 
 ```html
 <div id="vue-app">
@@ -372,7 +372,7 @@ new Vue({
 
 #### **Step 4: Add a trigger to toggle the state**
 
-* **Statement:** Add a button with a click handler to flip the boolean value back and forth, updating the text color instantly.
+*  Add a button with a click handler to flip the boolean value back and forth, updating the text color instantly.
 
 ```html
 <div id="vue-app">
