@@ -448,6 +448,8 @@ For new Vue projects, Vite is generally preferred.
 
 ## 3.2 Creating a Project
 
+#### [Settup](./Installation.md)
+
 ### 3.2.1 Vue CLI Command
 
 A traditional Vue CLI project can be created using:
@@ -485,16 +487,7 @@ Vue CLI and Vite are development tools, not the Vue framework itself.
 
 Vue provides the component and reactivity system. The toolchain prepares and serves the application.
 
-<br>
 
-## 3.3 Key Takeaways
-
-### 3.3.1 Remember
-
-- Vue CLI was widely used for Vue 2 projects.
-- Vite is the modern default for new Vue projects.
-- Both tools help scaffold and run applications.
-- The Vue framework and the build tool are different things.
 
 <br>
 
@@ -655,6 +648,12 @@ The `.vue` file concept is not exclusive to Vue 3. The main differences are the 
 <br>
 
 # 5. Nesting Components
+
+<br>
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/6671ff2f-bdba-4e08-82bc-65018b1dff63" />
+</div>
+<br>
 
 ## 5.1 What Is Component Nesting?
 
