@@ -229,15 +229,239 @@ If the child needs to request a change, use a custom event. If the child needs i
 
 <br>
 
-## 1.5 Key Takeaways
+## 1.5 Props Validation in Vue 2 and Vue 3
 
-### 1.5.1 Remember
+Vue allows us to validate props by specifying their expected type, whether they are required, default values, and custom validation rules.
 
-- Props pass data from parent to child.
-- Declare the props a component expects.
-- Use `:` to pass JavaScript expressions and non-string values.
-- Props follow one-way data flow.
-- Vue 3 `<script setup>` commonly uses `defineProps()`.
+The validation options are similar in Vue 2 and Vue 3. The main difference is how props are declared in the component.
+
+### 1.5.1 Basic Props Validation
+
+**Vue 2 — Options API**
+
+```js
+export default {
+    props: {
+        title: String,
+        year: Number,
+        featured: Boolean
+    }
+}
+```
+
+**Vue 3 — Options API**
+
+```js
+export default {
+    props: {
+        title: String,
+        year: Number,
+        featured: Boolean
+    }
+}
+```
+
+**Vue 3 — Composition API with `<script setup>`**
+
+```vue
+<script setup>
+defineProps({
+    title: String,
+    year: Number,
+    featured: Boolean
+})
+</script>
+```
+
+In these examples:
+
+- `title` expects a string.
+- `year` expects a number.
+- `featured` expects a Boolean.
+
+If a prop receives a value of the wrong type, Vue displays a warning during development.
+
+### 1.5.2 Validating Arrays and Objects
+
+Use `Array` and `Object` to specify the expected data type.
+
+**Vue 2 and Vue 3 — Options API**
+
+```js
+export default {
+    props: {
+        objectArray: {
+            type: Array,
+            required: true
+        },
+
+        movie: {
+            type: Object,
+            required: true
+        }
+    }
+}
+```
+
+**Vue 3 — `<script setup>`**
+
+```vue
+<script setup>
+defineProps({
+    objectArray: {
+        type: Array,
+        required: true
+    },
+
+    movie: {
+        type: Object,
+        required: true
+    }
+})
+</script>
+```
+
+The parent component can pass these props using:
+
+```html
+<movie-list
+    :object-array="movies"
+    :movie="selectedMovie"
+></movie-list>
+```
+
+```js
+data() {
+    return {
+        movies: [
+            { title: 'Inception', year: 2010 },
+            { title: 'Interstellar', year: 2014 }
+        ],
+
+        selectedMovie: {
+            title: 'Inception',
+            year: 2010
+        }
+    }
+}
+```
+
+**Important:** `type: Array` validates that the value is an array. It does not automatically validate that every element is an object or contains particular properties.
+
+### 1.5.3 Required Props
+
+Use `required: true` when the parent must provide a prop.
+
+```js
+export default {
+    props: {
+        title: {
+            type: String,
+            required: true
+        }
+    }
+}
+```
+
+This syntax works in both Vue 2 and Vue 3 Options API components.
+
+For Vue 3 `<script setup>`, the equivalent is:
+
+```js
+defineProps({
+    title: {
+        type: String,
+        required: true
+    }
+})
+```
+
+If `title` is missing, Vue displays a development warning.
+
+### 1.5.4 Default Values
+
+Use `default` to provide a fallback value when a prop is not supplied.
+
+```js
+export default {
+    props: {
+        title: {
+            type: String,
+            default: 'Untitled Movie'
+        },
+
+        year: {
+            type: Number,
+            default: 2000
+        }
+    }
+}
+```
+
+For arrays and objects, return a fresh value from a factory function.
+
+```js
+export default {
+    props: {
+        movies: {
+            type: Array,
+            default: () => []
+        },
+
+        movie: {
+            type: Object,
+            default: () => ({
+                title: 'Unknown',
+                year: 2000
+            })
+        }
+    }
+}
+```
+
+These examples work in both Vue 2 and Vue 3.
+
+### 1.5.5 Custom Props Validation
+
+Use `validator` when a prop must satisfy a specific condition beyond its basic data type.
+
+For example, a movie rating must be between 0 and 10.
+
+**Vue 2 and Vue 3 — Options API**
+
+```js
+export default {
+    props: {
+        rating: {
+            type: Number,
+            required: true,
+
+            validator(value) {
+                return value >= 0 && value <= 10
+            }
+        }
+    }
+}
+```
+
+**Vue 3 — `<script setup>`**
+
+```vue
+<script setup>
+defineProps({
+    rating: {
+        type: Number,
+        required: true,
+
+        validator(value) {
+            return value >= 0 && value <= 10
+        }
+    }
+})
+</script>
+```
+
+
 
 <br>
 
