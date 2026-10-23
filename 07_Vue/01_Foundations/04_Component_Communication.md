@@ -1,4 +1,4 @@
-[# Part 4 — Component Communication
+# Part 4 — Component Communication
 
 **Course:** Net Ninja — Vue JS 2 Tutorial  
 **Lessons:** 22–28  
