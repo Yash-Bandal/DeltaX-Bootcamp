@@ -651,7 +651,7 @@ The `.vue` file concept is not exclusive to Vue 3. The main differences are the 
 
 <br>
 <div align = "center">
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/6671ff2f-bdba-4e08-82bc-65018b1dff63" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/743abea3-0d1a-4340-a44f-555a9ae3d8fe" />
 </div>
 <br>
 
