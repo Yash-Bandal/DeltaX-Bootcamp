@@ -407,6 +407,11 @@ The child can notify the parent that a change is requested.
 
 Vue 2 child:
 
+**Syntax:**
+```js
+$emit('event-name', parameter)
+```
+**Example:**
 ```js
 this.$emit("rename-user", "Sam");
 ```
