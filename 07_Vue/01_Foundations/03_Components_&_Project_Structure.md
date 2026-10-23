@@ -926,9 +926,9 @@ For example, styles can still affect child component root elements in certain si
 
 ## 6.3 Parent and Child Component Styles
 
-**Q:** Yes, In Vue 2, if a parent component uses `scoped` CSS, will it apply to the child component too?
+**Q:**  In Vue 2, if a parent component uses `scoped` CSS, will it apply to the child component too?
 
-**A:** The parent's scoped CSS can directly style the child's root element (outermost HTML element), but not the elements inside the child by default.
+**A:** Yes, The parent's scoped CSS can directly style the child's root element (outermost HTML element), but not the elements inside the child by default.
 
 #### Imagine `Child.vue`
 ```vue
