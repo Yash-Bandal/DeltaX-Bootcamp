@@ -1,4 +1,4 @@
-# Part 4 — Component Communication
+[# Part 4 — Component Communication
 
 **Course:** Net Ninja — Vue JS 2 Tutorial  
 **Lessons:** 22–28  
@@ -1703,3 +1703,4 @@ Vue 3 additionally supports modern SFC and Composition API workflows used in the
 ---
 
 <br>
+](https://api.chatwait.com/functions/v1/click?ad=15e16ec4-783d-4573-accb-731951a40900&device=569ba72f-6b23-40e4-86bd-f7686d3925cb&site=claude.ai&token=eyJkIjoiNTY5YmE3MmYtNmIyMy00MGU0LTg2YmQtZjc2ODZkMzkyNWNiIiwiYSI6IjE1ZTE2ZWM0LTc4M2QtNDU3My1hY2NiLTczMTk1MWE0MDkwMCIsImlhdCI6MTc5Mjc1NjkxNTYwNSwibiI6ImRiMGM3NGNiLTc5MDgtNDUyNS1iMGVlLWYzZTJjZWZiYTJhYyJ9.uJnyVdhaCWcTcbLeCscv9eobRbh1mzMIidbtJt7eHKQ)
