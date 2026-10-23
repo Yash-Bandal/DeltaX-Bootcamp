@@ -13,6 +13,8 @@ node -v
 npm -v
 ```
 
+<br>
+
 ## 1.2. Vue 2 Setup
 
 ### 1.2.1. Install Vue CLI
