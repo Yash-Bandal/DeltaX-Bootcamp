@@ -920,64 +920,54 @@ It uses selector transformation rather than creating a fully isolated browser st
 
 For example, styles can still affect child component root elements in certain situations, and deep selectors can intentionally target descendants.
 
-### 6.2.3 Global Styles
 
-Global styles are still appropriate for:
-
-- Body defaults
-- Typography
-- CSS resets
-- Shared design tokens
-- Reusable utility classes
-
-Use scoped styles for component-specific appearance and global CSS for shared application-wide rules.
 
 <br>
 
 ## 6.3 Parent and Child Component Styles
 
-### 6.3.1 Parent Scoped CSS
+**Q:** Yes, In Vue 2, if a parent component uses `scoped` CSS, will it apply to the child component too?
 
-A parent's scoped styles generally do not automatically target every internal element of a child component.
+**A:** The parent's scoped CSS can directly style the child's root element (outermost HTML element), but not the elements inside the child by default.
 
-However, a child component's root element can be affected by certain parent scoped styles. This allows parent components to control some layout aspects of their children.
-
-### 6.3.2 Child Scoped CSS
-
-A child's own scoped styles govern its internal elements, subject to Vue's scoped-selector rules.
-
-### 6.3.3 Practical Example
-
-`Navbar.vue`:
-
+#### Imagine `Child.vue`
 ```vue
 <template>
-    <nav class="navbar">
-        <h2>Movie App</h2>
-    </nav>
+  <div class="card">  // <-- childs root, (can be affected by parent scoped css)
+    <h1>Hello!</h1>   // <-- Descendents are not affected)
+    <p>I am a child component.</p>
+    <button>Click me</button>
+  </div>
+</template>
+```
+
+#### `Parent.vue` uses child
+```vue
+<template>
+  <div>
+    <Child />
+  </div>
 </template>
 
 <style scoped>
-.navbar {
-    background: #222;
-    color: white;
-    padding: 12px;
+div {
+  border: 2px solid red;
+}
+
+h1 {
+  color: red;
 }
 </style>
 ```
 
-The navbar styles remain associated with the component's scoped selectors.
-
 <br>
 
-## 6.4 Key Takeaways
+**Q:** How do developers handle this?
 
-### 6.4.1 Remember
+- Style the child itself: Use `<style scoped>` inside the child component. (Most common)
+- Style inside the child from the parent: Use a deep selector like `>>>` (supported in many Vue 2 setups).
+- Apply styles across components: Use global CSS without `scoped`.
 
-- Add `scoped` to a component's `<style>` block for component-scoped styling.
-- Vue compiles scoped selectors using generated scope attributes.
-- Scoped CSS is not Shadow DOM.
-- Use global CSS for shared rules and scoped CSS for component-specific styling.
 
 <br>
 
