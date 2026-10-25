@@ -1365,6 +1365,36 @@ About is rendered
 
 <br>
 
+
+
+> [!TIP]
+>
+> ## But why not just use `v-if`?
+>
+> Good question. You can also write:
+>
+> ```vue
+> <Profile v-if="currentComponent === 'Profile'" />
+> <Settings v-else-if="currentComponent === 'Settings'" />
+> <Messages v-else-if="currentComponent === 'Messages'" />
+> ```
+>
+> This works too!
+>
+> The difference is mainly how you organize the switching logic.
+>
+> | Using `v-if` | Using a dynamic component |
+> |---|---|
+> | You write a condition for each component. | You use one component placeholder. |
+> | Works well for a small number of simple conditions. | Useful when the component to display is selected dynamically. |
+> | Can become repetitive with many components. | Keeps the rendering code cleaner when switching among many components. |
+>
+> So, dynamic components aren't something you must use every time. They're a convenient tool when your application needs to switch between different components in the same location.
+
+<br>
+
+
+
 ## 7.3 Dynamic Components in Vue 3
 
 ### 7.3.1 Import Components
