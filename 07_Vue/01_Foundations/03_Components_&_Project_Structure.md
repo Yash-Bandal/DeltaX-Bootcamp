@@ -1154,40 +1154,6 @@ The browser displays the movie library
 
 <br>
 
-## 8.2 Self-Assessment
-
-### 8.2.1 Questions
-
-1. What problem do components solve?
-2. Why must reusable component data be returned from a function in the Vue 2 Options API?
-3. What is the difference between a template ref and a reactive state ref?
-4. What is Vue CLI, and how does it differ from Vite?
-5. What is a Single-File Component?
-6. What role do `main.js`, `App.vue`, and `index.html` play?
-7. What is the difference between a parent and a child component?
-8. How do component imports work in `<script setup>`?
-9. What does the `scoped` attribute do?
-10. What is the difference between a component tree and a DOM tree?
-
-### 8.2.2 Practical Exercise
-
-Build a small movie library using separate Vue components.
-
-Requirements:
-
-- Create `Navbar.vue`.
-- Create `MovieList.vue`.
-- Create `MovieCard.vue`.
-- Import the components into `App.vue`.
-- Render several movie cards using `v-for`.
-- Pass movie titles and years into each card.
-- Add scoped CSS to the navbar and movie cards.
-- Use a template ref to focus an input if you want an additional challenge.
-
-**Completion criterion:** You should be able to explain how the root component renders children, how imported components are made available to templates, and how component styles are scoped.
-
-<br>
-
 ---
 
 <br>
