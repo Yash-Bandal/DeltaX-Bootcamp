@@ -823,7 +823,9 @@ If two components need to share persistent application state, a state store is g
 - Modern applications generally prefer explicit communication or shared state.
 
 <br>
+
 ---
+
 <br>
 
 # 5. Lifecycle Hooks
@@ -835,6 +837,21 @@ If two components need to share persistent application state, a state store is g
 A component lifecycle describes the stages a component passes through as it is created, rendered, updated, and destroyed or unmounted.
 
 Vue provides lifecycle hooks that allow code to run at specific stages.
+
+<br>
+
+> [!Tip]
+> Lifecycle hooks are functions like onMounted(), onUpdated(), and onUnmounted() that allow us to execute specific code when a particular phase of a component's life occurs.
+>
+> For example:
+> - onMounted() → when the component appears on the page.
+> - onUpdated() → when the component's DOM updates.
+> - onUnmounted() → when the component is removed from the page.
+> Think of it this way:
+>
+> Component reaches a phase → Vue calls the corresponding lifecycle hook → your code inside that hook executes.
+
+<br>
 
 ### 5.1.2 Why Use Lifecycle Hooks?
 
@@ -1022,7 +1039,9 @@ Listener is removed
 - Vue 3 uses Composition API hooks such as `onMounted()` and `onUnmounted()`.
 
 <br>
+
 ---
+
 <br>
 
 # 6. Slots
@@ -1218,7 +1237,9 @@ Slots exist in both versions. Vue 3 standardized slot usage around the unified `
 - `#header` is shorthand for `v-slot:header`.
 
 <br>
+
 ---
+
 <br>
 
 # 7. Dynamic Components
@@ -1385,7 +1406,9 @@ Useful when views correspond to application routes and URLs, such as `/movies`, 
 - Use Vue Router when navigation should correspond to application URLs.
 
 <br>
+
 ---
+
 <br>
 
 # 8. Part 4 — Quick Revision
