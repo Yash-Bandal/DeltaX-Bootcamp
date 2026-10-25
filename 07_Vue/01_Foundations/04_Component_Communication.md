@@ -1496,38 +1496,6 @@ Useful when views correspond to application routes and URLs, such as `/movies`, 
 | `<component :is="currentView">` | Dynamic component |
 | `<KeepAlive>` | Caches component instances |
 
-<br>
-
-## 8.2 Self-Assessment
-
-### 8.2.1 Questions
-
-1. What are props, and why are they used?
-2. What is one-way data flow?
-3. Why can mutating an object prop affect the parent?
-4. How do child components notify their parents about changes?
-5. What is the difference between props and custom events?
-6. What is an event bus, and why is the Vue 2 pattern not directly available in Vue 3?
-7. What are lifecycle hooks?
-8. What is the difference between `created()` and `mounted()`?
-9. What is the purpose of slots?
-10. What is the difference between default slots, named slots, and scoped slots?
-11. How does `<component :is="...">` work?
-12. When would you use `<KeepAlive>` rather than ordinary dynamic component switching?
-
-### 8.2.2 Practical Exercise
-
-Build a movie dashboard with the following components:
-
-- `MovieList.vue` owns the list of movies.
-- `MovieCard.vue` receives a movie through props.
-- `MovieCard.vue` emits a `delete-movie` event when its delete button is clicked.
-- `MovieList.vue` handles the event and removes the movie.
-- `MovieDetails.vue` uses slots for its header and footer.
-- A dynamic component switches between a movie list and a settings panel.
-- A lifecycle hook logs when the dashboard is mounted.
-
-**Completion criterion:** You should be able to explain how data moves from parent to child, how events communicate changes upward, and how slots and dynamic components affect rendering.
 
 <br>
 
