@@ -1284,63 +1284,6 @@ The model synchronizes the value in both directions.
 | `@keyup.enter` | Handles Enter-key release |
 | `v-model="name"` | Two-way form binding |
 
-<br>
-
-## 9.2 Fundamental Mental Model
-
-### 9.2.1 How Vue Connects Data and the UI
-
-```text
-Vue instance
-     |
-     v
-Reactive data + methods
-     |
-     v
-Template bindings + event handlers
-     |
-     v
-Rendered UI
-     |
-     v
-User interaction
-     |
-     v
-Data changes
-     |
-     v
-Vue updates the relevant UI
-```
-
-<br>
-
-## 9.3 Self-Assessment
-
-### 9.3.1 Questions to Test Your Understanding
-
-1. What problem does Vue's reactivity solve?
-2. What is the purpose of `el` in Vue 2?
-3. What is the difference between `data` and `methods`?
-4. What is the difference between `{{ message }}` and `:href="url"`?
-5. What is the difference between `v-on:click` and `@click`?
-6. How do `.stop` and `.prevent` differ?
-7. What is the difference between `keydown` and `keyup`?
-8. How does `v-model` differ from `:value`?
-9. Why does `this.count` work in a normal Vue 2 Options API method?
-10. What replaces the `new Vue()` root-application pattern in Vue 3?
-
-### 9.3.2 Practical Exercise
-
-Build a small interactive profile page with:
-
-- A name input using `v-model`.
-- A live greeting using interpolation.
-- A counter with Increase and Reset buttons.
-- A button that changes a message.
-- A form that prevents the browser's default submission.
-- A keyboard handler that responds to Enter.
-
-**Completion criterion:** You should be able to explain how each binding or event handler works, not just reproduce the syntax.
 
 <br>
 
