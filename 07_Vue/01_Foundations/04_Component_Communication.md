@@ -1062,6 +1062,13 @@ Props pass data. Slots pass content.
 
 For example, a reusable card component can define a container while allowing the parent to supply the card's heading and body.
 
+<br>
+
+> [!Tip]
+> Think of a slot as an empty space inside a component where the parent can insert its own content.
+
+<br>
+
 ### 6.1.2 Why Use Slots?
 
 Without slots, a child component may need many props just to customize its internal content.
@@ -1086,27 +1093,47 @@ Final rendered UI
 
 ## 6.2 Default Slots
 
-### 6.2.1 Child Component
+### 6.2.1 Child Component - `MyCard.vue`
 
 ```vue
 <template>
-    <div class="card">
-        <slot></slot>
-    </div>
+  <div class="card">
+    <h2>My Card</h2>
+
+    <slot></slot>
+  </div>
 </template>
 ```
 
-The `<slot>` element marks where parent-provided content should be rendered.
+Look at this line:
+```vue
+<slot></slot>
+```
+It tells Vue where to insert the content provided by the parent.
+
+Now let's use this component.
 
 ### 6.2.2 Parent Component
 
 ```html
-<custom-card>
-    <h2>Movie Details</h2>
-    <p>Information about the movie.</p>
-</custom-card>
+<template>
+  <MyCard>
+    <p>Welcome to our store!</p>
+    <button>Explore Products</button>
+  </MyCard>
+</template>
 ```
 
+When Vue renders the page, the result is conceptually:
+```html
+<div class="card">
+  <h2>My Card</h2>  <!-- External template -->
+
+  <p>Welcome to our store!</p>  <!--code inserted here in this slot-->
+  <button>Explore Products</button>
+
+</div>
+```
 The heading and paragraph appear inside the child's card container.
 
 ### 6.2.3 Fallback Content
