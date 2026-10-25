@@ -865,6 +865,12 @@ They are useful for tasks such as:
 
 ### 5.1.3 General Lifecycle Flow
 
+<br>
+<div align = "center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/cdc75c17-7ae1-4af8-891b-a20afa146772" />
+</div>
+<br>
+
 ```text
 Component creation
         |
