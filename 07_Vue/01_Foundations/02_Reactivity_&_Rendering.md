@@ -984,35 +984,7 @@ This is the common structure for modern Vue applications.
 | `:style="{ width: health + '%' }"` | Dynamically binds inline styles |
 | `Vue.createApp({...})` | Creates a Vue 3 application |
 
-<br>
 
-## 7.2 Self-Assessment
-
-### 7.2.1 Questions
-
-1. What is the difference between a computed property and a method?
-2. Why are computed properties cached?
-3. How can you apply a CSS class based on a Boolean value?
-4. What is the difference between `v-if` and `v-show`?
-5. How do `v-if`, `v-else-if`, and `v-else` work together?
-6. How does `v-for` render an array?
-7. Why should you use a stable `:key`?
-8. How can you bind an element's CSS width to a reactive number?
-9. How can you stop a game from accepting further punches after completion?
-10. What is the difference between multiple Vue instances and multiple components inside one application?
-
-### 7.2.2 Practical Exercise
-
-Build a small product list application that:
-
-- Displays products using `v-for`.
-- Calculates the total price using a computed property.
-- Uses a dynamic class to highlight products that are in stock.
-- Uses `v-if` to display an empty-state message.
-- Includes a button that adds a product.
-- Includes a button that toggles product visibility.
-
-**Completion criterion:** You should be able to explain how each directive, computed property, and event handler contributes to the application's behavior.
 
 <br>
 
