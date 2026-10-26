@@ -14,6 +14,10 @@ Lessons: 30–32
 
 ---
 
+<br>
+
+
+
 ## 1. Input Binding — Creating a Blog (Part 1)
 
 ### 1.1 What is input binding?
@@ -30,7 +34,10 @@ const title = document.getElementById("title").value;
 
 With Vue, we can use `v-model`.
 
-### 1.2 Understanding `v-model`
+<br>
+
+
+### 1.2 Understanding [`v-model`](https://github.com/Yash-Bandal/DeltaX-Bootcamp/blob/main/07_Vue/01_Foundations/01_Introduction.md#8-two-way-data-binding)
 
 `v-model` creates a two-way connection between a form input and Vue data.
 
@@ -58,6 +65,9 @@ new Vue({
 });
 ```
 
+<br>
+
+
 ### 1.3 How does it work?
 
 Initially, `blogTitle` is an empty string.
@@ -75,6 +85,9 @@ User types "My First Blog"
 ```
 
 You don't need to write an input event listener manually. Vue handles the connection.
+
+<br>
+
 
 ### 1.4 Example with a blog form
 
@@ -112,6 +125,9 @@ new Vue({
   }
 });
 ```
+
+<br>
+
 
 ### 1.5 Understanding the form submission
 
@@ -152,7 +168,15 @@ Use `.number` when you need numeric values, such as an age or quantity. Remember
 
 ---
 
+
+<br>
+
+
 ## 2. Checkbox Binding
+
+<br>
+<img width="350" alt="image" src="https://github.com/user-attachments/assets/e1c0d885-ba24-4964-aeac-1b1ce931c230" />
+<br>
 
 ### 2.1 Why do we need checkbox binding?
 
@@ -164,6 +188,9 @@ Examples:
 - Choosing skills in a registration form.
 
 Vue can connect checkbox selections to data using `v-model`.
+
+<br>
+
 
 ### 2.2 Binding a single checkbox
 
@@ -197,6 +224,9 @@ Checkbox checked   → acceptedTerms = true
 ```
 
 This is useful when you need to verify whether a user has accepted something before allowing a form submission.
+
+<br>
+
 
 ### 2.3 Binding multiple checkboxes
 
@@ -247,6 +277,9 @@ new Vue({
 });
 ```
 
+<br>
+
+
 ### 2.4 How does the array update?
 
 Suppose the user selects Technology and Travel.
@@ -278,7 +311,14 @@ The array approach is useful when submitting multiple selected values to an API.
 
 ---
 
+<br>
+
+
 ## 3. Select Box Binding
+
+<br>
+<img width="350" alt="image" src="https://github.com/user-attachments/assets/cb037559-7417-4406-85e7-9f479e0dfd83" />
+<br>
 
 ### 3.1 What is a select box?
 
@@ -287,6 +327,9 @@ A select box, created with the HTML `<select>` element, lets a user choose from 
 For example, a blog form might let the user select a category from a dropdown.
 
 Vue uses `v-model` to keep the selected option connected to data.
+
+<br>
+
 
 ### 3.2 Binding a single select box
 
@@ -324,6 +367,9 @@ selectedCategory = "Technology";
 
 The paragraph updates automatically.
 
+<br>
+
+
 ### 3.3 Binding multiple selections
 
 Add the `multiple` attribute to let users select more than one option.
@@ -352,6 +398,9 @@ For example:
 ["Technology", "Travel"]
 ```
 
+<br>
+
+
 ### 3.4 Using non-string values
 
 By default, HTML option values are strings. Vue also allows you to bind JavaScript values with `:value`.
@@ -374,6 +423,9 @@ Here, the selected value is a number, not the string `"1"`.
 
 This matters when your backend expects numeric IDs or values.
 
+<br>
+
+
 ### 3.5 Checkbox vs select box
 
 | Feature | Checkbox | Select box |
@@ -387,6 +439,9 @@ This matters when your backend expects numeric IDs or values.
 
 ---
 
+<br>
+
+
 ## 4. Quick Revision
 
 ### 4.1 Key concepts
@@ -399,7 +454,10 @@ This matters when your backend expects numeric IDs or values.
 - A multiple select box binds to an array.
 - `:value` allows an option to use a non-string JavaScript value.
 
-### 4.2 Interview-style questions
+<br>
+
+
+### 4.2 Quick questions
 
 **Q1. What is `v-model`?**
 
@@ -424,6 +482,9 @@ No. It manages the connection between the input and Vue state. Saving data requi
 <br>
 
 ---
+
+<br>
+
 
 ## 5. Vue 2 vs Vue 3
 
@@ -485,6 +546,11 @@ function createBlog() {
   <p>{{ categories }}</p>
 </template>
 ```
+
+<br>
+
+
+
 
 ### 5.3 The main difference
 
