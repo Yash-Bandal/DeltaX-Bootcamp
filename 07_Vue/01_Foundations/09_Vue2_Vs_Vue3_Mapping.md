@@ -13,7 +13,7 @@
 7. [Pinia for State Management](#7-pinia-for-state-management)
 8. [Composables for Reusable Logic](#8-composables-for-reusable-logic)
 9. [Putting It Together: A Movie List](#9-putting-it-together-a-movie-list)
-10. [Quick Revision and Interview Questions](#10-quick-revision-and-interview-questions)
+
 
 <br>
 
