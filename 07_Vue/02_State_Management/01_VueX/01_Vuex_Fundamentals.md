@@ -98,21 +98,15 @@ As the number of components grows, communication can become complicated.
 With Vuex:
 
 ```text
-       Navbar
-          |
-      MovieList
-          |
-     MovieDetails
-          |
-    FavouriteMovies
-          |
-          v
-    ┌──────────────┐
-    │ Vuex Store   │
-    │              │
-    │ favourites   │
-    │ movies       │
-    └──────────────┘
+FavouriteMovies    MovieDetails    MovieList      Navbar
+         |                |              |          |
+         v                v              v          v
+     ┌──────────────────────────────────────────────────┐
+     │                    Vuex Store                    │
+     │                                                  │
+     │                    favourites                    │
+     │                      movies                      │
+     └──────────────────────────────────────────────────┘
 ```
 
 Each component can access the shared store rather than manually passing the same data through every intermediate component.
