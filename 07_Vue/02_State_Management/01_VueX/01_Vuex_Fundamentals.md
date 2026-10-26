@@ -44,6 +44,10 @@ Without a central store, you may need to pass data through props and events acro
 This problem is commonly called **state management**.
 
 <br>
+<div align = "center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/a5ac3487-b873-48b4-8eb7-6d5a81d14cc9" />
+</div>
+<br>
 
 
 ### 1.2 What is state?
