@@ -816,6 +816,11 @@ Vue 2 mixins were one way to share component options and behavior.
 
 <br>
 
+> [!Tip]
+> A mixin combines its options with a Vue component's options, making the mixin's data, methods, computed properties, and lifecycle hooks available to that component.
+
+<br>
+
 
 ### 7.2 Creating a mixin in Vue 2
 
