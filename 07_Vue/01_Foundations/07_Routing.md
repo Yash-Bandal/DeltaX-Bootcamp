@@ -375,7 +375,7 @@ This helps prevent the Home link from appearing active simply because a nested U
 <br>
 
 
-### 3.4 Navigate programmatically
+### 3.4 Navigate programmatically 🏷️
 
 Sometimes navigation should happen after an action, such as successfully creating a movie.
 
@@ -396,7 +396,8 @@ methods: {
 }
 ```
 
-In a real application, navigate only after the save operation succeeds.
+> [!important]
+> In a real application, navigate only after the save operation succeeds.
 
 **Difference to remember:**
 
