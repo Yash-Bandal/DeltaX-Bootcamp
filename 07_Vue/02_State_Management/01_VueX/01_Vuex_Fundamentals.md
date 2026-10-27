@@ -240,6 +240,12 @@ Vuex 4 is designed for Vue 3, while Vuex 3 is designed for Vue 2.
 
 In a typical Vue CLI project, create a file such as `src/store.js`.
 
+In VS Code, install extension `Vue VSCode Snippets - sarah.drasne`
+
+and then use template
+```
+vstore 
+```
 ```js
 import Vue from "vue";
 import Vuex from "vuex";
