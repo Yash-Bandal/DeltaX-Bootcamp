@@ -19,6 +19,29 @@
 
 <br>
 
+> [!TIP]
+> Think of the Vuex store as a component without a template.
+>
+> | Vue component | Vuex store | Purpose |
+> |---|---|---|
+> | `data` | `state` | Stores data |
+> | `computed` | `getters` | Calculates derived values |
+> | `methods` | `mutations` | Performs operations; mutations specifically change state |
+> | Async methods / workflows | `actions` | Handles asynchronous work and commits mutations |
+
+> [!NOTE]
+> Use this table to understand where each Vue/Vuex concept belongs.
+>
+> | Vue/Vuex concept | What it does | Where it belongs |
+> |---|---|---|
+> | `state` | Stores shared data | Vuex store |
+> | `mutations` | Changes shared state synchronously | Vuex store |
+> | `actions` | Handles workflows, async operations, and commits mutations | Vuex store |
+> | `getters` | Calculates derived values from shared state | Vuex store |
+> | `computed` | Calculates derived values for a component's UI | Vue component |
+> | `methods` | Handles component-specific behavior and user interactions | Vue component |
+
+<br>
 
 
 ---
