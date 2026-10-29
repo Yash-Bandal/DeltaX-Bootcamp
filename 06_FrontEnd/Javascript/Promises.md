@@ -1,6 +1,8 @@
 # Promises
 A Promise is a `JavaScript object` created with `new` keyword, that represents the eventual result of an asynchronous operation. It can also represent a failure.
 
+A Promise represents the **`future result`** of an asynchronous operation.
+
 <br>
 <div align = "center">
   <img width="500" alt="image" src="https://github.com/user-attachments/assets/b9972f88-da5b-4450-82fa-534049232d9c" />
